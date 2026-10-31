@@ -1,0 +1,650 @@
+{
+ "updatedAt": "2026-10-31T22:40:00.000Z",
+ "note": "Pas encore dans le catalogue faute de conditions vérifiées : Marquee Matchups (nouvelle semaine), Freaky Zombie, 3x 79+ Upgrade, Gold / Silver / Bronze Upgrade. Tu peux les ajouter à la main avec « Ajouter un DCE ». Annoncés sans précision (DCE ou objectif) : Martín Ojeda, Hannibal Mejbri, Ethan Ampadu (Ultimate Scream).",
+ "sbcs": [
+  {
+   "cid": "fc27-jonny-us",
+   "type": "score",
+   "category": "Joueurs",
+   "name": "Jonny (Ultimate Scream)",
+   "target": 42000,
+   "minOvr": 45,
+   "maxOvr": 0,
+   "kinds": "all",
+   "repeat": 1,
+   "expires": null,
+   "verify": true,
+   "reward": "Carte Ultimate Scream de Jonny (85)",
+   "communityVerdict": "selon"
+  },
+  {
+   "cid": "fc27-reijnders-us",
+   "type": "score",
+   "category": "Joueurs",
+   "name": "Tijjani Reijnders (Ultimate Scream)",
+   "target": 60000,
+   "minOvr": 45,
+   "maxOvr": 0,
+   "kinds": "all",
+   "repeat": 1,
+   "expires": null,
+   "verify": true,
+   "reward": "Carte Ultimate Scream de Tijjani Reijnders (85)",
+   "communityVerdict": "selon"
+  },
+  {
+   "cid": "fc27-bellerin-us",
+   "type": "score",
+   "category": "Joueurs",
+   "name": "Héctor Bellerín (Ultimate Scream)",
+   "target": 30000,
+   "minOvr": 45,
+   "maxOvr": 0,
+   "kinds": "all",
+   "repeat": 1,
+   "expires": "2026-11-03",
+   "reward": "Carte Ultimate Scream de Héctor Bellerín (85)",
+   "communityVerdict": "oui"
+  },
+  {
+   "cid": "fc27-base-hero-pick",
+   "type": "score",
+   "category": "Joueurs",
+   "name": "Choix de Héros de base (1 parmi 4)",
+   "target": 200000,
+   "minOvr": 45,
+   "maxOvr": 0,
+   "kinds": "all",
+   "repeat": 1,
+   "expires": "2026-11-08",
+   "reward": "1 Héros de base au choix parmi 4 (non éch.)",
+   "communityVerdict": "non"
+  },
+  {
+   "cid": "fc27-potm-l1-sept",
+   "type": "score",
+   "category": "Joueurs",
+   "name": "POTM Ligue 1 – Ferran Torres",
+   "target": 123000,
+   "minOvr": 45,
+   "maxOvr": 0,
+   "kinds": "all",
+   "repeat": 1,
+   "expires": "2026-11-10",
+   "reward": "Ferran Torres POTM (85)",
+   "communityVerdict": "non"
+  },
+  {
+   "cid": "fc27-potm-ligaf-sept",
+   "type": "score",
+   "category": "Joueurs",
+   "name": "POTM Liga F – Claudia Pina",
+   "target": 1125000,
+   "minOvr": 45,
+   "maxOvr": 0,
+   "kinds": "all",
+   "repeat": 1,
+   "expires": "2026-11-03",
+   "reward": "Claudia Pina POTM (89)",
+   "communityVerdict": "selon"
+  },
+  {
+   "cid": "fc27-arciga-showdown",
+   "type": "score",
+   "category": "Joueurs",
+   "name": "Ramiro Árciga (Showdown)",
+   "target": 5000,
+   "minOvr": 45,
+   "maxOvr": 0,
+   "kinds": "all",
+   "repeat": 1,
+   "expires": null,
+   "verify": true,
+   "reward": "Carte Showdown de Ramiro Árciga",
+   "communityVerdict": "selon"
+  },
+  {
+   "cid": "fc27-guzman-showdown",
+   "type": "score",
+   "category": "Joueurs",
+   "name": "Víctor Guzmán (Showdown)",
+   "target": 5000,
+   "minOvr": 45,
+   "maxOvr": 0,
+   "kinds": "all",
+   "repeat": 1,
+   "expires": null,
+   "verify": true,
+   "reward": "Carte Showdown de Víctor Guzmán",
+   "communityVerdict": "selon"
+  },
+  {
+   "cid": "fc27-totw-81-1-7",
+   "type": "score",
+   "category": "Mises à niveau",
+   "name": "81+ TOTW 1-7",
+   "target": 22000,
+   "minOvr": 45,
+   "maxOvr": 0,
+   "kinds": "all",
+   "repeat": 1,
+   "expires": null,
+   "verify": true,
+   "reward": "1 joueur TOTW 81+ (TOTW 1 à 7)",
+   "communityVerdict": "selon",
+   "rewardCount": 1,
+   "rewardMin": 81
+  },
+  {
+   "cid": "fc27-5x80",
+   "type": "score",
+   "category": "Mises à niveau",
+   "name": "5x 80+",
+   "target": 6750,
+   "minOvr": 45,
+   "maxOvr": 0,
+   "kinds": "all",
+   "repeat": 1,
+   "expires": "2026-11-03",
+   "note": "revient tous les 2 jours",
+   "reward": "Pack 5 joueurs Or 80+ (non éch.)",
+   "communityVerdict": "selon",
+   "rewardCount": 5,
+   "rewardMin": 80
+  },
+  {
+   "cid": "fc27-chemstyle-pick",
+   "type": "score",
+   "category": "Mises à niveau",
+   "name": "Choix de style de collectif (1 parmi 4)",
+   "target": 5000,
+   "minOvr": 45,
+   "maxOvr": 0,
+   "kinds": "all",
+   "repeat": 1,
+   "expires": null,
+   "verify": true,
+   "note": "répétable",
+   "reward": "1 style de collectif au choix (Anchor, Engine, Shadow, Hunter)",
+   "communityVerdict": "selon"
+  },
+  {
+   "cid": "fc27-l1apl-l1",
+   "type": "score",
+   "category": "Ligues",
+   "name": "Ligue 1 & Arkema Première Ligue : Ligue 1",
+   "target": 2500,
+   "minOvr": 45,
+   "maxOvr": 0,
+   "kinds": "all",
+   "repeat": 1,
+   "expires": "2026-11-04",
+   "verify": true,
+   "note": "répétable",
+   "reward": "Pack Bronze & Argent de la ligue · set complet : pack 2 joueurs Or max 85",
+   "communityVerdict": "selon"
+  },
+  {
+   "cid": "fc27-l1apl-apl",
+   "type": "score",
+   "category": "Ligues",
+   "name": "Ligue 1 & Arkema Première Ligue : Arkema Première Ligue",
+   "target": 2500,
+   "minOvr": 45,
+   "maxOvr": 0,
+   "kinds": "all",
+   "repeat": 1,
+   "expires": "2026-11-04",
+   "verify": true,
+   "note": "répétable",
+   "reward": "Pack Bronze & Argent de la ligue · set complet : pack 2 joueurs Or max 85",
+   "communityVerdict": "selon"
+  },
+  {
+   "cid": "fc27-bunfbl-bl",
+   "type": "score",
+   "category": "Ligues",
+   "name": "Bundesliga & Frauen-Bundesliga : Bundesliga",
+   "target": 2500,
+   "minOvr": 45,
+   "maxOvr": 0,
+   "kinds": "all",
+   "repeat": 1,
+   "expires": "2026-11-04",
+   "verify": true,
+   "note": "répétable",
+   "reward": "Pack Bronze & Argent de la ligue · set complet : pack 2 joueurs Or max 85",
+   "communityVerdict": "selon"
+  },
+  {
+   "cid": "fc27-bunfbl-fbl",
+   "type": "score",
+   "category": "Ligues",
+   "name": "Bundesliga & Frauen-Bundesliga : Frauen-Bundesliga",
+   "target": 2500,
+   "minOvr": 45,
+   "maxOvr": 0,
+   "kinds": "all",
+   "repeat": 1,
+   "expires": "2026-11-04",
+   "verify": true,
+   "note": "répétable",
+   "reward": "Pack Bronze & Argent de la ligue · set complet : pack 2 joueurs Or max 85",
+   "communityVerdict": "selon"
+  },
+  {
+   "cid": "fc27-llligaf-ll",
+   "type": "score",
+   "category": "Ligues",
+   "name": "LALIGA & Liga F : LALIGA",
+   "target": 4500,
+   "minOvr": 45,
+   "maxOvr": 0,
+   "kinds": "all",
+   "repeat": 1,
+   "expires": "2026-11-01",
+   "verify": true,
+   "note": "répétable",
+   "reward": "Pack Bronze & Argent de la ligue · set complet : pack 2 joueurs Or max 85",
+   "communityVerdict": "non"
+  },
+  {
+   "cid": "fc27-llligaf-lf",
+   "type": "score",
+   "category": "Ligues",
+   "name": "LALIGA & Liga F : Liga F",
+   "target": 4500,
+   "minOvr": 45,
+   "maxOvr": 0,
+   "kinds": "all",
+   "repeat": 1,
+   "expires": "2026-11-01",
+   "verify": true,
+   "note": "répétable",
+   "reward": "Pack Bronze & Argent de la ligue · set complet : pack 2 joueurs Or max 85",
+   "communityVerdict": "non"
+  },
+  {
+   "cid": "fc27-plwsl-pl",
+   "type": "score",
+   "category": "Ligues",
+   "name": "Premier League & Barclays WSL : Premier League",
+   "target": 6000,
+   "minOvr": 45,
+   "maxOvr": 0,
+   "kinds": "all",
+   "repeat": 1,
+   "expires": "2026-11-01",
+   "verify": true,
+   "note": "répétable",
+   "reward": "Pack Bronze & Argent de la ligue · set complet : pack 2 joueurs Or max 85",
+   "communityVerdict": "non"
+  },
+  {
+   "cid": "fc27-plwsl-wsl",
+   "type": "score",
+   "category": "Ligues",
+   "name": "Premier League & Barclays WSL : Barclays WSL",
+   "target": 6000,
+   "minOvr": 45,
+   "maxOvr": 0,
+   "kinds": "all",
+   "repeat": 1,
+   "expires": "2026-11-01",
+   "verify": true,
+   "note": "répétable",
+   "reward": "Pack Bronze & Argent de la ligue · set complet : pack 2 joueurs Or max 85",
+   "communityVerdict": "non"
+  },
+  {
+   "cid": "fc27-boo-hoo-party",
+   "type": "classic",
+   "category": "Défis",
+   "name": "Boo Hoo Party",
+   "formation": "any",
+   "repeat": 1,
+   "expires": "2026-11-06",
+   "conds": [
+    {
+     "t": "chem",
+     "op": "min",
+     "n": 18
+    },
+    {
+     "t": "same",
+     "field": "club",
+     "op": "max",
+     "n": 3
+    },
+    {
+     "t": "same",
+     "field": "league",
+     "op": "min",
+     "n": 4
+    },
+    {
+     "t": "distinct",
+     "field": "league",
+     "op": "max",
+     "n": 5
+    },
+    {
+     "t": "qcount",
+     "q": 2,
+     "op": "min",
+     "n": 3
+    },
+    {
+     "t": "quality",
+     "op": "min",
+     "n": 1
+    }
+   ],
+   "reward": "Grand pack de joueurs Electrum (non éch.)",
+   "communityVerdict": "selon"
+  },
+  {
+   "cid": "fc27-scary-candy",
+   "type": "classic",
+   "category": "Défis",
+   "name": "Scary Candy",
+   "formation": "any",
+   "repeat": 1,
+   "expires": "2026-11-06",
+   "verify": true,
+   "conds": [
+    {
+     "t": "same",
+     "field": "league",
+     "op": "max",
+     "n": 5
+    },
+    {
+     "t": "same",
+     "field": "club",
+     "op": "min",
+     "n": 2
+    },
+    {
+     "t": "distinct",
+     "field": "nation",
+     "op": "max",
+     "n": 4
+    },
+    {
+     "t": "qcount",
+     "q": 2,
+     "op": "min",
+     "n": 5
+    },
+    {
+     "t": "quality",
+     "op": "min",
+     "n": 1
+    },
+    {
+     "t": "chem",
+     "op": "min",
+     "n": 16
+    }
+   ],
+   "reward": "Pack de joueurs mixte",
+   "communityVerdict": "oui"
+  },
+  {
+   "cid": "fc27-spooky-nights",
+   "type": "classic",
+   "category": "Défis",
+   "name": "Spooky Nights",
+   "formation": "any",
+   "repeat": 1,
+   "expires": "2026-11-06",
+   "verify": true,
+   "conds": [
+    {
+     "t": "chem",
+     "op": "min",
+     "n": 14
+    },
+    {
+     "t": "same",
+     "field": "nation",
+     "op": "min",
+     "n": 3
+    },
+    {
+     "t": "same",
+     "field": "league",
+     "op": "max",
+     "n": 4
+    },
+    {
+     "t": "qcount",
+     "q": 2,
+     "op": "min",
+     "n": 3
+    },
+    {
+     "t": "quality",
+     "op": "min",
+     "n": 0
+    }
+   ],
+   "reward": "Petit pack de joueurs Or (non éch.)",
+   "communityVerdict": "oui"
+  },
+  {
+   "cid": "fc27-gold-reroll",
+   "type": "score",
+   "category": "Permanents",
+   "name": "Re-roll Or",
+   "target": 1250,
+   "minOvr": 0,
+   "maxOvr": 83,
+   "kinds": "all",
+   "repeat": 1,
+   "permanent": true,
+   "note": "répétable",
+   "reward": "Pack 2 joueurs Or 78+",
+   "rewardCount": 2,
+   "rewardMin": 78
+  },
+  {
+   "cid": "fc27-bs-reroll",
+   "type": "score",
+   "category": "Permanents",
+   "name": "Re-roll Bronze & Argent",
+   "target": 500,
+   "minOvr": 0,
+   "maxOvr": 74,
+   "kinds": "all",
+   "repeat": 1,
+   "permanent": true,
+   "verify": true,
+   "note": "répétable",
+   "reward": "Pack 1 joueur Or 75+",
+   "rewardCount": 1,
+   "rewardMin": 75
+  },
+  {
+   "cid": "fc27-intro-player",
+   "type": "score",
+   "category": "Fondamentaux",
+   "name": "Intro aux DCE joueur (Cristian Espinoza)",
+   "target": 4000,
+   "minOvr": 45,
+   "maxOvr": 0,
+   "kinds": "all",
+   "repeat": 1,
+   "permanent": true,
+   "verify": true,
+   "reward": "Cristian Espinoza (82)"
+  },
+  {
+   "cid": "fc27-lna-1",
+   "type": "classic",
+   "category": "Fondamentaux",
+   "name": "Ligue & Nation avancé : 3 ligues & 2 nations",
+   "formation": "any",
+   "repeat": 1,
+   "permanent": true,
+   "conds": [
+    {
+     "t": "distinct",
+     "field": "league",
+     "op": "exactly",
+     "n": 3
+    },
+    {
+     "t": "distinct",
+     "field": "nation",
+     "op": "exactly",
+     "n": 2
+    },
+    {
+     "t": "same",
+     "field": "league",
+     "op": "max",
+     "n": 6
+    },
+    {
+     "t": "same",
+     "field": "nation",
+     "op": "max",
+     "n": 6
+    },
+    {
+     "t": "chem",
+     "op": "min",
+     "n": 30
+    },
+    {
+     "t": "quality",
+     "op": "exactly",
+     "n": 2
+    }
+   ],
+   "reward": "Set complet : pack Or géant + 5 000 crédits",
+   "set": "Ligue & Nation avancé"
+  },
+  {
+   "cid": "fc27-lna-2",
+   "type": "classic",
+   "category": "Fondamentaux",
+   "name": "Ligue & Nation avancé : 4 ligues & 5 nations",
+   "formation": "any",
+   "repeat": 1,
+   "permanent": true,
+   "conds": [
+    {
+     "t": "distinct",
+     "field": "league",
+     "op": "exactly",
+     "n": 4
+    },
+    {
+     "t": "distinct",
+     "field": "nation",
+     "op": "exactly",
+     "n": 5
+    },
+    {
+     "t": "same",
+     "field": "league",
+     "op": "max",
+     "n": 4
+    },
+    {
+     "t": "same",
+     "field": "nation",
+     "op": "max",
+     "n": 3
+    },
+    {
+     "t": "rating",
+     "op": "min",
+     "n": 78
+    },
+    {
+     "t": "chem",
+     "op": "min",
+     "n": 25
+    }
+   ],
+   "reward": "Set complet : pack Or géant + 5 000 crédits",
+   "set": "Ligue & Nation avancé"
+  },
+  {
+   "cid": "fc27-lna-3",
+   "type": "classic",
+   "category": "Fondamentaux",
+   "name": "Ligue & Nation avancé : 5 ligues & 6 nations",
+   "formation": "any",
+   "repeat": 1,
+   "permanent": true,
+   "conds": [
+    {
+     "t": "distinct",
+     "field": "league",
+     "op": "exactly",
+     "n": 5
+    },
+    {
+     "t": "distinct",
+     "field": "nation",
+     "op": "exactly",
+     "n": 6
+    },
+    {
+     "t": "same",
+     "field": "club",
+     "op": "max",
+     "n": 2
+    },
+    {
+     "t": "rating",
+     "op": "min",
+     "n": 81
+    },
+    {
+     "t": "chem",
+     "op": "min",
+     "n": 25
+    }
+   ],
+   "reward": "Set complet : pack Or géant + 5 000 crédits",
+   "set": "Ligue & Nation avancé"
+  },
+  {
+   "cid": "fc27-schuller-us",
+   "type": "score",
+   "category": "Joueurs",
+   "name": "Lea Schüller (Ultimate Scream)",
+   "announced": true,
+   "expectedBy": "2026-11-06",
+   "target": 40000,
+   "minOvr": 45,
+   "maxOvr": 0,
+   "kinds": "all",
+   "repeat": 1,
+   "expires": null,
+   "verify": true,
+   "note": "DCE annoncé ; score estimé d'après les autres DCE Ultimate Scream (24 000 à 60 000)"
+  },
+  {
+   "cid": "fc27-potm-laliga-oct",
+   "type": "score",
+   "category": "Joueurs",
+   "name": "POTM LALIGA (octobre)",
+   "announced": true,
+   "expectedBy": "2026-11-07",
+   "minOvr": 45,
+   "maxOvr": 0,
+   "kinds": "all",
+   "repeat": 1,
+   "expires": null,
+   "verify": true,
+   "note": "gagnant pas encore officiel ; score inconnu, sans doute très élevé"
+  }
+ ]
+}
