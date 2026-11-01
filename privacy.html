@@ -27,7 +27,7 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 36px 0; }
 <main>
   <a class="back" href="index.html">← Retour à Squadoro</a>
   <h1>Confidentialité</h1>
-  <p class="muted">Dernière mise à jour : 1er novembre 2026</p>
+  <p class="muted">Dernière mise à jour : 1er novembre 2026 (base commune des cartes)</p>
 
   <div class="box"><strong>En bref :</strong> Squadoro n'a pas de comptes. Ton club, tes DCE et tes réglages restent sur ton appareil. Seules les captures que tu choisis de faire lire sont envoyées, à un service d'IA externe, et seulement après ton accord. Il n'y a ni publicité ni outil de mesure d'audience.</div>
 
@@ -42,6 +42,10 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 36px 0; }
   <p>Si tu utilises la lecture des captures d'écran (cartes du club ou DCE), les images que tu choisis sont envoyées, par un petit serveur de Squadoro hébergé chez Cloudflare, à Claude, le service d'IA d'Anthropic (États-Unis), qui reconnaît les cartes et renvoie leurs informations. Le bouton « Compléter nation, ligue, club » envoie de la même façon le nom, la note et le poste des joueurs concernés.</p>
   <p>Squadoro ne garde ni les images ni les réponses : elles servent seulement à remplir ton club sur ton appareil. Anthropic et Cloudflare traitent ces envois selon leurs propres politiques : <a href="https://www.anthropic.com/legal/privacy">confidentialité d'Anthropic</a>, <a href="https://www.cloudflare.com/privacypolicy/">confidentialité de Cloudflare</a>.</p>
   <p>L'appli te demande ton accord avant le premier envoi. Si tu refuses, rien n'est envoyé : tu peux toujours ajouter tes cartes avec un fichier CSV ou à la main.</p>
+
+  <h2>Base commune des cartes</h2>
+  <p>Quand tu ajoutes des cartes (captures, fichier, recherche ou à la main), leurs caractéristiques sont ajoutées à une base commune hébergée chez Cloudflare : nom du joueur, note, version, postes, nation, ligue, club, stats, PlayStyles et rôles. Rien ne relie ces cartes à toi : ni ton nom, ni ton club, ni ton appareil. Cette base permet à tous les joueurs de retrouver une carte en tapant son nom.</p>
+  <p>Pour éviter les abus, le serveur garde pendant quelques jours un identifiant anonyme de l'appareil avec le nombre de cartes envoyées dans la journée. Le texte que tu tapes dans la recherche est envoyé au serveur pour trouver les cartes, sans être enregistré. Tu peux arrêter de partager tes cartes dans Réglages → Base commune des cartes.</p>
 
   <h2>Notifications (appli iPhone et iPad)</h2>
   <p>Si tu les autorises, l'appli programme sur ton appareil des rappels avant l'expiration de tes DCE. Ces rappels sont créés localement et ne passent par aucun serveur.</p>
@@ -66,6 +70,8 @@ hr { border: 0; border-top: 1px solid var(--line); margin: 36px 0; }
   <p>Each time it opens, Squadoro downloads the current SBC list and market prices from its website, hosted by GitHub Pages. Like any website, GitHub receives technical information such as your IP address (see the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub Privacy Statement</a>). None of your club data is sent.</p>
   <h2>Automatic screenshot reading</h2>
   <p>If you use screenshot reading (club cards or SBCs), the images you pick are sent through a small Squadoro server hosted by Cloudflare to Claude, Anthropic's AI service (United States), which recognises the cards and returns their details. The "complete nation, league, club" button sends the name, rating and position of the players concerned in the same way. Squadoro keeps neither the images nor the answers. Anthropic and Cloudflare process these requests under their own policies (<a href="https://www.anthropic.com/legal/privacy">Anthropic privacy policy</a>, <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare privacy policy</a>). The app asks for your consent before the first upload; if you decline, nothing is sent.</p>
+  <h2>Shared card database</h2>
+  <p>When you add cards (screenshots, file, search or by hand), their details are added to a shared database hosted by Cloudflare: player name, rating, version, positions, nation, league, club, stats, PlayStyles and roles. Nothing links these cards to you. To prevent abuse, the server keeps an anonymous device identifier with the day's card count for a few days. What you type in the search is sent to the server to find cards and is not stored. You can stop sharing in Settings.</p>
   <h2>Notifications (iPhone and iPad app)</h2>
   <p>If you allow them, the app schedules reminders on your device before your SBCs expire. They are created locally and never go through a server.</p>
   <h2>Contact</h2>

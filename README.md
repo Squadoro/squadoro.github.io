@@ -17,7 +17,8 @@ Site : https://squadoro.github.io
 | `market.json` | Les prix planchers par note, mis à jour chaque soir. |
 | `privacy.html` | Politique de confidentialité. |
 | `manifest.webmanifest`, `sw.js`, icônes | Installation sur l'écran d'accueil et fonctionnement hors ligne. |
+| `serveur/worker.js` | Le serveur (Cloudflare Worker) : lecture des captures, limites par jour et base commune des cartes. |
 
-Les données des joueurs (club, DCE, réglages) restent sur leur appareil.
+Les données des joueurs (club, DCE, réglages) restent sur leur appareil. Seules les caractéristiques des cartes ajoutées (joueur, note, version, postes, nation, ligue, club, stats) rejoignent, sans rien d'identifiant, une base commune qui permet de retrouver une carte en tapant son nom. Ce partage se coupe dans les réglages.
 
 Squadoro est un outil indépendant créé par des fans. Il n'est pas affilié à Electronic Arts ni à EA SPORTS FC.

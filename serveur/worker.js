@@ -10,9 +10,11 @@
  *   MODEL              (Text, facultatif)    : modèle utilisé, "claude-haiku-5-5" par défaut.
  *   FIRST_DAY_LIMIT    (Text, facultatif)    : captures le premier jour d'utilisation d'un appareil, 50 par défaut.
  *   DAILY_LIMIT        (Text, facultatif)    : captures par jour ensuite, 20 par défaut.
- * Liaison (Settings → Bindings) :
+ * Liaisons (Bindings) :
  *   LIMITS (KV namespace) : nécessaire pour appliquer les limites côté serveur.
- *   Sans elle, seule l'appli compte les captures (contournable en effaçant ses données).
+ *     Sans elle, seule l'appli compte les captures (contournable en effaçant ses données).
+ *   DB (D1 database) : base commune des cartes (recherche par nom, note, version).
+ *     Les tables sont créées automatiquement au premier appel.
  */
 
 const PROMPTS = {
@@ -79,6 +81,109 @@ async function checkQuota(env, request, device, task, images) {
   }
 }
 
+/* ---------- Base commune des cartes (D1) ---------- */
+const KINDS = ['base', 'totw', 'special', 'hero', 'hof', 'icon'];
+const POSITIONS = ['GK', 'LB', 'CB', 'RB', 'CDM', 'CM', 'CAM', 'LM', 'RM', 'LW', 'RW', 'ST'];
+let schemaReady = false;
+async function ensureSchema(db) {
+  if (schemaReady) return;
+  await db.batch([
+    db.prepare('CREATE TABLE IF NOT EXISTS cards (k TEXT PRIMARY KEY, name TEXT NOT NULL, n1 TEXT NOT NULL, n2 TEXT NOT NULL, n3 TEXT NOT NULL, ovr INTEGER NOT NULL, kind TEXT NOT NULL, rare INTEGER NOT NULL DEFAULT 0, pos TEXT NOT NULL, alt TEXT, nation TEXT, league TEXT, club TEXT, stats TEXT, extra TEXT, seen INTEGER NOT NULL DEFAULT 1, updated TEXT)'),
+    db.prepare('CREATE INDEX IF NOT EXISTS cards_n1 ON cards(n1)'),
+    db.prepare('CREATE INDEX IF NOT EXISTS cards_n2 ON cards(n2)'),
+    db.prepare('CREATE INDEX IF NOT EXISTS cards_n3 ON cards(n3)'),
+    db.prepare('CREATE TABLE IF NOT EXISTS contrib (d TEXT NOT NULL, day TEXT NOT NULL, n INTEGER NOT NULL, PRIMARY KEY (d, day))')
+  ]);
+  schemaReady = true;
+}
+function norm(s) {
+  return String(s || '').replace(/[øØ]/g, 'o').replace(/[łŁ]/g, 'l').replace(/[æÆ]/g, 'ae').replace(/ß/g, 'ss').replace(/[đĐ]/g, 'd').replace(/ı/g, 'i')
+    .normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9 .'-]/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 60);
+}
+function text(v, max) { v = typeof v === 'string' ? v.trim() : ''; return v && v !== '—' ? v.slice(0, max || 40) : ''; }
+function cleanCard(c) {
+  if (!c || typeof c !== 'object') return null;
+  const name = text(c.name, 40), n1 = norm(name), ovr = Math.round(+c.ovr);
+  if (n1.length < 2 || !/[a-z]/.test(n1) || !(ovr >= 40 && ovr <= 99)) return null;
+  const kind = KINDS.includes(c.kind) ? c.kind : 'base', pos = POSITIONS.includes(c.pos) ? c.pos : null;
+  if (!pos) return null;
+  const alt = (Array.isArray(c.alt) ? c.alt : []).filter((p) => POSITIONS.includes(p) && p !== pos).slice(0, 4);
+  const stats = Array.isArray(c.stats) && c.stats.length === 6 && c.stats.every((v) => Number.isInteger(+v) && +v >= 1 && +v <= 99) ? c.stats.map(Number) : null;
+  const list = (a, n) => (Array.isArray(a) ? a : []).map((x) => text(x, 30)).filter(Boolean).slice(0, n);
+  const extra = { playstyles: list(c.playstyles, 12), roles: list(c.roles, 8) };
+  if (+c.wf >= 1 && +c.wf <= 5) extra.wf = +c.wf;
+  if (+c.sm >= 1 && +c.sm <= 5) extra.sm = +c.sm;
+  if (+c.height >= 140 && +c.height <= 215) extra.height = +c.height;
+  const words = n1.split(' ');
+  return { k: n1 + '|' + ovr + '|' + kind, name, n1, n2: words.length > 1 ? words.slice(1).join(' ') : n1, n3: words[words.length - 1], ovr, kind, rare: c.rare ? 1 : 0, pos, alt: alt.join(','),
+    nation: text(c.nation), league: text(c.league), club: text(c.club), stats: stats ? JSON.stringify(stats) : null,
+    extra: (extra.playstyles.length || extra.roles.length || extra.wf || extra.sm || extra.height) ? JSON.stringify(extra) : null };
+}
+function outCard(r) {
+  let extra = {}; try { extra = r.extra ? JSON.parse(r.extra) : {}; } catch (e) { extra = {}; }
+  let stats = null; try { stats = r.stats ? JSON.parse(r.stats) : null; } catch (e) { stats = null; }
+  return { name: r.name, ovr: r.ovr, kind: r.kind, rare: !!r.rare, pos: r.pos, alt: r.alt ? r.alt.split(',').filter(Boolean) : [], nation: r.nation || '', league: r.league || '', club: r.club || '',
+    stats, playstyles: extra.playstyles || [], roles: extra.roles || [], wf: extra.wf || 0, sm: extra.sm || 0, height: extra.height || 0, seen: r.seen };
+}
+const COLS = 'name, ovr, kind, rare, pos, alt, nation, league, club, stats, extra, seen';
+async function handleCards(env, task, body, origin) {
+  const db = env.DB;
+  if (!db) return reply({ error: 'no_db' }, 503, origin);
+  await ensureSchema(db);
+  if (task === 'cards_search') {
+    const q = norm(body.q);
+    if (q.length < 2) return reply({ cards: [] }, 200, origin);
+    let sql = 'SELECT ' + COLS + ' FROM cards WHERE ((n1 >= ?1 AND n1 < ?2) OR (n2 >= ?1 AND n2 < ?2) OR (n3 >= ?1 AND n3 < ?2))';
+    const args = [q, q + '~'];
+    const ovr = Math.round(+body.ovr);
+    if (ovr >= 40 && ovr <= 99) { sql += ' AND ovr = ?' + (args.length + 1); args.push(ovr); }
+    if (KINDS.includes(body.kind)) { sql += ' AND kind = ?' + (args.length + 1); args.push(body.kind); }
+    sql += ' ORDER BY seen DESC, ovr DESC LIMIT 15';
+    const res = await db.prepare(sql).bind(...args).all();
+    return reply({ cards: (res.results || []).map(outCard) }, 200, origin);
+  }
+  if (task === 'cards_lookup') {
+    const items = (Array.isArray(body.items) ? body.items : []).slice(0, 80);
+    if (!items.length) return reply({ found: [] }, 200, origin);
+    const stmts = items.map((it) => {
+      const n1 = norm(it && it.name), ovr = Math.round(+(it && it.ovr));
+      return ovr >= 40 && ovr <= 99
+        ? db.prepare('SELECT ' + COLS + ' FROM cards WHERE n1 = ?1 AND ovr = ?2 ORDER BY seen DESC LIMIT 1').bind(n1, ovr)
+        : db.prepare('SELECT ' + COLS + ' FROM cards WHERE n1 = ?1 ORDER BY seen DESC LIMIT 1').bind(n1);
+    });
+    const res = await db.batch(stmts);
+    return reply({ found: res.map((r) => (r.results && r.results[0] ? outCard(r.results[0]) : null)) }, 200, origin);
+  }
+  if (task === 'cards_add') {
+    const device = /^[A-Za-z0-9-]{8,64}$/.test(body.device || '') ? body.device : null;
+    if (!device) return reply({ error: 'bad_request' }, 400, origin);
+    const cards = (Array.isArray(body.cards) ? body.cards : []).slice(0, 200).map(cleanCard).filter(Boolean);
+    if (!cards.length) return reply({ added: 0 }, 200, origin);
+    const day = today();
+    const used = await db.prepare('SELECT n FROM contrib WHERE d = ?1 AND day = ?2').bind(device, day).first('n') || 0;
+    const room = Math.max(0, 600 - used);
+    const take = cards.slice(0, room);
+    if (!take.length) return reply({ error: 'rate_limited' }, 429, origin);
+    const now = new Date().toISOString();
+    const up = db.prepare('INSERT INTO cards (k, name, n1, n2, n3, ovr, kind, rare, pos, alt, nation, league, club, stats, extra, seen, updated) VALUES (?1, ?2, ?3, ?4, ?16, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12, ?13, ?14, 1, ?15) ' +
+      "ON CONFLICT(k) DO UPDATE SET seen = cards.seen + 1, updated = excluded.updated, rare = MAX(cards.rare, excluded.rare), " +
+      "alt = CASE WHEN cards.alt IS NULL OR cards.alt = '' THEN excluded.alt ELSE cards.alt END, " +
+      "nation = CASE WHEN cards.nation IS NULL OR cards.nation = '' THEN excluded.nation ELSE cards.nation END, " +
+      "league = CASE WHEN cards.league IS NULL OR cards.league = '' THEN excluded.league ELSE cards.league END, " +
+      "club = CASE WHEN cards.club IS NULL OR cards.club = '' THEN excluded.club ELSE cards.club END, " +
+      'stats = COALESCE(cards.stats, excluded.stats), extra = COALESCE(cards.extra, excluded.extra)');
+    const stmts = take.map((c) => up.bind(c.k, c.name, c.n1, c.n2, c.ovr, c.kind, c.rare, c.pos, c.alt, c.nation, c.league, c.club, c.stats, c.extra, now, c.n3));
+    stmts.push(db.prepare('INSERT INTO contrib (d, day, n) VALUES (?1, ?2, ?3) ON CONFLICT(d, day) DO UPDATE SET n = contrib.n + excluded.n').bind(device, day, take.length));
+    if (Math.random() < 0.02) {
+      const old = new Date(Date.now() - 3 * 864e5).toISOString().slice(0, 10);
+      stmts.push(db.prepare('DELETE FROM contrib WHERE day < ?1').bind(old));
+    }
+    await db.batch(stmts);
+    return reply({ added: take.length }, 200, origin);
+  }
+  return reply({ error: 'bad_task' }, 400, origin);
+}
+
 export default {
   async fetch(request, env) {
     const origin = request.headers.get('Origin') || '';
@@ -91,6 +196,10 @@ export default {
     let body;
     try { body = await request.json(); } catch (e) { return reply({ error: 'bad_request' }, 400, allowOrigin); }
     const task = body && body.task;
+    if (typeof task === 'string' && task.indexOf('cards_') === 0) {
+      try { return await handleCards(env, task, body, allowOrigin); }
+      catch (e) { return reply({ error: 'db_error' }, 500, allowOrigin); }
+    }
     if (!Object.prototype.hasOwnProperty.call(PROMPTS, task)) return reply({ error: 'bad_task' }, 400, allowOrigin);
 
     const images = Array.isArray(body.images) ? body.images.slice(0, MAX_IMAGES) : [];
