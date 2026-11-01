@@ -9,6 +9,9 @@
  * - Base commune des cartes : recherche par nom, note, version, club, nation, ligue, poste ;
  *   confirmations par plusieurs joueurs, signalements, corrections à la majorité.
  * - Transfert d'un club d'un appareil à l'autre avec un code à 6 chiffres (10 minutes, une seule fois).
+ * - Recherche sur le web (outil web search de Claude) de la nation, de la ligue et du club des joueurs
+ *   introuvables autrement, avec des limites par jour.
+ * - Amis : profils (pseudo, code ami) et résumé de progression visible seulement des amis.
  *
  * Réglages du Worker (Settings → Variables and Secrets) :
  *   ANTHROPIC_API_KEY  (Secret, obligatoire) : ta clé d'API Anthropic.
@@ -16,6 +19,9 @@
  *   FIRST_DAY_LIMIT    (Text, facultatif)    : captures le premier jour d'utilisation d'un appareil, 50 par défaut.
  *   DAILY_LIMIT        (Text, facultatif)    : captures par jour ensuite, 20 par défaut.
  *   GLOBAL_DAILY_LIMIT (Text, facultatif)    : captures par jour pour tous les joueurs ensemble, 1000 par défaut.
+ *   WEB_DAILY_LIMIT    (Text, facultatif)    : recherches sur le web par jour et par appareil, 20 par défaut.
+ *   WEB_GLOBAL_LIMIT   (Text, facultatif)    : recherches sur le web par jour pour tous les joueurs, 200 par défaut
+ *                                              (environ 1 centime chacune : 2 $ par jour au plus).
  *   SALT               (Secret, facultatif)  : sert à rendre anonymes les identifiants (sinon dérivé de la clé d'API).
  * Liaisons (Bindings) :
  *   DB (D1 database) : limites, base commune des cartes et transferts. Les tables sont créées
@@ -27,7 +33,8 @@
 const PROMPTS = {
   "scan": "Tu reçois des captures d'écran ou des photos du club EA SPORTS FC 27 Ultimate Team d'un joueur (cartes de joueurs).\nPour CHAQUE carte de joueur visible, renvoie un objet. Réponds UNIQUEMENT avec un tableau JSON, sans texte autour.\nChamps de chaque objet :\n- \"name\" : nom affiché sur la carte (texte exact).\n- \"fullName\" : prénom et nom du vrai joueur (ex. « Kylian Mbappé »), reconnu grâce à la note, au poste, au club, à la nation et à la version de la carte. C'est important quand plusieurs joueurs ont le même nom sur leur carte (ex. Kylian Mbappé et Ethan Mbappé, tous deux « Mbappé ») : ce sont des joueurs différents. Pour un joueur connu sous un seul nom (ex. « Rodrygo », « Pedri »), répète ce nom. null si tu n'es pas sûr du joueur.\n- \"ovr\" : note générale (entier).\n- \"pos\" : poste principal affiché (ex. \"ST\", \"BU\", \"CM\", \"MC\", \"GK\", \"G\").\n- \"alt\" : postes alternatifs s'ils sont visibles (tableau), sinon [].\n- \"nation\", \"league\", \"club\" : d'après le drapeau, le logo de ligue et l'écusson visibles, ou ta connaissance du vrai joueur si tu es sûr (noms usuels en français, ex. « Angleterre », « Premier League »), sinon null.\n- \"kind\" : \"base\" (carte normale or/argent/bronze), \"totw\" (équipe de la semaine), \"icon\", \"hero\", \"hof\" (Hall of FUT) ou \"special\" (autre promo).\n- \"rare\" : true / false si visible (carte rare = design brillant), sinon null.\n- \"score\" : score d'objet (petit nombre avec un losange) s'il est affiché, sinon null.\n- \"untradeable\" : true si la carte est marquée non échangeable, false si clairement échangeable, sinon null.\n- \"stats\" : [VIT, TIR, PAS, DRI, DEF, PHY] si les six valeurs sont visibles, sinon null.\n- \"playstyles\" : PlayStyles visibles (noms, avec « + » pour un PlayStyle+), sinon [].\n- \"roles\" : rôles FC 27 visibles avec leur niveau (ex. \"Avant-centre++\", \"Faux 9+\"), sinon [].\n- \"wf\" : pied faible (1-5) et \"sm\" : gestes techniques (1-5) si visibles, sinon null. \"height\" : taille en cm si visible, sinon null.\n- \"promo\" : nom de la promo ou de la version écrit sur la carte ou sous elle (ex. « Ultimate Scream », « TOTW », « Showdown »), sinon null.\n- \"loan\" : si la carte porte une petite bulle bleue avec un nombre (joueur en prêt), ce nombre (matchs restants) ; sinon 0.\n- \"qty\" : nombre d'exemplaires si un compteur est affiché, sinon 1.\n- \"confidence\" : \"haute\", \"moyenne\" ou \"basse\".\nPour que la réponse reste courte, même avec beaucoup de cartes : JSON compact (un objet par carte, sans indentation), et n'écris pas un champ dont la valeur est null, [], false ou 0 (sauf \"name\", \"ovr\" et \"pos\").\nN'invente rien : mets null quand une information n'est pas lisible. Ignore les emplacements vides, les badges, les consommables et tout ce qui n'est pas une carte de joueur.\nNe compte pas deux fois la même carte si elle apparaît sur deux images qui se chevauchent.\n",
   "fill": "Voici des footballeurs réels présents dans EA SPORTS FC 27 (saison 2026-2027), avec leur note, leur poste et la version de leur carte. Pour chacun, donne sa nation (sélection sportive), sa ligue et son club dans FC 27, avec les noms usuels en français (ex. « Angleterre », « Premier League », « Liverpool »). Quand une information est indiquée comme connue, garde-la et sers-t'en pour reconnaître le joueur (ex. un club connu donne sa ligue). Le nom inscrit sur la carte peut être un nom court ou un surnom : retrouve le vrai joueur grâce à la note, au poste et aux infos connues. Pour une ICÔNE, mets ligue et club « ICÔNES » ; pour un Héros, mets club « HÉROS » et sa ligue. Donne chaque information dont tu es raisonnablement sûr, même si tu ne connais pas les autres : la nation d'un joueur ne change presque jamais, son club a pu changer au dernier mercato (donne alors le club le plus probable pour 2026-2027). Mets null seulement pour une information que tu ne peux vraiment pas déterminer. Réponds UNIQUEMENT avec un tableau JSON : [{\"i\": numéro, \"nation\": \"...\", \"league\": \"...\", \"club\": \"...\"}].\n\n",
-  "sbc": "Tu reçois une capture d'écran d'un DCE (Défi Création d'Équipe / SBC) d'EA SPORTS FC 27 Ultimate Team, en français ou en anglais. Lis ses conditions et réponds UNIQUEMENT par un objet JSON au format :\n{\"name\": \"nom du DCE (ou du défi)\", \"set\": \"nom du set s'il y en a un, sinon \\\"\\\"\", \"type\": \"score\" ou \"classic\", \"target\": score requis (si type score), \"minOvr\": note min des cartes ou 0, \"maxOvr\": note max ou 0, \"repeat\": 1, \"formation\": \"any\" ou une formation parmi 4-3-3, 4-4-2, 4-2-3-1, 3-5-2, 3-4-3, 4-1-2-1-2, 4-5-1, 5-3-2, \"reward\": \"récompense en quelques mots\", \"conds\": [ ... ]}\nConditions (type classic) : {\"t\":\"rating\",\"n\":N} note d'équipe min ; {\"t\":\"chem\",\"n\":N} collectif total min ; {\"t\":\"chemPlayer\",\"n\":N} ; {\"t\":\"quality\",\"op\":\"min|max|exactly\",\"n\":0|1|2} (0 Bronze, 1 Argent, 2 Or) ; {\"t\":\"qcount\",\"q\":0|1|2,\"op\":\"min|max|exactly\",\"n\":N} nombre de joueurs Or/Argent/Bronze ; {\"t\":\"rare\",\"op\":\"min\",\"n\":N} ; {\"t\":\"totw\",\"op\":\"min\",\"n\":N} ; {\"t\":\"special\",\"op\":\"min\",\"n\":N} ; {\"t\":\"from\",\"field\":\"league|nation|club\",\"op\":\"min|max|exactly\",\"n\":N,\"value\":\"Nom1, Nom2\"} ; {\"t\":\"distinct\",\"field\":\"league|nation|club\",\"op\":\"min|max|exactly\",\"n\":N} (nombre de ligues/nations/clubs dans l'équipe) ; {\"t\":\"same\",\"field\":\"league|nation|club\",\"op\":\"min|max\",\"n\":N} (joueurs de la même ligue/nation/club) ; {\"t\":\"ovrMin\",\"n\":N} ; {\"t\":\"ovrMax\",\"n\":N}.\nSi une valeur n'est pas lisible, omets la condition plutôt que de l'inventer."
+  "sbc": "Tu reçois une capture d'écran d'un DCE (Défi Création d'Équipe / SBC) d'EA SPORTS FC 27 Ultimate Team, en français ou en anglais. Lis ses conditions et réponds UNIQUEMENT par un objet JSON au format :\n{\"name\": \"nom du DCE (ou du défi)\", \"set\": \"nom du set s'il y en a un, sinon \\\"\\\"\", \"type\": \"score\" ou \"classic\", \"target\": score requis (si type score), \"minOvr\": note min des cartes ou 0, \"maxOvr\": note max ou 0, \"repeat\": 1, \"formation\": \"any\" ou une formation parmi 4-3-3, 4-4-2, 4-2-3-1, 3-5-2, 3-4-3, 4-1-2-1-2, 4-5-1, 5-3-2, \"reward\": \"récompense en quelques mots\", \"conds\": [ ... ]}\nConditions (type classic) : {\"t\":\"rating\",\"n\":N} note d'équipe min ; {\"t\":\"chem\",\"n\":N} collectif total min ; {\"t\":\"chemPlayer\",\"n\":N} ; {\"t\":\"quality\",\"op\":\"min|max|exactly\",\"n\":0|1|2} (0 Bronze, 1 Argent, 2 Or) ; {\"t\":\"qcount\",\"q\":0|1|2,\"op\":\"min|max|exactly\",\"n\":N} nombre de joueurs Or/Argent/Bronze ; {\"t\":\"rare\",\"op\":\"min\",\"n\":N} ; {\"t\":\"totw\",\"op\":\"min\",\"n\":N} ; {\"t\":\"special\",\"op\":\"min\",\"n\":N} ; {\"t\":\"from\",\"field\":\"league|nation|club\",\"op\":\"min|max|exactly\",\"n\":N,\"value\":\"Nom1, Nom2\"} ; {\"t\":\"distinct\",\"field\":\"league|nation|club\",\"op\":\"min|max|exactly\",\"n\":N} (nombre de ligues/nations/clubs dans l'équipe) ; {\"t\":\"same\",\"field\":\"league|nation|club\",\"op\":\"min|max\",\"n\":N} (joueurs de la même ligue/nation/club) ; {\"t\":\"ovrMin\",\"n\":N} ; {\"t\":\"ovrMax\",\"n\":N}.\nSi une valeur n'est pas lisible, omets la condition plutôt que de l'inventer.",
+  "web": "Tu complètes les infos de joueurs d'EA SPORTS FC 27 Ultimate Team (saison 2026-2027) que l'appli n'a pas pu trouver seule. Pour chaque joueur ci-dessous, fais une recherche sur le web (une seule par joueur, par exemple « prénom nom club 2026 », ou sa fiche Transfermarkt, Wikipédia ou d'un site de cartes FC 27) pour trouver sa nation (sélection sportive), sa ligue et son club actuels. Sers-toi de la note, du poste, de la version de la carte et des infos déjà connues pour être sûr que c'est le bon joueur (ex. « Mbappé, 91, BU, connu : nation France, ligue LaLiga » → Kylian Mbappé, Real Madrid). Noms usuels en français (ex. « Angleterre », « Premier League », « Liverpool »). Pour une ICÔNE, ligue et club « ICÔNES » ; pour un Héros, club « HÉROS ». Garde les infos connues telles quelles. Ne devine pas : mets null pour ce que tu ne trouves pas. Termine ta réponse par UNIQUEMENT un tableau JSON : [{\"i\": numéro, \"nation\": \"...\", \"league\": \"...\", \"club\": \"...\", \"src\": \"nom du site utilisé\"}].\n\n"
 };
 
 const ALLOWED_ORIGINS = ['https://squadoro.github.io', 'squadoro://app'];
@@ -743,6 +750,48 @@ async function handleSocial(env, db, day, dh, iph, task, body, origin) {
   return reply({ error: 'bad_task' }, 400, origin);
 }
 
+/* ---------- Recherche sur le web : nation, ligue et club des joueurs introuvables autrement ---------- */
+// Environ 1 centime par recherche (tarif Anthropic) : limites par appareil et pour tous, comptées d'après l'usage réel renvoyé par l'API.
+async function handleWeb(env, request, body, origin) {
+  const text = String(body.text || '').slice(0, 4000);
+  const n = text.split('\n').filter((l) => /^\s*\d+\./.test(l)).length;
+  if (!n || n > 10) return reply({ error: 'bad_request' }, 400, origin);
+  const db = env.DB; if (!db) return reply({ error: 'web_disabled' }, 503, origin);
+  await ensureSchema(db);
+  if (!validDevice(body.device)) return reply({ error: 'bad_request' }, 400, origin);
+  const day = today(), dh = await hid(env, body.device), kd = 'web:' + day + ':' + dh, kg = 'weball:' + day;
+  const got = await counters(db, [kd, kg]);
+  const left = Math.min(num(env.WEB_DAILY_LIMIT, 20) - (got[kd] || 0), num(env.WEB_GLOBAL_LIMIT, 200) - (got[kg] || 0));
+  if (left <= 0) return reply({ error: 'web_quota' }, 429, origin);
+  const tool = { type: env.WEB_TOOL || 'web_search_20250305', name: 'web_search', max_uses: Math.max(1, Math.min(left, n + 1, 10)) };
+  const messages = [{ role: 'user', content: PROMPTS.web + text }];
+  let searches = 0, data = null;
+  for (let step = 0; step < 3; step++) {
+    let up;
+    try {
+      up = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: { 'x-api-key': env.ANTHROPIC_API_KEY, 'anthropic-version': '2023-06-01', 'content-type': 'application/json' },
+        body: JSON.stringify({ model: env.MODEL || 'claude-haiku-5-5', max_tokens: 4000, messages, tools: [tool] })
+      });
+    } catch (e) { return reply({ error: 'upstream_unreachable' }, 502, origin); }
+    if (up.status === 429) return reply({ error: 'rate_limited' }, 429, origin);
+    if (!up.ok) {
+      let t = ''; try { t = await up.text(); } catch (e) { t = ''; }
+      return reply({ error: /web.?search/i.test(t) && /not enabled|disabled/i.test(t) ? 'web_disabled' : 'upstream', status: up.status }, 502, origin);
+    }
+    data = await up.json();
+    searches += +((data.usage && data.usage.server_tool_use && data.usage.server_tool_use.web_search_requests) || 0);
+    if (data.stop_reason !== 'pause_turn') break;
+    messages.push({ role: 'assistant', content: data.content }); // recherche longue mise en pause : on la laisse continuer
+  }
+  if (searches) await db.batch([db.prepare(CNT_UP).bind(kd, searches, day), db.prepare(CNT_UP).bind(kg, searches, day)]);
+  const content = (data && data.content) || [];
+  let lastTool = -1; content.forEach((c, i) => { if (c.type === 'web_search_tool_result') lastTool = i; });
+  const textOf = (list) => list.filter((c) => c.type === 'text').map((c) => c.text).join('');
+  return reply({ text: textOf(content.slice(lastTool + 1)) || textOf(content), searches }, 200, origin);
+}
+
 export default {
   async fetch(request, env, ctx) {
     const origin = request.headers.get('Origin') || '';
@@ -758,6 +807,10 @@ export default {
     if (typeof task === 'string' && (task.indexOf('cards_') === 0 || task.indexOf('xfer_') === 0 || task.indexOf('social_') === 0)) {
       try { return await handleData(env, ctx, request, task, body, allowOrigin); }
       catch (e) { return reply({ error: 'db_error' }, 500, allowOrigin); }
+    }
+    if (task === 'web') {
+      try { return await handleWeb(env, request, body, allowOrigin); }
+      catch (e) { return reply({ error: 'unavailable' }, 503, allowOrigin); }
     }
     if (!Object.prototype.hasOwnProperty.call(PROMPTS, task)) return reply({ error: 'bad_task' }, 400, allowOrigin);
 
