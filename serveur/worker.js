@@ -153,7 +153,7 @@ async function checkQuota(env, request, device, task, images) {
 /* ---------- Base commune des cartes (D1) ---------- */
 const KINDS = ['base', 'totw', 'special', 'hero', 'hof', 'icon'];
 const POSITIONS = ['GK', 'LB', 'CB', 'RB', 'CDM', 'CM', 'CAM', 'LM', 'RM', 'LW', 'RW', 'ST'];
-const SCHEMA = 3;
+const SCHEMA = 4;
 const MAX_VOTERS = 20;   // au-delà, la carte est largement confirmée : on ne compte plus de nouveaux votes
 const MAX_VARIANTS = 6;  // versions différentes gardées par champ
 const VF = ['name', 'pos', 'alt', 'nation', 'league', 'club', 'stats', 'extra'];
@@ -174,6 +174,7 @@ async function ensureSchema(db) {
 async function migrate(db, ver) {
   if (ver < 2) await migrate2(db);
   if (ver < 3) await mergeDuplicates(db);
+  if (ver < 4) await migrate4(db);
   await db.prepare("INSERT INTO meta (k, v) VALUES ('schema', ?1) ON CONFLICT(k) DO UPDATE SET v = excluded.v").bind(String(SCHEMA)).run();
 }
 async function migrate2(db) {
@@ -195,6 +196,14 @@ async function migrate2(db) {
     await db.prepare("UPDATE cards SET cn = json_extract(j.value, '$.cn'), nn = json_extract(j.value, '$.nn'), ln = json_extract(j.value, '$.ln') FROM json_each(?1) AS j WHERE cards.k = json_extract(j.value, '$.k')")
       .bind(JSON.stringify(rows)).run();
   }
+}
+// Schéma 4 : profils d'amis (pseudo, code ami, résumé de progression) et amitiés (deux lignes par amitié)
+async function migrate4(db) {
+  await db.batch([
+    db.prepare('CREATE TABLE IF NOT EXISTS prof (id INTEGER PRIMARY KEY, th TEXT NOT NULL UNIQUE, code TEXT NOT NULL UNIQUE, name TEXT NOT NULL, snap TEXT, upd INTEGER NOT NULL, made INTEGER NOT NULL)'),
+    db.prepare('CREATE TABLE IF NOT EXISTS fr (a INTEGER NOT NULL, b INTEGER NOT NULL, since INTEGER NOT NULL, PRIMARY KEY (a, b)) WITHOUT ROWID'),
+    db.prepare('CREATE INDEX IF NOT EXISTS fr_b ON fr(b)')
+  ]);
 }
 function norm(s) {
   return String(s || '').replace(/[øØ]/g, 'o').replace(/[łŁ]/g, 'l').replace(/[æÆ]/g, 'ae').replace(/ß/g, 'ss').replace(/[đĐ]/g, 'd').replace(/ı/g, 'i')
@@ -601,6 +610,136 @@ async function handleData(env, ctx, request, task, body, origin) {
     return reply({ data: row.data }, 200, origin);
   }
 
+  if (task.indexOf('social_') === 0) return handleSocial(env, db, day, dh, iph, task, body, origin);
+
+  return reply({ error: 'bad_task' }, 400, origin);
+}
+
+/* ---------- Amis : profil (pseudo + code ami), progression partagée avec les amis seulement ---------- */
+const CODE_ABC = '23456789ABCDEFGHJKMNPQRSTUVWXYZ'; // sans 0/O, 1/I/L
+const MAX_FRIENDS = 100;
+const SNAP_MAX = 6000;
+function newCode() {
+  const r = crypto.getRandomValues(new Uint8Array(8));
+  let c = ''; for (let i = 0; i < 8; i++) c += CODE_ABC[r[i] % CODE_ABC.length];
+  return c;
+}
+function validTok(t) { return typeof t === 'string' && /^[A-Za-z0-9_-]{24,64}$/.test(t); }
+function cleanCode(c) { c = String(c || '').toUpperCase().replace(/[^0-9A-Z]/g, ''); return /^[2-9A-HJKMNP-Z]{8}$/.test(c) ? c : ''; }
+function cleanName(n) {
+  n = String(n || '').replace(/[\u0000-\u001f\u007f<>]/g, '').replace(/\s+/g, ' ').trim().slice(0, 20);
+  return n.length >= 2 ? n : '';
+}
+function outFriend(r) { let snap = null; try { snap = r.snap ? JSON.parse(r.snap) : null; } catch (e) { snap = null; } return { code: r.code, name: r.name, snap, upd: r.upd || 0 }; }
+async function insertProfile(db, th, name, now) {
+  for (let i = 0; i < 6; i++) {
+    const code = newCode();
+    const r = await db.prepare('INSERT INTO prof (th, code, name, upd, made) VALUES (?1, ?2, ?3, ?4, ?4) ON CONFLICT DO NOTHING').bind(th, code, name, now).run();
+    if (r && r.meta && r.meta.changes) return code;
+    const again = await db.prepare('SELECT code FROM prof WHERE th = ?1').bind(th).first('code');
+    if (again) return again;
+  }
+  return '';
+}
+async function handleSocial(env, db, day, dh, iph, task, body, origin) {
+  if (!validTok(body.tok)) return reply({ error: 'bad_request' }, 400, origin);
+  const th = await hid(env, 'prof:' + body.tok, 16), now = Date.now();
+  const me = await db.prepare('SELECT id, code, name, upd FROM prof WHERE th = ?1').bind(th).first();
+
+  if (task === 'social_me') { // créer le profil ou changer de pseudo
+    const name = cleanName(body.name);
+    if (!name) return reply({ error: 'bad_name' }, 400, origin);
+    if (me) {
+      if (me.name !== name) await db.prepare('UPDATE prof SET name = ?2 WHERE id = ?1').bind(me.id, name).run();
+      return reply({ code: me.code, name }, 200, origin);
+    }
+    const ki = 'pnew:' + day + ':' + iph, kg = 'pnewall:' + day;
+    const got = await counters(db, [ki, kg]);
+    if ((got[ki] || 0) >= 10 || (got[kg] || 0) >= 5000) return reply({ error: 'rate_limited' }, 429, origin);
+    // ménage : profils inutilisés depuis un an
+    const old = await db.prepare('SELECT id FROM prof WHERE upd < ?1 LIMIT 20').bind(now - 365 * 864e5).all();
+    const ids = (old.results || []).map((x) => x.id);
+    if (ids.length) {
+      const j = JSON.stringify(ids);
+      await db.batch([
+        db.prepare('DELETE FROM fr WHERE a IN (SELECT value FROM json_each(?1)) OR b IN (SELECT value FROM json_each(?1))').bind(j),
+        db.prepare('DELETE FROM prof WHERE id IN (SELECT value FROM json_each(?1))').bind(j)
+      ]);
+    }
+    const code = await insertProfile(db, th, name, now);
+    if (!code) return reply({ error: 'busy' }, 503, origin);
+    await db.batch([db.prepare(CNT_UP).bind(ki, 1, day), db.prepare(CNT_UP).bind(kg, 1, day)]);
+    return reply({ code, name, created: true }, 200, origin);
+  }
+
+  if (!me) return reply({ error: 'no_profile' }, 404, origin);
+
+  if (task === 'social_push') { // résumé envoyé par l'appli quand la progression change
+    const raw = typeof body.snap === 'string' ? body.snap : '';
+    if (!raw || raw.length > SNAP_MAX) return reply({ error: 'bad_request' }, 400, origin);
+    let snap; try { snap = JSON.parse(raw); } catch (e) { snap = null; }
+    if (!snap || typeof snap !== 'object' || Array.isArray(snap)) return reply({ error: 'bad_request' }, 400, origin);
+    const kp = 'ppush:' + day + ':' + me.id, kg = 'addrows:' + day;
+    const got = await counters(db, [kp, kg]);
+    if ((got[kp] || 0) >= 150 || (got[kg] || 0) > ROWS_DAY_MAX) return reply({ error: 'rate_limited' }, 429, origin);
+    await db.batch([
+      db.prepare('UPDATE prof SET snap = ?2, upd = ?3 WHERE id = ?1').bind(me.id, JSON.stringify(snap), now),
+      db.prepare(CNT_UP).bind(kp, 1, day), db.prepare(CNT_UP).bind(kg, 1, day)
+    ]);
+    return reply({ ok: true }, 200, origin);
+  }
+
+  if (task === 'social_list') {
+    const r = await db.prepare('SELECT p.code, p.name, p.snap, p.upd FROM fr JOIN prof p ON p.id = fr.b WHERE fr.a = ?1 ORDER BY fr.since LIMIT ?2').bind(me.id, MAX_FRIENDS).all();
+    return reply({ me: { code: me.code, name: me.name }, friends: (r.results || []).map(outFriend) }, 200, origin);
+  }
+
+  if (task === 'social_add') { // ajouter un ami avec son code : l'amitié vaut dans les deux sens
+    const code = cleanCode(body.code);
+    if (!code) return reply({ error: 'bad_code' }, 400, origin);
+    if (code === me.code) return reply({ error: 'self' }, 400, origin);
+    const ka = 'padd:' + day + ':' + me.id, kf = 'pfail:' + day + ':' + iph;
+    const got = await counters(db, [ka, kf]);
+    if ((got[ka] || 0) >= 30 || (got[kf] || 0) >= 30) return reply({ error: 'rate_limited' }, 429, origin);
+    const fr = await db.prepare('SELECT id, code, name, snap, upd FROM prof WHERE code = ?1').bind(code).first();
+    if (!fr) { await db.prepare(CNT_UP).bind(kf, 1, day).run(); return reply({ error: 'not_found' }, 404, origin); }
+    const n = await db.prepare('SELECT (SELECT COUNT(*) FROM fr WHERE a = ?1) AS mine, (SELECT COUNT(*) FROM fr WHERE a = ?2) AS theirs, (SELECT COUNT(*) FROM fr WHERE a = ?1 AND b = ?2) AS already').bind(me.id, fr.id).first();
+    if (n && n.already) return reply({ friend: outFriend(fr), already: true }, 200, origin);
+    if (n && (n.mine >= MAX_FRIENDS || n.theirs >= MAX_FRIENDS)) return reply({ error: 'too_many' }, 400, origin);
+    await db.batch([
+      db.prepare('INSERT INTO fr (a, b, since) VALUES (?1, ?2, ?3), (?2, ?1, ?3) ON CONFLICT DO NOTHING').bind(me.id, fr.id, now),
+      db.prepare(CNT_UP).bind(ka, 1, day)
+    ]);
+    return reply({ friend: outFriend(fr) }, 200, origin);
+  }
+
+  if (task === 'social_del') { // retirer un ami (des deux côtés)
+    const code = cleanCode(body.code);
+    const fr = code ? await db.prepare('SELECT id FROM prof WHERE code = ?1').bind(code).first() : null;
+    if (fr) await db.prepare('DELETE FROM fr WHERE (a = ?1 AND b = ?2) OR (a = ?2 AND b = ?1)').bind(me.id, fr.id).run();
+    return reply({ ok: true }, 200, origin);
+  }
+
+  if (task === 'social_code') { // nouveau code ami : l'ancien ne marche plus, les amis restent
+    const kc = 'pcode:' + day + ':' + me.id;
+    const got = await counters(db, [kc]);
+    if ((got[kc] || 0) >= 5) return reply({ error: 'rate_limited' }, 429, origin);
+    for (let i = 0; i < 6; i++) {
+      const code = newCode();
+      const r = await db.prepare('UPDATE prof SET code = ?2 WHERE id = ?1 AND NOT EXISTS (SELECT 1 FROM prof WHERE code = ?2)').bind(me.id, code).run();
+      if (r && r.meta && r.meta.changes) { await db.prepare(CNT_UP).bind(kc, 1, day).run(); return reply({ code }, 200, origin); }
+    }
+    return reply({ error: 'busy' }, 503, origin);
+  }
+
+  if (task === 'social_drop') { // supprimer son profil et ses amitiés
+    await db.batch([
+      db.prepare('DELETE FROM fr WHERE a = ?1 OR b = ?1').bind(me.id),
+      db.prepare('DELETE FROM prof WHERE id = ?1').bind(me.id)
+    ]);
+    return reply({ ok: true }, 200, origin);
+  }
+
   return reply({ error: 'bad_task' }, 400, origin);
 }
 
@@ -616,7 +755,7 @@ export default {
     let body;
     try { body = await request.json(); } catch (e) { return reply({ error: 'bad_request' }, 400, allowOrigin); }
     const task = body && body.task;
-    if (typeof task === 'string' && (task.indexOf('cards_') === 0 || task.indexOf('xfer_') === 0)) {
+    if (typeof task === 'string' && (task.indexOf('cards_') === 0 || task.indexOf('xfer_') === 0 || task.indexOf('social_') === 0)) {
       try { return await handleData(env, ctx, request, task, body, allowOrigin); }
       catch (e) { return reply({ error: 'db_error' }, 500, allowOrigin); }
     }
