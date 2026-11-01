@@ -488,7 +488,7 @@ details.res > .res-body { padding: 0 14px 14px; display: flex; flex-direction: c
 @keyframes tourPulse { 50% { background: color-mix(in srgb, var(--t-gold) 10%, transparent); } }
 @media (prefers-reduced-motion: reduce) { .tour-hl { animation: none; } }
 /* Version autonome */
-.sq-standalone [data-imp="photos"], .sq-standalone [data-imp-pane="photos"], .sq-standalone label:has(#sbcShotInput), .sq-standalone #sbcShotStatus, .sq-standalone #fillBtn { display: none !important; }
+.sq-standalone:not(.sq-ai) [data-imp="photos"], .sq-standalone:not(.sq-ai) [data-imp-pane="photos"], .sq-standalone:not(.sq-ai) label:has(#sbcShotInput), .sq-standalone:not(.sq-ai) #sbcShotStatus, .sq-standalone:not(.sq-ai) #fillBtn { display: none !important; }
 .sq-native [data-action="install"] { display: none !important; }
 .legal { margin-top: 32px; padding-top: 14px; border-top: 1px solid var(--line); font-size: 12px; color: var(--muted); }
 .legal p { margin: 0 0 6px; max-width: 90ch; }
@@ -1868,6 +1868,52 @@ details.res > .res-body { padding: 0 14px 14px; display: flex; flex-direction: c
       try { BRIDGE.postMessage({ type: 'reminders', items: items.slice(0, 40) }); } catch (e) { }
     }, 1500);
   }
+  /* Lecture des captures dans la version autonome : petit serveur (Cloudflare Worker) qui appelle l'IA */
+  var AI_LIMITS = { images: { maxCount: 4, maxInputBytes: 3500000, mediaTypes: ['image/jpeg', 'image/png', 'image/webp', 'image/gif'] } };
+  function aiOk() { return !!(caps.sample || caps.ai); }
+  function aiLimits() { return caps.sample ? caps.limits : caps.ai ? AI_LIMITS : null; }
+  function parseLooseJSON(t) {
+    t = String(t || '').trim().replace(/^```(?:json)?\s*/i, '').replace(/```\s*$/, '');
+    try { return JSON.parse(t); } catch (e) { }
+    var a = t.indexOf('['), o = t.indexOf('{'), st = a >= 0 && (o < 0 || a < o) ? a : o, en = Math.max(t.lastIndexOf(']'), t.lastIndexOf('}'));
+    if (st >= 0 && en > st) { try { return JSON.parse(t.slice(st, en + 1)); } catch (e) { } }
+    throw { code: 'invalid_json' };
+  }
+  function askAiConsent() {
+    if (state.ui.aiConsent) return Promise.resolve(true);
+    return new Promise(function (res) {
+      var o = $('#overlay');
+      o.innerHTML = '<div class="panel" role="dialog" aria-modal="true" aria-label="Lecture automatique"><h3>Lecture automatique</h3>' +
+        '<p>Pour lire tes captures, Squadoro les envoie à un service d\'IA externe (Claude, d\'Anthropic, aux États-Unis). Elles servent seulement à reconnaître tes cartes ou ton DCE et ne sont pas gardées par Squadoro.</p>' +
+        '<p class="note">Seules les images que tu choisis sont envoyées, rien d\'autre de ton club. Détails dans la page <a href="privacy.html">Confidentialité</a>.</p>' +
+        '<div class="row"><button class="btn primary" id="aiYes">Accepter et continuer</button><button class="btn" id="aiNo">Annuler</button></div></div>';
+      o.hidden = false;
+      $('#aiYes').onclick = function () { o.hidden = true; state.ui.aiConsent = true; commit({ keepPlan: true }); res(true); };
+      $('#aiNo').onclick = function () { o.hidden = true; res(false); };
+    });
+  }
+  async function aiJSON(prompt, opts) {
+    if (caps.sample) return sampleJSON(prompt, opts);
+    if (!caps.ai) throw { code: 'unavailable' };
+    var task = prompt.indexOf(SCAN_PROMPT) === 0 ? 'scan' : prompt.indexOf(SBC_SHOT_PROMPT) === 0 ? 'sbc' : prompt.indexOf(FILL_PROMPT) === 0 ? 'fill' : '';
+    if (!task) throw { code: 'unavailable' };
+    if (!(await askAiConsent())) throw { code: 'not_granted' };
+    var base = task === 'scan' ? SCAN_PROMPT : task === 'sbc' ? SBC_SHOT_PROMPT : FILL_PROMPT;
+    var images = [];
+    for (var i = 0; i < ((opts && opts.images) || []).length; i++) { var b = opts.images[i]; images.push({ type: b.type || 'image/jpeg', data: await blobToB64(b) }); }
+    var r;
+    try { r = await fetch(caps.ai.url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ task: task, text: prompt.slice(base.length), images: images }) }); }
+    catch (e) { throw { code: 'offline' }; }
+    if (r.status === 429) throw { code: 'rate_limited' };
+    if (!r.ok) throw { code: 'unavailable' };
+    var j = await r.json();
+    return parseLooseJSON(j && j.text);
+  }
+  async function loadConfig() {
+    var cfg = await fetchJSON('config.json');
+    if (cfg && cfg.aiUrl) { caps.ai = { url: cfg.aiUrl }; document.documentElement.classList.add('sq-ai'); }
+    renderScanAvail(); renderAll();
+  }
   var installEvt = null;
   window.addEventListener('beforeinstallprompt', function (e) { e.preventDefault(); installEvt = e; });
 
@@ -2059,7 +2105,7 @@ details.res > .res-body { padding: 0 14px 14px; display: flex; flex-direction: c
     if (remotePending) { remotePending = false; remoteSave(); }
   }
   async function initCaps() {
-    if (SQ) { capsChecked = true; renderScanAvail(); loadStaticData(); return; }
+    if (SQ) { capsChecked = true; renderScanAvail(); loadStaticData(); loadConfig(); return; }
     if (!window.claude || typeof window.claude.use !== 'function') { capsChecked = true; renderScanAvail(); catalogStatus = 'unavailable'; renderCatalog(); return; }
     var got = await Promise.all(['db', 'user', 'downloads', 'sample'].map(function (n) { return window.claude.use(n).catch(function () { return null; }); }));
     var db = got[0], user = got[1]; caps.downloads = got[2]; caps.sample = got[3];
@@ -2168,7 +2214,7 @@ details.res > .res-body { padding: 0 14px 14px; display: flex; flex-direction: c
       $('#tplCode').textContent = E.CSV_TEMPLATE.trim();
     }
     var miss = missingInfoKeys().length;
-    var fb = $('#fillBtn'); fb.hidden = !miss || !caps.sample; fb.textContent = 'Compléter nation, ligue, club (' + miss + ' joueur' + (miss > 1 ? 's' : '') + ')';
+    var fb = $('#fillBtn'); fb.hidden = !miss || !aiOk(); fb.textContent = 'Compléter nation, ligue, club (' + miss + ' joueur' + (miss > 1 ? 's' : '') + ')';
     renderCardList();
   }
   function filteredCards() {
@@ -2246,8 +2292,8 @@ details.res > .res-body { padding: 0 14px 14px; display: flex; flex-direction: c
     $$('#clubViewSeg button').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.cview === (cardsView ? 'cards' : 'list')); });
     if (!state.cards.length) {
       el.className = 'clist';
-      if (SQ) { el.innerHTML = '<div class="empty onboard"><h3>Ajoute ton club</h3><p>Ajoute tes cartes avec un fichier CSV, un copier-coller ou à la main. Les cartes identiques sont comptées comme doublons.</p>' +
-        '<div class="row" style="justify-content:center"><button class="btn primary" data-action="open-import" data-imp-go="file">Importer un CSV</button><button class="btn" data-action="add-card">Ajouter une carte</button><button class="btn ghost" data-action="load-demo">Essayer avec un club de démo (joueurs fictifs)</button></div></div>'; return; }
+      if (SQ) { el.innerHTML = '<div class="empty onboard"><h3>Ajoute ton club</h3><p>' + (caps.ai ? 'Choisis des captures d\'écran de ton club FC 27 dans ta galerie photo : l\'appli lit tes cartes. Tu peux aussi importer un fichier CSV ou ajouter tes cartes à la main.' : 'Ajoute tes cartes avec un fichier CSV, un copier-coller ou à la main. Les cartes identiques sont comptées comme doublons.') + '</p>' +
+        '<div class="row" style="justify-content:center">' + (caps.ai ? '<button class="btn primary" data-action="open-import" data-imp-go="photos">Importer des captures</button>' : '') + '<button class="btn' + (caps.ai ? '' : ' primary') + '" data-action="open-import" data-imp-go="file">Importer un CSV</button><button class="btn" data-action="add-card">Ajouter une carte</button><button class="btn ghost" data-action="load-demo">Essayer avec un club de démo (joueurs fictifs)</button></div></div>'; return; }
       el.innerHTML = '<div class="empty onboard"><h3>Importe ton club</h3><p>Fais des captures d\'écran de ton club FC 27 (Web App, appli compagnon ou photo de l\'écran) : l\'appli lit tes vrais joueurs, puis complète leur nation, leur ligue et leur club. Tu peux aussi importer un fichier CSV.</p>' +
         '<div class="row" style="justify-content:center"><button class="btn primary" data-action="open-import" data-imp-go="photos">Importer des photos</button><button class="btn" data-action="open-import" data-imp-go="file">Importer un CSV</button><button class="btn ghost" data-action="load-demo">Essayer avec un club de démo (joueurs fictifs)</button></div></div>';
       return;
@@ -2350,7 +2396,7 @@ details.res > .res-body { padding: 0 14px 14px; display: flex; flex-direction: c
 
   /* ----- Import ----- */
   function setImpTab(t) {
-    if (SQ && t === 'photos') t = 'file';
+    if (SQ && !caps.ai && t === 'photos') t = 'file';
     impTab = t;
     $$('#importTabs button').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.imp === t); });
     $$('[data-imp-pane]').forEach(function (p) { p.hidden = p.dataset.impPane !== t; });
@@ -2383,11 +2429,11 @@ details.res > .res-body { padding: 0 14px 14px; display: flex; flex-direction: c
   /* ----- Photos : lecture par Claude ----- */
   var capsChecked = false;
   function renderScanAvail() {
-    var ok = !!(caps.sample && caps.limits && caps.limits.images);
+    var lim = aiLimits(), ok = !!(lim && lim.images);
     $('#scanAvail').innerHTML = !capsChecked ? 'Vérification de la lecture des photos…' : ok
-      ? 'Les images sont envoyées à Claude pour être lues (jusqu\'à ' + caps.limits.images.maxCount + ' par envoi). La première fois, une fenêtre te demande l\'autorisation.'
+      ? (caps.ai ? 'Choisis tes captures dans ta galerie photo. Elles sont lues par un service d\'IA externe (Claude, d\'Anthropic) puis oubliées. La première fois, l\'appli te demande ton accord.' : 'Les images sont envoyées à Claude pour être lues (jusqu\'à ' + lim.images.maxCount + ' par envoi). La première fois, une fenêtre te demande l\'autorisation.')
       : '<strong>Lecture des photos indisponible ici.</strong> Elle fonctionne quand l\'appli est ouverte dans Claude, connecté à ton compte. En attendant, utilise le fichier CSV ou le copier-coller.';
-    if (ok) $('#photoInput').accept = caps.limits.images.mediaTypes.join(',');
+    if (ok) $('#photoInput').accept = caps.ai ? 'image/*' : lim.images.mediaTypes.join(',');
     $('#scanBtn').disabled = !ok || !photoFiles.length;
   }
   function addPhotos(files) {
@@ -2400,10 +2446,11 @@ details.res > .res-body { padding: 0 14px 14px; display: flex; flex-direction: c
     $$('img[data-i]', el).forEach(function (img) { var u = URL.createObjectURL(photoFiles[+img.dataset.i]); img.src = u; img.onload = function () { URL.revokeObjectURL(u); }; });
   }
   async function shrink(file) {
-    var max = caps.limits && caps.limits.images ? caps.limits.images.maxInputBytes : 5e6;
-    if (file.size <= max && caps.limits.images.mediaTypes.indexOf(file.type) >= 0) return file;
+    var lim = aiLimits() || AI_LIMITS, max = lim.images.maxInputBytes;
+    if (!caps.ai && file.size <= max && lim.images.mediaTypes.indexOf(file.type) >= 0) return file;
     try {
-      var bmp = await createImageBitmap(file); var scale = Math.min(1, 2000 / Math.max(bmp.width, bmp.height));
+      var bmp = await createImageBitmap(file); var scale = Math.min(1, (caps.ai ? 1600 : 2000) / Math.max(bmp.width, bmp.height));
+      if (caps.ai && scale === 1 && file.size <= max && lim.images.mediaTypes.indexOf(file.type) >= 0) return file;
       var cv = document.createElement('canvas'); cv.width = Math.round(bmp.width * scale); cv.height = Math.round(bmp.height * scale);
       cv.getContext('2d').drawImage(bmp, 0, 0, cv.width, cv.height);
       return await new Promise(function (r) { cv.toBlob(function (b) { r(b); }, 'image/jpeg', 0.85); });
@@ -2432,8 +2479,8 @@ details.res > .res-body { padding: 0 14px 14px; display: flex; flex-direction: c
     'Ne compte pas deux fois la même carte si elle apparaît sur deux images qui se chevauchent.'
   ].join('\n');
   async function scanPhotos() {
-    if (!caps.sample || !photoFiles.length) return;
-    var per = Math.max(1, Math.min(caps.limits.images.maxCount || 1, 4));
+    if (!aiOk() || !photoFiles.length) return;
+    var per = Math.max(1, Math.min(aiLimits().images.maxCount || 1, 4));
     var batches = []; for (var i = 0; i < photoFiles.length; i += per) batches.push(photoFiles.slice(i, i + per));
     var btn = $('#scanBtn'); btn.disabled = true;
     var prog = $('#scanProg'); prog.hidden = false;
@@ -2443,12 +2490,12 @@ details.res > .res-body { padding: 0 14px 14px; display: flex; flex-direction: c
       $('span', prog).style.width = Math.round(b / batches.length * 100) + '%';
       try {
         var imgs = []; for (var k = 0; k < batches[b].length; k++) imgs.push(await shrink(batches[b][k]));
-        var res = await sampleJSON(SCAN_PROMPT + '\nCes ' + imgs.length + ' image(s) sont des captures du club.', { images: imgs, modelTier: 'default' });
+        var res = await aiJSON(SCAN_PROMPT + '\nCes ' + imgs.length + ' image(s) sont des captures du club.', { images: imgs, modelTier: 'default' });
         var arr = Array.isArray(res) ? res : (res && Array.isArray(res.cards) ? res.cards : []);
         arr.forEach(function (x) { if (x && x.name && +x.ovr > 0) found.push(x); });
       } catch (e) {
         var code = e && e.code;
-        var msg = code === 'not_granted' ? 'Accès à Claude refusé : autorise-le dans la fenêtre ou dans le menu Autorisations de la page.' :
+        var msg = code === 'not_granted' ? (caps.ai ? 'Lecture annulée.' : 'Accès à Claude refusé : autorise-le dans la fenêtre ou dans le menu Autorisations de la page.') : code === 'offline' ? 'Pas de connexion internet : la lecture des captures en a besoin.' :
           code === 'rate_limited' ? 'Limite d\'utilisation atteinte. Réessaie un peu plus tard.' :
           code === 'invalid_json' ? 'La réponse pour ces images n\'était pas lisible. Essaie avec des captures plus nettes.' :
           code === 'image_rejected' ? 'Une image a été refusée (format ou taille).' : 'La lecture a échoué pour ces images (' + (code || 'erreur') + ').';
@@ -2487,7 +2534,7 @@ details.res > .res-body { padding: 0 14px 14px; display: flex; flex-direction: c
           '<input type="number" min="1" data-sr="' + i + '" data-f="qty" value="' + r.qty + '">' +
           '</div>';
       }).join('') + '</div></div>' +
-      '<p class="note">Cases orange : information non lue. Cases vertes : complétées par Claude d\'après le vrai joueur, à vérifier. La nation, la ligue et le club comptent pour le collectif et les DCE classiques.</p>' +
+      '<p class="note">Cases orange : information non lue. Cases vertes : complétées automatiquement d\'après le vrai joueur, à vérifier. La nation, la ligue et le club comptent pour le collectif et les DCE classiques.</p>' +
       '<div class="row"><button class="btn primary" data-action="scan-add">Ajouter les cartes cochées au club</button><button class="btn" data-action="scan-fill">Compléter nation, ligue, club</button><button class="btn" data-action="scan-clear">Effacer la détection</button></div>';
   }
   document.addEventListener('change', function (e) {
@@ -2518,19 +2565,19 @@ details.res > .res-body { padding: 0 14px 14px; display: flex; flex-direction: c
     'Réponds UNIQUEMENT avec un tableau JSON : [{"i": numéro, "nation": "...", "league": "...", "club": "..."}].\n\n';
   function sampleErr(e) {
     var code = e && e.code;
-    return code === 'not_granted' ? 'Accès à Claude refusé : autorise-le dans la fenêtre ou dans le menu Autorisations de la page.' :
+    return code === 'not_granted' ? (caps.ai ? 'Action annulée.' : 'Accès à Claude refusé : autorise-le dans la fenêtre ou dans le menu Autorisations de la page.') : code === 'offline' ? 'Pas de connexion internet.' : code === 'unavailable' ? 'Service indisponible pour le moment. Réessaie plus tard.' :
       code === 'rate_limited' ? 'Limite d\'utilisation atteinte. Réessaie un peu plus tard.' :
       code === 'invalid_json' ? 'Réponse illisible. Réessaie.' : 'La demande a échoué (' + (code || 'erreur') + ').';
   }
   async function fillInfo(list, onStep) {
-    if (!caps.sample) { toast('Disponible quand l\'appli est ouverte dans Claude, connecté à ton compte.'); return null; }
+    if (!aiOk()) { toast(SQ ? 'La recherche automatique n\'est pas disponible pour le moment.' : 'Disponible quand l\'appli est ouverte dans Claude, connecté à ton compte.'); return null; }
     var out = {};
     for (var s = 0; s < list.length; s += 60) {
       var chunk = list.slice(s, s + 60);
       if (onStep) onStep(s, list.length);
       var lines = chunk.map(function (x) { return x.i + '. ' + x.name + ' (' + x.ovr + ', ' + posFr(x.pos) + (x.kind && x.kind !== 'base' ? ', ' + E.KIND_FR[x.kind] : '') + ')'; }).join('\n');
       try {
-        var res = await sampleJSON(FILL_PROMPT + lines, { modelTier: 'default' });
+        var res = await aiJSON(FILL_PROMPT + lines, { modelTier: 'default' });
         (Array.isArray(res) ? res : []).forEach(function (r) { if (r && r.i != null) out[r.i] = r; });
       } catch (e) { toast(sampleErr(e)); if (s === 0) return null; break; }
     }
@@ -3002,11 +3049,12 @@ details.res > .res-body { padding: 0 14px 14px; display: flex; flex-direction: c
     'Si une valeur n\'est pas lisible, omets la condition plutôt que de l\'inventer.';
   async function readSbcShot(file) {
     var st = $('#sbcShotStatus');
-    if (!caps.sample || !caps.limits || !caps.limits.images) { toast('La lecture des captures fonctionne quand l\'appli est ouverte dans Claude, connecté à ton compte.'); return; }
-    st.textContent = 'Claude lit le DCE…';
+    var lim = aiLimits();
+    if (!lim || !lim.images) { toast(SQ ? 'La lecture des captures n\'est pas disponible pour le moment.' : 'La lecture des captures fonctionne quand l\'appli est ouverte dans Claude, connecté à ton compte.'); return; }
+    st.textContent = caps.ai ? 'Lecture du DCE…' : 'Claude lit le DCE…';
     try {
       var img = await shrink(file);
-      var j = await sampleJSON(SBC_SHOT_PROMPT, { images: [img], modelTier: 'default' });
+      var j = await aiJSON(SBC_SHOT_PROMPT, { images: [img], modelTier: 'default' });
       if (!j || typeof j !== 'object') throw { code: 'invalid_json' };
       var d = normSbc(Object.assign({ enabled: true, category: j.set ? 'Défis' : '' }, j));
       d.conds = (d.conds || []).filter(function (q) { return q && q.t; });
@@ -3415,7 +3463,7 @@ details.res > .res-body { padding: 0 14px 14px; display: flex; flex-direction: c
   var tourStep = -1;
   var TOUR = [
     { v: 'accueil', h: 'Bienvenue dans Squadoro', p: 'Ton tableau de bord : ce qui a changé depuis ta dernière visite, les DCE à faire en priorité et ton onze.' },
-    { v: 'club', h: 'Ton club', p: SQ ? 'Ajoute tes cartes avec un fichier CSV, un copier-coller ou à la main. Marque ton équipe active et les cartes à garder : elles ne partent jamais dans un DCE. « Sélectionner » agit sur plusieurs cartes à la fois.' : 'Importe tes cartes avec des captures d\'écran, un fichier CSV ou à la main. Marque ton équipe active et les cartes à garder : elles ne partent jamais dans un DCE. « Sélectionner » agit sur plusieurs cartes à la fois.' },
+    { v: 'club', h: 'Ton club', p: SQ ? 'Ajoute tes cartes avec des captures d\'écran de ta galerie photo, un fichier CSV ou à la main. Marque ton équipe active et les cartes à garder : elles ne partent jamais dans un DCE. « Sélectionner » agit sur plusieurs cartes à la fois.' : 'Importe tes cartes avec des captures d\'écran, un fichier CSV ou à la main. Marque ton équipe active et les cartes à garder : elles ne partent jamais dans un DCE. « Sélectionner » agit sur plusieurs cartes à la fois.' },
     { v: 'dce', h: 'Les DCE', p: 'Ajoute les DCE du moment depuis le catalogue, coche ceux que tu veux faire, puis lance le calcul : l\'appli répartit tes cartes pour en compléter un maximum et signale les dépassements coûteux.' },
     { v: 'equipe', h: 'Ta meilleure équipe', p: 'L\'appli cherche le onze avec la meilleure note, sans laisser tomber le collectif. Glisse les joueurs sur le terrain pour tester d\'autres choix.' },
     { v: 'reglages', h: 'Réglages', p: 'Prix du marché, thème, langue et sauvegardes datées. La flèche ↶ en haut annule n\'importe quelle modification.' }
@@ -3577,7 +3625,7 @@ details.res > .res-body { padding: 0 14px 14px; display: flex; flex-direction: c
     $('#homeDate').textContent = new Date().toLocaleDateString(LOCALE, { weekday: 'long', day: 'numeric', month: 'long' });
     var S = effS(), T = state.team, cs = state.cards, value = 0, score = 0;
     cs.forEach(function (c) { if (c.tradeable) value += E.cardValue(c, S); if (!c.active && !c.locked) score += E.itemScore(c, S); });
-    if (!cs.length) { el.innerHTML = '<div class="panel"><h3>Bienvenue</h3><p style="margin:0">' + (SQ ? 'Commence par ajouter les cartes de ton club.' : 'Commence par importer ton club : des captures d\'écran suffisent.') + '</p><div class="row"><button class="btn primary" data-action="open-import" data-imp-go="photos">Importer mon club</button><button class="btn" data-action="tour">Visite guidée</button></div></div>'; return; }
+    if (!cs.length) { el.innerHTML = '<div class="panel"><h3>Bienvenue</h3><p style="margin:0">' + (SQ && !caps.ai ? 'Commence par ajouter les cartes de ton club.' : 'Commence par importer ton club : des captures d\'écran suffisent.') + '</p><div class="row"><button class="btn primary" data-action="open-import" data-imp-go="photos">Importer mon club</button><button class="btn" data-action="tour">Visite guidée</button></div></div>'; return; }
     var news = whatsNew(), top = (plan && !planStale) ? topToday() : [], soon = expiringSoon();
     var squad = T ? T.slots.map(function (s) { return Object.assign({}, s, { card: findCard(s.id) }); }).filter(function (s) { return s.card; }) : [];
     el.innerHTML = '<div class="home-kpis">' +
@@ -3809,7 +3857,7 @@ details.res > .res-body { padding: 0 14px 14px; display: flex; flex-direction: c
     'advice-run': function (b) { runAdvice(b); },
     'share-team': shareTeam,
     'share-res': function (b) { shareResult(+b.closest('[data-ii]').dataset.ii); },
-    'quick-add': function () { var b = { dataset: { impGo: SQ ? 'paste' : 'photos' } }; A['open-import'](b); $('#impAdd').checked = true; toast(SQ ? 'Colle tes nouvelles cartes : les cartes identiques deviendront des doublons.' : 'Dépose les captures de tes nouvelles cartes : les cartes identiques deviendront des doublons.'); },
+    'quick-add': function () { var b = { dataset: { impGo: SQ && !caps.ai ? 'paste' : 'photos' } }; A['open-import'](b); $('#impAdd').checked = true; toast(SQ && !caps.ai ? 'Colle tes nouvelles cartes : les cartes identiques deviendront des doublons.' : 'Dépose les captures de tes nouvelles cartes : les cartes identiques deviendront des doublons.'); },
     'find-dups': function () { lastBackup = JSON.stringify(state.cards); var n = E.flagClubDuplicates(state.cards); commit(); renderClub(); toast(n ? n + ' carte(s) mises à jour comme doublons.' : 'Aucun nouveau doublon trouvé.', n ? 'Annuler' : null, function () { state.cards = JSON.parse(lastBackup); commit(); renderClub(); }); },
     'set-active': setActiveFromTeam,
     'reset-settings': function () { lastBackup = JSON.stringify(state.settings); state.settings = E.clone(E.DEFAULT_SETTINGS); commit(); renderSettings(); toast('Valeurs par défaut rétablies.', 'Annuler', function () { state.settings = JSON.parse(lastBackup); commit(); renderSettings(); }); },
