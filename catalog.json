@@ -15,7 +15,24 @@
    "expires": null,
    "verify": true,
    "reward": "Carte Ultimate Scream de Jonny (85)",
-   "communityVerdict": "selon"
+   "communityVerdict": "selon",
+   "i18n": {
+    "en": {
+     "name": "Jonny (Ultimate Scream)",
+     "reward": "Jonny Ultimate Scream card (85)",
+     "category": "Players"
+    },
+    "nl": {
+     "name": "Jonny (Ultimate Scream)",
+     "reward": "Ultimate Scream-kaart van Jonny (85)",
+     "category": "Spelers"
+    },
+    "es": {
+     "name": "Jonny (Ultimate Scream)",
+     "reward": "Carta Ultimate Scream de Jonny (85)",
+     "category": "Jugadores"
+    }
+   }
   },
   {
    "cid": "fc27-reijnders-us",
@@ -30,7 +47,24 @@
    "expires": null,
    "verify": true,
    "reward": "Carte Ultimate Scream de Tijjani Reijnders (85)",
-   "communityVerdict": "selon"
+   "communityVerdict": "selon",
+   "i18n": {
+    "en": {
+     "name": "Tijjani Reijnders (Ultimate Scream)",
+     "reward": "Tijjani Reijnders Ultimate Scream card (85)",
+     "category": "Players"
+    },
+    "nl": {
+     "name": "Tijjani Reijnders (Ultimate Scream)",
+     "reward": "Ultimate Scream-kaart van Tijjani Reijnders (85)",
+     "category": "Spelers"
+    },
+    "es": {
+     "name": "Tijjani Reijnders (Ultimate Scream)",
+     "reward": "Carta Ultimate Scream de Tijjani Reijnders (85)",
+     "category": "Jugadores"
+    }
+   }
   },
   {
    "cid": "fc27-bellerin-us",
@@ -44,7 +78,24 @@
    "repeat": 1,
    "expires": "2026-11-03",
    "reward": "Carte Ultimate Scream de Héctor Bellerín (85)",
-   "communityVerdict": "oui"
+   "communityVerdict": "oui",
+   "i18n": {
+    "en": {
+     "name": "Héctor Bellerín (Ultimate Scream)",
+     "reward": "Héctor Bellerín Ultimate Scream card (85)",
+     "category": "Players"
+    },
+    "nl": {
+     "name": "Héctor Bellerín (Ultimate Scream)",
+     "reward": "Ultimate Scream-kaart van Héctor Bellerín (85)",
+     "category": "Spelers"
+    },
+    "es": {
+     "name": "Héctor Bellerín (Ultimate Scream)",
+     "reward": "Carta Ultimate Scream de Héctor Bellerín (85)",
+     "category": "Jugadores"
+    }
+   }
   },
   {
    "cid": "fc27-base-hero-pick",
@@ -58,7 +109,24 @@
    "repeat": 1,
    "expires": "2026-11-08",
    "reward": "1 Héros de base au choix parmi 4 (non éch.)",
-   "communityVerdict": "non"
+   "communityVerdict": "non",
+   "i18n": {
+    "en": {
+     "name": "Base Hero Pick (1 of 4)",
+     "reward": "1 Base Hero of your choice out of 4 (untradeable)",
+     "category": "Players"
+    },
+    "nl": {
+     "name": "Basis-held-keuze (1 uit 4)",
+     "reward": "1 basis-held naar keuze uit 4 (niet verhandelbaar)",
+     "category": "Spelers"
+    },
+    "es": {
+     "name": "Elección de Héroe básico (1 de 4)",
+     "reward": "1 Héroe básico a elegir entre 4 (intransferible)",
+     "category": "Jugadores"
+    }
+   }
   },
   {
    "cid": "fc27-potm-l1-sept",
@@ -72,7 +140,24 @@
    "repeat": 1,
    "expires": "2026-11-10",
    "reward": "Ferran Torres POTM (85)",
-   "communityVerdict": "non"
+   "communityVerdict": "non",
+   "i18n": {
+    "en": {
+     "name": "Ligue 1 POTM – Ferran Torres",
+     "reward": "Ferran Torres POTM (85)",
+     "category": "Players"
+    },
+    "nl": {
+     "name": "Ligue 1 POTM – Ferran Torres",
+     "reward": "Ferran Torres POTM (85)",
+     "category": "Spelers"
+    },
+    "es": {
+     "name": "JDM Ligue 1 – Ferran Torres",
+     "reward": "Ferran Torres JDM (85)",
+     "category": "Jugadores"
+    }
+   }
   },
   {
    "cid": "fc27-potm-ligaf-sept",
@@ -86,7 +171,24 @@
    "repeat": 1,
    "expires": "2026-11-03",
    "reward": "Claudia Pina POTM (89)",
-   "communityVerdict": "selon"
+   "communityVerdict": "selon",
+   "i18n": {
+    "en": {
+     "name": "Liga F POTM – Claudia Pina",
+     "reward": "Claudia Pina POTM (89)",
+     "category": "Players"
+    },
+    "nl": {
+     "name": "Liga F POTM – Claudia Pina",
+     "reward": "Claudia Pina POTM (89)",
+     "category": "Spelers"
+    },
+    "es": {
+     "name": "JDM Liga F – Claudia Pina",
+     "reward": "Claudia Pina JDM (89)",
+     "category": "Jugadores"
+    }
+   }
   },
   {
    "cid": "fc27-arciga-showdown",
@@ -101,7 +203,24 @@
    "expires": null,
    "verify": true,
    "reward": "Carte Showdown de Ramiro Árciga",
-   "communityVerdict": "selon"
+   "communityVerdict": "selon",
+   "i18n": {
+    "en": {
+     "name": "Ramiro Árciga (Showdown)",
+     "reward": "Ramiro Árciga Showdown card",
+     "category": "Players"
+    },
+    "nl": {
+     "name": "Ramiro Árciga (Showdown)",
+     "reward": "Showdown-kaart van Ramiro Árciga",
+     "category": "Spelers"
+    },
+    "es": {
+     "name": "Ramiro Árciga (Showdown)",
+     "reward": "Carta Showdown de Ramiro Árciga",
+     "category": "Jugadores"
+    }
+   }
   },
   {
    "cid": "fc27-guzman-showdown",
@@ -116,7 +235,24 @@
    "expires": null,
    "verify": true,
    "reward": "Carte Showdown de Víctor Guzmán",
-   "communityVerdict": "selon"
+   "communityVerdict": "selon",
+   "i18n": {
+    "en": {
+     "name": "Víctor Guzmán (Showdown)",
+     "reward": "Víctor Guzmán Showdown card",
+     "category": "Players"
+    },
+    "nl": {
+     "name": "Víctor Guzmán (Showdown)",
+     "reward": "Showdown-kaart van Víctor Guzmán",
+     "category": "Spelers"
+    },
+    "es": {
+     "name": "Víctor Guzmán (Showdown)",
+     "reward": "Carta Showdown de Víctor Guzmán",
+     "category": "Jugadores"
+    }
+   }
   },
   {
    "cid": "fc27-totw-81-1-7",
@@ -133,7 +269,24 @@
    "reward": "1 joueur TOTW 81+ (TOTW 1 à 7)",
    "communityVerdict": "selon",
    "rewardCount": 1,
-   "rewardMin": 81
+   "rewardMin": 81,
+   "i18n": {
+    "en": {
+     "name": "81+ TOTW 1-7",
+     "reward": "1 TOTW 81+ player (TOTW 1 to 7)",
+     "category": "Upgrades"
+    },
+    "nl": {
+     "name": "81+ TOTW 1-7",
+     "reward": "1 TOTW-speler 81+ (TOTW 1 t/m 7)",
+     "category": "Upgrades"
+    },
+    "es": {
+     "name": "81+ EDLS 1-7",
+     "reward": "1 jugador EDLS 81+ (EDLS 1 a 7)",
+     "category": "Mejoras"
+    }
+   }
   },
   {
    "cid": "fc27-5x80",
@@ -150,7 +303,27 @@
    "reward": "Pack 5 joueurs Or 80+ (non éch.)",
    "communityVerdict": "selon",
    "rewardCount": 5,
-   "rewardMin": 80
+   "rewardMin": 80,
+   "i18n": {
+    "en": {
+     "name": "5x 80+",
+     "reward": "5 Gold players 80+ pack (untradeable)",
+     "note": "returns every 2 days",
+     "category": "Upgrades"
+    },
+    "nl": {
+     "name": "5x 80+",
+     "reward": "Pakket met 5 gouden spelers 80+ (niet verhandelbaar)",
+     "note": "komt elke 2 dagen terug",
+     "category": "Upgrades"
+    },
+    "es": {
+     "name": "5x 80+",
+     "reward": "Sobre de 5 jugadores oro 80+ (intransferible)",
+     "note": "vuelve cada 2 días",
+     "category": "Mejoras"
+    }
+   }
   },
   {
    "cid": "fc27-chemstyle-pick",
@@ -166,7 +339,27 @@
    "verify": true,
    "note": "répétable",
    "reward": "1 style de collectif au choix (Anchor, Engine, Shadow, Hunter)",
-   "communityVerdict": "selon"
+   "communityVerdict": "selon",
+   "i18n": {
+    "en": {
+     "name": "Chemistry Style Pick (1 of 4)",
+     "reward": "1 chemistry style of your choice (Anchor, Engine, Shadow, Hunter)",
+     "note": "repeatable",
+     "category": "Upgrades"
+    },
+    "nl": {
+     "name": "Chemistry-stijlkeuze (1 uit 4)",
+     "reward": "1 chemistry-stijl naar keuze (Anchor, Engine, Shadow, Hunter)",
+     "note": "herhaalbaar",
+     "category": "Upgrades"
+    },
+    "es": {
+     "name": "Elección de estilo de química (1 de 4)",
+     "reward": "1 estilo de química a elegir (Anchor, Engine, Shadow, Hunter)",
+     "note": "repetible",
+     "category": "Mejoras"
+    }
+   }
   },
   {
    "cid": "fc27-l1apl-l1",
@@ -182,7 +375,27 @@
    "verify": true,
    "note": "répétable",
    "reward": "Pack Bronze & Argent de la ligue · set complet : pack 2 joueurs Or max 85",
-   "communityVerdict": "selon"
+   "communityVerdict": "selon",
+   "i18n": {
+    "en": {
+     "name": "Ligue 1 & Arkema Première Ligue : Ligue 1",
+     "reward": "League Bronze & Silver pack · full set: 2 Gold players pack max 85",
+     "note": "repeatable",
+     "category": "Leagues"
+    },
+    "nl": {
+     "name": "Ligue 1 & Arkema Première Ligue : Ligue 1",
+     "reward": "Brons- & zilverpakket van de competitie · volledige set: pakket met 2 gouden spelers max 85",
+     "note": "herhaalbaar",
+     "category": "Competities"
+    },
+    "es": {
+     "name": "Ligue 1 & Arkema Première Ligue : Ligue 1",
+     "reward": "Sobre bronce y plata de la liga · set completo: sobre de 2 jugadores oro máx. 85",
+     "note": "repetible",
+     "category": "Ligas"
+    }
+   }
   },
   {
    "cid": "fc27-l1apl-apl",
@@ -198,7 +411,27 @@
    "verify": true,
    "note": "répétable",
    "reward": "Pack Bronze & Argent de la ligue · set complet : pack 2 joueurs Or max 85",
-   "communityVerdict": "selon"
+   "communityVerdict": "selon",
+   "i18n": {
+    "en": {
+     "name": "Ligue 1 & Arkema Première Ligue : Arkema Première Ligue",
+     "reward": "League Bronze & Silver pack · full set: 2 Gold players pack max 85",
+     "note": "repeatable",
+     "category": "Leagues"
+    },
+    "nl": {
+     "name": "Ligue 1 & Arkema Première Ligue : Arkema Première Ligue",
+     "reward": "Brons- & zilverpakket van de competitie · volledige set: pakket met 2 gouden spelers max 85",
+     "note": "herhaalbaar",
+     "category": "Competities"
+    },
+    "es": {
+     "name": "Ligue 1 & Arkema Première Ligue : Arkema Première Ligue",
+     "reward": "Sobre bronce y plata de la liga · set completo: sobre de 2 jugadores oro máx. 85",
+     "note": "repetible",
+     "category": "Ligas"
+    }
+   }
   },
   {
    "cid": "fc27-bunfbl-bl",
@@ -214,7 +447,27 @@
    "verify": true,
    "note": "répétable",
    "reward": "Pack Bronze & Argent de la ligue · set complet : pack 2 joueurs Or max 85",
-   "communityVerdict": "selon"
+   "communityVerdict": "selon",
+   "i18n": {
+    "en": {
+     "name": "Bundesliga & Frauen-Bundesliga : Bundesliga",
+     "reward": "League Bronze & Silver pack · full set: 2 Gold players pack max 85",
+     "note": "repeatable",
+     "category": "Leagues"
+    },
+    "nl": {
+     "name": "Bundesliga & Frauen-Bundesliga : Bundesliga",
+     "reward": "Brons- & zilverpakket van de competitie · volledige set: pakket met 2 gouden spelers max 85",
+     "note": "herhaalbaar",
+     "category": "Competities"
+    },
+    "es": {
+     "name": "Bundesliga & Frauen-Bundesliga : Bundesliga",
+     "reward": "Sobre bronce y plata de la liga · set completo: sobre de 2 jugadores oro máx. 85",
+     "note": "repetible",
+     "category": "Ligas"
+    }
+   }
   },
   {
    "cid": "fc27-bunfbl-fbl",
@@ -230,7 +483,27 @@
    "verify": true,
    "note": "répétable",
    "reward": "Pack Bronze & Argent de la ligue · set complet : pack 2 joueurs Or max 85",
-   "communityVerdict": "selon"
+   "communityVerdict": "selon",
+   "i18n": {
+    "en": {
+     "name": "Bundesliga & Frauen-Bundesliga : Frauen-Bundesliga",
+     "reward": "League Bronze & Silver pack · full set: 2 Gold players pack max 85",
+     "note": "repeatable",
+     "category": "Leagues"
+    },
+    "nl": {
+     "name": "Bundesliga & Frauen-Bundesliga : Frauen-Bundesliga",
+     "reward": "Brons- & zilverpakket van de competitie · volledige set: pakket met 2 gouden spelers max 85",
+     "note": "herhaalbaar",
+     "category": "Competities"
+    },
+    "es": {
+     "name": "Bundesliga & Frauen-Bundesliga : Frauen-Bundesliga",
+     "reward": "Sobre bronce y plata de la liga · set completo: sobre de 2 jugadores oro máx. 85",
+     "note": "repetible",
+     "category": "Ligas"
+    }
+   }
   },
   {
    "cid": "fc27-llligaf-ll",
@@ -246,7 +519,27 @@
    "verify": true,
    "note": "répétable",
    "reward": "Pack Bronze & Argent de la ligue · set complet : pack 2 joueurs Or max 85",
-   "communityVerdict": "non"
+   "communityVerdict": "non",
+   "i18n": {
+    "en": {
+     "name": "LALIGA & Liga F : LALIGA",
+     "reward": "League Bronze & Silver pack · full set: 2 Gold players pack max 85",
+     "note": "repeatable",
+     "category": "Leagues"
+    },
+    "nl": {
+     "name": "LALIGA & Liga F : LALIGA",
+     "reward": "Brons- & zilverpakket van de competitie · volledige set: pakket met 2 gouden spelers max 85",
+     "note": "herhaalbaar",
+     "category": "Competities"
+    },
+    "es": {
+     "name": "LALIGA & Liga F : LALIGA",
+     "reward": "Sobre bronce y plata de la liga · set completo: sobre de 2 jugadores oro máx. 85",
+     "note": "repetible",
+     "category": "Ligas"
+    }
+   }
   },
   {
    "cid": "fc27-llligaf-lf",
@@ -262,7 +555,27 @@
    "verify": true,
    "note": "répétable",
    "reward": "Pack Bronze & Argent de la ligue · set complet : pack 2 joueurs Or max 85",
-   "communityVerdict": "non"
+   "communityVerdict": "non",
+   "i18n": {
+    "en": {
+     "name": "LALIGA & Liga F : Liga F",
+     "reward": "League Bronze & Silver pack · full set: 2 Gold players pack max 85",
+     "note": "repeatable",
+     "category": "Leagues"
+    },
+    "nl": {
+     "name": "LALIGA & Liga F : Liga F",
+     "reward": "Brons- & zilverpakket van de competitie · volledige set: pakket met 2 gouden spelers max 85",
+     "note": "herhaalbaar",
+     "category": "Competities"
+    },
+    "es": {
+     "name": "LALIGA & Liga F : Liga F",
+     "reward": "Sobre bronce y plata de la liga · set completo: sobre de 2 jugadores oro máx. 85",
+     "note": "repetible",
+     "category": "Ligas"
+    }
+   }
   },
   {
    "cid": "fc27-plwsl-pl",
@@ -278,7 +591,27 @@
    "verify": true,
    "note": "répétable",
    "reward": "Pack Bronze & Argent de la ligue · set complet : pack 2 joueurs Or max 85",
-   "communityVerdict": "non"
+   "communityVerdict": "non",
+   "i18n": {
+    "en": {
+     "name": "Premier League & Barclays WSL : Premier League",
+     "reward": "League Bronze & Silver pack · full set: 2 Gold players pack max 85",
+     "note": "repeatable",
+     "category": "Leagues"
+    },
+    "nl": {
+     "name": "Premier League & Barclays WSL : Premier League",
+     "reward": "Brons- & zilverpakket van de competitie · volledige set: pakket met 2 gouden spelers max 85",
+     "note": "herhaalbaar",
+     "category": "Competities"
+    },
+    "es": {
+     "name": "Premier League & Barclays WSL : Premier League",
+     "reward": "Sobre bronce y plata de la liga · set completo: sobre de 2 jugadores oro máx. 85",
+     "note": "repetible",
+     "category": "Ligas"
+    }
+   }
   },
   {
    "cid": "fc27-plwsl-wsl",
@@ -294,7 +627,27 @@
    "verify": true,
    "note": "répétable",
    "reward": "Pack Bronze & Argent de la ligue · set complet : pack 2 joueurs Or max 85",
-   "communityVerdict": "non"
+   "communityVerdict": "non",
+   "i18n": {
+    "en": {
+     "name": "Premier League & Barclays WSL : Barclays WSL",
+     "reward": "League Bronze & Silver pack · full set: 2 Gold players pack max 85",
+     "note": "repeatable",
+     "category": "Leagues"
+    },
+    "nl": {
+     "name": "Premier League & Barclays WSL : Barclays WSL",
+     "reward": "Brons- & zilverpakket van de competitie · volledige set: pakket met 2 gouden spelers max 85",
+     "note": "herhaalbaar",
+     "category": "Competities"
+    },
+    "es": {
+     "name": "Premier League & Barclays WSL : Barclays WSL",
+     "reward": "Sobre bronce y plata de la liga · set completo: sobre de 2 jugadores oro máx. 85",
+     "note": "repetible",
+     "category": "Ligas"
+    }
+   }
   },
   {
    "cid": "fc27-boo-hoo-party",
@@ -341,7 +694,24 @@
     }
    ],
    "reward": "Grand pack de joueurs Electrum (non éch.)",
-   "communityVerdict": "selon"
+   "communityVerdict": "selon",
+   "i18n": {
+    "en": {
+     "name": "Boo Hoo Party",
+     "reward": "Jumbo Electrum Players Pack (untradeable)",
+     "category": "Challenges"
+    },
+    "nl": {
+     "name": "Boo Hoo Party",
+     "reward": "Groot Electrum-spelerspakket (niet verhandelbaar)",
+     "category": "Uitdagingen"
+    },
+    "es": {
+     "name": "Boo Hoo Party",
+     "reward": "Sobre grande de jugadores Electrum (intransferible)",
+     "category": "Desafíos"
+    }
+   }
   },
   {
    "cid": "fc27-scary-candy",
@@ -389,7 +759,24 @@
     }
    ],
    "reward": "Pack de joueurs mixte",
-   "communityVerdict": "oui"
+   "communityVerdict": "oui",
+   "i18n": {
+    "en": {
+     "name": "Scary Candy",
+     "reward": "Mixed Players Pack",
+     "category": "Challenges"
+    },
+    "nl": {
+     "name": "Scary Candy",
+     "reward": "Gemengd spelerspakket",
+     "category": "Uitdagingen"
+    },
+    "es": {
+     "name": "Scary Candy",
+     "reward": "Sobre de jugadores mixto",
+     "category": "Desafíos"
+    }
+   }
   },
   {
    "cid": "fc27-spooky-nights",
@@ -431,7 +818,24 @@
     }
    ],
    "reward": "Petit pack de joueurs Or (non éch.)",
-   "communityVerdict": "oui"
+   "communityVerdict": "oui",
+   "i18n": {
+    "en": {
+     "name": "Spooky Nights",
+     "reward": "Small Gold Players Pack (untradeable)",
+     "category": "Challenges"
+    },
+    "nl": {
+     "name": "Spooky Nights",
+     "reward": "Klein goud spelerspakket (niet verhandelbaar)",
+     "category": "Uitdagingen"
+    },
+    "es": {
+     "name": "Spooky Nights",
+     "reward": "Sobre pequeño de jugadores oro (intransferible)",
+     "category": "Desafíos"
+    }
+   }
   },
   {
    "cid": "fc27-gold-reroll",
@@ -447,7 +851,27 @@
    "note": "répétable",
    "reward": "Pack 2 joueurs Or 78+",
    "rewardCount": 2,
-   "rewardMin": 78
+   "rewardMin": 78,
+   "i18n": {
+    "en": {
+     "name": "Gold Re-roll",
+     "reward": "2 Gold players 78+ pack",
+     "note": "repeatable",
+     "category": "Permanent"
+    },
+    "nl": {
+     "name": "Goud re-roll",
+     "reward": "Pakket met 2 gouden spelers 78+",
+     "note": "herhaalbaar",
+     "category": "Permanent"
+    },
+    "es": {
+     "name": "Re-roll oro",
+     "reward": "Sobre de 2 jugadores oro 78+",
+     "note": "repetible",
+     "category": "Permanentes"
+    }
+   }
   },
   {
    "cid": "fc27-bs-reroll",
@@ -464,7 +888,27 @@
    "note": "répétable",
    "reward": "Pack 1 joueur Or 75+",
    "rewardCount": 1,
-   "rewardMin": 75
+   "rewardMin": 75,
+   "i18n": {
+    "en": {
+     "name": "Bronze & Silver Re-roll",
+     "reward": "1 Gold player 75+ pack",
+     "note": "repeatable",
+     "category": "Permanent"
+    },
+    "nl": {
+     "name": "Brons & zilver re-roll",
+     "reward": "Pakket met 1 gouden speler 75+",
+     "note": "herhaalbaar",
+     "category": "Permanent"
+    },
+    "es": {
+     "name": "Re-roll bronce y plata",
+     "reward": "Sobre de 1 jugador oro 75+",
+     "note": "repetible",
+     "category": "Permanentes"
+    }
+   }
   },
   {
    "cid": "fc27-intro-player",
@@ -478,7 +922,24 @@
    "repeat": 1,
    "permanent": true,
    "verify": true,
-   "reward": "Cristian Espinoza (82)"
+   "reward": "Cristian Espinoza (82)",
+   "i18n": {
+    "en": {
+     "name": "Intro to Player SBCs (Cristian Espinoza)",
+     "reward": "Cristian Espinoza (82)",
+     "category": "Foundations"
+    },
+    "nl": {
+     "name": "Intro speler-SBC's (Cristian Espinoza)",
+     "reward": "Cristian Espinoza (82)",
+     "category": "Basis"
+    },
+    "es": {
+     "name": "Intro a los SBC de jugador (Cristian Espinoza)",
+     "reward": "Cristian Espinoza (82)",
+     "category": "Fundamentos"
+    }
+   }
   },
   {
    "cid": "fc27-lna-1",
@@ -525,7 +986,27 @@
     }
    ],
    "reward": "Set complet : pack Or géant + 5 000 crédits",
-   "set": "Ligue & Nation avancé"
+   "set": "Ligue & Nation avancé",
+   "i18n": {
+    "en": {
+     "name": "Advanced League & Nation : 3 leagues & 2 nations",
+     "reward": "Full set: Jumbo Gold pack + 5,000 coins",
+     "set": "Advanced League & Nation",
+     "category": "Foundations"
+    },
+    "nl": {
+     "name": "Gevorderd competitie & nationaliteit : 3 competities & 2 nationaliteiten",
+     "reward": "Volledige set: groot goudpakket + 5.000 munten",
+     "set": "Gevorderd competitie & nationaliteit",
+     "category": "Basis"
+    },
+    "es": {
+     "name": "Liga y nación avanzado : 3 ligas y 2 naciones",
+     "reward": "Set completo: sobre oro grande + 5.000 monedas",
+     "set": "Liga y nación avanzado",
+     "category": "Fundamentos"
+    }
+   }
   },
   {
    "cid": "fc27-lna-2",
@@ -572,7 +1053,27 @@
     }
    ],
    "reward": "Set complet : pack Or géant + 5 000 crédits",
-   "set": "Ligue & Nation avancé"
+   "set": "Ligue & Nation avancé",
+   "i18n": {
+    "en": {
+     "name": "Advanced League & Nation : 4 leagues & 5 nations",
+     "reward": "Full set: Jumbo Gold pack + 5,000 coins",
+     "set": "Advanced League & Nation",
+     "category": "Foundations"
+    },
+    "nl": {
+     "name": "Gevorderd competitie & nationaliteit : 4 competities & 5 nationaliteiten",
+     "reward": "Volledige set: groot goudpakket + 5.000 munten",
+     "set": "Gevorderd competitie & nationaliteit",
+     "category": "Basis"
+    },
+    "es": {
+     "name": "Liga y nación avanzado : 4 ligas y 5 naciones",
+     "reward": "Set completo: sobre oro grande + 5.000 monedas",
+     "set": "Liga y nación avanzado",
+     "category": "Fundamentos"
+    }
+   }
   },
   {
    "cid": "fc27-lna-3",
@@ -613,7 +1114,27 @@
     }
    ],
    "reward": "Set complet : pack Or géant + 5 000 crédits",
-   "set": "Ligue & Nation avancé"
+   "set": "Ligue & Nation avancé",
+   "i18n": {
+    "en": {
+     "name": "Advanced League & Nation : 5 leagues & 6 nations",
+     "reward": "Full set: Jumbo Gold pack + 5,000 coins",
+     "set": "Advanced League & Nation",
+     "category": "Foundations"
+    },
+    "nl": {
+     "name": "Gevorderd competitie & nationaliteit : 5 competities & 6 nationaliteiten",
+     "reward": "Volledige set: groot goudpakket + 5.000 munten",
+     "set": "Gevorderd competitie & nationaliteit",
+     "category": "Basis"
+    },
+    "es": {
+     "name": "Liga y nación avanzado : 5 ligas y 6 naciones",
+     "reward": "Set completo: sobre oro grande + 5.000 monedas",
+     "set": "Liga y nación avanzado",
+     "category": "Fundamentos"
+    }
+   }
   },
   {
    "cid": "fc27-schuller-us",
@@ -629,7 +1150,24 @@
    "repeat": 1,
    "expires": null,
    "verify": true,
-   "note": "DCE annoncé ; score estimé d'après les autres DCE Ultimate Scream (24 000 à 60 000)"
+   "note": "DCE annoncé ; score estimé d'après les autres DCE Ultimate Scream (24 000 à 60 000)",
+   "i18n": {
+    "en": {
+     "name": "Lea Schüller (Ultimate Scream)",
+     "note": "Announced SBC; score estimated from the other Ultimate Scream SBCs (24,000 to 60,000)",
+     "category": "Players"
+    },
+    "nl": {
+     "name": "Lea Schüller (Ultimate Scream)",
+     "note": "Aangekondigde SBC; score geschat op basis van de andere Ultimate Scream-SBC's (24.000 tot 60.000)",
+     "category": "Spelers"
+    },
+    "es": {
+     "name": "Lea Schüller (Ultimate Scream)",
+     "note": "SBC anunciado; puntuación estimada a partir de los otros SBC Ultimate Scream (24.000 a 60.000)",
+     "category": "Jugadores"
+    }
+   }
   },
   {
    "cid": "fc27-potm-laliga-oct",
@@ -644,7 +1182,35 @@
    "repeat": 1,
    "expires": null,
    "verify": true,
-   "note": "gagnant pas encore officiel ; score inconnu, sans doute très élevé"
+   "note": "gagnant pas encore officiel ; score inconnu, sans doute très élevé",
+   "i18n": {
+    "en": {
+     "name": "LALIGA POTM (October)",
+     "note": "winner not official yet; score unknown, probably very high",
+     "category": "Players"
+    },
+    "nl": {
+     "name": "LALIGA POTM (oktober)",
+     "note": "winnaar nog niet officieel; score onbekend, waarschijnlijk erg hoog",
+     "category": "Spelers"
+    },
+    "es": {
+     "name": "JDM LALIGA (octubre)",
+     "note": "ganador aún no oficial; puntuación desconocida, probablemente muy alta",
+     "category": "Jugadores"
+    }
+   }
   }
- ]
+ ],
+ "i18n": {
+  "en": {
+   "note": "Not in the catalog yet because their requirements are not verified: Marquee Matchups (new week), Freaky Zombie, 3x 79+ Upgrade, Gold / Silver / Bronze Upgrade. You can add them by hand with \"Add an SBC\". Announced without details (SBC or objective): Martín Ojeda, Hannibal Mejbri, Ethan Ampadu (Ultimate Scream)."
+  },
+  "nl": {
+   "note": "Nog niet in de catalogus omdat de voorwaarden niet gecontroleerd zijn: Marquee Matchups (nieuwe week), Freaky Zombie, 3x 79+ Upgrade, Goud / Zilver / Brons Upgrade. Je kunt ze zelf toevoegen met \"SBC toevoegen\". Aangekondigd zonder details (SBC of doel): Martín Ojeda, Hannibal Mejbri, Ethan Ampadu (Ultimate Scream)."
+  },
+  "es": {
+   "note": "Aún no están en el catálogo porque sus requisitos no están verificados: Marquee Matchups (nueva semana), Freaky Zombie, 3x 79+ Upgrade, Mejora oro / plata / bronce. Puedes añadirlos a mano con «Añadir un SBC». Anunciados sin detalles (SBC u objetivo): Martín Ojeda, Hannibal Mejbri, Ethan Ampadu (Ultimate Scream)."
+  }
+ }
 }
