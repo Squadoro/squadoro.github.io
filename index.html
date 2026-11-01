@@ -822,7 +822,12 @@
 "Lien": "Link",
 "E-mail": "Email",
 "Squadoro : complète un max de DCE FC {0} avec les cartes de ton club et trouve ta meilleure équipe. C'est gratuit.": "Squadoro: complete as many FC {0} SBCs as possible with your club's cards and find your best team. It's free.",
-"Ajoute-moi en ami, mon code :": "Add me as a friend, my code:"
+"Ajoute-moi en ami, mon code :": "Add me as a friend, my code:",
+"Recherche de la nation, de la ligue et du club…": "Looking up nation, league and club…",
+"Nation, ligue et club complétés automatiquement : cases vertes, à vérifier.": "Nation, league and club filled in automatically: green boxes, please check.",
+"{0} joueur(s) non reconnu(s) : complète les cases orange à la main.": "{0} player(s) not recognised: fill in the orange boxes by hand.",
+"Limite de recherches du jour atteinte : complète les cases orange à la main.": "Today's lookup limit reached: fill in the orange boxes by hand.",
+"{0} info(s) complétée(s). Vérifie-les dans la liste.": "{0} detail(s) filled in. Check them in the list."
 },
 "nl": {
 "(+{0}), collectif {1} →": "(+{0}), chemie {1} →",
@@ -1617,7 +1622,12 @@
 "Lien": "Link",
 "E-mail": "E-mail",
 "Squadoro : complète un max de DCE FC {0} avec les cartes de ton club et trouve ta meilleure équipe. C'est gratuit.": "Squadoro: voltooi zoveel mogelijk FC {0}-SBC's met de kaarten van je club en vind je beste team. Het is gratis.",
-"Ajoute-moi en ami, mon code :": "Voeg me toe als vriend, mijn code:"
+"Ajoute-moi en ami, mon code :": "Voeg me toe als vriend, mijn code:",
+"Recherche de la nation, de la ligue et du club…": "Nationaliteit, competitie en club worden opgezocht…",
+"Nation, ligue et club complétés automatiquement : cases vertes, à vérifier.": "Nationaliteit, competitie en club automatisch ingevuld: groene vakjes, controleer ze.",
+"{0} joueur(s) non reconnu(s) : complète les cases orange à la main.": "{0} speler(s) niet herkend: vul de oranje vakjes zelf in.",
+"Limite de recherches du jour atteinte : complète les cases orange à la main.": "Zoeklimiet van vandaag bereikt: vul de oranje vakjes zelf in.",
+"{0} info(s) complétée(s). Vérifie-les dans la liste.": "{0} gegeven(s) ingevuld. Controleer ze in de lijst."
 },
 "es": {
 "(+{0}), collectif {1} →": "(+{0}), química {1} →",
@@ -2412,7 +2422,12 @@
 "Lien": "Enlace",
 "E-mail": "Correo",
 "Squadoro : complète un max de DCE FC {0} avec les cartes de ton club et trouve ta meilleure équipe. C'est gratuit.": "Squadoro: completa el máximo de SBC de FC {0} con las cartas de tu club y encuentra tu mejor equipo. Es gratis.",
-"Ajoute-moi en ami, mon code :": "Agrégame como amigo, mi código:"
+"Ajoute-moi en ami, mon code :": "Agrégame como amigo, mi código:",
+"Recherche de la nation, de la ligue et du club…": "Buscando nación, liga y club…",
+"Nation, ligue et club complétés automatiquement : cases vertes, à vérifier.": "Nación, liga y club completados automáticamente: casillas verdes, revísalas.",
+"{0} joueur(s) non reconnu(s) : complète les cases orange à la main.": "{0} jugador(es) no reconocido(s): completa a mano las casillas naranjas.",
+"Limite de recherches du jour atteinte : complète les cases orange à la main.": "Límite de búsquedas de hoy alcanzado: completa a mano las casillas naranjas.",
+"{0} info(s) complétée(s). Vérifie-les dans la liste.": "{0} dato(s) completado(s). Revísalos en la lista."
 }
 };</script>
 </head>
@@ -5698,7 +5713,11 @@ a.btn { color: inherit; text-decoration: none; }
         promo: typeof x.promo === 'string' ? x.promo.trim().slice(0, 30) : '', loan: +x.loan > 0 ? Math.min(99, Math.round(+x.loan)) : 0 };
     });
     if (scanResults.length && cdbOn()) { $('#scanStatus').textContent = 'Recherche des cartes connues…'; await cdbEnrich(scanResults); }
-    $('#scanStatus').innerHTML = '<span>' + (scanResults.length ? scanResults.length + ' carte(s) détectée(s). Vérifie et corrige avant d\'ajouter.' : lastErr || 'Aucune carte détectée.') + '</span>' + (skipped ? ' <span>' + skipped + ' capture(s) non lue(s) : limite du jour atteinte.</span>' : '');
+    var af = scanResults.length ? await autoFillScan(scanResults) : { filled: 0, left: 0 };
+    $('#scanStatus').innerHTML = '<span>' + (scanResults.length ? scanResults.length + ' carte(s) détectée(s). Vérifie et corrige avant d\'ajouter.' : lastErr || 'Aucune carte détectée.') + '</span>' +
+      (af.filled ? ' <span>Nation, ligue et club complétés automatiquement : cases vertes, à vérifier.</span>' : '') +
+      (af.left ? ' <span>' + (af.err && (af.err.code === 'rate_limited' || af.err.code === 'quota') ? 'Limite de recherches du jour atteinte : complète les cases orange à la main.' : af.left + ' joueur(s) non reconnu(s) : complète les cases orange à la main.') + '</span>' : '') +
+      (skipped ? ' <span>' + skipped + ' capture(s) non lue(s) : limite du jour atteinte.</span>' : '');
     if (caps.ai) renderScanAvail();
     renderScanReview();
   }
@@ -5754,10 +5773,11 @@ a.btn { color: inherit; text-decoration: none; }
   }
 
   /* ----- Infos des vrais joueurs (nation, ligue, club) par Claude ----- */
-  var FILL_PROMPT = 'Voici des footballeurs réels présents dans EA SPORTS FC 27 (saison 2026-2027), avec leur note et leur poste. ' +
-    'Pour chacun, donne sa nation (sélection sportive), sa ligue et son club actuels, avec les noms usuels en français (ex. « Angleterre », « Premier League », « Liverpool »). ' +
+  var FILL_PROMPT = 'Voici des footballeurs réels présents dans EA SPORTS FC 27 (saison 2026-2027), avec leur note, leur poste et la version de leur carte. ' +
+    'Pour chacun, donne sa nation (sélection sportive), sa ligue et son club dans FC 27, avec les noms usuels en français (ex. « Angleterre », « Premier League », « Liverpool »). ' +
+    'Quand une information est indiquée comme connue, garde-la et sers-t\'en pour reconnaître le joueur (ex. un club connu donne sa ligue). Le nom inscrit sur la carte peut être un nom court ou un surnom : retrouve le vrai joueur grâce à la note, au poste et aux infos connues. ' +
     'Pour une ICÔNE, mets ligue et club « ICÔNES » ; pour un Héros, mets club « HÉROS » et sa ligue. ' +
-    'Si tu ne reconnais pas le joueur avec certitude, mets null pour les trois champs. ' +
+    'Donne chaque information dont tu es raisonnablement sûr, même si tu ne connais pas les autres : la nation d\'un joueur ne change presque jamais, son club a pu changer au dernier mercato (donne alors le club le plus probable pour 2026-2027). Mets null seulement pour une information que tu ne peux vraiment pas déterminer. ' +
     'Réponds UNIQUEMENT avec un tableau JSON : [{"i": numéro, "nation": "...", "league": "...", "club": "..."}].\n\n';
   function sampleErr(e) {
     var code = e && e.code;
@@ -5765,9 +5785,9 @@ a.btn { color: inherit; text-decoration: none; }
       code === 'rate_limited' ? 'Limite d\'utilisation atteinte. Réessaie un peu plus tard.' :
       code === 'invalid_json' ? 'Réponse illisible. Réessaie.' : 'La demande a échoué (' + (code || 'erreur') + ').';
   }
-  async function fillInfo(list, onStep) {
+  async function fillInfo(list, onStep, opts) {
     var pre = {};
-    if (cdbOn() && list.length) {
+    if (cdbOn() && list.length && !(opts && opts.noLookup)) {
       try {
         var lk = await cdbCall('cards_lookup', { items: list.slice(0, 80).map(function (x) { return { name: x.name, ovr: +x.ovr || 0 }; }) });
         (lk && lk.found || []).forEach(function (f, j) { if (f && f.nation && f.league && f.club) pre[list[j].i] = { i: list[j].i, nation: f.nation, league: f.league, club: f.club }; });
@@ -5775,32 +5795,95 @@ a.btn { color: inherit; text-decoration: none; }
       list = list.filter(function (x) { return !pre[x.i]; });
       if (!list.length) return pre;
     }
-    if (!aiOk()) { toast(SQ ? 'La recherche automatique n\'est pas disponible pour le moment.' : 'Disponible quand l\'appli est ouverte dans Claude, connecté à ton compte.'); return null; }
+    if (!aiOk()) { if (!(opts && opts.quiet)) toast(SQ ? 'La recherche automatique n\'est pas disponible pour le moment.' : 'Disponible quand l\'appli est ouverte dans Claude, connecté à ton compte.'); return null; }
     var out = {};
     for (var s = 0; s < list.length; s += 60) {
       var chunk = list.slice(s, s + 60);
       if (onStep) onStep(s, list.length);
-      var lines = chunk.map(function (x) { return x.i + '. ' + x.name + ' (' + x.ovr + ', ' + posFr(x.pos) + (x.kind && x.kind !== 'base' ? ', ' + E.KIND_FR[x.kind] : '') + ')'; }).join('\n');
+      var lines = chunk.map(function (x) {
+        var known = ['nation', 'league', 'club'].filter(function (f) { return x[f] && !isMissing(x[f]); }).map(function (f) { return { nation: 'nation', league: 'ligue', club: 'club' }[f] + ' ' + x[f]; });
+        return x.i + '. ' + x.name + ' (' + x.ovr + ', ' + E.POS_FR[x.pos] + (x.alt && x.alt.length ? '/' + x.alt.map(function (p) { return E.POS_FR[p] || p; }).join('/') : '') + (x.kind && x.kind !== 'base' ? ', ' + E.KIND_FR[x.kind] : '') + (x.promo ? ', ' + x.promo : '') + ')' +
+          (x.shown && x.shown !== x.name ? ' — sur la carte : « ' + x.shown + ' »' : '') + (known.length ? ' — connu : ' + known.join(', ') : '');
+      }).join('\n');
       try {
         var res = await aiJSON(FILL_PROMPT + lines, { modelTier: 'default' });
         (Array.isArray(res) ? res : []).forEach(function (r) { if (r && r.i != null) out[r.i] = r; });
-      } catch (e) { toast(sampleErr(e)); if (s === 0) return Object.keys(pre).length ? pre : null; break; }
+      } catch (e) { if (opts && opts.onError) opts.onError(e); else toast(sampleErr(e)); if (s === 0) return Object.keys(pre).length ? pre : null; break; }
     }
     return Object.assign(out, pre);
   }
   function isMissing(v) { return !v || v === '—'; }
+  function lowName(n) { return E.stripAccents(String(n || '')).toLowerCase().replace(/\s+/g, ' ').trim(); }
+  /* Déductions sans IA : ICÔNES et Héros, même joueur déjà dans le club, ligue d'un club déjà connu.
+     rows : objets avec name, kind, nation, league, club ; set(row, champ, valeur) remplit un champ manquant. */
+  function inferInfo(rows, set, also) {
+    var clubLeague = {}, byName = {};
+    var real = function (k) { return k !== 'icon' && k !== 'hero' && k !== 'hof'; };
+    var learn = function (c) {
+      if (!real(c.kind)) return;
+      if (!isMissing(c.club) && !isMissing(c.league)) { var ck = lowName(c.club), m = clubLeague[ck] || (clubLeague[ck] = {}); m[c.league] = (m[c.league] || 0) + 1; }
+      var nk = lowName(c.name), b = byName[nk] || (byName[nk] = {});
+      if (!isMissing(c.nation)) b.nation = c.nation;
+      if (!isMissing(c.club) && !isMissing(c.league) && (c.kind === 'base' || !b.club)) { b.club = c.club; b.league = c.league; }
+    };
+    state.cards.forEach(learn); (also || rows).forEach(learn);
+    var n = 0, put = function (r, f, v) { if (isMissing(r[f]) && v && !isMissing(v)) { set(r, f, v); n++; } };
+    rows.forEach(function (r) {
+      if (r.kind === 'icon') { put(r, 'league', 'ICÔNES'); put(r, 'club', 'ICÔNES'); }
+      if (r.kind === 'hero') put(r, 'club', 'HÉROS');
+      var b = byName[lowName(r.name)];
+      if (b) { put(r, 'nation', b.nation); if (real(r.kind)) { put(r, 'club', b.club); put(r, 'league', b.league); } }
+      if (real(r.kind) && !isMissing(r.club) && isMissing(r.league)) {
+        var m = clubLeague[lowName(r.club)]; if (m) put(r, 'league', Object.keys(m).sort(function (a, c) { return m[c] - m[a]; })[0]);
+      }
+    });
+    return n;
+  }
+  function needsInfo(r) { return isMissing(r.nation) || isMissing(r.league) || isMissing(r.club); }
+  /* Après la lecture des captures : complète nation, ligue et club sans clic (déductions, base commune, puis l'IA) */
+  async function autoFillScan(rows) {
+    var mark = function (r, f, v) { r[f] = String(v); (r.guessed || (r.guessed = [])).indexOf(f) < 0 && r.guessed.push(f); };
+    var n = inferInfo(rows.filter(needsInfo), mark, rows);
+    // même joueur dans la base commune, toutes versions : sa nation (et club/ligue d'une carte de même version)
+    var miss = rows.filter(function (r) { return r.name && needsInfo(r); });
+    if (miss.length && cdbOn()) {
+      try {
+        var lk = await cdbCall('cards_lookup', { items: miss.slice(0, 80).map(function (r) { return { name: r.name, ovr: 0 }; }) });
+        (lk && lk.found || []).forEach(function (f, j) {
+          var r = miss[j]; if (!f || !r) return;
+          if (isMissing(r.nation) && f.nation) { mark(r, 'nation', f.nation); n++; }
+          if (f.kind === r.kind && r.kind !== 'icon' && r.kind !== 'hero') ['league', 'club'].forEach(function (k) { if (isMissing(r[k]) && f[k]) { mark(r, k, f[k]); n++; } });
+        });
+      } catch (e) { }
+      n += inferInfo(rows.filter(needsInfo), mark, rows);
+    }
+    var todo = []; rows.forEach(function (r, i) { if (r.name && +r.ovr > 0 && needsInfo(r)) todo.push({ i: i, name: r.name, shown: r.shown, ovr: r.ovr, pos: r.pos || 'CM', alt: r.alt, kind: r.kind, promo: r.promo, nation: r.nation, league: r.league, club: r.club }); });
+    var err = null;
+    if (todo.length && aiOk()) {
+      $('#scanStatus').textContent = 'Recherche de la nation, de la ligue et du club…';
+      var res = await fillInfo(todo.slice(0, 60), null, { noLookup: true, quiet: true, onError: function (e) { err = e; } });
+      if (res) todo.forEach(function (t) {
+        var r = res[t.i], row = rows[t.i]; if (!r || !row) return;
+        ['nation', 'league', 'club'].forEach(function (f) { if (isMissing(row[f]) && r[f]) { mark(row, f, r[f]); n++; } });
+      });
+      n += inferInfo(rows.filter(needsInfo), mark, rows);
+    }
+    return { filled: n, left: rows.filter(function (r) { return r.use && needsInfo(r); }).length, err: err };
+  }
   function missingInfoKeys() {
     var seen = {}, keys = [];
     state.cards.forEach(function (c) { if (isMissing(c.nation) || isMissing(c.league) || isMissing(c.club)) { var k = E.stripAccents(c.name).toLowerCase().trim(); if (!seen[k]) { seen[k] = c; keys.push(k); } } });
     return keys.map(function (k) { return seen[k]; });
   }
   async function fillMissing(btn) {
-    var todo = missingInfoKeys(); if (!todo.length) return;
-    btn.disabled = true; var label = btn.textContent;
-    var res = await fillInfo(todo.map(function (c, i) { return { i: i, name: c.name, ovr: c.ovr, pos: c.positions[0], kind: c.kind }; }), function (s, n) { btn.textContent = 'Recherche… ' + Math.min(n, s + 60) + '/' + n; });
-    btn.disabled = false; btn.textContent = label;
-    if (!res) return;
     lastBackup = JSON.stringify(state.cards);
+    var pre = inferInfo(state.cards.filter(needsInfo), function (c, f, v) { c[f] = String(v); });
+    var todo = missingInfoKeys();
+    if (!todo.length) { if (pre) { commit(); renderClub(); toast(pre + ' info(s) complétée(s). Vérifie-les dans la liste.', 'Annuler', function () { state.cards = JSON.parse(lastBackup); commit(); renderClub(); }); } return; }
+    btn.disabled = true; var label = btn.textContent;
+    var res = await fillInfo(todo.map(function (c, i) { return { i: i, name: c.name, ovr: c.ovr, pos: c.positions[0], alt: c.positions.slice(1), kind: c.kind, promo: c.promo, nation: c.nation, league: c.league, club: c.club }; }), function (s, n) { btn.textContent = 'Recherche… ' + Math.min(n, s + 60) + '/' + n; });
+    btn.disabled = false; btn.textContent = label;
+    if (!res) { if (pre) { commit(); renderClub(); } return; }
     var n = 0, byKey = {};
     todo.forEach(function (c, i) { if (res[i]) byKey[E.stripAccents(c.name).toLowerCase().trim()] = res[i]; });
     state.cards.forEach(function (c) {
@@ -5809,13 +5892,17 @@ a.btn { color: inherit; text-decoration: none; }
       ['nation', 'league', 'club'].forEach(function (f) { if (isMissing(c[f]) && r[f]) { c[f] = String(r[f]); ch = true; } });
       if (ch) n++;
     });
+    inferInfo(state.cards.filter(needsInfo), function (c, f, v) { c[f] = String(v); });
+    n = n || pre;
     commit(); renderClub();
     toast(n ? n + ' carte(s) complétée(s). Vérifie-les dans la liste.' : 'Aucun joueur reconnu avec certitude.', n ? 'Annuler' : null, function () { state.cards = JSON.parse(lastBackup); commit(); renderClub(); });
   }
   async function scanFill(btn) {
+    var pre = inferInfo(scanResults.filter(function (r) { return r.use && needsInfo(r); }), function (r, f, v) { r[f] = String(v); (r.guessed || (r.guessed = [])).push(f); }, scanResults);
+    if (pre) renderScanReview();
     var todo = [];
-    scanResults.forEach(function (r, i) { if (r.use && r.name && (!r.nation || !r.league || !r.club)) todo.push({ i: i, name: r.name, ovr: r.ovr, pos: r.pos || 'CM', kind: r.kind }); });
-    if (!todo.length) { toast('Rien à compléter.'); return; }
+    scanResults.forEach(function (r, i) { if (r.use && r.name && (!r.nation || !r.league || !r.club)) todo.push({ i: i, name: r.name, shown: r.shown, ovr: r.ovr, pos: r.pos || 'CM', alt: r.alt, kind: r.kind, promo: r.promo, nation: r.nation, league: r.league, club: r.club }); });
+    if (!todo.length) { toast(pre ? 'Informations complétées (cases vertes) : vérifie-les.' : 'Rien à compléter.'); return; }
     btn.disabled = true; btn.textContent = 'Recherche…';
     var res = await fillInfo(todo);
     btn.disabled = false; btn.textContent = 'Compléter nation, ligue, club';
@@ -5827,18 +5914,18 @@ a.btn { color: inherit; text-decoration: none; }
       ['nation', 'league', 'club'].forEach(function (f) { if (!row[f] && r[f]) { row[f] = String(r[f]); row.guessed.push(f); n++; } });
     });
     renderScanReview();
-    toast(n ? 'Informations complétées (cases vertes) : vérifie-les.' : 'Aucun joueur reconnu avec certitude.');
+    toast(n || pre ? 'Informations complétées (cases vertes) : vérifie-les.' : 'Aucun joueur reconnu avec certitude.');
   }
   async function editorFill(btn) {
     var name = $('#ceName').value.trim(); if (!name) { $('#ceName').focus(); toast('Indique d\'abord le nom du joueur.'); return; }
     btn.disabled = true; var label = btn.textContent; btn.textContent = 'Recherche…';
     var main = ($('input[name=cePos]:checked') || {}).value || 'CM';
-    var res = await fillInfo([{ i: 0, name: name, ovr: +$('#ceOvr').value || '', pos: main, kind: $('#ceKind').value }]);
+    var res = await fillInfo([{ i: 0, name: name, ovr: +$('#ceOvr').value || '', pos: main, kind: $('#ceKind').value, promo: ($('#cePromo') || {}).value || '', nation: $('#ceNat').value.trim(), league: $('#ceLea').value.trim(), club: $('#ceClub').value.trim() }]);
     btn.disabled = false; btn.textContent = label;
     if (!res) return;
     var r = res[0];
     if (!r || (!r.nation && !r.league && !r.club)) { toast('Joueur non reconnu avec certitude : complète à la main.'); return; }
-    if (r.nation) $('#ceNat').value = r.nation; if (r.league) $('#ceLea').value = r.league; if (r.club) $('#ceClub').value = r.club;
+    if (r.nation && !$('#ceNat').value.trim()) $('#ceNat').value = r.nation; if (r.league && !$('#ceLea').value.trim()) $('#ceLea').value = r.league; if (r.club && !$('#ceClub').value.trim()) $('#ceClub').value = r.club;
     toast('Nation, ligue et club complétés : vérifie-les.');
   }
 
