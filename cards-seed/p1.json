@@ -288,6 +288,53 @@
    "league": "Bundesliga",
    "club": "Borussia Mönchengladbach",
    "added": "2026-11-01"
+  },
+  {
+   "name": "Claudia Pina",
+   "ovr": 89,
+   "kind": "special",
+   "rare": true,
+   "pos": "LW",
+   "alt": [
+    "LM",
+    "ST"
+   ],
+   "nation": "Espagne",
+   "iso": "es",
+   "league": "Liga F",
+   "club": "FC Barcelone",
+   "stats": [
+    91,
+    89,
+    85,
+    89,
+    45,
+    74
+   ],
+   "added": "2026-11-01"
+  },
+  {
+   "name": "Héctor Bellerín",
+   "ovr": 85,
+   "kind": "special",
+   "rare": true,
+   "pos": "RM",
+   "alt": [
+    "RB"
+   ],
+   "nation": "Espagne",
+   "iso": "es",
+   "league": "LaLiga",
+   "club": "Real Betis",
+   "stats": [
+    90,
+    81,
+    84,
+    85,
+    78,
+    78
+   ],
+   "added": "2026-11-01"
   }
  ]
 }
