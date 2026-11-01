@@ -1,17 +1,16 @@
 {
- "updatedAt": "2026-11-01T18:45:00.000Z",
- "note": "Pas encore dans le catalogue faute de conditions vérifiées : Gold / Silver / Bronze Upgrade (nombre de joueurs non précisé). Tu peux les ajouter à la main avec « Ajouter un DCE ». Annoncés sans précision (DCE ou objectif), attendus d'ici le 6 novembre : Martín Ojeda, Hannibal Mejbri, Ethan Ampadu (Ultimate Scream).",
  "i18n": {
   "en": {
    "note": "Not in the catalog yet because their requirements are not verified: Gold / Silver / Bronze Upgrade (number of players not given). You can add them by hand with \"Add an SBC\". Announced without details (SBC or objective), expected by 6 November: Martín Ojeda, Hannibal Mejbri, Ethan Ampadu (Ultimate Scream)."
   },
-  "nl": {
-   "note": "Nog niet in de catalogus omdat de voorwaarden niet gecontroleerd zijn: Goud / Zilver / Brons Upgrade (aantal spelers niet vermeld). Je kunt ze zelf toevoegen met \"SBC toevoegen\". Aangekondigd zonder details (SBC of doel), verwacht tegen 6 november: Martín Ojeda, Hannibal Mejbri, Ethan Ampadu (Ultimate Scream)."
-  },
   "es": {
    "note": "Aún no están en el catálogo porque sus requisitos no están verificados: Mejora oro / plata / bronce (número de jugadores no indicado). Puedes añadirlos a mano con «Añadir un SBC». Anunciados sin detalles (SBC u objetivo), esperados antes del 6 de noviembre: Martín Ojeda, Hannibal Mejbri, Ethan Ampadu (Ultimate Scream)."
+  },
+  "nl": {
+   "note": "Nog niet in de catalogus omdat de voorwaarden niet gecontroleerd zijn: Goud / Zilver / Brons Upgrade (aantal spelers niet vermeld). Je kunt ze zelf toevoegen met \"SBC toevoegen\". Aangekondigd zonder details (SBC of doel), verwacht tegen 6 november: Martín Ojeda, Hannibal Mejbri, Ethan Ampadu (Ultimate Scream)."
   }
  },
+ "note": "Pas encore dans le catalogue faute de conditions vérifiées : Gold / Silver / Bronze Upgrade (nombre de joueurs non précisé). Tu peux les ajouter à la main avec « Ajouter un DCE ». Annoncés sans précision (DCE ou objectif), attendus d'ici le 6 novembre : Martín Ojeda, Hannibal Mejbri, Ethan Ampadu (Ultimate Scream).",
  "sbcs": [
   {
    "category": "Joueurs",
@@ -1089,22 +1088,22 @@
    "expires": "2026-11-08",
    "i18n": {
     "en": {
-     "name": "Lea Schüller (Ultimate Scream)",
      "category": "Players",
-     "reward": "Lea Schüller Ultimate Scream 86 (untradeable)",
-     "note": "can be done once; card rating to confirm (86 according to fut.gg)"
-    },
-    "nl": {
      "name": "Lea Schüller (Ultimate Scream)",
-     "category": "Spelers",
-     "reward": "Lea Schüller Ultimate Scream 86 (niet verhandelbaar)",
-     "note": "één keer te doen; rating van de kaart te bevestigen (86 volgens fut.gg)"
+     "note": "can be done once; card rating to confirm (86 according to fut.gg)",
+     "reward": "Lea Schüller Ultimate Scream 86 (untradeable)"
     },
     "es": {
-     "name": "Lea Schüller (Ultimate Scream)",
      "category": "Jugadores",
-     "reward": "Lea Schüller Ultimate Scream 86 (intransferible)",
-     "note": "se puede hacer una vez; valoración de la carta por confirmar (86 según fut.gg)"
+     "name": "Lea Schüller (Ultimate Scream)",
+     "note": "se puede hacer una vez; valoración de la carta por confirmar (86 según fut.gg)",
+     "reward": "Lea Schüller Ultimate Scream 86 (intransferible)"
+    },
+    "nl": {
+     "category": "Spelers",
+     "name": "Lea Schüller (Ultimate Scream)",
+     "note": "één keer te doen; rating van de kaart te bevestigen (86 volgens fut.gg)",
+     "reward": "Lea Schüller Ultimate Scream 86 (niet verhandelbaar)"
     }
    },
    "kinds": "all",
@@ -1113,10 +1112,10 @@
    "name": "Lea Schüller (Ultimate Scream)",
    "note": "réalisable une fois ; note de la carte à confirmer (86 selon fut.gg)",
    "repeat": 1,
+   "reward": "Lea Schüller Ultimate Scream 86 (non éch.)",
    "target": 35000,
    "type": "score",
-   "verify": true,
-   "reward": "Lea Schüller Ultimate Scream 86 (non éch.)"
+   "verify": true
   },
   {
    "announced": true,
@@ -1151,453 +1150,454 @@
    "verify": true
   },
   {
+   "category": "Défis",
    "cid": "fc27-pumpkin-seeds",
-   "type": "classic",
-   "category": "Défis",
+   "conds": [
+    {
+     "field": "league",
+     "n": 4,
+     "op": "max",
+     "t": "same"
+    },
+    {
+     "field": "club",
+     "n": 3,
+     "op": "min",
+     "t": "same"
+    },
+    {
+     "field": "club",
+     "n": 4,
+     "op": "max",
+     "t": "distinct"
+    },
+    {
+     "n": 7,
+     "op": "min",
+     "q": 2,
+     "t": "qcount"
+    },
+    {
+     "n": 70,
+     "t": "rating"
+    },
+    {
+     "n": 22,
+     "t": "chem"
+    }
+   ],
+   "expires": "2026-11-06",
+   "formation": "any",
+   "i18n": {
+    "en": {
+     "category": "Challenges",
+     "name": "Pumpkin Seeds",
+     "note": "8 players; can be done once",
+     "reward": "Large Gold Players Pack (untradeable)"
+    },
+    "es": {
+     "category": "Desafíos",
+     "name": "Pumpkin Seeds",
+     "note": "8 jugadores; se puede hacer una vez",
+     "reward": "Sobre grande de jugadores oro (intransferible)"
+    },
+    "nl": {
+     "category": "Uitdagingen",
+     "name": "Pumpkin Seeds",
+     "note": "8 spelers; één keer te doen",
+     "reward": "Groot pakket met gouden spelers (niet verhandelbaar)"
+    }
+   },
    "name": "Pumpkin Seeds",
-   "repeat": 1,
-   "expires": "2026-11-06",
-   "formation": "any",
-   "conds": [
-    {
-     "t": "same",
-     "field": "league",
-     "op": "max",
-     "n": 4
-    },
-    {
-     "t": "same",
-     "field": "club",
-     "op": "min",
-     "n": 3
-    },
-    {
-     "t": "distinct",
-     "field": "club",
-     "op": "max",
-     "n": 4
-    },
-    {
-     "t": "qcount",
-     "q": 2,
-     "op": "min",
-     "n": 7
-    },
-    {
-     "t": "rating",
-     "n": 70
-    },
-    {
-     "t": "chem",
-     "n": 22
-    }
-   ],
-   "reward": "Grand pack de joueurs Or (non éch.)",
    "note": "8 joueurs ; réalisable une fois",
+   "repeat": 1,
+   "reward": "Grand pack de joueurs Or (non éch.)",
    "rewardValue": 17354,
-   "i18n": {
-    "en": {
-     "name": "Pumpkin Seeds",
-     "category": "Challenges",
-     "reward": "Large Gold Players Pack (untradeable)",
-     "note": "8 players; can be done once"
-    },
-    "nl": {
-     "name": "Pumpkin Seeds",
-     "category": "Uitdagingen",
-     "reward": "Groot pakket met gouden spelers (niet verhandelbaar)",
-     "note": "8 spelers; één keer te doen"
-    },
-    "es": {
-     "name": "Pumpkin Seeds",
-     "category": "Desafíos",
-     "reward": "Sobre grande de jugadores oro (intransferible)",
-     "note": "8 jugadores; se puede hacer una vez"
-    }
-   }
+   "type": "classic"
   },
   {
-   "cid": "fc27-freaky-zombie",
-   "type": "classic",
    "category": "Défis",
-   "name": "Freaky Zombie",
-   "repeat": 1,
-   "expires": "2026-11-06",
-   "formation": "any",
+   "cid": "fc27-freaky-zombie",
+   "communityVerdict": "non",
    "conds": [
     {
-     "t": "same",
      "field": "nation",
+     "n": 4,
      "op": "min",
-     "n": 4
+     "t": "same"
     },
     {
-     "t": "same",
      "field": "league",
+     "n": 5,
      "op": "max",
-     "n": 5
+     "t": "same"
     },
     {
-     "t": "distinct",
      "field": "league",
+     "n": 2,
      "op": "min",
-     "n": 2
+     "t": "distinct"
     },
     {
-     "t": "qcount",
+     "n": 4,
+     "op": "min",
      "q": 2,
-     "op": "min",
-     "n": 4
+     "t": "qcount"
     },
     {
-     "t": "quality",
+     "n": 1,
      "op": "min",
-     "n": 1
+     "t": "quality"
     },
     {
-     "t": "chem",
-     "n": 20
+     "n": 20,
+     "t": "chem"
     }
    ],
-   "reward": "Grand pack Or",
-   "note": "7 joueurs",
-   "communityVerdict": "non",
+   "expires": "2026-11-06",
+   "formation": "any",
    "i18n": {
     "en": {
-     "name": "Freaky Zombie",
      "category": "Challenges",
-     "reward": "Large Gold Pack",
-     "note": "7 players"
-    },
-    "nl": {
      "name": "Freaky Zombie",
-     "category": "Uitdagingen",
-     "reward": "Groot goudpakket",
-     "note": "7 spelers"
+     "note": "7 players",
+     "reward": "Large Gold Pack"
     },
     "es": {
-     "name": "Freaky Zombie",
      "category": "Desafíos",
-     "reward": "Sobre grande oro",
-     "note": "7 jugadores"
+     "name": "Freaky Zombie",
+     "note": "7 jugadores",
+     "reward": "Sobre grande oro"
+    },
+    "nl": {
+     "category": "Uitdagingen",
+     "name": "Freaky Zombie",
+     "note": "7 spelers",
+     "reward": "Groot goudpakket"
     }
-   }
+   },
+   "name": "Freaky Zombie",
+   "note": "7 joueurs",
+   "repeat": 1,
+   "reward": "Grand pack Or",
+   "type": "classic"
   },
   {
-   "cid": "fc27-3x79",
-   "type": "classic",
    "category": "Mises à niveau",
-   "name": "3x 79+",
-   "repeat": 1,
+   "cid": "fc27-3x79",
+   "communityVerdict": "selon",
+   "conds": [
+    {
+     "n": 2,
+     "op": "exactly",
+     "t": "quality"
+    }
+   ],
    "expires": "2026-11-02",
    "formation": "any",
-   "conds": [
-    {
-     "t": "quality",
-     "op": "exactly",
-     "n": 2
-    }
-   ],
-   "reward": "Pack 3 joueurs Or 79+ (non éch.)",
-   "note": "10 joueurs Or ; répétable",
-   "communityVerdict": "selon",
-   "rewardCount": 3,
-   "rewardMin": 79,
    "i18n": {
     "en": {
-     "name": "3x 79+",
      "category": "Upgrades",
-     "reward": "3 Gold players 79+ pack (untradeable)",
-     "note": "10 Gold players; repeatable"
-    },
-    "nl": {
      "name": "3x 79+",
-     "category": "Upgrades",
-     "reward": "Pakket met 3 gouden spelers 79+ (niet verhandelbaar)",
-     "note": "10 gouden spelers; herhaalbaar"
+     "note": "10 Gold players; repeatable",
+     "reward": "3 Gold players 79+ pack (untradeable)"
     },
     "es": {
-     "name": "3x 79+",
      "category": "Mejoras",
-     "reward": "Sobre de 3 jugadores oro 79+ (intransferible)",
-     "note": "10 jugadores oro; repetible"
+     "name": "3x 79+",
+     "note": "10 jugadores oro; repetible",
+     "reward": "Sobre de 3 jugadores oro 79+ (intransferible)"
+    },
+    "nl": {
+     "category": "Upgrades",
+     "name": "3x 79+",
+     "note": "10 gouden spelers; herhaalbaar",
+     "reward": "Pakket met 3 gouden spelers 79+ (niet verhandelbaar)"
     }
-   }
+   },
+   "name": "3x 79+",
+   "note": "10 joueurs Or ; répétable",
+   "repeat": 1,
+   "reward": "Pack 3 joueurs Or 79+ (non éch.)",
+   "rewardCount": 3,
+   "rewardMin": 79,
+   "type": "classic"
   },
   {
-   "cid": "fc27-marquee-villarreal-espanyol",
-   "type": "classic",
    "category": "Défis",
-   "name": "Marquee Matchups : Villarreal CF v RCD Espanyol",
-   "repeat": 1,
-   "expires": "2026-11-05",
-   "formation": "any",
+   "cid": "fc27-marquee-villarreal-espanyol",
+   "communityVerdict": "selon",
    "conds": [
     {
-     "t": "from",
      "field": "club",
-     "op": "min",
      "n": 1,
+     "op": "min",
+     "t": "from",
      "value": "Villarreal CF, Villarreal, RCD Espanyol, Espanyol"
     },
     {
-     "t": "from",
      "field": "nation",
-     "op": "min",
      "n": 1,
+     "op": "min",
+     "t": "from",
      "value": "Espagne, Spain, España"
     },
     {
-     "t": "distinct",
      "field": "club",
+     "n": 2,
      "op": "min",
-     "n": 2
+     "t": "distinct"
     },
     {
-     "t": "distinct",
      "field": "league",
+     "n": 3,
      "op": "min",
-     "n": 3
+     "t": "distinct"
     },
     {
-     "t": "quality",
+     "n": 0,
      "op": "min",
-     "n": 0
+     "t": "quality"
     },
     {
-     "t": "chem",
-     "n": 14
+     "n": 14,
+     "t": "chem"
     }
    ],
-   "reward": "Petit pack Or · Set complet : Méga pack Or",
-   "communityVerdict": "selon",
-   "set": "Marquee Matchups",
+   "expires": "2026-11-05",
+   "formation": "any",
    "i18n": {
     "en": {
-     "name": "Marquee Matchups : Villarreal CF v RCD Espanyol",
      "category": "Challenges",
+     "name": "Marquee Matchups : Villarreal CF v RCD Espanyol",
      "reward": "Small Gold Pack · Full set: Jumbo Gold Pack",
      "set": "Marquee Matchups"
     },
-    "nl": {
-     "name": "Marquee Matchups : Villarreal CF v RCD Espanyol",
-     "category": "Uitdagingen",
-     "reward": "Klein goudpakket · Volledige set: Jumbo goudpakket",
-     "set": "Marquee Matchups"
-    },
     "es": {
-     "name": "Marquee Matchups : Villarreal CF v RCD Espanyol",
      "category": "Desafíos",
+     "name": "Marquee Matchups : Villarreal CF v RCD Espanyol",
      "reward": "Sobre pequeño oro · Set completo: Sobre jumbo oro",
      "set": "Marquee Matchups"
+    },
+    "nl": {
+     "category": "Uitdagingen",
+     "name": "Marquee Matchups : Villarreal CF v RCD Espanyol",
+     "reward": "Klein goudpakket · Volledige set: Jumbo goudpakket",
+     "set": "Marquee Matchups"
     }
-   }
+   },
+   "name": "Marquee Matchups : Villarreal CF v RCD Espanyol",
+   "repeat": 1,
+   "reward": "Petit pack Or · Set complet : Méga pack Or",
+   "set": "Marquee Matchups",
+   "type": "classic"
   },
   {
-   "cid": "fc27-marquee-bayern-dortmund",
-   "type": "classic",
    "category": "Défis",
-   "name": "Marquee Matchups : FC Bayern München v Borussia Dortmund",
-   "repeat": 1,
-   "expires": "2026-11-05",
-   "formation": "any",
+   "cid": "fc27-marquee-bayern-dortmund",
+   "communityVerdict": "selon",
    "conds": [
     {
-     "t": "from",
      "field": "club",
-     "op": "min",
      "n": 1,
+     "op": "min",
+     "t": "from",
      "value": "FC Bayern München, Bayern, Borussia Dortmund, Dortmund"
     },
     {
-     "t": "from",
      "field": "nation",
-     "op": "min",
      "n": 1,
+     "op": "min",
+     "t": "from",
      "value": "Allemagne, Germany, Deutschland"
     },
     {
-     "t": "distinct",
      "field": "league",
+     "n": 6,
      "op": "max",
-     "n": 6
+     "t": "distinct"
     },
     {
-     "t": "same",
      "field": "nation",
+     "n": 2,
      "op": "min",
-     "n": 2
+     "t": "same"
     },
     {
-     "t": "quality",
+     "n": 1,
      "op": "min",
-     "n": 1
+     "t": "quality"
     },
     {
-     "t": "chem",
-     "n": 18
+     "n": 18,
+     "t": "chem"
     }
    ],
-   "reward": "Petit pack de joueurs Electrum · Set complet : Méga pack Or",
-   "communityVerdict": "selon",
-   "set": "Marquee Matchups",
+   "expires": "2026-11-05",
+   "formation": "any",
    "i18n": {
     "en": {
-     "name": "Marquee Matchups : FC Bayern München v Borussia Dortmund",
      "category": "Challenges",
+     "name": "Marquee Matchups : FC Bayern München v Borussia Dortmund",
      "reward": "Small Electrum Players Pack · Full set: Jumbo Gold Pack",
      "set": "Marquee Matchups"
     },
-    "nl": {
-     "name": "Marquee Matchups : FC Bayern München v Borussia Dortmund",
-     "category": "Uitdagingen",
-     "reward": "Klein Electrum-spelerspakket · Volledige set: Jumbo goudpakket",
-     "set": "Marquee Matchups"
-    },
     "es": {
-     "name": "Marquee Matchups : FC Bayern München v Borussia Dortmund",
      "category": "Desafíos",
+     "name": "Marquee Matchups : FC Bayern München v Borussia Dortmund",
      "reward": "Sobre pequeño de jugadores Electrum · Set completo: Sobre jumbo oro",
      "set": "Marquee Matchups"
+    },
+    "nl": {
+     "category": "Uitdagingen",
+     "name": "Marquee Matchups : FC Bayern München v Borussia Dortmund",
+     "reward": "Klein Electrum-spelerspakket · Volledige set: Jumbo goudpakket",
+     "set": "Marquee Matchups"
     }
-   }
+   },
+   "name": "Marquee Matchups : FC Bayern München v Borussia Dortmund",
+   "repeat": 1,
+   "reward": "Petit pack de joueurs Electrum · Set complet : Méga pack Or",
+   "set": "Marquee Matchups",
+   "type": "classic"
   },
   {
-   "cid": "fc27-marquee-milano-lombardia",
-   "type": "classic",
    "category": "Défis",
-   "name": "Marquee Matchups : Milano FC v Lombardia FC",
-   "repeat": 1,
-   "expires": "2026-11-05",
-   "formation": "any",
+   "cid": "fc27-marquee-milano-lombardia",
+   "communityVerdict": "selon",
    "conds": [
     {
-     "t": "from",
      "field": "club",
-     "op": "min",
      "n": 2,
+     "op": "min",
+     "t": "from",
      "value": "Milano FC, Lombardia FC"
     },
     {
-     "t": "from",
      "field": "nation",
-     "op": "min",
      "n": 2,
+     "op": "min",
+     "t": "from",
      "value": "Italie, Italy, Italia"
     },
     {
-     "t": "same",
      "field": "league",
+     "n": 5,
      "op": "max",
-     "n": 5
+     "t": "same"
     },
     {
-     "t": "same",
      "field": "nation",
+     "n": 3,
      "op": "min",
-     "n": 3
+     "t": "same"
     },
     {
-     "t": "quality",
+     "n": 1,
      "op": "min",
-     "n": 1
+     "t": "quality"
     },
     {
-     "t": "chem",
-     "n": 22
+     "n": 22,
+     "t": "chem"
     }
    ],
-   "reward": "Pack Or · Set complet : Méga pack Or",
-   "communityVerdict": "selon",
-   "set": "Marquee Matchups",
+   "expires": "2026-11-05",
+   "formation": "any",
    "i18n": {
     "en": {
-     "name": "Marquee Matchups : Milano FC v Lombardia FC",
      "category": "Challenges",
+     "name": "Marquee Matchups : Milano FC v Lombardia FC",
      "reward": "Gold Pack · Full set: Jumbo Gold Pack",
      "set": "Marquee Matchups"
     },
-    "nl": {
-     "name": "Marquee Matchups : Milano FC v Lombardia FC",
-     "category": "Uitdagingen",
-     "reward": "Goudpakket · Volledige set: Jumbo goudpakket",
-     "set": "Marquee Matchups"
-    },
     "es": {
-     "name": "Marquee Matchups : Milano FC v Lombardia FC",
      "category": "Desafíos",
+     "name": "Marquee Matchups : Milano FC v Lombardia FC",
      "reward": "Sobre oro · Set completo: Sobre jumbo oro",
      "set": "Marquee Matchups"
+    },
+    "nl": {
+     "category": "Uitdagingen",
+     "name": "Marquee Matchups : Milano FC v Lombardia FC",
+     "reward": "Goudpakket · Volledige set: Jumbo goudpakket",
+     "set": "Marquee Matchups"
     }
-   }
+   },
+   "name": "Marquee Matchups : Milano FC v Lombardia FC",
+   "repeat": 1,
+   "reward": "Pack Or · Set complet : Méga pack Or",
+   "set": "Marquee Matchups",
+   "type": "classic"
   },
   {
-   "cid": "fc27-marquee-liverpool-arsenal",
-   "type": "classic",
    "category": "Défis",
-   "name": "Marquee Matchups : Liverpool v Arsenal",
-   "repeat": 1,
-   "expires": "2026-11-05",
-   "formation": "any",
+   "cid": "fc27-marquee-liverpool-arsenal",
+   "communityVerdict": "selon",
    "conds": [
     {
-     "t": "from",
      "field": "club",
-     "op": "min",
      "n": 2,
+     "op": "min",
+     "t": "from",
      "value": "Liverpool, Arsenal"
     },
     {
-     "t": "from",
      "field": "league",
-     "op": "min",
      "n": 2,
+     "op": "min",
+     "t": "from",
      "value": "Premier League"
     },
     {
-     "t": "same",
      "field": "league",
+     "n": 4,
      "op": "min",
-     "n": 4
+     "t": "same"
     },
     {
-     "t": "same",
      "field": "club",
+     "n": 3,
      "op": "min",
-     "n": 3
+     "t": "same"
     },
     {
-     "t": "rating",
-     "n": 75
+     "n": 75,
+     "t": "rating"
     },
     {
-     "t": "chem",
-     "n": 26
+     "n": 26,
+     "t": "chem"
     }
    ],
-   "reward": "Grand pack de joueurs Electrum · Set complet : Méga pack Or",
-   "communityVerdict": "selon",
-   "set": "Marquee Matchups",
+   "expires": "2026-11-05",
+   "formation": "any",
    "i18n": {
     "en": {
-     "name": "Marquee Matchups : Liverpool v Arsenal",
      "category": "Challenges",
+     "name": "Marquee Matchups : Liverpool v Arsenal",
      "reward": "Large Electrum Players Pack · Full set: Jumbo Gold Pack",
      "set": "Marquee Matchups"
     },
-    "nl": {
-     "name": "Marquee Matchups : Liverpool v Arsenal",
-     "category": "Uitdagingen",
-     "reward": "Groot Electrum-spelerspakket · Volledige set: Jumbo goudpakket",
-     "set": "Marquee Matchups"
-    },
     "es": {
-     "name": "Marquee Matchups : Liverpool v Arsenal",
      "category": "Desafíos",
+     "name": "Marquee Matchups : Liverpool v Arsenal",
      "reward": "Sobre grande de jugadores Electrum · Set completo: Sobre jumbo oro",
      "set": "Marquee Matchups"
+    },
+    "nl": {
+     "category": "Uitdagingen",
+     "name": "Marquee Matchups : Liverpool v Arsenal",
+     "reward": "Groot Electrum-spelerspakket · Volledige set: Jumbo goudpakket",
+     "set": "Marquee Matchups"
     }
-   }
+   },
+   "name": "Marquee Matchups : Liverpool v Arsenal",
+   "repeat": 1,
+   "reward": "Grand pack de joueurs Electrum · Set complet : Méga pack Or",
+   "set": "Marquee Matchups",
+   "type": "classic"
   }
- ]
+ ],
+ "updatedAt": "2026-11-01T19:55:00.000Z"
 }
