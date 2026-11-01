@@ -22,3 +22,7 @@ Site : https://squadoro.github.io
 Les données des joueurs (club, DCE, réglages) restent sur leur appareil. Seules les caractéristiques des cartes ajoutées (joueur, note, version, postes, nation, ligue, club, stats) rejoignent, sans rien d'identifiant, une base commune qui permet de retrouver une carte en tapant son nom. Ce partage se coupe dans les réglages.
 
 Squadoro est un outil indépendant créé par des fans. Il n'est pas affilié à Electronic Arts ni à EA SPORTS FC.
+
+## Polices
+
+Barlow et Barlow Condensed (The Barlow Project Authors), sous licence SIL Open Font License 1.1 : voir `fonts/OFL-Barlow.txt`.

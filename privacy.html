@@ -7,15 +7,17 @@
 <meta name="description" content="Politique de confidentialité de Squadoro.">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <style>
-:root { --bg: #edf0ea; --surface: #fbfcf9; --ink: #15211a; --muted: #56665b; --line: #cbd4c8; --accent: #1d5c3d; }
-@media (prefers-color-scheme: dark) { :root { --bg: #0d1410; --surface: #141d17; --ink: #e2eae3; --muted: #94a698; --line: #2a3a31; --accent: #5db386; } }
+@font-face{font-family:'Barlow';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/barlow-regular.woff) format('woff')}
+@font-face{font-family:'Barlow';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/barlow-semibold.woff) format('woff')}
+@font-face{font-family:'Barlow Condensed';font-style:italic;font-weight:800;font-display:swap;src:url(fonts/barlowcondensed-extrabolditalic.woff) format('woff')}
+:root { --bg: #0A0F1C; --surface: #121A2E; --ink: #F2F5FA; --muted: #9AA6BF; --line: #243052; --accent: #C8FF2E; color-scheme: dark; }
 * { box-sizing: border-box; }
 html, body { background: var(--bg); color: var(--ink); margin: 0; }
-body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; font-size: 16px; line-height: 1.55; -webkit-text-size-adjust: 100%; }
+body { font-family: 'Barlow', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; font-size: 16px; line-height: 1.55; -webkit-text-size-adjust: 100%; }
 main { max-width: 720px; margin: 0 auto; padding: max(20px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) 48px max(16px, env(safe-area-inset-left)); }
 a { color: var(--accent); }
 .back { display: inline-block; margin-bottom: 18px; font-weight: 600; text-decoration: none; }
-h1 { font-size: 28px; margin: 0 0 4px; }
+h1 { font-family: 'Barlow Condensed', 'Barlow', sans-serif; font-style: italic; font-weight: 800; text-transform: uppercase; font-size: 36px; line-height: 1; margin: 0 0 6px; }
 h2 { font-size: 18px; margin: 28px 0 6px; }
 p, li { margin: 0 0 10px; }
 .muted { color: var(--muted); font-size: 14px; }
