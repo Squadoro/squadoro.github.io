@@ -4,6 +4,8 @@
  "supportUrl": "https://ko-fi.com/squadoro",
  "ads": {
   "client": "ca-pub-7663840153020314",
-  "slots": {}
+  "slots": {
+   "dce": "1499354198"
+  }
  }
 }
