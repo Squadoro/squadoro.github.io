@@ -153,7 +153,7 @@ async function checkQuota(env, request, device, task, images) {
 /* ---------- Base commune des cartes (D1) ---------- */
 const KINDS = ['base', 'totw', 'special', 'hero', 'hof', 'icon'];
 const POSITIONS = ['GK', 'LB', 'CB', 'RB', 'CDM', 'CM', 'CAM', 'LM', 'RM', 'LW', 'RW', 'ST'];
-const SCHEMA = 2;
+const SCHEMA = 3;
 const MAX_VOTERS = 20;   // au-delà, la carte est largement confirmée : on ne compte plus de nouveaux votes
 const MAX_VARIANTS = 6;  // versions différentes gardées par champ
 const VF = ['name', 'pos', 'alt', 'nation', 'league', 'club', 'stats', 'extra'];
@@ -168,10 +168,15 @@ async function ensureSchema(db) {
     db.prepare('CREATE TABLE IF NOT EXISTS meta (k TEXT PRIMARY KEY, v TEXT) WITHOUT ROWID')
   ]);
   const ver = +((await db.prepare("SELECT v FROM meta WHERE k = 'schema'").first('v')) || 0);
-  if (ver < SCHEMA) await migrate(db);
+  if (ver < SCHEMA) await migrate(db, ver);
   schemaReady = true;
 }
-async function migrate(db) {
+async function migrate(db, ver) {
+  if (ver < 2) await migrate2(db);
+  if (ver < 3) await mergeDuplicates(db);
+  await db.prepare("INSERT INTO meta (k, v) VALUES ('schema', ?1) ON CONFLICT(k) DO UPDATE SET v = excluded.v").bind(String(SCHEMA)).run();
+}
+async function migrate2(db) {
   const cols = ['conf INTEGER NOT NULL DEFAULT 1', 'rep INTEGER NOT NULL DEFAULT 0', 'votes TEXT', 'cn TEXT', 'nn TEXT', 'ln TEXT', 'src INTEGER NOT NULL DEFAULT 0'];
   for (const c of cols) { try { await db.prepare('ALTER TABLE cards ADD COLUMN ' + c).run(); } catch (e) { /* déjà là */ } }
   await db.batch([
@@ -190,7 +195,6 @@ async function migrate(db) {
     await db.prepare("UPDATE cards SET cn = json_extract(j.value, '$.cn'), nn = json_extract(j.value, '$.nn'), ln = json_extract(j.value, '$.ln') FROM json_each(?1) AS j WHERE cards.k = json_extract(j.value, '$.k')")
       .bind(JSON.stringify(rows)).run();
   }
-  await db.prepare("INSERT INTO meta (k, v) VALUES ('schema', ?1) ON CONFLICT(k) DO UPDATE SET v = excluded.v").bind(String(SCHEMA)).run();
 }
 function norm(s) {
   return String(s || '').replace(/[øØ]/g, 'o').replace(/[łŁ]/g, 'l').replace(/[æÆ]/g, 'ae').replace(/ß/g, 'ss').replace(/[đĐ]/g, 'd').replace(/ı/g, 'i')
@@ -267,19 +271,66 @@ function pick(cf, cur) {
   return best;
 }
 function confOf(V) { let n = 0; for (const t in V.v) n += weightOf(t); return n; }
-function mergeCard(row, c, tok) {
-  const V = parseVotes(row);
-  applyVote(V, tok, voteVals(c));
+// Valeurs finales d'une carte à partir de ses votes
+function finalize(base, V, row) {
   const cur = row ? rowVals(row) : {}, fin = {};
   VF.forEach((f) => { const p = V.c[f] ? pick(V.c[f], cur[f]) : null; fin[f] = p || cur[f] || ''; });
   const bar = fin.nation.lastIndexOf('|'), nation = bar >= 0 ? fin.nation.slice(0, bar) : fin.nation, nn = bar >= 0 ? fin.nation.slice(bar + 1) : '';
-  const out = { k: c.k, name: fin.name || c.name, n1: c.n1, n2: c.n2, n3: c.n3, ovr: c.ovr, kind: c.kind, rare: Math.max(row ? row.rare : 0, c.rare), pos: fin.pos || c.pos, alt: fin.alt,
+  return { k: base.k, name: fin.name || base.name, n1: base.n1, n2: base.n2, n3: base.n3, ovr: base.ovr, kind: base.kind, rare: Math.max(row ? row.rare : 0, base.rare || 0), pos: fin.pos || base.pos, alt: fin.alt,
     nation, nn: nation ? (nn || norm(nation)) : null, league: fin.league, ln: norm(fin.league) || null, club: fin.club, cn: norm(fin.club) || null, stats: fin.stats || null, extra: fin.extra || null,
-    conf: confOf(V), rep: V.r.length, votes: JSON.stringify(V), src: (row && row.src) || (tok === 'seed' ? 1 : 0) };
-  if (!row) return { row: out, mode: 'new' };
-  const idx = out.pos !== row.pos || out.cn !== (row.cn || null) || out.nn !== (row.nn || null) || out.ln !== (row.ln || null);
-  if (idx) return { row: out, mode: 'idx' };
-  return { row: out, mode: out.votes === row.votes && out.rare === row.rare && out.src === (row.src || 0) ? 'none' : 'plain' };
+    conf: confOf(V), rep: V.r.length, votes: JSON.stringify(V), src: (row && row.src) || base.src || 0 };
+}
+// Même joueur écrit autrement : « Mbappé », « K. Mbappé » et « Kylian Mbappé » (même note, même version, même poste, même nation).
+function nameWords(n1) { return String(n1 || '').replace(/\./g, ' ').split(' ').filter(Boolean); }
+function compatNames(a, b) {
+  if (a === b) return true;
+  const A = nameWords(a), B = nameWords(b);
+  if (!A.length || !B.length) return false;
+  const S = A.length <= B.length ? A : B, L = A.length <= B.length ? B : A;
+  if (S.length === 1 && L.length > 1 && L[0] === S[0] && S[0].length >= 3) return true; // nom d'usage = prénom (« Rodrygo » / « Rodrygo Goes »)
+  if (A[A.length - 1] !== B[B.length - 1]) return false;
+  let j = 0;
+  for (let i = 0; i < S.length - 1; i++) {
+    const w = S[i]; let found = false;
+    while (j < L.length - 1) { const v = L[j++]; if (v === w || (w.length === 1 && v[0] === w) || (v.length === 1 && w[0] === v)) { found = true; break; } }
+    if (!found) return false;
+  }
+  return true;
+}
+function altList(x) { return Array.isArray(x.alt) ? x.alt : String(x.alt || '').split(',').filter(Boolean); }
+function sameCard(r, c) {
+  if (r.ovr !== c.ovr || r.kind !== c.kind || !compatNames(r.n1, c.n1)) return false;
+  const posOk = r.pos === c.pos || altList(r).includes(c.pos) || altList(c).includes(r.pos);
+  const nnOk = !r.nn || !c.nn || r.nn === c.nn;
+  return posOk && nnOk;
+}
+function fuller(a, b) { const x = nameWords(a.n1).length, y = nameWords(b.n1).length; return x !== y ? x > y : a.n1.length > b.n1.length; }
+// Fiches qui peuvent désigner le même joueur : même dernier mot, ou nom d'usage = premier mot
+async function candidates(db, names, cols) {
+  const lw = new Set(), fw = new Set(), single = new Set();
+  names.forEach((n1) => { const w = n1.split(' '); lw.add(w[w.length - 1]); if (w.length === 1) single.add(n1); else fw.add(w[0]); });
+  const stmts = [db.prepare('SELECT ' + cols + ' FROM cards WHERE n3 IN (SELECT value FROM json_each(?1)) OR n1 IN (SELECT value FROM json_each(?2))').bind(JSON.stringify([...lw]), JSON.stringify([...fw]))];
+  [...single].slice(0, 60).forEach((n) => stmts.push(db.prepare('SELECT ' + cols + ' FROM cards WHERE n1 > ?1 AND n1 < ?2').bind(n + ' ', n + ' ~')));
+  const res = await db.batch(stmts), seen = {}, out = [];
+  res.forEach((r) => (r.results || []).forEach((row) => { if (!seen[row.k]) { seen[row.k] = 1; out.push(row); } }));
+  return out;
+}
+// Parmi plusieurs fiches possibles : si elles désignent toutes le même joueur, on garde la plus complète ; sinon on ne devine pas
+function resolve(cands) {
+  if (!cands.length) return null;
+  const sorted = cands.slice().sort((a, b) => (fuller(a, b) ? -1 : fuller(b, a) ? 1 : 0)), top = sorted[0];
+  return sorted.every((r) => r === top || sameCard(top, r)) ? top : null;
+}
+// Fusionne les votes d'une fiche en double dans la fiche gardée
+function absorb(V, W) {
+  for (const f in W.c) {
+    const cf = V.c[f] || (V.c[f] = {});
+    for (const id in W.c[f]) { if (cf[id]) cf[id][0] += W.c[f][id][0]; else cf[id] = W.c[f][id].slice(); }
+    const ids = Object.keys(cf); if (ids.length > MAX_VARIANTS) { ids.sort((a, b) => cf[b][0] - cf[a][0]); ids.slice(MAX_VARIANTS).forEach((id) => { delete cf[id]; }); }
+  }
+  for (const t in W.v) if (!V.v[t] && Object.keys(V.v).length < MAX_VOTERS) V.v[t] = W.v[t];
+  W.r.forEach((t) => { if (V.r.indexOf(t) < 0 && V.r.length < 30) V.r.push(t); });
+  return V;
 }
 const W_COLS = ['k', 'name', 'n1', 'n2', 'n3', 'ovr', 'kind', 'rare', 'pos', 'alt', 'nation', 'league', 'club', 'stats', 'extra', 'conf', 'rep', 'votes', 'cn', 'nn', 'ln', 'src'];
 function upsertSql(withIndexed) {
@@ -287,21 +338,78 @@ function upsertSql(withIndexed) {
   return 'INSERT INTO cards (' + W_COLS.join(', ') + ', seen, updated) SELECT ' + W_COLS.map((c) => "json_extract(value, '$." + c + "')").join(', ') + ', 1, ?2 FROM json_each(?1) WHERE true ' +
     'ON CONFLICT(k) DO UPDATE SET ' + set.map((c) => c + ' = excluded.' + c).join(', ') + ', seen = cards.seen + 1, updated = excluded.updated';
 }
-const ROW_COST = { new: 9, idx: 9, plain: 2, none: 0 }; // lignes écrites estimées (table + index)
+const DEL_SQL = 'DELETE FROM cards WHERE k IN (SELECT value FROM json_each(?1))';
+const ROW_COST = { new: 9, idx: 9, rekey: 18, plain: 2, none: 0 }; // lignes écrites estimées (table + index)
 async function writeCards(db, cards, tokFor) {
   if (!cards.length) return { changed: 0, cost: 0 };
   const ex = await db.prepare('SELECT * FROM cards WHERE k IN (SELECT value FROM json_each(?1))').bind(JSON.stringify(cards.map((c) => c.k))).all();
   const byK = {}; (ex.results || []).forEach((r) => { byK[r.k] = r; });
-  const full = [], plain = []; let cost = 0;
-  for (const c of cards) {
-    const m = mergeCard(byK[c.k] || null, c, await tokFor(c));
-    cost += ROW_COST[m.mode];
-    if (m.mode === 'new' || m.mode === 'idx') full.push(m.row); else if (m.mode === 'plain') plain.push(m.row);
+  const items = cards.map((c) => ({ c, row: byK[c.k] || null }));
+  // Pas de doublon : une carte inconnue sous ce nom exact est rattachée à la fiche existante du même joueur
+  const missing = items.filter((it) => !it.row);
+  if (missing.length) {
+    const cand = await candidates(db, missing.map((it) => it.c.n1), '*');
+    missing.forEach((it) => { it.row = resolve(cand.filter((r) => sameCard(r, it.c))); });
+  }
+  // Regroupe les envois qui visent la même carte (y compris « Mbappé » et « Kylian Mbappé » dans le même envoi)
+  const groups = [];
+  for (const it of items) {
+    let g = null;
+    if (it.row) g = groups.find((x) => x.row && x.row.k === it.row.k);
+    else { const m = groups.filter((x) => !x.row && x.items.some((c) => sameCard(c, it.c))); if (m.length === 1) g = m[0]; }
+    if (!g && it.row) g = groups.find((x) => !x.row && x.items.some((c) => sameCard(c, it.row)));
+    if (!g) { g = { row: it.row, items: [] }; groups.push(g); }
+    g.items.push(it.c);
+  }
+  const full = [], plain = [], del = []; let cost = 0;
+  for (const g of groups) {
+    let base = g.row ? { k: g.row.k, n1: g.row.n1, n2: g.row.n2, n3: g.row.n3 } : null;
+    g.items.forEach((c) => { if (!base || fuller(c, base)) base = { k: c.k, n1: c.n1, n2: c.n2, n3: c.n3 }; }); // la fiche garde le nom le plus complet
+    const tok = await tokFor({ k: base.k });
+    const V = parseVotes(g.row);
+    g.items.forEach((c) => applyVote(V, tok, voteVals(c)));
+    const first = g.items[0];
+    const out = finalize(Object.assign({}, first, base, { rare: Math.max.apply(null, g.items.map((c) => c.rare || 0)), src: tok === 'seed' ? 1 : 0 }), V, g.row);
+    let mode;
+    if (!g.row) mode = 'new';
+    else if (g.row.k !== out.k) { mode = 'rekey'; del.push(g.row.k); }
+    else if (out.pos !== g.row.pos || out.cn !== (g.row.cn || null) || out.nn !== (g.row.nn || null) || out.ln !== (g.row.ln || null)) mode = 'idx';
+    else mode = out.votes === g.row.votes && out.rare === g.row.rare && out.src === (g.row.src || 0) ? 'none' : 'plain';
+    cost += ROW_COST[mode];
+    if (mode === 'plain') plain.push(out); else if (mode !== 'none') full.push(out);
   }
   const now = new Date().toISOString(), stmts = [];
+  if (del.length) stmts.push(db.prepare(DEL_SQL).bind(JSON.stringify(del)));
   if (full.length) stmts.push(db.prepare(upsertSql(true)).bind(JSON.stringify(full), now));
   if (plain.length) stmts.push(db.prepare(upsertSql(false)).bind(JSON.stringify(plain), now));
   return { stmts, changed: full.length + plain.length, cost };
+}
+// Nettoyage unique des doublons déjà présents (passage au schéma 3)
+async function mergeDuplicates(db) {
+  const res = await db.prepare('SELECT * FROM cards LIMIT 20000').all();
+  const groups = {};
+  (res.results || []).forEach((r) => {
+    const add = (g) => { (groups[g] = groups[g] || []).push(r); };
+    add(r.ovr + '|' + r.kind + '|l:' + r.n3); add(r.ovr + '|' + r.kind + '|f:' + r.n1.split(' ')[0]);
+  });
+  const keep = [], del = [], gone = {}, kept = {};
+  for (const g in groups) {
+    const rows = groups[g].filter((r) => !gone[r.k]); if (rows.length < 2) continue;
+    rows.sort((a, b) => (fuller(a, b) ? -1 : fuller(b, a) ? 1 : 0));
+    // fiches les plus complètes d'abord : chacune rejoint l'unique fiche plus complète du même joueur, sinon elle reste seule
+    const anchors = [];
+    for (const r of rows) {
+      const m = anchors.filter((a) => sameCard(a.row, r));
+      if (m.length === 1) { m[0].V = absorb(m[0].V, r._V || parseVotes(r)); m[0].n++; del.push(r.k); gone[r.k] = 1; }
+      else if (!m.length) anchors.push({ row: r, V: r._V || parseVotes(r), n: 0 });
+    }
+    anchors.filter((a) => a.n).forEach((a) => { a.row._V = a.V; kept[a.row.k] = a.row; });
+  }
+  if (!del.length) return 0;
+  Object.values(kept).forEach((r) => { if (!gone[r.k]) keep.push(finalize(r, r._V, r)); });
+  const now = new Date().toISOString();
+  await db.batch([db.prepare(DEL_SQL).bind(JSON.stringify(del)), db.prepare(upsertSql(true)).bind(JSON.stringify(keep), now)]);
+  return del.length;
 }
 const OUT_COLS = 'k, name, ovr, kind, rare, pos, alt, nation, league, club, stats, extra, conf, src';
 const VISIBLE = 'NOT (rep >= 3 AND rep >= conf)'; // carte signalée par plus de joueurs qu'elle n'a de confirmations : cachée
@@ -405,15 +513,19 @@ async function handleData(env, ctx, request, task, body, origin) {
   if (task === 'cards_search') return reply({ cards: await searchCards(db, body) }, 200, origin);
 
   if (task === 'cards_lookup') {
-    const items = (Array.isArray(body.items) ? body.items : []).slice(0, 80).map((it) => ({ n1: norm(it && it.name), ovr: int(it && it.ovr) }));
+    const items = (Array.isArray(body.items) ? body.items : []).slice(0, 80).map((it) => { const n1 = norm(it && it.name), w = n1.split(' '); return { n1, n3: w[w.length - 1] || '', ovr: int(it && it.ovr) }; });
     const names = [...new Set(items.map((it) => it.n1).filter((n) => n.length >= 2))];
     if (!names.length) return reply({ found: items.map(() => null) }, 200, origin);
-    const res = await db.prepare('SELECT ' + OUT_COLS + ', n1 FROM cards WHERE n1 IN (SELECT value FROM json_each(?1)) AND ' + VISIBLE).bind(JSON.stringify(names)).all();
-    const byName = {};
-    (res.results || []).forEach((r) => { (byName[r.n1] = byName[r.n1] || []).push(r); });
+    // joueurs qui peuvent correspondre, puis tri : nom exact d'abord, sinon même joueur écrit autrement
+    const rows = (await candidates(db, names, OUT_COLS + ', n1, n3, rep')).filter((r) => !(r.rep >= 3 && r.rep >= r.conf));
     const found = items.map((it) => {
-      let list = byName[it.n1] || [];
-      if (it.ovr >= 40 && it.ovr <= 99) list = list.filter((r) => r.ovr === it.ovr);
+      let list = rows.filter((r) => (it.ovr >= 40 && it.ovr <= 99 ? r.ovr === it.ovr : true));
+      const exact = list.filter((r) => r.n1 === it.n1);
+      if (exact.length) list = exact;
+      else {
+        list = list.filter((r) => compatNames(r.n1, it.n1));
+        const players = new Set(list.map((r) => r.n1)); if (players.size !== 1) return null; // plusieurs joueurs possibles : on ne devine pas
+      }
       if (!list.length) return null;
       list.sort((a, b) => (b.conf || 0) - (a.conf || 0) || (a.kind === 'base' ? -1 : 0) - (b.kind === 'base' ? -1 : 0));
       return outCard(list[0]);
