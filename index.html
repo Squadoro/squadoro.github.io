@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Squadoro</title>
 <meta name="description" content="Squadoro : complète un maximum de DCE avec les cartes de ton club FC 27 et trouve ta meilleure équipe.">
+<meta name="google-adsense-account" content="ca-pub-7663840153020314">
 <meta name="theme-color" content="#fbfcf9" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#141d17" media="(prefers-color-scheme: dark)">
 <link rel="manifest" href="manifest.webmanifest">
@@ -2002,7 +2003,7 @@ a.btn { color: inherit; text-decoration: none; }
     ['supportHome', 'supportFoot', 'supportTop'].forEach(function (id) { var e = $('#' + id); if (e) e.hidden = false; });
   }
   function setupAds(a) {
-    if (!a || !/^ca-pub-\d{10,20}$/.test(a.client || '') || !a.slots) return;
+    if (!a || !/^ca-pub-\d{10,20}$/.test(a.client || '')) return;
     adCfg = a;
     setTimeout(function () {
       var sc = document.createElement('script'); sc.async = true; sc.crossOrigin = 'anonymous';

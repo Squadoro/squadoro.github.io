@@ -1,4 +1,9 @@
 {
  "aiUrl": "https://squadoro-ai.mohamedajmidar24.workers.dev/",
- "analyticsToken": "3821d8c7969343669c2bdd75ff697576"
+ "analyticsToken": "3821d8c7969343669c2bdd75ff697576",
+ "supportUrl": "https://ko-fi.com/squadoro",
+ "ads": {
+  "client": "ca-pub-7663840153020314",
+  "slots": {}
+ }
 }
