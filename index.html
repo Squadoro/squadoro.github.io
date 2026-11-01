@@ -64,8 +64,9 @@
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 html, body { background: var(--bg); color: var(--ink); }
-body { font-family: var(--f-body); font-size: 14px; line-height: 1.45; -webkit-text-size-adjust: 100%; }
+body { margin: 0; font-family: var(--f-body); font-size: 14px; line-height: 1.45; -webkit-text-size-adjust: 100%; }
 body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--surface); }
 button, input, select, textarea { font: inherit; color: inherit; }
 h1, h2, h3 { text-wrap: balance; margin: 0; }
