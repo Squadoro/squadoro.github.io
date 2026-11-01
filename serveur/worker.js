@@ -8,9 +8,11 @@
  * Réglages du Worker (Settings → Variables and Secrets) :
  *   ANTHROPIC_API_KEY  (Secret, obligatoire) : ta clé d'API Anthropic.
  *   MODEL              (Text, facultatif)    : modèle utilisé, "claude-haiku-5-5" par défaut.
- *   DAILY_LIMIT        (Text, facultatif)    : nombre d'envois par jour et par appareil, 60 par défaut.
- * Liaison facultative (Settings → Bindings) :
- *   LIMITS (KV namespace) : active la limite par jour et par appareil.
+ *   FIRST_DAY_LIMIT    (Text, facultatif)    : captures le premier jour d'utilisation d'un appareil, 50 par défaut.
+ *   DAILY_LIMIT        (Text, facultatif)    : captures par jour ensuite, 20 par défaut.
+ * Liaison (Settings → Bindings) :
+ *   LIMITS (KV namespace) : nécessaire pour appliquer les limites côté serveur.
+ *   Sans elle, seule l'appli compte les captures (contournable en effaçant ses données).
  */
 
 const PROMPTS = {
@@ -39,15 +41,42 @@ function reply(body, status, origin) {
   });
 }
 
-async function underDailyLimit(env, request) {
-  if (!env.LIMITS) return true;
-  const ip = request.headers.get('CF-Connecting-IP') || 'inconnu';
-  const day = new Date().toISOString().slice(0, 10);
-  const key = 'n:' + day + ':' + ip;
-  const used = parseInt((await env.LIMITS.get(key)) || '0', 10);
-  if (used >= parseInt(env.DAILY_LIMIT || '60', 10)) return false;
-  await env.LIMITS.put(key, String(used + 1), { expirationTtl: 172800 });
-  return true;
+// Jour local (Bruxelles) pour que la limite se remette à zéro à minuit, comme dans l'appli.
+function today() {
+  return new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Brussels', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
+}
+
+// Limites : 50 captures le premier jour d'utilisation d'un appareil, puis 20 par jour.
+// Garde-fous en plus : 150 captures par jour et par adresse IP, 40 recherches nation/ligue/club par jour et par appareil.
+async function checkQuota(env, request, device, task, images) {
+  if (!env.LIMITS) return { ok: true };
+  try {
+    const ip = request.headers.get('CF-Connecting-IP') || 'inconnu';
+    const day = today();
+    const dev = /^[A-Za-z0-9-]{8,64}$/.test(device || '') ? device : 'ip-' + ip;
+    if (task === 'fill') {
+      const key = 'fill:' + day + ':' + dev;
+      const used = parseInt((await env.LIMITS.get(key)) || '0', 10);
+      if (used >= 40) return { ok: false, body: { error: 'rate_limited' } };
+      await env.LIMITS.put(key, String(used + 1), { expirationTtl: 172800 });
+      return { ok: true };
+    }
+    let first = await env.LIMITS.get('first:' + dev);
+    if (!first) { first = day; await env.LIMITS.put('first:' + dev, day); }
+    const isFirst = first === day;
+    const max = isFirst ? parseInt(env.FIRST_DAY_LIMIT || '50', 10) : parseInt(env.DAILY_LIMIT || '20', 10);
+    const key = 'img:' + day + ':' + dev, ipKey = 'ipimg:' + day + ':' + ip;
+    const used = parseInt((await env.LIMITS.get(key)) || '0', 10);
+    const ipUsed = parseInt((await env.LIMITS.get(ipKey)) || '0', 10);
+    if (used + images > max || ipUsed + images > 150) {
+      return { ok: false, body: { error: 'quota', max, used, first: isFirst } };
+    }
+    await env.LIMITS.put(key, String(used + images), { expirationTtl: 172800 });
+    await env.LIMITS.put(ipKey, String(ipUsed + images), { expirationTtl: 172800 });
+    return { ok: true };
+  } catch (e) {
+    return { ok: true }; // en cas de souci de stockage, on laisse passer : la limite de dépense Anthropic reste le garde-fou
+  }
 }
 
 export default {
@@ -74,7 +103,8 @@ export default {
     }
     const text = String((body && body.text) || '').slice(0, MAX_TEXT);
 
-    if (!(await underDailyLimit(env, request))) return reply({ error: 'rate_limited' }, 429, allowOrigin);
+    const quota = await checkQuota(env, request, body.device, task, images.length);
+    if (!quota.ok) return reply(quota.body, 429, allowOrigin);
 
     const content = images.map((im) => ({ type: 'image', source: { type: 'base64', media_type: im.type, data: im.data } }));
     content.push({ type: 'text', text: PROMPTS[task] + text });
