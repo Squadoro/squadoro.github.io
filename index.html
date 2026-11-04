@@ -2957,6 +2957,12 @@ label.field > input, label.field > select { color: var(--ink); font-weight: 400;
 .cat-list { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; max-height: 460px; overflow-y: auto; }
 .cat-row { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 10px; align-items: center; padding: 8px 10px; border-top: 1px solid var(--line); background: var(--surface); }
 .cat-row:first-child { border-top: 0; }
+.sbc-main[role=button], .cat-main[role=button] { cursor: pointer; border-radius: 8px; }
+.sbc-main[role=button]:hover .sbc-title, .cat-main[role=button]:hover .sbc-title { color: var(--accent); }
+.sbc-main[role=button]:focus-visible, .cat-main[role=button]:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.sv-link { display: inline-block; margin-top: 3px; font-size: 12px; font-weight: 700; color: var(--accent); }
+.sbc-view .sv-pitch { display: flex; justify-content: center; }
+.sbc-view .sv-pitch .pitch.sm { max-width: 380px; }
 .cat-group { padding: 6px 10px; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); background: var(--surface-2); border-top: 1px solid var(--line); }
 .cat-group:first-child { border-top: 0; }
 .run-panel { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 100px); }
@@ -6442,11 +6448,62 @@ a.btn { color: inherit; text-decoration: none; }
     }).join('');
   }
   function setName(d) { if (d.set) return d.set; var i = String(d.name || '').indexOf(' : '); return i > 0 ? d.name.slice(0, i) : ''; }
+  /* Un DCE à la fois : formation, postes et composition (« Voir ») depuis Mes DCE ou le catalogue */
+  var sbcViewSeq = 0, sbcViewCur = null;
+  function viewPool() {
+    var reserve = teamReserve();
+    return state.cards.filter(function (c) { return !c.active && !c.locked && !c.loan && !reserve[c.id]; });
+  }
+  function planResultFor(id) {
+    if (!plan || planStale) return null;
+    for (var i = 0; i < plan.instances.length; i++) if (plan.instances[i].d.id === id && plan.instances[i].rep === 1 && plan.results[i] && !planDone[i]) return plan.results[i];
+    return null;
+  }
+  async function openSbcView(d, src, fresh) {
+    var seq = ++sbcViewSeq, mine = src === 'mine';
+    sbcViewCur = { d: d, src: src };
+    var o = $('#overlay');
+    var head = '<div class="row" style="justify-content:space-between;align-items:flex-start"><div style="min-width:0"><h3 data-notr>' + esc(d.name) + '</h3>' +
+      '<div class="sbc-req">' + esc(d.type === 'classic' ? layoutText(d) : sbcSummary(d)) + '</div></div><button class="icon-btn" data-action="rep-cancel" aria-label="Fermer">✕</button></div>';
+    o.innerHTML = '<div class="panel sbc-view" role="dialog" aria-modal="true" aria-label="' + esc(d.name) + '">' + head + '<p class="note" id="svBody">Recherche de la meilleure composition…</p></div>';
+    o.hidden = false;
+    if (!state.cards.length) { $('#svBody').textContent = 'Ton club est vide : importe tes cartes pour voir une composition.'; return; }
+    var r = mine && !fresh ? planResultFor(d.id) : null, fromPlan = !!r;
+    if (!r) {
+      var one = E.expandSbcs([Object.assign({}, d, { enabled: true, done: false, repeat: 1 })])[0];
+      try { r = await runEngine('solveOne', [viewPool(), one.d, effS(), fresh ? 101 + Math.floor(Math.random() * 900) : 41]); }
+      catch (e) { if (seq === sbcViewSeq) $('#svBody').textContent = 'Le calcul a échoué : ' + (e && e.message || e); return; }
+    }
+    if (seq !== sbcViewSeq || o.hidden) return;
+    var S = effS(), body = '';
+    if (d.type === 'classic') {
+      if (r.reason === 'pool') body = '<p>Pas assez de joueurs éligibles (' + r.eligible + ' trouvés, ' + (r.players || 11) + ' nécessaires) avec les conditions de qualité ou de note.</p>';
+      else {
+        body = '<div class="sv-pitch">' + pitchHTML(r.squad, { cls: 'sm' }) + '</div>' +
+          '<div class="row small"><strong>Formation ' + esc(r.formation) + ((r.players || 11) < 11 ? ' · ' + r.players + ' joueurs' : '') + '</strong><span class="muted">· note ' + r.rating + ' · collectif ' + r.chem + '/' + (r.chemMax || 33) + ' · valeur ≈ ' + fmt(r.cost) + '</span></div>' +
+          (r.ok ? '<span class="pill ok">Complétable</span>' : '<span class="pill bad">Impossible avec tes cartes</span>') +
+          (r.formationGuess || r.slotsGuess || d.layoutVerify ? '<div class="hint layout-warn"><span>' + (r.formationGuess ? 'Formation choisie par l\'appli : si le DCE en impose une autre dans le jeu, indique-la.' : r.slotsGuess ? 'Postes choisis par l\'appli : dans le jeu, vérifie quels postes sont verrouillés et indique-les.' : 'Formation reprise d\'une solution publiée : vérifie-la dans le jeu.') + ' Sinon, l\'équipe risque de ne pas rentrer telle quelle.</span></div>' : '') +
+          '<ul class="checklist">' + (r.details || []).map(function (q) { return '<li><span class="' + (q.ok ? 'y' : 'n') + '">' + (q.ok ? '✓' : '✗') + '</span><span>' + esc(E.condText(q.cond)) + '</span><span class="v">' + q.value + '</span></li>'; }).join('') + '</ul>' +
+          (!r.ok ? '<p class="note" style="color:var(--bad)">Meilleure tentative avec ton club : les conditions marquées ✗ ne sont pas remplies.</p>' : '') +
+          '<span class="eyebrow">Composition, poste par poste</span><div class="minis">' + r.squad.filter(function (s) { return s.card; }).map(function (s) { return mini(s.card, '<span class="tagd">' + posFr(s.slot) + '</span>' + (!s.card.tradeable ? '<span class="tagd">NE</span>' : '')); }).join('') + '</div>' +
+          (r.squad.some(function (s) { return s.closed; }) ? '<p class="note">Postes hachurés : verrouillés dans le jeu, n\'y mets personne.</p>' : '');
+      }
+    } else {
+      if (r.ok) body = '<div class="row" style="justify-content:space-between"><span class="gem">' + fmt(r.total) + ' / ' + fmt(r.target) + '</span><span class="ovs ' + (r.level || 'ok') + '">' + (r.overshoot ? 'Dépassement ◆ ' + fmt(r.overshoot) : 'Pile le score demandé') + '</span></div>' +
+        '<p class="small muted" style="margin:0">' + r.cards.length + ' carte' + (r.cards.length > 1 ? 's' : '') + ' · valeur ≈ ' + fmt(r.cost) + ' crédits</p>' +
+        '<div class="minis">' + r.cards.map(function (c) { return mini(c, '<span class="gem">' + fmt(E.itemScore(c, S)) + '</span>' + (!c.tradeable ? '<span class="tagd">NE</span>' : '') + (c.dup ? '<span class="tagd">DBL</span>' : '')); }).join('') + '</div>';
+      else body = r.reason === 'score' ? '<p>Avec tes cartes disponibles (' + fmt(r.eligible) + ' éligibles), il manque <strong class="gem">' + fmt(r.missing) + '</strong> points sur ' + fmt(r.target) + '.</p>' : '<p>Pas assez de cartes éligibles.</p>';
+    }
+    body += '<p class="note">' + (fromPlan ? 'Composition du dernier calcul : tes cartes sont réparties entre tous tes DCE cochés.' : 'Composition pour ce DCE seul, avec toutes tes cartes disponibles (sans l\'équipe active, les cartes protégées ni les prêts).') + '</p>' +
+      '<div class="row">' + (mine ? '<button class="btn sm" data-action="res-edit" data-sid="' + esc(d.id) + '">' + (d.type === 'classic' ? 'Modifier la formation et les postes' : 'Modifier le DCE') + '</button>' : (inMine(d.cid) ? '' : '<button class="btn sm primary" data-action="sv-add">Ajouter à mes DCE</button>')) +
+      '<button class="btn sm ghost" data-action="sv-other">Autre composition</button><button class="btn sm ghost" data-action="rep-cancel">Fermer</button></div>';
+    $('#svBody').outerHTML = '<div class="view" style="gap:10px">' + body + '</div>';
+  }
   function sbcRow(d) {
       return '<div class="sbc' + (d.enabled && !d.done ? '' : ' off') + '" data-sid="' + esc(d.id) + '">' +
         '<input type="checkbox" class="check" data-action="sbc-toggle"' + (d.enabled ? ' checked' : '') + ' aria-label="Faire ce DCE : ' + esc(d.name) + '" style="width:18px;height:18px;accent-color:var(--accent)">' +
-        '<div class="sbc-main"><div class="sbc-title">' + esc(d.name) + ' <span class="type-chip ' + d.type + '">' + (d.type === 'classic' ? 'Classique' : 'Au score') + '</span>' + (d.category ? '<span class="chip">' + esc(d.category) + '</span>' : '') + (d.repeat > 1 ? '<span class="chip">×' + d.repeat + '</span>' : '') + (d.expires || d.permanent ? expiryChip(d) : '') + (d.announced ? '<span class="chip ann">Annoncé</span>' : '') + (d.priority ? '<span class="chip">Prioritaire</span>' : '') + (d.done ? '<span class="pill done">Fait ✓</span>' : '') + (d.doneCount ? '<span class="chip">' + d.doneCount + ' fois fait</span>' : '') + (+d.submitted > 0 ? '<span class="chip">◆ ' + fmt(d.submitted) + ' déjà soumis</span>' : '') + ((d.force || []).length ? '<span class="chip">' + d.force.length + ' imposée(s)</span>' : '') + ((d.ban || []).length ? '<span class="chip">' + d.ban.length + ' interdite(s)</span>' : '') + '</div>' +
-        '<div class="sbc-req">' + esc(sbcSummary(d)) + '</div></div>' +
+        '<div class="sbc-main" data-action="sbc-view" role="button" tabindex="0" title="Voir la formation et la composition de ce DCE"><div class="sbc-title">' + esc(d.name) + ' <span class="type-chip ' + d.type + '">' + (d.type === 'classic' ? 'Classique' : 'Au score') + '</span>' + (d.category ? '<span class="chip">' + esc(d.category) + '</span>' : '') + (d.repeat > 1 ? '<span class="chip">×' + d.repeat + '</span>' : '') + (d.expires || d.permanent ? expiryChip(d) : '') + (d.announced ? '<span class="chip ann">Annoncé</span>' : '') + (d.priority ? '<span class="chip">Prioritaire</span>' : '') + (d.done ? '<span class="pill done">Fait ✓</span>' : '') + (d.doneCount ? '<span class="chip">' + d.doneCount + ' fois fait</span>' : '') + (+d.submitted > 0 ? '<span class="chip">◆ ' + fmt(d.submitted) + ' déjà soumis</span>' : '') + ((d.force || []).length ? '<span class="chip">' + d.force.length + ' imposée(s)</span>' : '') + ((d.ban || []).length ? '<span class="chip">' + d.ban.length + ' interdite(s)</span>' : '') + '</div>' +
+        '<div class="sbc-req">' + esc(sbcSummary(d)) + '</div><span class="sv-link">Voir la compo ›</span></div>' +
         '<div class="sbc-actions"><button class="icon-btn" data-action="sbc-up" aria-label="Monter">↑</button><button class="icon-btn" data-action="sbc-down" aria-label="Descendre">↓</button>' +
         '<button class="icon-btn" data-action="sbc-repeats" aria-label="Combien de fois je peux le faire" title="Combien de fois je peux le faire sans rien acheter ?">×?</button>' +
         (d.done ? '<button class="icon-btn" data-action="sbc-undone" aria-label="Remettre à faire" title="Remettre à faire">↺</button>' : '') +
@@ -6540,8 +6597,8 @@ a.btn { color: inherit; text-decoration: none; }
     var body = '<div class="cat-list">' + order.map(function (g) {
       return '<div class="cat-group">' + esc(g) + '</div>' + groups[g].map(function (d) {
         var have = inMine(d.cid);
-        return '<div class="cat-row" data-cid="' + esc(d.cid) + '"><div style="min-width:0"><div class="sbc-title">' + esc(d.name) + ' <span class="type-chip ' + (d.type === 'classic' ? 'classic' : '') + '">' + (d.type === 'classic' ? 'Classique' : 'Au score') + '</span>' + expiryChip(d) + (d.verify ? '<span class="chip verify" title="Valeur à confirmer dans le jeu">à vérifier</span>' : '') + (layoutUnsure(normSbc(d)) ? '<span class="chip verify" title="Formation ou postes ouverts pas encore connus : vérifie-les dans le jeu">postes à vérifier</span>' : '') + '</div>' +
-          '<div class="sbc-req">' + esc(sbcSummary(normSbc(d))) + (d.note ? ' · ' + esc(d.note) : '') + '</div></div>' +
+        return '<div class="cat-row" data-cid="' + esc(d.cid) + '"><div class="cat-main" style="min-width:0" data-action="cat-view" role="button" tabindex="0" title="Voir la formation et la composition de ce DCE"><div class="sbc-title">' + esc(d.name) + ' <span class="type-chip ' + (d.type === 'classic' ? 'classic' : '') + '">' + (d.type === 'classic' ? 'Classique' : 'Au score') + '</span>' + expiryChip(d) + (d.verify ? '<span class="chip verify" title="Valeur à confirmer dans le jeu">à vérifier</span>' : '') + (layoutUnsure(normSbc(d)) ? '<span class="chip verify" title="Formation ou postes ouverts pas encore connus : vérifie-les dans le jeu">postes à vérifier</span>' : '') + '</div>' +
+          '<div class="sbc-req">' + esc(sbcSummary(normSbc(d))) + (d.note ? ' · ' + esc(d.note) : '') + '</div><span class="sv-link">Voir la compo ›</span></div>' +
           (have ? '<span class="muted small">Ajouté ✓</span>' : '<button class="btn sm" data-action="cat-add">Ajouter</button>') + '</div>';
       }).join('');
     }).join('') + '</div>' + (catalog.note ? '<p class="note">' + esc(catalog.note) + '</p>' : '');
@@ -7715,7 +7772,11 @@ a.btn { color: inherit; text-decoration: none; }
     'sbc-close': function () { editingSbc = null; $('#sbcEditor').hidden = true; },
     'sbc-save': saveSbc,
     'slot-toggle': function (b) { slotToggle(+b.dataset.sl); },
-    'res-edit': function (b) { var i = findSbc(b.dataset.sid); if (i >= 0) openSbcEditor(state.sbcs[i]); },
+    'res-edit': function (b) { var i = findSbc(b.dataset.sid); if (i < 0) return; if (!$('#overlay').hidden) closeOverlay(); if (state.ui.view !== 'dce') go('dce'); openSbcEditor(state.sbcs[i]); },
+    'sbc-view': function (b) { var i = findSbc(b.closest('[data-sid]').dataset.sid); if (i >= 0) openSbcView(state.sbcs[i], 'mine'); },
+    'cat-view': function (b) { var cid = b.closest('[data-cid]').dataset.cid, d = ((catalog && catalog.sbcs) || []).find(function (x) { return x.cid === cid; }); if (!d) return; var c = normSbc(E.clone(d)); c.cid = d.cid; openSbcView(c, 'cat'); },
+    'sv-other': function () { if (sbcViewCur) openSbcView(sbcViewCur.d, sbcViewCur.src, true); },
+    'sv-add': function () { var d = sbcViewCur && sbcViewCur.d, cd = d && ((catalog && catalog.sbcs) || []).find(function (x) { return x.cid === d.cid; }); closeOverlay(); if (cd && addFromCatalog(cd)) { commit(); renderDce(); toast('« ' + cd.name + ' » ajouté à tes DCE.'); } },
     'cond-add': function (b) { readSbcEditor(); editingSbc.conds.push(newCond(b.dataset.ct)); renderSbcEditor(); },
     'cond-del': function (b) { readSbcEditor(); editingSbc.conds.splice(+b.dataset.ci, 1); renderSbcEditor(); },
     'run-plan': runPlan,
@@ -7845,6 +7906,7 @@ a.btn { color: inherit; text-decoration: none; }
   $('#overlay').addEventListener('click', function (e) { if (e.target === this) this.hidden = true; });
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') { $('#overlay').hidden = true; }
+    if ((e.key === 'Enter' || e.key === ' ') && e.target && e.target.getAttribute && e.target.getAttribute('role') === 'button' && e.target.dataset.action) { e.preventDefault(); e.target.click(); return; }
     var tag = (e.target && e.target.tagName) || '';
     if ((e.ctrlKey || e.metaKey) && (e.key === 'z' || e.key === 'Z') && !/INPUT|TEXTAREA|SELECT/.test(tag)) { e.preventDefault(); if (e.shiftKey) redo(); else undo(); }
   });
