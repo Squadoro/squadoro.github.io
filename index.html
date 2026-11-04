@@ -5669,7 +5669,23 @@ a.btn { color: inherit; text-decoration: none; }
           '<button class="icon-btn" data-action="hist-del" aria-label="Retirer de l\'historique">✕</button></div>';
       }).join('') + '</div>';
   }
-  function renderAll() { renderCounts(); show(currentView()); }
+  function renderAll() { purgeExpired(); renderCounts(); show(currentView()); }
+  /* DCE expirés : retirés automatiquement de « Mes DCE » (à l'ouverture, au changement de jour et au retour sur l'appli) */
+  function purgeExpired() {
+    if (!state || !state.sbcs) return 0;
+    var gone = state.sbcs.filter(isExpired); if (!gone.length) return 0;
+    var ids = {}; gone.forEach(function (d) { ids[d.id] = 1; });
+    state.sbcs = state.sbcs.filter(function (d) { return !ids[d.id]; });
+    if (typeof editingSbc !== 'undefined' && editingSbc && ids[editingSbc.id]) { editingSbc = null; var se = $('#sbcEditor'); if (se) se.hidden = true; }
+    state.ui.impossible = (state.ui.impossible || []).filter(function (id) { return !ids[id]; });
+    state.ui.purged = (state.ui.purged || []).concat(gone.map(function (d) { return d.name; })).slice(-30);
+    commit({ fromUndo: true }); prevSnap = snapData();
+    var names = gone.map(function (d) { return d.name; });
+    toast(gone.length + ' DCE expiré(s) retiré(s) automatiquement : ' + names.slice(0, 3).join(', ') + (names.length > 3 ? '…' : '') + '.');
+    return gone.length;
+  }
+  setInterval(function () { if (purgeExpired()) renderAll(); }, 5 * 60 * 1000);
+  document.addEventListener('visibilitychange', function () { if (document.visibilityState === 'visible' && purgeExpired()) renderAll(); });
 
   /* ================= MON CLUB ================= */
   function renderClub() {
@@ -7513,8 +7529,8 @@ a.btn { color: inherit; text-decoration: none; }
         if (ann.length) items.push(['warn', ann.length + ' DCE annoncé' + (ann.length > 1 ? 's' : '') + ' : ' + ann.map(function (d) { return d.name; }).join(', ')]);
       }
     }
-    var exp = state.sbcs.filter(function (d) { return isExpired(d) && !d.done && (state.ui.seenExpired || []).indexOf(d.id) < 0; });
-    if (exp.length) items.push(['bad', exp.length + ' de tes DCE ' + (exp.length > 1 ? 'ont' : 'a') + ' expiré : ' + exp.slice(0, 3).map(function (d) { return d.name; }).join(', ') + (exp.length > 3 ? '…' : '')]);
+    var exp = state.ui.purged || [];
+    if (exp.length) items.push(['bad', exp.length + ' DCE expiré(s) retiré(s) de ta liste : ' + exp.slice(0, 3).join(', ') + (exp.length > 3 ? '…' : '')]);
     if (market && market.prices) {
       if (!state.ui.lastPrices) state.ui.lastPrices = Object.assign({}, market.prices);
       else {
@@ -7786,7 +7802,7 @@ a.btn { color: inherit; text-decoration: none; }
       var n = 0; state.cards = state.cards.filter(function (c) { if (selIds[c.id]) { n++; return false; } return true; });
       selIds = {}; selDelConfirm = false; commit({ label: 'suppression de ' + n + ' cartes' }); renderClub(); renderSelBar(); toast(n + ' carte' + (n > 1 ? 's' : '') + ' supprimée' + (n > 1 ? 's' : '') + '.', 'Annuler', undo);
     },
-    'news-seen': function () { if (catalog && catalog.sbcs) state.ui.seenCids = catalog.sbcs.map(function (d) { return d.cid; }); if (market && market.prices) state.ui.lastPrices = Object.assign({}, market.prices); state.ui.seenExpired = state.sbcs.filter(isExpired).map(function (d) { return d.id; }); state.ui.nowFeasible = []; commit({ keepPlan: true }); renderHome(); renderFeasibleBanner(); },
+    'news-seen': function () { if (catalog && catalog.sbcs) state.ui.seenCids = catalog.sbcs.map(function (d) { return d.cid; }); if (market && market.prices) state.ui.lastPrices = Object.assign({}, market.prices); state.ui.purged = []; state.ui.nowFeasible = []; commit({ keepPlan: true }); renderHome(); renderFeasibleBanner(); },
     'home-plan': function () { go('dce'); setTimeout(runPlan, 50); },
     'undo': undo, 'redo': redo,
     'bk-restore': function (b) {
