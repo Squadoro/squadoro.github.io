@@ -2962,6 +2962,10 @@ label.field > input, label.field > select { color: var(--ink); font-weight: 400;
 .sbc-main[role=button]:focus-visible, .cat-main[role=button]:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .sv-link { display: inline-block; margin-top: 3px; font-size: 12px; font-weight: 700; color: var(--accent); }
 .sbc-view .sv-pitch { display: flex; justify-content: center; }
+.sv-layout { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: flex-end; margin: 10px 0; padding: 10px; border-radius: 10px; background: var(--surface-2); }
+.sv-layout .field { min-width: 0; } .sv-layout select { min-width: 190px; } .sv-layout input[type=number] { width: 80px; }
+.sv-lbtn { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.sbc-view .slot-pick { margin: 0 auto; }
 .sbc-view .sv-pitch .pitch.sm { max-width: 380px; }
 .cat-group { padding: 6px 10px; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); background: var(--surface-2); border-top: 1px solid var(--line); }
 .cat-group:first-child { border-top: 0; }
@@ -6448,7 +6452,8 @@ a.btn { color: inherit; text-decoration: none; }
     }).join('');
   }
   function setName(d) { if (d.set) return d.set; var i = String(d.name || '').indexOf(' : '); return i > 0 ? d.name.slice(0, i) : ''; }
-  /* Un DCE à la fois : formation, postes et composition (« Voir ») depuis Mes DCE ou le catalogue */
+  /* Un DCE à la fois : formation, postes et composition (« Voir ») depuis Mes DCE ou le catalogue.
+     Le joueur y choisit la formation du jeu et les postes verrouillés ; l'appli recalcule aussitôt la composition la moins chère. */
   var sbcViewSeq = 0, sbcViewCur = null;
   function viewPool() {
     var reserve = teamReserve();
@@ -6459,45 +6464,109 @@ a.btn { color: inherit; text-decoration: none; }
     for (var i = 0; i < plan.instances.length; i++) if (plan.instances[i].d.id === id && plan.instances[i].rep === 1 && plan.results[i] && !planDone[i]) return plan.results[i];
     return null;
   }
-  async function openSbcView(d, src, fresh) {
-    var seq = ++sbcViewSeq, mine = src === 'mine';
-    sbcViewCur = { d: d, src: src };
-    var o = $('#overlay');
-    var head = '<div class="row" style="justify-content:space-between;align-items:flex-start"><div style="min-width:0"><h3 data-notr>' + esc(d.name) + '</h3>' +
-      '<div class="sbc-req">' + esc(d.type === 'classic' ? layoutText(d) : sbcSummary(d)) + '</div></div><button class="icon-btn" data-action="rep-cancel" aria-label="Fermer">✕</button></div>';
-    o.innerHTML = '<div class="panel sbc-view" role="dialog" aria-modal="true" aria-label="' + esc(d.name) + '">' + head + '<p class="note" id="svBody">Recherche de la meilleure composition…</p></div>';
-    o.hidden = false;
-    if (!state.cards.length) { $('#svBody').textContent = 'Ton club est vide : importe tes cartes pour voir une composition.'; return; }
-    var r = mine && !fresh ? planResultFor(d.id) : null, fromPlan = !!r;
+  // opts : noPlan (calculer ce DCE seul), random (autre composition), edit (ouvrir le choix des postes)
+  async function openSbcView(d, src, opts) {
+    opts = opts || {};
+    var seq = ++sbcViewSeq;
+    sbcViewCur = { d: normSbc(E.clone(d)), src: src, r: null, fromPlan: false, edit: !!opts.edit, seq: seq, rep: null };
+    if (d.id) sbcViewCur.d.id = d.id; if (d.cid) sbcViewCur.d.cid = d.cid;
+    renderSbcView();
+    if (!state.cards.length) return;
+    var cur = sbcViewCur, r = src === 'mine' && !opts.noPlan && !opts.random ? planResultFor(d.id) : null;
+    cur.fromPlan = !!r;
     if (!r) {
-      var one = E.expandSbcs([Object.assign({}, d, { enabled: true, done: false, repeat: 1 })])[0];
-      try { r = await runEngine('solveOne', [viewPool(), one.d, effS(), fresh ? 101 + Math.floor(Math.random() * 900) : 41]); }
-      catch (e) { if (seq === sbcViewSeq) $('#svBody').textContent = 'Le calcul a échoué : ' + (e && e.message || e); return; }
+      var one = E.expandSbcs([Object.assign({}, cur.d, { enabled: true, done: false, repeat: 1, _force: [] })])[0];
+      try { r = await runEngine('solveOne', [viewPool(), one.d, effS(), opts.random ? 101 + Math.floor(Math.random() * 900) : 41]); }
+      catch (e) { r = { error: String(e && e.message || e) }; }
     }
-    if (seq !== sbcViewSeq || o.hidden) return;
-    var S = effS(), body = '';
-    if (d.type === 'classic') {
-      if (r.reason === 'pool') body = '<p>Pas assez de joueurs éligibles (' + r.eligible + ' trouvés, ' + (r.players || 11) + ' nécessaires) avec les conditions de qualité ou de note.</p>';
-      else {
-        body = '<div class="sv-pitch">' + pitchHTML(r.squad, { cls: 'sm' }) + '</div>' +
-          '<div class="row small"><strong>Formation ' + esc(r.formation) + ((r.players || 11) < 11 ? ' · ' + r.players + ' joueurs' : '') + '</strong><span class="muted">· note ' + r.rating + ' · collectif ' + r.chem + '/' + (r.chemMax || 33) + ' · valeur ≈ ' + fmt(r.cost) + '</span></div>' +
-          (r.ok ? '<span class="pill ok">Complétable</span>' : '<span class="pill bad">Impossible avec tes cartes</span>') +
-          (r.formationGuess || r.slotsGuess || d.layoutVerify ? '<div class="hint layout-warn"><span>' + (r.formationGuess ? 'Formation choisie par l\'appli : si le DCE en impose une autre dans le jeu, indique-la.' : r.slotsGuess ? 'Postes choisis par l\'appli : dans le jeu, vérifie quels postes sont verrouillés et indique-les.' : 'Formation reprise d\'une solution publiée : vérifie-la dans le jeu.') + ' Sinon, l\'équipe risque de ne pas rentrer telle quelle.</span></div>' : '') +
-          '<ul class="checklist">' + (r.details || []).map(function (q) { return '<li><span class="' + (q.ok ? 'y' : 'n') + '">' + (q.ok ? '✓' : '✗') + '</span><span>' + esc(E.condText(q.cond)) + '</span><span class="v">' + q.value + '</span></li>'; }).join('') + '</ul>' +
-          (!r.ok ? '<p class="note" style="color:var(--bad)">Meilleure tentative avec ton club : les conditions marquées ✗ ne sont pas remplies.</p>' : '') +
-          '<span class="eyebrow">Composition, poste par poste</span><div class="minis">' + r.squad.filter(function (s) { return s.card; }).map(function (s) { return mini(s.card, '<span class="tagd">' + posFr(s.slot) + '</span>' + (!s.card.tradeable ? '<span class="tagd">NE</span>' : '')); }).join('') + '</div>' +
-          (r.squad.some(function (s) { return s.closed; }) ? '<p class="note">Postes hachurés : verrouillés dans le jeu, n\'y mets personne.</p>' : '');
+    if (seq !== sbcViewSeq || $('#overlay').hidden || !$('#overlay .sbc-view')) return;
+    cur.r = r; renderSbcView();
+  }
+  function svLayoutBar(d, cur) {
+    var sure = !layoutUnsure(d), n = d.players || 11;
+    return '<div class="sv-layout"><label class="field">Formation du jeu<select id="svForm"><option value="any"' + (d.formation === 'any' ? ' selected' : '') + '>L\'appli choisit la moins chère</option>' + E.FORMATION_LIST.map(function (f) { return '<option value="' + f + '"' + (d.formation === f ? ' selected' : '') + '>' + f + '</option>'; }).join('') + '</select></label>' +
+      '<label class="field">Joueurs à placer<input type="number" id="svPlayers" min="1" max="11" value="' + n + '"></label>' +
+      (cur.edit ? '' : '<div class="sv-lbtn">' + (d.formation !== 'any' ? '<button class="btn sm' + (sure ? ' ghost' : ' primary') + '" data-action="sv-edit-slots">' + (sure ? 'Modifier les postes' : 'Choisir les postes verrouillés') + '</button>' : '') +
+        '<span class="pill ' + (sure ? 'ok' : 'warn') + '">' + (sure ? 'Formation et postes du jeu ✓' : d.formation === 'any' ? 'Formation à choisir' : 'Postes à vérifier') + '</span></div>') + '</div>';
+  }
+  function renderSbcView() {
+    var cur = sbcViewCur, o = $('#overlay'); if (!cur) return;
+    var d = cur.d, r = cur.r, mine = cur.src === 'mine', S = effS();
+    var h = '<div class="row" style="justify-content:space-between;align-items:flex-start"><div style="min-width:0"><h3 data-notr>' + esc(d.name) + '</h3>' +
+      '<div class="sbc-req">' + esc(d.type === 'classic' ? layoutText(d) : sbcSummary(d)) + '</div></div><button class="icon-btn" data-action="sv-close" aria-label="Fermer">✕</button></div>';
+    if (d.type === 'classic') h += svLayoutBar(d, cur);
+    if (cur.edit && d.type === 'classic' && d.formation !== 'any') {
+      h += slotPickerHTML(d, 'sv-slot') + '<div class="row"><button class="btn primary" data-action="sv-apply">Valider et recalculer</button><button class="btn ghost" data-action="sv-cancel-edit">Annuler</button></div>';
+    } else if (!state.cards.length) h += '<p class="note">Ton club est vide : importe tes cartes pour voir une composition.</p>';
+    else if (!r) h += '<p class="note">Recherche de la composition la moins chère…</p>';
+    else if (r.error) h += '<p class="note">Le calcul a échoué : ' + esc(r.error) + '</p>';
+    else {
+      var body = '';
+      if (d.type === 'classic') {
+        if (r.reason === 'pool') body = '<p>Pas assez de joueurs éligibles (' + r.eligible + ' trouvés, ' + (r.players || 11) + ' nécessaires) avec les conditions de qualité ou de note.</p>';
+        else {
+          body = '<div class="sv-pitch">' + pitchHTML(r.squad, { cls: 'sm' }) + '</div>' +
+            '<div class="row small"><strong>Formation ' + esc(r.formation) + ((r.players || 11) < 11 ? ' · ' + r.players + ' joueurs' : '') + '</strong><span class="muted">· note ' + r.rating + ' · collectif ' + r.chem + '/' + (r.chemMax || 33) + ' · valeur ≈ ' + fmt(r.cost) + '</span></div>' +
+            (r.ok ? '<span class="pill ok">Complétable</span>' : '<span class="pill bad">Impossible avec tes cartes</span>') +
+            (r.formationGuess || r.slotsGuess || d.layoutVerify ? '<div class="hint layout-warn"><span>' + (r.formationGuess ? 'Formation choisie par l\'appli (la moins chère pour ton club) : si le DCE en impose une autre dans le jeu, choisis-la ci-dessus.' : r.slotsGuess ? 'Postes choisis par l\'appli : si d\'autres postes sont verrouillés dans le jeu, touche « Choisir les postes verrouillés ».' : 'Formation reprise d\'une solution publiée : vérifie-la dans le jeu.') + '</span></div>' : '') +
+            '<ul class="checklist">' + (r.details || []).map(function (q) { return '<li><span class="' + (q.ok ? 'y' : 'n') + '">' + (q.ok ? '✓' : '✗') + '</span><span>' + esc(E.condText(q.cond)) + '</span><span class="v">' + q.value + '</span></li>'; }).join('') + '</ul>' +
+            (!r.ok ? '<p class="note" style="color:var(--bad)">Meilleure tentative avec ton club : les conditions marquées ✗ ne sont pas remplies.</p>' : '') +
+            '<span class="eyebrow">Composition, poste par poste</span><div class="minis">' + r.squad.filter(function (s) { return s.card; }).map(function (s) { return mini(s.card, '<span class="tagd">' + posFr(s.slot) + '</span>' + (!s.card.tradeable ? '<span class="tagd">NE</span>' : '')); }).join('') + '</div>' +
+            (r.squad.some(function (s) { return s.closed; }) ? '<p class="note">Postes hachurés : verrouillés dans le jeu, n\'y mets personne.</p>' : '');
+        }
+      } else {
+        if (r.ok) body = '<div class="row" style="justify-content:space-between"><span class="gem">' + fmt(r.total) + ' / ' + fmt(r.target) + '</span><span class="ovs ' + (r.level || 'ok') + '">' + (r.overshoot ? 'Dépassement ◆ ' + fmt(r.overshoot) : 'Pile le score demandé') + '</span></div>' +
+          '<p class="small muted" style="margin:0">' + r.cards.length + ' carte' + (r.cards.length > 1 ? 's' : '') + ' · valeur ≈ ' + fmt(r.cost) + ' crédits</p>' +
+          '<div class="minis">' + r.cards.map(function (c) { return mini(c, '<span class="gem">' + fmt(E.itemScore(c, S)) + '</span>' + (!c.tradeable ? '<span class="tagd">NE</span>' : '') + (c.dup ? '<span class="tagd">DBL</span>' : '')); }).join('') + '</div>';
+        else body = r.reason === 'score' ? '<p>Avec tes cartes disponibles (' + fmt(r.eligible) + ' éligibles), il manque <strong class="gem">' + fmt(r.missing) + '</strong> points sur ' + fmt(r.target) + '.</p>' : '<p>Pas assez de cartes éligibles.</p>';
       }
-    } else {
-      if (r.ok) body = '<div class="row" style="justify-content:space-between"><span class="gem">' + fmt(r.total) + ' / ' + fmt(r.target) + '</span><span class="ovs ' + (r.level || 'ok') + '">' + (r.overshoot ? 'Dépassement ◆ ' + fmt(r.overshoot) : 'Pile le score demandé') + '</span></div>' +
-        '<p class="small muted" style="margin:0">' + r.cards.length + ' carte' + (r.cards.length > 1 ? 's' : '') + ' · valeur ≈ ' + fmt(r.cost) + ' crédits</p>' +
-        '<div class="minis">' + r.cards.map(function (c) { return mini(c, '<span class="gem">' + fmt(E.itemScore(c, S)) + '</span>' + (!c.tradeable ? '<span class="tagd">NE</span>' : '') + (c.dup ? '<span class="tagd">DBL</span>' : '')); }).join('') + '</div>';
-      else body = r.reason === 'score' ? '<p>Avec tes cartes disponibles (' + fmt(r.eligible) + ' éligibles), il manque <strong class="gem">' + fmt(r.missing) + '</strong> points sur ' + fmt(r.target) + '.</p>' : '<p>Pas assez de cartes éligibles.</p>';
+      if (r.ok) body += verdictHTML(d, r);
+      body += '<p class="note">' + (cur.fromPlan ? 'Composition du dernier calcul : tes cartes sont réparties entre tous tes DCE cochés.' : 'Composition la moins chère pour ce DCE seul, avec toutes tes cartes disponibles (sans l\'équipe active, les cartes protégées ni les prêts).') + '</p>' +
+        (cur.rep ? '<p class="note sv-rep">' + cur.rep + '</p>' : '') +
+        '<div class="row">' + (mine ? '' : (inMine(d.cid) ? '' : '<button class="btn sm primary" data-action="sv-add">Ajouter à mes DCE</button>')) +
+        '<button class="btn sm ghost" data-action="sv-other">Autre composition</button>' + (mine ? '<button class="btn sm ghost" data-action="sv-repeats">Combien de fois je peux le refaire ?</button><button class="btn sm ghost" data-action="sv-edit-all">Modifier le DCE</button>' : '') +
+        '<button class="btn sm ghost" data-action="sv-close">Fermer</button></div>';
+      h += '<div class="view" style="gap:10px">' + body + '</div>';
     }
-    body += '<p class="note">' + (fromPlan ? 'Composition du dernier calcul : tes cartes sont réparties entre tous tes DCE cochés.' : 'Composition pour ce DCE seul, avec toutes tes cartes disponibles (sans l\'équipe active, les cartes protégées ni les prêts).') + '</p>' +
-      '<div class="row">' + (mine ? '<button class="btn sm" data-action="res-edit" data-sid="' + esc(d.id) + '">' + (d.type === 'classic' ? 'Modifier la formation et les postes' : 'Modifier le DCE') + '</button>' : (inMine(d.cid) ? '' : '<button class="btn sm primary" data-action="sv-add">Ajouter à mes DCE</button>')) +
-      '<button class="btn sm ghost" data-action="sv-other">Autre composition</button><button class="btn sm ghost" data-action="rep-cancel">Fermer</button></div>';
-    $('#svBody').outerHTML = '<div class="view" style="gap:10px">' + body + '</div>';
+    var focusId = document.activeElement && document.activeElement.id;
+    o.innerHTML = '<div class="panel sbc-view" role="dialog" aria-modal="true" aria-label="' + esc(d.name) + '">' + h + '</div>';
+    o.hidden = false;
+    if (focusId === 'svForm' || focusId === 'svPlayers') { var fe = $('#' + focusId); if (fe) fe.focus(); }
+  }
+  // enregistre la formation, le nombre de joueurs et les postes dans « Mes DCE » (ajoute le DCE du catalogue si besoin), puis recalcule
+  function svSaveLayout() {
+    var cur = sbcViewCur, d = cur.d, i = -1;
+    if (d.formation !== 'any' && d._F && d._picked && openCount(d) < 11) { d.slots = d._F.filter(function (sl, j) { return d._open[j]; }).map(function (sl) { return sl[0]; }); d.players = d.slots.length; }
+    else if (d.formation === 'any' || !d._picked || (d.players || 11) >= 11) delete d.slots;
+    if (cur.src === 'mine') i = findSbc(d.id);
+    else {
+      var cd = ((catalog && catalog.sbcs) || []).find(function (x) { return x.cid === d.cid; });
+      if (inMine(d.cid)) i = state.sbcs.findIndex(function (x) { return x.cid === d.cid; });
+      else if (cd && addFromCatalog(cd)) { i = state.sbcs.length - 1; toast('« ' + cd.name + ' » ajouté à tes DCE.'); }
+    }
+    if (i < 0) return;
+    var t = state.sbcs[i];
+    t.formation = d.formation; t.players = d.players || 11; if (d.slots) t.slots = d.slots.slice(); else delete t.slots;
+    t.layoutUser = true; delete t.layoutVerify;
+    var keep = !!(plan && !planStale);
+    commit({ keepPlan: keep });
+    if (state.ui.view === 'dce') { renderSbcList(); renderCatalog(); }
+    if (keep) plan.instances.forEach(function (x, ii) { if (x.d.id === t.id && !planDone[ii]) recalcOne(ii); }); // le calcul de tous les DCE reste à jour
+    openSbcView(t, 'mine', { noPlan: !keep });
+  }
+  function svSetFormation(f) {
+    var d = sbcViewCur.d;
+    if (d._picked && d._F && openCount(d) < 11) d.slots = d._F.filter(function (sl, j) { return d._open[j]; }).map(function (sl) { return sl[0]; });
+    d.formation = f; d._openF = null;
+    if (f === 'any') { delete d.slots; sbcViewCur.edit = false; }
+    if (sbcViewCur.edit) renderSbcView(); else svSaveLayout();
+  }
+  function svSetPlayers(n) {
+    var d = sbcViewCur.d; n = Math.max(1, Math.min(11, Math.round(n) || 11));
+    if (n === (d.players || 11)) return;
+    d.players = n; delete d.slots; d._openF = null;
+    if (sbcViewCur.edit && d.formation !== 'any') { ensureOpen(d); d._open = d._open.map(function () { return 1; }); d._picked = false; renderSbcView(); }
+    else svSaveLayout();
   }
   function sbcRow(d) {
       return '<div class="sbc' + (d.enabled && !d.done ? '' : ' off') + '" data-sid="' + esc(d.id) + '">' +
@@ -6708,7 +6777,7 @@ a.btn { color: inherit; text-decoration: none; }
     d._F = lay.F; d._open = Array.prototype.slice.call(lay.fixed ? lay.open : lay.open.map(function () { return 1; }));
     d._picked = lay.fixed && lay.need < 11; d._target = 0; d._openF = d.formation;
   }
-  function slotPickerHTML(d) {
+  function slotPickerHTML(d, action) {
     ensureOpen(d);
     var n = openCount(d), want = d._picked ? (d._target || n) : (d.players || 11), msg;
     if (!d._picked && want >= 11) msg = 'Tous les postes sont ouverts. Si des postes sont verrouillés dans le jeu (grisés), touche-les ici pour les fermer.';
@@ -6716,15 +6785,16 @@ a.btn { color: inherit; text-decoration: none; }
     else if (d._target && n !== d._target) msg = n > d._target ? 'Encore ' + (n - d._target) + ' poste(s) à fermer pour arriver à ' + d._target + ' joueurs.' : n + ' postes ouverts : c\'est plus que les ' + d._target + ' joueurs demandés au départ, vérifie dans le jeu.';
     else msg = n + ' postes ouverts, comme dans le jeu. Touche un poste pour l\'ouvrir ou le fermer.';
     return '<div class="field wide"><span>Postes ouverts dans le jeu</span><div class="pitch sm slot-pick"><div class="pl-line"></div><div class="pl-circle"></div><div class="pl-box top"></div><div class="pl-box bot"></div>' +
-      d._F.map(function (sl, j) { var on = !!d._open[j]; return '<button type="button" class="tok ' + (on ? 'open-slot' : 'closed-slot') + '" data-action="slot-toggle" data-sl="' + j + '" style="left:' + sl[1] + '%;top:' + sl[2] + '%" aria-pressed="' + on + '" aria-label="' + posFr(sl[0]) + (on ? ' : ouvert' : ' : verrouillé') + '"><span class="tp">' + posFr(sl[0]) + '</span></button>'; }).join('') +
+      d._F.map(function (sl, j) { var on = !!d._open[j]; return '<button type="button" class="tok ' + (on ? 'open-slot' : 'closed-slot') + '" data-action="' + (action || 'slot-toggle') + '" data-sl="' + j + '" style="left:' + sl[1] + '%;top:' + sl[2] + '%" aria-pressed="' + on + '" aria-label="' + posFr(sl[0]) + (on ? ' : ouvert' : ' : verrouillé') + '"><span class="tp">' + posFr(sl[0]) + '</span></button>'; }).join('') +
       '</div><p class="note">' + msg + '</p></div>';
   }
-  function slotToggle(j) {
-    readSbcEditor(); var d = editingSbc; ensureOpen(d);
+  function toggleSlot(d, j) {
+    ensureOpen(d);
     if (!d._picked) { d._target = (d.players || 11) < 11 ? d.players : 0; d._picked = true; }
     d._open[j] = d._open[j] ? 0 : 1; if (!openCount(d)) d._open[j] = 1;
-    d.players = openCount(d); d.layoutUser = true; delete d.layoutVerify; renderSbcEditor();
+    d.players = openCount(d); d.layoutUser = true; delete d.layoutVerify;
   }
+  function slotToggle(j) { readSbcEditor(); toggleSlot(editingSbc, j); renderSbcEditor(); }
   function layoutChange(t) {
     var d = editingSbc;
     if (t.id === 'seForm') {
@@ -6853,7 +6923,7 @@ a.btn { color: inherit; text-decoration: none; }
         if (r.reason === 'pool') body = '<p>Pas assez de joueurs éligibles (' + r.eligible + ' trouvés, ' + (r.players || 11) + ' nécessaires) avec les conditions de qualité ou de note.</p>';
         else {
           body = '<div class="classic-res">' + pitchHTML(r.squad) + '<div class="view" style="gap:8px"><div class="row small"><strong>' + esc(r.formation) + ((r.players || 11) < 11 ? ' · ' + r.players + ' joueurs' : '') + '</strong><span class="muted">· note ' + r.rating + ' · collectif ' + r.chem + '/' + (r.chemMax || 33) + ' · valeur ≈ ' + fmt(r.cost) + '</span></div>' +
-            (r.formationGuess || r.slotsGuess || d.layoutVerify ? '<div class="hint layout-warn"><span>' + (r.formationGuess ? 'Formation choisie par l\'appli : si le DCE en impose une autre dans le jeu, indique-la.' : r.slotsGuess ? 'Postes choisis par l\'appli : dans le jeu, vérifie quels postes sont verrouillés et indique-les.' : 'Formation reprise d\'une solution publiée : vérifie-la dans le jeu.') + ' Sinon, l\'équipe risque de ne pas rentrer telle quelle.</span> <button class="btn sm" data-action="res-edit" data-sid="' + esc(d.id) + '">Indiquer la formation et les postes</button></div>' : '') +
+            (r.formationGuess || r.slotsGuess || d.layoutVerify ? '<div class="hint layout-warn"><span>' + (r.formationGuess ? 'Formation choisie par l\'appli : si le DCE en impose une autre dans le jeu, indique-la.' : r.slotsGuess ? 'Postes choisis par l\'appli : dans le jeu, vérifie quels postes sont verrouillés et indique-les.' : 'Formation reprise d\'une solution publiée : vérifie-la dans le jeu.') + ' Sinon, l\'équipe risque de ne pas rentrer telle quelle.</span> <button class="btn sm" data-action="res-edit" data-sid="' + esc(d.id) + '">Choisir la formation et les postes</button></div>' : '') +
             '<ul class="checklist">' + (r.details || []).map(function (q) { return '<li><span class="' + (q.ok ? 'y' : 'n') + '">' + (q.ok ? '✓' : '✗') + '</span><span>' + esc(E.condText(q.cond)) + '</span><span class="v">' + q.value + '</span></li>'; }).join('') + '</ul>' +
             (!r.ok ? '<p class="note" style="color:var(--bad)">Meilleure tentative avec ton club : les conditions marquées ✗ ne sont pas remplies.</p>' : '') +
             (function () { var rc = (d.conds || []).filter(function (q) { return q.t === 'rating'; })[0]; return r.ok && rc && r.rating - rc.n >= 2 ? '<p class="hint">Note ' + r.rating + ' pour ' + rc.n + ' demandés : l\'appli n\'a pas trouvé moins cher avec ton club, mais des cartes plus fortes que nécessaire partent dans ce DCE.</p>' : ''; })() +
@@ -7697,6 +7767,8 @@ a.btn { color: inherit; text-decoration: none; }
     else if (t.id === 'reserveTeam') { state.ui.reserveTeam = t.checked; commit(); renderExclNote(); }
     else if (t.id === 'tForm') { readTeamUi(); commit({ keepPlan: true }); }
     else if ((t.id === 'seForm' || t.id === 'sePlayers') && editingSbc) { layoutChange(t); }
+    else if (t.id === 'svForm' && sbcViewCur) { svSetFormation(t.value); }
+    else if (t.id === 'svPlayers' && sbcViewCur) { svSetPlayers(+t.value); }
     else if (t.dataset.ci != null && editingSbc) { readSbcEditor(); }
     else if (t.dataset.rvSid) { var si = findSbc(t.dataset.rvSid); if (si >= 0) { state.sbcs[si].rewardValue = Math.max(0, +t.value || 0); commit({ keepPlan: true }); renderPlan(); } }
     else if (t.dataset.hobt) { var hh = state.history.find(function (x) { return x.id === t.dataset.hobt; }); if (hh) { hh.obtained = t.value.trim(); commit({ keepPlan: true }); } }
@@ -7772,11 +7844,26 @@ a.btn { color: inherit; text-decoration: none; }
     'sbc-close': function () { editingSbc = null; $('#sbcEditor').hidden = true; },
     'sbc-save': saveSbc,
     'slot-toggle': function (b) { slotToggle(+b.dataset.sl); },
-    'res-edit': function (b) { var i = findSbc(b.dataset.sid); if (i < 0) return; if (!$('#overlay').hidden) closeOverlay(); if (state.ui.view !== 'dce') go('dce'); openSbcEditor(state.sbcs[i]); },
+    'res-edit': function (b) { var i = findSbc(b.dataset.sid); if (i < 0) return; var d = state.sbcs[i]; openSbcView(d, 'mine', { edit: d.type === 'classic' && d.formation !== 'any' }); },
     'sbc-view': function (b) { var i = findSbc(b.closest('[data-sid]').dataset.sid); if (i >= 0) openSbcView(state.sbcs[i], 'mine'); },
     'cat-view': function (b) { var cid = b.closest('[data-cid]').dataset.cid, d = ((catalog && catalog.sbcs) || []).find(function (x) { return x.cid === cid; }); if (!d) return; var c = normSbc(E.clone(d)); c.cid = d.cid; openSbcView(c, 'cat'); },
-    'sv-other': function () { if (sbcViewCur) openSbcView(sbcViewCur.d, sbcViewCur.src, true); },
-    'sv-add': function () { var d = sbcViewCur && sbcViewCur.d, cd = d && ((catalog && catalog.sbcs) || []).find(function (x) { return x.cid === d.cid; }); closeOverlay(); if (cd && addFromCatalog(cd)) { commit(); renderDce(); toast('« ' + cd.name + ' » ajouté à tes DCE.'); } },
+    'sv-other': function () { if (sbcViewCur) openSbcView(sbcViewCur.d, sbcViewCur.src, { random: true }); },
+    'sv-add': function () { var d = sbcViewCur && sbcViewCur.d, cd = d && ((catalog && catalog.sbcs) || []).find(function (x) { return x.cid === d.cid; }); sbcViewSeq++; closeOverlay(); if (cd && addFromCatalog(cd)) { commit(); renderDce(); toast('« ' + cd.name + ' » ajouté à tes DCE.'); } },
+    'sv-close': function () { sbcViewSeq++; sbcViewCur = null; closeOverlay(); },
+    'sv-edit-slots': function () { var c = sbcViewCur; if (!c) return; c.undo = E.clone(c.d); c.edit = true; ensureOpen(c.d); renderSbcView(); },
+    'sv-slot': function (b) { var c = sbcViewCur; if (!c) return; toggleSlot(c.d, +b.dataset.sl); renderSbcView(); },
+    'sv-cancel-edit': function () { var c = sbcViewCur; if (!c) return; if (c.undo) c.d = c.undo; c.d._openF = null; c.edit = false; renderSbcView(); },
+    'sv-apply': function () { var c = sbcViewCur; if (!c) return; c.edit = false; svSaveLayout(); toast('Formation et postes enregistrés : composition la moins chère recalculée.'); },
+    'sv-edit-all': function () { var c = sbcViewCur, i = c ? findSbc(c.d.id) : -1; sbcViewSeq++; closeOverlay(); if (i < 0) return; if (state.ui.view !== 'dce') go('dce'); openSbcEditor(state.sbcs[i]); },
+    'sv-repeats': function () {
+      var c = sbcViewCur, i = c ? findSbc(c.d.id) : -1; if (i < 0) return; var d = state.sbcs[i], seq = sbcViewSeq;
+      c.rep = 'Calcul…'; renderSbcView();
+      runEngine('maxRepeats', [state.cards, d, effS()]).then(function (r) {
+        if (seq !== sbcViewSeq || !sbcViewCur) return;
+        sbcViewCur.rep = r.count ? 'Faisable <strong>' + r.count + (r.capped ? '+' : '') + ' fois</strong> de suite avec tes non échangeables et doublons seulement (' + r.used + ' cartes), sans rien acheter.' : 'Pas faisable avec tes seuls non échangeables et doublons : il faudrait utiliser des cartes échangeables ou en acheter.';
+        renderSbcView();
+      });
+    },
     'cond-add': function (b) { readSbcEditor(); editingSbc.conds.push(newCond(b.dataset.ct)); renderSbcEditor(); },
     'cond-del': function (b) { readSbcEditor(); editingSbc.conds.splice(+b.dataset.ci, 1); renderSbcEditor(); },
     'run-plan': runPlan,
