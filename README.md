@@ -25,7 +25,9 @@ Squadoro est un outil indépendant créé par des fans. Il n'est pas affilié à
 
 ## Base des joueurs FC 27
 
-`players-fc27.json` : les 19 789 joueurs d'EA SPORTS FC 27 (cartes de base : note, postes, nation, ligue, club, stats, PlayStyles, pied faible, gestes techniques), d'après les notes publiques d'EA au lancement (instantané du 12/09/2026) rassemblées par le projet [EA_FC_ANALYSIS](https://github.com/lakshmikanth11/EA_FC_ANALYSIS). Nations et grandes ligues renommées en français comme dans l'appli. Les notes et les clubs peuvent avoir changé depuis (mises à jour d'EA, transferts).
+`players-fc27.json` : les 19 789 joueurs d'EA SPORTS FC 27 (cartes de base : note, postes, nation, ligue, club, stats, PlayStyles, pied faible, gestes techniques), d'après les notes publiques d'EA au lancement (instantané du 12/09/2026) rassemblées par le projet [EA_FC_ANALYSIS](https://github.com/lakshmikanth11/EA_FC_ANALYSIS). Nations et grandes ligues renommées en français comme dans l'appli.
+
+Mise à jour automatique : chaque soir, la tâche de publication compare le dernier commit du dépôt source à `outils/base-source.json` ; s'il a changé, elle reconstruit `players-fc27.json` avec `outils/build_base.py` et le publie. Entre deux mises à jour de la source, les notes et les clubs peuvent avoir changé dans le jeu (mises à jour d'EA, transferts).
 
 ## Polices
 
