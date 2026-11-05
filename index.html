@@ -908,7 +908,13 @@
 "Vérifier plus tard": "Check later",
 "Reconnaissance des joueurs dans la base FC 27…": "Matching players with the FC 27 database…",
 "{0} carte(s) reconnue(s) dans la base FC 27 et ajoutée(s) directement à ton club.": "{0} card(s) recognised in the FC 27 database and added straight to your club.",
-"{0} carte(s) à vérifier ci-dessous avant d'ajouter.": "{0} card(s) to check below before adding."
+"{0} carte(s) à vérifier ci-dessous avant d'ajouter.": "{0} card(s) to check below before adding.",
+"Ils ne comptent plus dans le calcul. « ↺ » les remet à faire.": "They no longer count in the calculation. « ↺ » puts them back to do.",
+"Tous ces DCE sont faits.": "All these SBCs are done.",
+"C'est fait": "Done",
+"Je l'ai fait : le mettre à l'écart": "I did it: set it aside",
+"DCE faits, mis à l'écart ({0})": "Done SBCs, set aside ({0})",
+"Fait ✓": "Done ✓"
 },
 "nl": {
 "(+{0}), collectif {1} →": "(+{0}), chemie {1} →",
@@ -1789,7 +1795,13 @@
 "Vérifier plus tard": "Later controleren",
 "Reconnaissance des joueurs dans la base FC 27…": "Spelers herkennen in de FC 27-database…",
 "{0} carte(s) reconnue(s) dans la base FC 27 et ajoutée(s) directement à ton club.": "{0} kaart(en) herkend in de FC 27-database en meteen aan je club toegevoegd.",
-"{0} carte(s) à vérifier ci-dessous avant d'ajouter.": "{0} kaart(en) hieronder te controleren voor het toevoegen."
+"{0} carte(s) à vérifier ci-dessous avant d'ajouter.": "{0} kaart(en) hieronder te controleren voor het toevoegen.",
+"Ils ne comptent plus dans le calcul. « ↺ » les remet à faire.": "Ze tellen niet meer mee in de berekening. « ↺ » zet ze terug op te doen.",
+"Tous ces DCE sont faits.": "Al deze SBC's zijn gedaan.",
+"C'est fait": "Gedaan",
+"Je l'ai fait : le mettre à l'écart": "Gedaan: opzijzetten",
+"DCE faits, mis à l'écart ({0})": "Gedane SBC's, opzijgezet ({0})",
+"Fait ✓": "Gedaan ✓"
 },
 "es": {
 "(+{0}), collectif {1} →": "(+{0}), química {1} →",
@@ -2670,7 +2682,13 @@
 "Vérifier plus tard": "Revisar más tarde",
 "Reconnaissance des joueurs dans la base FC 27…": "Reconociendo jugadores en la base de FC 27…",
 "{0} carte(s) reconnue(s) dans la base FC 27 et ajoutée(s) directement à ton club.": "{0} carta(s) reconocida(s) en la base de FC 27 y añadida(s) directamente a tu club.",
-"{0} carte(s) à vérifier ci-dessous avant d'ajouter.": "{0} carta(s) por revisar abajo antes de añadir."
+"{0} carte(s) à vérifier ci-dessous avant d'ajouter.": "{0} carta(s) por revisar abajo antes de añadir.",
+"Ils ne comptent plus dans le calcul. « ↺ » les remet à faire.": "Ya no cuentan en el cálculo. « ↺ » los vuelve a poner pendientes.",
+"Tous ces DCE sont faits.": "Todos estos SBC están hechos.",
+"C'est fait": "Hecho",
+"Je l'ai fait : le mettre à l'écart": "Hecho: apartarlo",
+"DCE faits, mis à l'écart ({0})": "SBC hechos, apartados ({0})",
+"Fait ✓": "Hecho ✓"
 }
 };</script>
 </head>
@@ -2988,6 +3006,16 @@ label.field > input, label.field > select { color: var(--ink); font-weight: 400;
 .sbc { display: grid; grid-template-columns: 28px minmax(0,1fr) auto; gap: 10px; align-items: center; padding: 10px 12px; border-top: 1px solid var(--line); }
 .sbc:first-child { border-top: 0; }
 .sbc.off .sbc-main { opacity: .5; }
+.done-toggle { display: inline-flex; align-items: center; gap: 6px; height: 30px; padding: 0 10px; margin-right: 4px; border-radius: 999px; border: 1px solid var(--line); background: transparent; color: var(--ink); font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; }
+.done-toggle span { width: 14px; height: 14px; border: 2px solid currentColor; border-radius: 4px; opacity: .7; }
+.done-toggle:hover, .done-toggle:focus-visible { border-color: var(--accent); color: var(--accent); outline: none; }
+.sbc-done-group { margin-top: 10px; border-top: 1px solid var(--line); }
+@media (max-width: 640px) { .sbc { grid-template-columns: 28px minmax(0, 1fr); } .sbc > .sbc-actions { grid-column: 2 / -1; justify-content: flex-start; margin-top: -2px; } .sbc > .rep-out { grid-column: 1 / -1; } }
+.sbc-done-group > summary { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 10px 12px; cursor: pointer; font-weight: 700; color: var(--muted); list-style: none; }
+.sbc-done-group > summary::-webkit-details-marker { display: none; }
+.sbc-done-group > .note { padding: 0 12px 6px; }
+.sbc-done-group > summary .chev { width: 9px; height: 9px; border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted); transform: rotate(45deg); transition: transform .15s; margin: 0 4px 4px; }
+.sbc-done-group[open] > summary .chev { transform: rotate(-135deg); margin: 4px 4px 0; }
 .sbc-title { font-weight: 700; display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
 .sbc-req { font-size: 12px; color: var(--muted); margin-top: 2px; }
 .sbc-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; }
@@ -6756,12 +6784,12 @@ a.btn { color: inherit; text-decoration: none; }
     renderExpBanner(); renderFeasibleBanner(); renderCatalog(); renderSbcList(); renderExclNote(); renderPlan(); renderHistory();
   }
   function renderSbcList() {
-    var el = $('#sbcList'), vis = state.sbcs.filter(sbcVisible);
-    var nSel = state.sbcs.filter(function (d) { return d.enabled; }).length;
-    $('#sbcCount').textContent = nSel + ' sélectionné' + (nSel > 1 ? 's' : '') + ' sur ' + state.sbcs.length;
+    var el = $('#sbcList'), visAll = state.sbcs.filter(sbcVisible), vis = visAll.filter(function (d) { return !d.done; }), visDone = visAll.filter(function (d) { return d.done; });
+    var todo = state.sbcs.filter(function (d) { return !d.done; }), nSel = todo.filter(function (d) { return d.enabled; }).length, nDone = state.sbcs.length - todo.length;
+    $('#sbcCount').textContent = nSel + ' sélectionné' + (nSel > 1 ? 's' : '') + ' sur ' + todo.length + ' à faire' + (nDone ? ' · ' + nDone + ' fait' + (nDone > 1 ? 's' : '') : '');
     var nExp = state.sbcs.filter(isExpired).length, eb = $('#expiredBtn'); eb.hidden = !nExp; eb.textContent = 'Retirer les expirés (' + nExp + ')';
     if (!state.sbcs.length) { el.innerHTML = '<div class="empty">Aucun DCE pour l\'instant. Ajoute ceux du catalogue « DCE du moment » ci-dessus, ou crée le tien avec « Ajouter un DCE ».</div>'; return; }
-    if (!vis.length) { el.innerHTML = '<div class="empty">Aucun DCE ne correspond au filtre.</div>'; return; }
+    if (!visAll.length) { el.innerHTML = '<div class="empty">Aucun DCE ne correspond au filtre.</div>'; return; }
     var groups = [], gmap = {};
     vis.forEach(function (d) { var sn = setName(d) || '\u0000' + d.id; if (!gmap[sn]) { gmap[sn] = []; groups.push(sn); } gmap[sn].push(d); });
     el.innerHTML = groups.map(function (sn) {
@@ -6772,7 +6800,14 @@ a.btn { color: inherit; text-decoration: none; }
         head = '<div class="cat-group" style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap"><span>Set · ' + esc(sn) + '</span><span>' + nd + '/' + all.length + ' faits' + (sr ? ' · ' + esc(sr.replace(/^set complet\s*:\s*/i, 'récompense : ')) : '') + (nd > 0 && nd < all.length ? ' · à finir' : '') + '</span></div>';
       }
       return head + items.map(sbcRow).join('');
-    }).join('');
+    }).join('') + (!vis.length ? '<div class="empty">Tous ces DCE sont faits.</div>' : '') +
+      (visDone.length ? '<details class="sbc-done-group"' + (state.ui.doneOpen ? ' open' : '') + '><summary><span>DCE faits, mis à l\'écart (' + visDone.length + ')</span><span class="chev" aria-hidden="true"></span></summary>' +
+        '<p class="note">Ils ne comptent plus dans le calcul. « ↺ » les remet à faire.</p>' +
+        visDone.slice().sort(function (a, b) { return String(b.doneAt || '').localeCompare(String(a.doneAt || '')); }).map(sbcRow).join('') + '</details>' : '');
+  }
+  function markSbcDone(d) {
+    d.done = true; d.doneAt = todayStr(); commit(); renderSbcList(); renderCatalog();
+    toast('« ' + d.name + ' » est fait : mis à l\'écart.', 'Annuler', function () { d.done = false; delete d.doneAt; commit(); renderSbcList(); renderCatalog(); });
   }
   function setName(d) { if (d.set) return d.set; var i = String(d.name || '').indexOf(' : '); return i > 0 ? d.name.slice(0, i) : ''; }
   /* Un DCE à la fois : formation, postes et composition (« Voir ») depuis Mes DCE ou le catalogue.
@@ -6847,7 +6882,7 @@ a.btn { color: inherit; text-decoration: none; }
       body += '<p class="note">' + (cur.fromPlan ? 'Composition du dernier calcul : tes cartes sont réparties entre tous tes DCE cochés.' : 'Composition la moins chère pour ce DCE seul, avec toutes tes cartes disponibles (sans l\'équipe active, les cartes protégées ni les prêts).') + '</p>' +
         (cur.rep ? '<p class="note sv-rep">' + cur.rep + '</p>' : '') +
         '<div class="row">' + (mine ? '' : (inMine(d.cid) ? '' : '<button class="btn sm primary" data-action="sv-add">Ajouter à mes DCE</button>')) +
-        '<button class="btn sm ghost" data-action="sv-other">Autre composition</button>' + (mine ? '<button class="btn sm ghost" data-action="sv-repeats">Combien de fois je peux le refaire ?</button><button class="btn sm ghost" data-action="sv-edit-all">Modifier le DCE</button>' : '') +
+        '<button class="btn sm ghost" data-action="sv-other">Autre composition</button>' + (mine ? (d.done ? '' : '<button class="btn sm" data-action="sv-done">C\'est fait</button>') + '<button class="btn sm ghost" data-action="sv-repeats">Combien de fois je peux le refaire ?</button><button class="btn sm ghost" data-action="sv-edit-all">Modifier le DCE</button>' : '') +
         '<button class="btn sm ghost" data-action="sv-close">Fermer</button></div>';
       h += '<div class="view" style="gap:10px">' + body + '</div>';
     }
@@ -6894,11 +6929,12 @@ a.btn { color: inherit; text-decoration: none; }
   function sbcRow(d) {
       return '<div class="sbc' + (d.enabled && !d.done ? '' : ' off') + '" data-sid="' + esc(d.id) + '">' +
         '<input type="checkbox" class="check" data-action="sbc-toggle"' + (d.enabled ? ' checked' : '') + ' aria-label="Faire ce DCE : ' + esc(d.name) + '" style="width:18px;height:18px;accent-color:var(--accent)">' +
-        '<div class="sbc-main" data-action="sbc-view" role="button" tabindex="0" title="Voir la formation et la composition de ce DCE"><div class="sbc-title">' + esc(d.name) + ' <span class="type-chip ' + d.type + '">' + (d.type === 'classic' ? 'Classique' : 'Au score') + '</span>' + (d.category ? '<span class="chip">' + esc(d.category) + '</span>' : '') + (d.repeat > 1 ? '<span class="chip">×' + d.repeat + '</span>' : '') + (d.expires || d.permanent ? expiryChip(d) : '') + (d.announced ? '<span class="chip ann">Annoncé</span>' : '') + (d.priority ? '<span class="chip">Prioritaire</span>' : '') + (d.done ? '<span class="pill done">Fait ✓</span>' : '') + (d.doneCount ? '<span class="chip">' + d.doneCount + ' fois fait</span>' : '') + (+d.submitted > 0 ? '<span class="chip">◆ ' + fmt(d.submitted) + ' déjà soumis</span>' : '') + ((d.force || []).length ? '<span class="chip">' + d.force.length + ' imposée(s)</span>' : '') + ((d.ban || []).length ? '<span class="chip">' + d.ban.length + ' interdite(s)</span>' : '') + '</div>' +
+        '<div class="sbc-main" data-action="sbc-view" role="button" tabindex="0" title="Voir la formation et la composition de ce DCE"><div class="sbc-title">' + esc(d.name) + ' <span class="type-chip ' + d.type + '">' + (d.type === 'classic' ? 'Classique' : 'Au score') + '</span>' + (d.category ? '<span class="chip">' + esc(d.category) + '</span>' : '') + (d.repeat > 1 ? '<span class="chip">×' + d.repeat + '</span>' : '') + (d.expires || d.permanent ? expiryChip(d) : '') + (d.announced ? '<span class="chip ann">Annoncé</span>' : '') + (d.priority ? '<span class="chip">Prioritaire</span>' : '') + (d.done ? '<span class="pill done">Fait ✓' + (d.doneAt ? ' le ' + new Date(d.doneAt + 'T12:00:00').toLocaleDateString(LOCALE, { day: 'numeric', month: 'short' }) : '') + '</span>' : '') + (d.doneCount ? '<span class="chip">' + d.doneCount + ' fois fait</span>' : '') + (+d.submitted > 0 ? '<span class="chip">◆ ' + fmt(d.submitted) + ' déjà soumis</span>' : '') + ((d.force || []).length ? '<span class="chip">' + d.force.length + ' imposée(s)</span>' : '') + ((d.ban || []).length ? '<span class="chip">' + d.ban.length + ' interdite(s)</span>' : '') + '</div>' +
         '<div class="sbc-req">' + esc(sbcSummary(d)) + '</div><span class="sv-link">Voir la compo ›</span></div>' +
-        '<div class="sbc-actions"><button class="icon-btn" data-action="sbc-up" aria-label="Monter">↑</button><button class="icon-btn" data-action="sbc-down" aria-label="Descendre">↓</button>' +
-        '<button class="icon-btn" data-action="sbc-repeats" aria-label="Combien de fois je peux le faire" title="Combien de fois je peux le faire sans rien acheter ?">×?</button>' +
-        (d.done ? '<button class="icon-btn" data-action="sbc-undone" aria-label="Remettre à faire" title="Remettre à faire">↺</button>' : '') +
+        '<div class="sbc-actions">' + (d.done ? '<button class="icon-btn" data-action="sbc-undone" aria-label="Remettre à faire" title="Remettre à faire">↺</button>' :
+          '<button class="done-toggle" data-action="sbc-done" aria-pressed="false" title="Je l\'ai fait : le mettre à l\'écart"><span aria-hidden="true"></span>Fait</button>' +
+          '<button class="icon-btn" data-action="sbc-up" aria-label="Monter">↑</button><button class="icon-btn" data-action="sbc-down" aria-label="Descendre">↓</button>' +
+          '<button class="icon-btn" data-action="sbc-repeats" aria-label="Combien de fois je peux le faire" title="Combien de fois je peux le faire sans rien acheter ?">×?</button>') +
         '<button class="icon-btn" data-action="sbc-edit" aria-label="Modifier">✎</button><button class="icon-btn" data-action="sbc-dup" aria-label="Dupliquer">⧉</button><button class="icon-btn" data-action="sbc-del" aria-label="Supprimer">✕</button></div>' +
         '<div class="rep-out" data-rep="' + esc(d.id) + '" hidden></div></div>';
   }
@@ -6991,7 +7027,7 @@ a.btn { color: inherit; text-decoration: none; }
         var have = inMine(d.cid);
         return '<div class="cat-row" data-cid="' + esc(d.cid) + '"><div class="cat-main" style="min-width:0" data-action="cat-view" role="button" tabindex="0" title="Voir la formation et la composition de ce DCE"><div class="sbc-title">' + esc(d.name) + ' <span class="type-chip ' + (d.type === 'classic' ? 'classic' : '') + '">' + (d.type === 'classic' ? 'Classique' : 'Au score') + '</span>' + expiryChip(d) + (d.verify ? '<span class="chip verify" title="Valeur à confirmer dans le jeu">à vérifier</span>' : '') + (layoutUnsure(normSbc(d)) ? '<span class="chip verify" title="Formation ou postes ouverts pas encore connus : vérifie-les dans le jeu">postes à vérifier</span>' : '') + '</div>' +
           '<div class="sbc-req">' + esc(sbcSummary(normSbc(d))) + (d.note ? ' · ' + esc(d.note) : '') + '</div><span class="sv-link">Voir la compo ›</span></div>' +
-          (have ? '<span class="muted small">Ajouté ✓</span>' : '<button class="btn sm" data-action="cat-add">Ajouter</button>') + '</div>';
+          (have ? '<span class="muted small">' + (state.sbcs.some(function (x) { return x.cid === d.cid && x.done; }) ? 'Fait ✓' : 'Ajouté ✓') + '</span>' : '<button class="btn sm" data-action="cat-add">Ajouter</button>') + '</div>';
       }).join('');
     }).join('') + '</div>' + (catalog.note ? '<p class="note">' + esc(catalog.note) + '</p>' : '');
     if (annList.length) body += '<div><span class="eyebrow">DCE annoncés ou attendus</span><div class="cat-list" style="margin-top:6px">' + annList.map(function (d) {
@@ -7386,7 +7422,7 @@ a.btn { color: inherit; text-decoration: none; }
     planDone[ii] = true;
     var x = plan.instances[ii], d = x.d, hid = E.uid();
     var sbcBackup = JSON.stringify(state.sbcs), si0 = findSbc(d.id);
-    if (si0 >= 0) { var sd = state.sbcs[si0]; sd.submitted = 0; if ((+sd.repeat || 1) <= 1) { sd.done = true; } else { sd.repeat = Math.max(1, sd.repeat - 1); sd.doneCount = (sd.doneCount || 0) + 1; } }
+    if (si0 >= 0) { var sd = state.sbcs[si0]; sd.submitted = 0; if ((+sd.repeat || 1) <= 1) { sd.done = true; sd.doneAt = todayStr(); } else { sd.repeat = Math.max(1, sd.repeat - 1); sd.doneCount = (sd.doneCount || 0) + 1; } }
     state.history.unshift({ id: hid, at: Date.now(), name: d.name + (x.reps > 1 ? ' (' + x.rep + '/' + x.reps + ')' : ''), type: d.type, reward: d.reward || '', rewardValue: +d.rewardValue || 0,
       cards: r.cards.map(function (c) { return { name: c.name, ovr: c.ovr, kind: c.kind, tradeable: c.tradeable }; }), total: r.total || null, target: r.target || null, overshoot: r.overshoot || 0, cost: r.cost, waste: r.waste || 0, obtained: '' });
     if (state.history.length > 200) state.history.length = 200;
@@ -8222,7 +8258,9 @@ a.btn { color: inherit; text-decoration: none; }
       }, 20);
     },
     'sbc-set-rep': function (b) { var d = state.sbcs[findSbc(b.closest('[data-sid]').dataset.sid)]; d.repeat = +b.dataset.n; commit(); renderSbcList(); toast('« ' + d.name + ' » sera fait ' + d.repeat + ' fois.'); },
-    'sbc-undone': function (b) { var d = state.sbcs[findSbc(b.closest('[data-sid]').dataset.sid)]; d.done = false; commit(); renderSbcList(); },
+    'sbc-undone': function (b) { var d = state.sbcs[findSbc(b.closest('[data-sid]').dataset.sid)]; d.done = false; delete d.doneAt; commit(); renderSbcList(); renderCatalog(); toast('« ' + d.name + ' » est de nouveau à faire.'); },
+    'sbc-done': function (b) { var d = state.sbcs[findSbc(b.closest('[data-sid]').dataset.sid)]; if (d) markSbcDone(d); },
+    'sv-done': function () { var c = sbcViewCur, i = c ? findSbc(c.d.id) : -1; sbcViewSeq++; closeOverlay(); if (i >= 0) markSbcDone(state.sbcs[i]); },
     'hist-del': function (b) { var id = b.closest('[data-hid]').dataset.hid, i = state.history.findIndex(function (h) { return h.id === id; }); if (i < 0) return; var h = state.history.splice(i, 1)[0]; commit({ keepPlan: true }); renderHistory(); toast('Entrée retirée.', 'Annuler', function () { state.history.splice(i, 0, h); commit({ keepPlan: true }); renderHistory(); }); },
     'hist-wipe': function (b) { if (b.dataset.confirm !== '1') { $('#histWipe').innerHTML = '<span class="small">Vider tout l\'historique ?</span><button class="btn sm danger" data-action="hist-wipe" data-confirm="1">Oui</button><button class="btn sm" data-action="hist-cancel">Non</button>'; return; } lastBackup = JSON.stringify(state.history); state.history = []; commit({ keepPlan: true }); renderHistory(); toast('Historique vidé.', 'Annuler', function () { state.history = JSON.parse(lastBackup); commit({ keepPlan: true }); renderHistory(); }); },
     'hist-cancel': function () { renderHistory(); },
@@ -8305,6 +8343,7 @@ a.btn { color: inherit; text-decoration: none; }
   });
   document.addEventListener('toggle', function (e) { var d = e.target; if (d && d.matches && d.matches('details[data-rii]')) resOpen[+d.dataset.rii] = d.open; }, true);
   document.addEventListener('change', function (e) { if (e.target.id === 'shareCards') { state.ui.shareCards = e.target.checked; commit({ keepPlan: true }); } });
+  document.addEventListener('toggle', function (e) { if (e.target && e.target.classList && e.target.classList.contains('sbc-done-group') && state) { state.ui.doneOpen = e.target.open; saveLocal(); } }, true);
   document.addEventListener('change', function (e) { if (e.target.id === 'resSort') { state.ui.resSort = e.target.value; commit({ keepPlan: true }); renderPlan(); } });
   document.addEventListener('click', function (e) {
     if (selMode) { var pk = e.target.closest('#cardList [data-id]'); if (pk) { var sid = pk.dataset.id; if (selIds[sid]) delete selIds[sid]; else selIds[sid] = 1; selDelConfirm = false; pk.classList.toggle('picked', !!selIds[sid]); renderSelBar(); return; } }
