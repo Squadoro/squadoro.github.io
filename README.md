@@ -23,6 +23,10 @@ Les données des joueurs (club, DCE, réglages) restent sur leur appareil. Seule
 
 Squadoro est un outil indépendant créé par des fans. Il n'est pas affilié à Electronic Arts ni à EA SPORTS FC.
 
+## Base des joueurs FC 27
+
+`players-fc27.json` : les 19 789 joueurs d'EA SPORTS FC 27 (cartes de base : note, postes, nation, ligue, club, stats, PlayStyles, pied faible, gestes techniques), d'après les notes publiques d'EA au lancement (instantané du 12/09/2026) rassemblées par le projet [EA_FC_ANALYSIS](https://github.com/lakshmikanth11/EA_FC_ANALYSIS). Nations et grandes ligues renommées en français comme dans l'appli. Les notes et les clubs peuvent avoir changé depuis (mises à jour d'EA, transferts).
+
 ## Polices
 
 Barlow et Barlow Condensed (The Barlow Project Authors), sous licence SIL Open Font License 1.1 : voir `fonts/OFL-Barlow.txt`.
