@@ -4983,7 +4983,7 @@ a.btn { color: inherit; text-decoration: none; }
     out.q = rest.join(' ');
     return out;
   }
-  function cdbQueryOk(pq) { return pq.q.length >= 2 || !!pq.nat || !!pq.pos; }
+  function cdbQueryOk(pq) { return pq.q.length >= 2 || !!pq.nat || !!pq.pos || (!!pq.kind && pq.kind !== 'base'); }
   function cdbToCard(r) {
     var c = E.normalizeCard({ name: r.name, ovr: r.ovr, positions: [r.pos].concat(r.alt || []), nation: r.nation || '', league: r.league || '', club: r.club || '', kind: r.kind, rare: !!r.rare,
       stats: Array.isArray(r.stats) && r.stats.length === 6 ? r.stats : null, playstyles: r.playstyles || [], roles: r.roles || [], wf: r.wf || 0, sm: r.sm || 0, height: r.height || 0, promo: r.promo || '' });
@@ -5028,8 +5028,8 @@ a.btn { color: inherit; text-decoration: none; }
   function cdbRow(c, k, action) {
     var meta = [c.nation, c.league, c.club].filter(function (x) { return x && x !== '—'; }).join(' · ');
     return '<div class="qf-row"><span class="qf-rate ' + faceCls(c) + '"><b>' + c.ovr + '</b><span>' + posFr(c.positions[0]) + '</span></span>' +
-      '<div class="qf-who"><strong data-notr>' + esc(c.name) + '</strong><span class="small muted" data-notr>' + flagOf(c.nation) + esc(meta || '—') + '</span>' + (c.fromBase ? '<span class="qf-conf ok" title="Notes publiques d\'EA au lancement de FC 27">Base FC 27</span>' : confBadge(c)) + '</div>' + (c.fromBase ? '<span class="chip">' + E.QUALITY_FR[E.quality(c.ovr)] + '</span>' : kindChip(c)) +
-      '<div class="qf-act">' + (action === 'qf-add' && !c.fromBase ? '<button class="icon-btn qf-flag" data-action="cdb-report" data-k="' + k + '" aria-label="Signaler une erreur" title="Signaler une erreur">⚑</button>' : '') +
+      '<div class="qf-who"><strong data-notr>' + esc(c.name) + '</strong><span class="small muted" data-notr>' + flagOf(c.nation) + esc(meta || '—') + '</span>' + (c.fromBase ? '<span class="qf-conf ok" title="Notes publiques d\'EA au lancement de FC 27">Base FC 27</span>' : c.fromSp ? '<span class="qf-conf ok" title="Cartes spéciales relevées chaque soir par Squadoro">Spéciale FC 27</span>' : confBadge(c)) + '</div>' + (c.fromBase ? '<span class="chip">' + E.QUALITY_FR[E.quality(c.ovr)] + '</span>' : kindChip(c)) +
+      '<div class="qf-act">' + (action === 'qf-add' && !c.fromBase && !c.fromSp ? '<button class="icon-btn qf-flag" data-action="cdb-report" data-k="' + k + '" aria-label="Signaler une erreur" title="Signaler une erreur">⚑</button>' : '') +
       (action === 'qf-add' && c.fromBase ? '<button class="btn sm primary" data-action="qf-add" data-k="' + k + '" data-rare="1" title="Carte rare (brillante)">+ Rare</button><button class="btn sm" data-action="qf-add" data-k="' + k + '" data-rare="0" title="Carte non rare">+ Non rare</button>' :
         '<button class="btn sm' + (action === 'qf-add' ? ' primary' : '') + '" data-action="' + action + '" data-k="' + k + '">' + (action === 'qf-add' ? 'Ajouter' : 'Choisir') + '</button>') + '</div></div>';
   }
@@ -5046,11 +5046,12 @@ a.btn { color: inherit; text-decoration: none; }
   }
   function qfKey(c) { return lowKey(c.name) + '|' + c.ovr + '|' + c.kind; }
   async function searchAll(text, pq, limit) {
-    var err = null, tasks = [loadFcBase().then(function (B) { return B ? baseSearch(B, pq, limit) : []; }, function () { return []; })];
+    var err = null, tasks = [loadFcBase().then(function (B) { return B ? baseSearch(B, pq, limit) : []; }, function () { return []; }),
+      loadSpecials().then(function (S) { return S ? spSearch(S, pq, limit) : []; }, function () { return []; })];
     if (cdbOn()) tasks.push(cdbSearch(text).then(function (r) { return r || []; }, function (e) { err = e; return []; }));
-    var got = await Promise.all(tasks), srv = got[1] || [], seen = {};
-    srv.forEach(function (c) { seen[qfKey(c)] = 1; });
-    var rows = srv.concat(got[0].filter(function (c) { return !seen[qfKey(c)]; }));
+    var got = await Promise.all(tasks), srv = got[2] || [], seen = {}, rows = [];
+    // cartes spéciales et base commune d'abord (plus précises), puis les cartes de base
+    got[1].concat(srv, got[0]).forEach(function (c) { var k = qfKey(c); if (!seen[k]) { seen[k] = 1; rows.push(c); } });
     if (!rows.length && err) throw err;
     return rows;
   }
@@ -5115,8 +5116,7 @@ a.btn { color: inherit; text-decoration: none; }
     if (fcBase) return Promise.resolve(fcBase);
     if (!fcBaseP) fcBaseP = (async function () {
       // la version du site est mise à jour chaque soir quand la source change : l'appli iPhone et la version Claude la prennent d'abord, puis leur copie intégrée
-      var site = (SQ && SQ.dataUrl ? SQ.dataUrl.replace(/\/?$/, '/') : SQ ? '' : 'https://squadoro.github.io/') + BASE_FILE;
-      var urls = site !== BASE_FILE ? [site, BASE_FILE] : [BASE_FILE];
+      var urls = dataUrls(BASE_FILE);
       var j = null;
       for (var u = 0; u < urls.length && !j; u++) { try { var r = await fetch(urls[u]); if (r.ok) j = await r.json(); } catch (e) { } }
       if (!j || !Array.isArray(j.p)) { fcBaseP = null; return null; }
@@ -5184,10 +5184,23 @@ a.btn { color: inherit; text-decoration: none; }
   }
   // captures et complétion : nation, ligue et club proposés (à confirmer), le reste rempli s'il manque
   async function baseEnrich(rows) {
-    var B = await loadFcBase(); if (!B) return 0;
+    var got = await Promise.all([loadFcBase().catch(function () { return null; }), loadSpecials().catch(function () { return null; })]), B = got[0], S = got[1];
+    if (!B && !S) return 0;
     var n = 0;
     rows.forEach(function (r) {
       if (!r || r.use === false || r.noBase || !r.name || !(+r.ovr > 0)) return;
+      var spc = spCandidates(S, r);
+      if (spc.length === 1) {
+        var sc = spc[0], ch0 = false;
+        ['nation', 'league', 'club'].forEach(function (k) { if (isMissing(r[k]) && !isMissing(sc[k])) { suggest(r, k, sc[k], 'fc27'); ch0 = true; } });
+        if (!r.stats && sc.stats) { r.stats = sc.stats.slice(); ch0 = true; }
+        if ((!r.alt || !r.alt.length) && sc.positions.length > 1 && (!r.pos || r.pos === sc.positions[0])) { r.alt = sc.positions.slice(1); ch0 = true; }
+        if ((!r.playstyles || !r.playstyles.length) && sc.playstyles.length) r.playstyles = sc.playstyles.slice();
+        if (!r.promo && sc.promo) r.promo = sc.promo;
+        if (ch0) n++;
+        if (!isMissing(r.nation) && !isMissing(r.league) && !isMissing(r.club)) return;
+      }
+      if (!B) return;
       var m = baseFind(B, r.name, +r.ovr, r.pos, r.kind); if (!m) return;
       var p = B.rows[m.i], ch = false, vals = { nation: B.nat[p[4]], league: B.lea[p[5]], club: B.club[p[6]] };
       ['nation', 'league', 'club'].forEach(function (k) { if (isMissing(r[k]) && vals[k]) { suggest(r, k, vals[k], 'fc27'); ch = true; } });
@@ -5203,6 +5216,59 @@ a.btn { color: inherit; text-decoration: none; }
       if (ch) n++;
     });
     return n;
+  }
+  /* ---------- Cartes spéciales FC 27 (TOTW, promos, ICÔNES, Héros…) : fichier complété chaque soir par la tâche de publication ---------- */
+  var SP_FILE = 'specials-fc27.json', fcSp = null, fcSpP = null;
+  function dataUrls(file) {
+    var site = (SQ && SQ.dataUrl ? SQ.dataUrl.replace(/\/?$/, '/') : SQ ? '' : 'https://squadoro.github.io/') + file;
+    return site !== file ? [site, file] : [file];
+  }
+  function loadSpecials() {
+    if (fcSp) return Promise.resolve(fcSp);
+    if (!fcSpP) fcSpP = (async function () {
+      var urls = dataUrls(SP_FILE), j = null;
+      for (var u = 0; u < urls.length && !j; u++) { try { var r = await fetch(urls[u]); if (r.ok) j = await r.json(); } catch (e) { } }
+      if (!j || !Array.isArray(j.cards)) { fcSpP = null; return null; }
+      var cards = j.cards.filter(function (x) { return x && x.name && +x.ovr > 0 && x.kind && x.kind !== 'base'; }).map(function (x) {
+        var c = E.normalizeCard({ name: x.name, ovr: x.ovr, positions: [x.pos || 'CM'].concat(x.alt || []), nation: x.nation, league: x.league, club: x.club, kind: x.kind, rare: true,
+          stats: Array.isArray(x.stats) && x.stats.length === 6 ? x.stats : null, playstyles: x.playstyles || [], wf: x.wf || 0, sm: x.sm || 0, promo: x.promo || '' });
+        c.fromSp = 1; return c;
+      }).sort(function (a, b) { return b.ovr - a.ovr; });
+      var S = { at: j.updatedAt, cards: cards, byFull: {}, byTok: {}, hay: null };
+      cards.forEach(function (c, i) {
+        var nm = lowKey(c.name), seen = {};
+        (S.byFull[nm] || (S.byFull[nm] = [])).push(i);
+        nm.split(' ').forEach(function (t) { if (t.length >= 2 && !seen[t]) { seen[t] = 1; (S.byTok[t] || (S.byTok[t] = [])).push(i); } });
+      });
+      fcSp = S; return S;
+    })();
+    return fcSpP;
+  }
+  function spSearch(S, pq, limit) {
+    if (pq.kind === 'base' || pq.tier === 'bronze' || pq.tier === 'silver' || pq.rare === 0) return [];
+    if (!S.hay) S.hay = S.cards.map(function (c) { return ' ' + lowKey([c.name, c.club, c.league, c.nation, c.promo, E.KIND_FR[c.kind]].join(' ')) + ' '; });
+    var toks = lowKey(pq.q).split(' ').filter(Boolean), out = [];
+    for (var i = 0; i < S.cards.length && out.length < limit; i++) {
+      var c = S.cards[i];
+      if (pq.kind && c.kind !== pq.kind) continue;
+      if (pq.ovr && c.ovr !== pq.ovr) continue; if (pq.omin && c.ovr < pq.omin) continue; if (pq.omax && c.ovr > pq.omax) continue;
+      if (pq.pos && c.positions.indexOf(pq.pos) < 0) continue;
+      if (pq.nat && natCode(c.nation) !== pq.nat) continue;
+      var hay = S.hay[i], ok = true;
+      for (var t = 0; t < toks.length && ok; t++) if (hay.indexOf(' ' + toks[t]) < 0) ok = false;
+      if (ok) out.push(c);
+    }
+    return out;
+  }
+  // la carte spéciale exacte (même joueur, même note) ; plusieurs promos possibles → toutes
+  function spCandidates(S, r) {
+    if (!S || !r.name || !(+r.ovr > 0) || (r.kind || 'base') === 'base') return [];
+    var c = baseCands(S, r.name); if (!c.length && r.shown && lowKey(r.shown) !== lowKey(r.name)) c = baseCands(S, r.shown);
+    c = c.filter(function (i) { return S.cards[i].ovr === +r.ovr; });
+    if (c.length > 1 && r.pos) { var m = c.filter(function (i) { return S.cards[i].positions[0] === r.pos; }); if (m.length) c = m; }
+    if (c.length > 1 && r.promo) { var pr = lowKey(r.promo), pm = c.filter(function (i) { return lowKey(S.cards[i].promo) === pr; }); if (pm.length) c = pm; }
+    if (c.length > 1 && r.kind) { var km = c.filter(function (i) { return S.cards[i].kind === r.kind; }); if (km.length) c = km; }
+    return c.map(function (i) { return S.cards[i]; });
   }
   async function cdbEnrich(rows) {
     if (!rows.length) return 0;
@@ -6382,22 +6448,34 @@ a.btn { color: inherit; text-decoration: none; }
     // autre version (TOTW, promo…) : sa note de base est plus basse ou égale
     return keep(c.filter(function (i) { return B.rows[i][2] <= ovr; }));
   }
-  function applyBase(B, r, i) {
-    var p = B.rows[i], same = (r.kind || 'base') === 'base' && p[2] === +r.ovr, vals = { nation: B.nat[p[4]], league: B.lea[p[5]], club: B.club[p[6]] };
-    var low = function (v) { return E.stripAccents(String(v || '')).toLowerCase().trim(); };
-    if (lowKey(p[0]) !== lowKey(r.name)) { r.shown = r.shown || r.name; r.name = p[0]; }
-    r.nation = vals.nation; // la nation ne change pas : nom de la base pour un collectif juste
-    ['league', 'club'].forEach(function (k) { if (isMissing(r[k]) || E.nameMatch(low(r[k]), low(vals[k]))) r[k] = vals[k]; }); // un club lu différent (transfert) est gardé
+  // candidats d'une carte lue : { card, exact (même carte : stats et postes repris), sp (carte spéciale) }
+  function scanCands(B, S, r) {
+    var sp = spCandidates(S, r);
+    if (sp.length) return sp.map(function (c) { return { card: c, exact: true, sp: true }; });
+    if (!B) return [];
+    return baseCandidates(B, r).map(function (i) { return { card: baseCard(B, i), exact: (r.kind || 'base') === 'base' && B.rows[i][2] === +r.ovr }; });
+  }
+  function fillFromBase(B, r) {
+    if (!B || !(isMissing(r.nation) || isMissing(r.league) || isMissing(r.club))) return;
+    var bc = baseCandidates(B, r); if (bc.length !== 1) return;
+    var p = B.rows[bc[0]], vals = { nation: B.nat[p[4]], league: B.lea[p[5]], club: B.club[p[6]] };
+    ['nation', 'league', 'club'].forEach(function (k) { if (isMissing(r[k])) r[k] = vals[k]; });
+  }
+  function applyCand(r, cand) {
+    var c = cand.card, low = function (v) { return E.stripAccents(String(v || '')).toLowerCase().trim(); };
+    if (lowKey(c.name) !== lowKey(r.name)) { r.shown = r.shown || r.name; r.name = c.name; }
+    if (!isMissing(c.nation)) r.nation = c.nation; // la nation ne change pas : nom de la base pour un collectif juste
+    ['league', 'club'].forEach(function (k) { if (!isMissing(c[k]) && (isMissing(r[k]) || E.nameMatch(low(r[k]), low(c[k])))) r[k] = c[k]; }); // un club lu différent (transfert) est gardé
     if (r.sugg) { delete r.sugg; }
-    if (same) {
-      var pos = basePos(B, i);
+    if (cand.exact) {
+      var pos = c.positions;
       if (!r.pos) r.pos = pos[0];
       if ((!r.alt || !r.alt.length) && r.pos === pos[0]) r.alt = pos.slice(1);
-      if (!r.stats && p[9]) r.stats = p[9].split('.').map(Number);
-      if ((!r.playstyles || !r.playstyles.length) && p[10]) r.playstyles = p[10].map(function (k) { return B.ps[k]; });
-      if (!r.wf && p[7]) r.wf = p[7]; if (!r.sm && p[8]) r.sm = p[8];
+      if (!r.stats && c.stats) r.stats = c.stats.slice();
+      if ((!r.playstyles || !r.playstyles.length) && c.playstyles && c.playstyles.length) r.playstyles = c.playstyles.slice();
+      if (!r.wf && c.wf) r.wf = c.wf; if (!r.sm && c.sm) r.sm = c.sm;
+      if (cand.sp) { if (!r.promo && c.promo) r.promo = c.promo; r.kind = c.kind; }
     }
-    r.baseI = i;
   }
   var pickState = null;
   function askPlayers(list, B) {
@@ -6406,24 +6484,25 @@ a.btn { color: inherit; text-decoration: none; }
   function renderPick() {
     var ps = pickState, o = $('#overlay'); if (!ps) return;
     if (ps.k >= ps.list.length) { closeOverlay(); var d = ps.done; pickState = null; ps.resolve(d); return; }
-    var it = ps.list[ps.k], r = it.r, B = ps.B;
+    var it = ps.list[ps.k], r = it.r;
     o.innerHTML = '<div class="panel pick" role="dialog" aria-modal="true" aria-label="Quel joueur est-ce ?"><div class="row" style="justify-content:space-between"><h3>Quel joueur est-ce ?</h3><span class="muted small">' + (ps.k + 1) + ' / ' + ps.list.length + '</span></div>' +
       '<p class="note">Sur ta capture : <strong data-notr>' + esc(r.shown || r.name) + '</strong> · ' + r.ovr + ' · ' + posFr(r.pos || 'CM') + ' · ' + (r.kind === 'base' ? E.QUALITY_FR[E.quality(+r.ovr)] : E.KIND_FR[r.kind]) + (r.promo ? ' · ' + esc(r.promo) : '') + '. Plusieurs joueurs de FC 27 correspondent : touche le bon.</p>' +
-      '<div class="pick-list">' + it.c.map(function (i, j) {
-        var p = B.rows[i];
-        return '<button class="pick-row" data-action="pick-player" data-j="' + j + '"><span class="qf-rate ' + tierOf(p[2]) + '"><b>' + p[2] + '</b><span>' + posFr(basePos(B, i)[0]) + '</span></span>' +
-          '<span class="qf-who"><strong data-notr>' + esc(p[0]) + '</strong><span class="small muted" data-notr>' + flagOf(B.nat[p[4]]) + esc(B.nat[p[4]] + ' · ' + B.lea[p[5]] + ' · ' + B.club[p[6]]) + '</span>' + (p[1] ? '<span class="small muted" data-notr>' + esc(p[1]) + '</span>' : '') + '</span></button>';
+      '<div class="pick-list">' + it.c.map(function (cand, j) {
+        var c = cand.card, meta = [c.nation, c.league, c.club].filter(function (x) { return x && x !== '—'; }).join(' · ');
+        return '<button class="pick-row" data-action="pick-player" data-j="' + j + '"><span class="qf-rate ' + tierOf(c.ovr) + '"><b>' + c.ovr + '</b><span>' + posFr(c.positions[0]) + '</span></span>' +
+          '<span class="qf-who"><strong data-notr>' + esc(c.name) + '</strong><span class="small muted" data-notr>' + flagOf(c.nation) + esc(meta) + '</span>' + (cand.sp ? '<span class="small muted" data-notr>' + esc(c.promo || E.KIND_FR[c.kind]) + '</span>' : '') + '</span></button>';
       }).join('') + '</div>' +
       '<div class="row"><button class="btn" data-action="pick-none">Aucun de ceux-là</button><button class="btn ghost" data-action="pick-later">Vérifier plus tard</button></div></div>';
     o.hidden = false;
   }
   async function autoAddScan() {
-    var B = await loadFcBase(); if (!B) return { added: 0, asked: 0 };
+    var got = await Promise.all([loadFcBase().catch(function () { return null; }), loadSpecials().catch(function () { return null; })]), B = got[0], S = got[1];
+    if (!B && !S) return { added: 0, asked: 0 };
     var sure = [], ask = [];
     scanResults.forEach(function (r) {
       if (!r.use || r.conf === 'basse' || r.conf === 'low') return;
-      var c = baseCandidates(B, r);
-      if (c.length === 1) { applyBase(B, r, c[0]); sure.push(r); }
+      var c = scanCands(B, S, r);
+      if (c.length === 1) { applyCand(r, c[0]); if (c[0].sp) fillFromBase(B, r); sure.push(r); }
       else if (c.length > 1 && c.length <= 8) ask.push({ r: r, c: c });
     });
     var picked = ask.length ? await askPlayers(ask, B) : [];
@@ -8087,7 +8166,7 @@ a.btn { color: inherit; text-decoration: none; }
     'sbc-down': function (b) { var i = findSbc(b.closest('[data-sid]').dataset.sid); if (i < state.sbcs.length - 1) { var t = state.sbcs[i + 1]; state.sbcs[i + 1] = state.sbcs[i]; state.sbcs[i] = t; commit(); renderSbcList(); } },
     'sbc-close': function () { editingSbc = null; $('#sbcEditor').hidden = true; },
     'sbc-save': saveSbc,
-    'pick-player': function (b) { var ps = pickState; if (!ps) return; var it = ps.list[ps.k]; applyBase(ps.B, it.r, it.c[+b.dataset.j]); ps.done.push(it.r); ps.k++; renderPick(); },
+    'pick-player': function (b) { var ps = pickState; if (!ps) return; var it = ps.list[ps.k], cand = it.c[+b.dataset.j]; applyCand(it.r, cand); if (cand.sp) fillFromBase(ps.B, it.r); ps.done.push(it.r); ps.k++; renderPick(); },
     'pick-none': function () { var ps = pickState; if (!ps) return; ps.list[ps.k].r.noBase = true; ps.k++; renderPick(); },
     'pick-later': function () { var ps = pickState; if (!ps) return; ps.k = ps.list.length; renderPick(); },
     'slot-toggle': function (b) { slotToggle(+b.dataset.sl); },

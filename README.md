@@ -29,6 +29,10 @@ Squadoro est un outil indépendant créé par des fans. Il n'est pas affilié à
 
 Mise à jour automatique : chaque soir, la tâche de publication compare le dernier commit du dépôt source à `outils/base-source.json` ; s'il a changé, elle reconstruit `players-fc27.json` avec `outils/build_base.py` et le publie. Entre deux mises à jour de la source, les notes et les clubs peuvent avoir changé dans le jeu (mises à jour d'EA, transferts).
 
+## Cartes spéciales FC 27
+
+`specials-fc27.json` : les cartes spéciales (TOTW, promos, ICÔNES, Héros…) relevées chaque soir par la tâche de publication à partir des annonces publiques, gardées sans limite de durée, avec un rattrapage progressif des équipes déjà sorties (champ `backfill`). L'appli s'en sert pour la recherche et pour reconnaître les cartes spéciales sur les captures.
+
 ## Polices
 
 Barlow et Barlow Condensed (The Barlow Project Authors), sous licence SIL Open Font License 1.1 : voir `fonts/OFL-Barlow.txt`.
