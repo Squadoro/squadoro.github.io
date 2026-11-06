@@ -914,7 +914,10 @@
 "C'est fait": "Done",
 "Je l'ai fait : le mettre à l'écart": "I did it: set it aside",
 "DCE faits, mis à l'écart ({0})": "Done SBCs, set aside ({0})",
-"Fait ✓": "Done ✓"
+"Fait ✓": "Done ✓",
+"Captures aujourd'hui : {0}/{1}. Limite atteinte : tu pourras en ajouter d'autres dans": "Screenshots today: {0}/{1}. Limit reached: you can add more in",
+"Captures aujourd'hui : {0}/{1} (compteur remis à zéro dans": "Screenshots today: {0}/{1} (counter resets in",
+"Nouveau jour : tu peux de nouveau lire tes captures en attente.": "New day: you can read your waiting screenshots again."
 },
 "nl": {
 "(+{0}), collectif {1} →": "(+{0}), chemie {1} →",
@@ -1801,7 +1804,10 @@
 "C'est fait": "Gedaan",
 "Je l'ai fait : le mettre à l'écart": "Gedaan: opzijzetten",
 "DCE faits, mis à l'écart ({0})": "Gedane SBC's, opzijgezet ({0})",
-"Fait ✓": "Gedaan ✓"
+"Fait ✓": "Gedaan ✓",
+"Captures aujourd'hui : {0}/{1}. Limite atteinte : tu pourras en ajouter d'autres dans": "Screenshots vandaag: {0}/{1}. Limiet bereikt: je kunt er weer toevoegen over",
+"Captures aujourd'hui : {0}/{1} (compteur remis à zéro dans": "Screenshots vandaag: {0}/{1} (teller wordt teruggezet over",
+"Nouveau jour : tu peux de nouveau lire tes captures en attente.": "Nieuwe dag: je kunt je wachtende screenshots weer laten lezen."
 },
 "es": {
 "(+{0}), collectif {1} →": "(+{0}), química {1} →",
@@ -2688,7 +2694,10 @@
 "C'est fait": "Hecho",
 "Je l'ai fait : le mettre à l'écart": "Hecho: apartarlo",
 "DCE faits, mis à l'écart ({0})": "SBC hechos, apartados ({0})",
-"Fait ✓": "Hecho ✓"
+"Fait ✓": "Hecho ✓",
+"Captures aujourd'hui : {0}/{1}. Limite atteinte : tu pourras en ajouter d'autres dans": "Capturas hoy: {0}/{1}. Límite alcanzado: podrás añadir más dentro de",
+"Captures aujourd'hui : {0}/{1} (compteur remis à zéro dans": "Capturas hoy: {0}/{1} (el contador se reinicia dentro de",
+"Nouveau jour : tu peux de nouveau lire tes captures en attente.": "Nuevo día: puedes volver a leer tus capturas pendientes."
 }
 };</script>
 </head>
@@ -3040,6 +3049,7 @@ label.field > input, label.field > select { color: var(--ink); font-weight: 400;
 .ci-list { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 12px; margin: 0 0 12px; font-size: 14px; }
 .ci-list dt { color: var(--muted); } .ci-list dd { margin: 0; overflow-wrap: anywhere; }
 .card-info .pc-stats { margin-bottom: 10px; } .card-info .pc-extra { margin-bottom: 12px; }
+.quota-cd { font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--accent); }
 .pick-list { display: flex; flex-direction: column; gap: 6px; max-height: 55vh; overflow: auto; margin: 8px 0 12px; }
 .pick-row { display: grid; grid-template-columns: 46px minmax(0, 1fr); gap: 10px; align-items: center; text-align: left; padding: 8px 10px; border-radius: 10px; background: var(--surface-2); border: 1px solid var(--line); color: inherit; font: inherit; cursor: pointer; }
 .pick-row:hover, .pick-row:focus-visible { border-color: var(--accent); outline: none; }
@@ -4863,26 +4873,53 @@ a.btn { color: inherit; text-decoration: none; }
   function aiOk() { return !!(caps.sample || caps.ai); }
   /* Limite de captures (version autonome) : 50 le premier jour d'utilisation, puis 20 par jour. Le serveur applique la même règle. */
   var AI_FIRST_DAY_MAX = 50, AI_DAILY_MAX = 20;
+  // Le serveur compte les captures par jour à l'heure de Bruxelles : la remise à zéro a lieu à minuit, heure de Bruxelles
+  function bxNow() {
+    try {
+      var o = {}; new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Brussels', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hourCycle: 'h23' }).formatToParts(new Date()).forEach(function (x) { o[x.type] = x.value; });
+      return { day: o.year + '-' + o.month + '-' + o.day, sec: (+o.hour % 24) * 3600 + (+o.minute) * 60 + (+o.second) };
+    } catch (e) { var d = new Date(); return { day: todayStr(), sec: d.getHours() * 3600 + d.getMinutes() * 60 + d.getSeconds() }; }
+  }
+  function quotaDay() { return bxNow().day; }
+  function resetIn() { return Math.max(1, 86400 - bxNow().sec); }
+  function fmtWait(s, withSec) {
+    var h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), x = s % 60, out = [];
+    if (h) out.push(h + ' h'); if (h || m) out.push((h ? String(m).padStart(2, '0') : m) + ' min'); if (withSec || (!h && !m)) out.push(String(x).padStart(2, '0') + ' s');
+    return out.join(' ');
+  }
+  // compte à rebours affiché (mis à jour chaque seconde)
+  function cdSpan() { return '<span class="quota-cd" data-cd="1" data-notr>' + fmtWait(resetIn(), true) + '</span>'; }
+  var cdDay = null;
+  setInterval(function () {
+    if (typeof document === 'undefined' || document.hidden) return;
+    var els = document.querySelectorAll('[data-cd]'), w = resetIn(), day = quotaDay();
+    for (var i = 0; i < els.length; i++) els[i].textContent = fmtWait(w, true);
+    if (cdDay && cdDay !== day && state && caps.ai) { // nouveau jour : les captures sont de nouveau possibles
+      renderScanAvail();
+      if (photoFiles.some(function (f) { return f._st === 'skip'; })) toast('Nouveau jour : tu peux de nouveau lire tes captures en attente.');
+    }
+    cdDay = day;
+  }, 1000);
   function aiQuota() {
-    var t = todayStr(), u = state.ui, first = !u.aiFirstDay || u.aiFirstDay === t, max = first ? AI_FIRST_DAY_MAX : AI_DAILY_MAX;
+    var t = quotaDay(), u = state.ui, first = !u.aiFirstDay || u.aiFirstDay === t, max = first ? AI_FIRST_DAY_MAX : AI_DAILY_MAX;
     var used = u.aiUse && u.aiUse.day === t ? u.aiUse.n : 0;
     return { max: max, used: used, left: Math.max(0, max - used), first: first };
   }
   function aiSpend(n) {
-    var t = todayStr(); if (!state.ui.aiFirstDay) state.ui.aiFirstDay = t;
+    var t = quotaDay(); if (!state.ui.aiFirstDay) state.ui.aiFirstDay = t;
     if (!state.ui.aiUse || state.ui.aiUse.day !== t) state.ui.aiUse = { day: t, n: 0 };
     state.ui.aiUse.n += n; commit({ keepPlan: true });
   }
-  function aiQuotaText() {
-    var q = aiQuota();
-    var shown = Math.min(q.used, q.max) + '/' + q.max;
-    return q.left ? 'Captures aujourd\'hui : ' + shown : 'Captures aujourd\'hui : ' + shown + '. Limite atteinte, reviens demain.';
+  function aiQuotaText(live) {
+    var q = aiQuota(), shown = Math.min(q.used, q.max) + '/' + q.max, cd = live ? cdSpan() : fmtWait(resetIn());
+    return q.left ? 'Captures aujourd\'hui : ' + shown + (q.used ? ' (compteur remis à zéro dans ' + cd + ')' : '') :
+      'Captures aujourd\'hui : ' + shown + '. Limite atteinte : tu pourras en ajouter d\'autres dans ' + cd + '.';
   }
   function deviceId() {
     if (!state.ui.deviceId) { var r = ''; try { r = crypto.randomUUID(); } catch (e) { r = 'd' + Date.now().toString(36) + Math.random().toString(36).slice(2, 12); } state.ui.deviceId = r; commit({ keepPlan: true }); }
     return state.ui.deviceId;
   }
-  var BUSY_TEXT = 'Squadoro a atteint sa limite de lectures pour aujourd\'hui, pour l\'ensemble des joueurs. Reviens demain, ou ajoute tes cartes avec la recherche ou à la main.';
+  function busyText() { return 'Squadoro a atteint sa limite de lectures pour aujourd\'hui, pour l\'ensemble des joueurs. Reviens dans ' + fmtWait(resetIn()) + ', ou ajoute tes cartes avec la recherche ou à la main.'; }
   function aiLimits() { return caps.sample ? caps.limits : caps.ai ? AI_LIMITS : null; }
   function parseLooseJSON(t) {
     t = String(t || '').trim().replace(/^```(?:json)?\s*/i, '').replace(/```\s*$/, '');
@@ -4928,7 +4965,7 @@ a.btn { color: inherit; text-decoration: none; }
     var r;
     try { r = await fetch(caps.ai.url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ task: task, text: prompt.slice(base.length), images: images, device: deviceId() }) }); }
     catch (e) { throw { code: 'offline' }; }
-    if (r.status === 429 || r.status === 503) { var q = null; try { q = await r.json(); } catch (e) { } if (q && q.error === 'busy') throw { code: 'busy' }; if (q && q.error === 'web_quota') throw { code: 'web_quota' }; if (r.status === 503) throw { code: 'unavailable' }; if (q && q.error === 'quota') { var td = todayStr(); if (q.first === false && (!state.ui.aiFirstDay || state.ui.aiFirstDay === td)) state.ui.aiFirstDay = '2000-01-01'; else if (!state.ui.aiFirstDay) state.ui.aiFirstDay = td; state.ui.aiUse = { day: td, n: aiQuota().max }; commit({ keepPlan: true }); renderScanAvail(); throw { code: 'quota' }; } throw { code: 'rate_limited' }; }
+    if (r.status === 429 || r.status === 503) { var q = null; try { q = await r.json(); } catch (e) { } if (q && q.error === 'busy') throw { code: 'busy' }; if (q && q.error === 'web_quota') throw { code: 'web_quota' }; if (r.status === 503) throw { code: 'unavailable' }; if (q && q.error === 'quota') { var td = quotaDay(); if (q.first === false && (!state.ui.aiFirstDay || state.ui.aiFirstDay === td)) state.ui.aiFirstDay = '2000-01-01'; else if (!state.ui.aiFirstDay) state.ui.aiFirstDay = td; state.ui.aiUse = { day: td, n: aiQuota().max }; commit({ keepPlan: true }); renderScanAvail(); throw { code: 'quota' }; } throw { code: 'rate_limited' }; }
     if (!r.ok) { var ej = null; try { ej = await r.json(); } catch (e) { } throw { code: ej && ej.error === 'web_disabled' ? 'web_disabled' : 'unavailable' }; }
     var j = await r.json();
     return parseLooseJSON(j && j.text);
@@ -6234,7 +6271,7 @@ a.btn { color: inherit; text-decoration: none; }
   function renderScanAvail() {
     var lim = aiLimits(), ok = !!(lim && lim.images);
     $('#scanAvail').innerHTML = !capsChecked ? 'Vérification de la lecture des photos…' : ok
-      ? (caps.ai ? 'Choisis tes captures dans ta galerie photo. Elles sont lues par un service d\'IA externe (Claude, d\'Anthropic) puis oubliées. La première fois, l\'appli te demande ton accord.' + ' <strong>' + aiQuotaText() + '</strong>' : 'Les images sont envoyées à Claude pour être lues (jusqu\'à ' + lim.images.maxCount + ' par envoi). La première fois, une fenêtre te demande l\'autorisation.')
+      ? (caps.ai ? 'Choisis tes captures dans ta galerie photo. Elles sont lues par un service d\'IA externe (Claude, d\'Anthropic) puis oubliées. La première fois, l\'appli te demande ton accord.' + ' <strong>' + aiQuotaText(true) + '</strong>' : 'Les images sont envoyées à Claude pour être lues (jusqu\'à ' + lim.images.maxCount + ' par envoi). La première fois, une fenêtre te demande l\'autorisation.')
       : '<strong>Lecture des photos indisponible ici.</strong> Elle fonctionne quand l\'appli est ouverte dans Claude, connecté à ton compte. En attendant, utilise le fichier CSV ou le copier-coller.';
     if (ok) $('#photoInput').accept = caps.ai ? 'image/*' : lim.images.mediaTypes.join(',');
     $('#scanBtn').disabled = !ok || scanRunning || !photoFiles.some(function (f) { return f._st !== 'ok' && f._st !== 'run'; });
@@ -6327,7 +6364,7 @@ a.btn { color: inherit; text-decoration: none; }
   }
   function scanErrText(code) {
     return code === 'not_granted' ? (caps.ai ? 'Lecture annulée.' : 'Accès à Claude refusé : autorise-le dans la fenêtre ou dans le menu Autorisations de la page.') : code === 'offline' ? 'Pas de connexion internet : la lecture des captures en a besoin.' :
-      code === 'rate_limited' ? 'Limite d\'utilisation atteinte. Réessaie un peu plus tard.' : code === 'quota' ? aiQuotaText() : code === 'busy' ? BUSY_TEXT :
+      code === 'rate_limited' ? 'Limite d\'utilisation atteinte. Réessaie un peu plus tard.' : code === 'quota' ? aiQuotaText() : code === 'busy' ? busyText() :
       code === 'invalid_json' ? 'Une capture n\'a pas pu être lue. Essaie avec une capture plus nette.' :
       code === 'image_rejected' ? 'Une image a été refusée (format ou taille).' : 'La lecture a échoué pour une capture (' + (code || 'erreur') + ').';
   }
@@ -6394,7 +6431,7 @@ a.btn { color: inherit; text-decoration: none; }
       (af.filled ? ' <span>Nation, ligue et club trouvés automatiquement : vérifie-les puis touche « Tout confirmer ».</span>' : '') +
       (af.left ? ' <span>' + (webErrText(af.web && af.web.err) || (af.err && (af.err.code === 'rate_limited' || af.err.code === 'quota') ? 'Limite de recherches du jour atteinte.' : '')) + ' ' + af.left + ' joueur(s) non trouvé(s) : complète les cases orange à la main.</span>' : '') +
       (nErr ? ' <span>' + nErr + ' capture(s) illisible(s) : touche « Lire les cartes » pour réessayer.</span>' : '') +
-      (nSkip ? ' <span>' + nSkip + ' capture(s) en attente' + (stopCode === 'quota' || (caps.ai && !aiQuota().left) ? ' : limite du jour atteinte. Elles restent ici : relance la lecture demain.' : stopCode === 'busy' ? ' : limite générale du jour atteinte.' : '.') + '</span>' : '');
+      (nSkip ? ' <span>' + nSkip + ' capture(s) en attente' + (stopCode === 'quota' || (caps.ai && !aiQuota().left) ? ' : limite du jour atteinte. Elles restent ici : tu pourras relancer la lecture dans ' + cdSpan() + '.' : stopCode === 'busy' ? ' : limite générale du jour atteinte, relance la lecture dans ' + cdSpan() + '.' : '.') + '</span>' : '');
     if (stopCode && stopCode !== 'not_granted' || errs.length) toast(scanErrText(stopCode || errs[0]));
     renderThumbs(); renderScanAvail(); refreshReviewKeepFocus();
   }
@@ -6573,7 +6610,7 @@ a.btn { color: inherit; text-decoration: none; }
     'Ne devine pas : mets null pour ce que tu ne trouves pas. Termine ta réponse par UNIQUEMENT un tableau JSON : [{"i": numéro, "nation": "...", "league": "...", "club": "...", "src": "nom du site utilisé"}].\n\n';
   function sampleErr(e) {
     var code = e && e.code;
-    return code === 'quota' ? aiQuotaText() : code === 'busy' ? BUSY_TEXT : code === 'not_granted' ? (caps.ai ? 'Action annulée.' : 'Accès à Claude refusé : autorise-le dans la fenêtre ou dans le menu Autorisations de la page.') : code === 'offline' ? 'Pas de connexion internet.' : code === 'unavailable' ? 'Service indisponible pour le moment. Réessaie plus tard.' :
+    return code === 'quota' ? aiQuotaText() : code === 'busy' ? busyText() : code === 'not_granted' ? (caps.ai ? 'Action annulée.' : 'Accès à Claude refusé : autorise-le dans la fenêtre ou dans le menu Autorisations de la page.') : code === 'offline' ? 'Pas de connexion internet.' : code === 'unavailable' ? 'Service indisponible pour le moment. Réessaie plus tard.' :
       code === 'rate_limited' ? 'Limite d\'utilisation atteinte. Réessaie un peu plus tard.' :
       code === 'invalid_json' ? 'Réponse illisible. Réessaie.' : 'La demande a échoué (' + (code || 'erreur') + ').';
   }
