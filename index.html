@@ -3030,6 +3030,16 @@ label.field > input, label.field > select { color: var(--ink); font-weight: 400;
 .sbc-main[role=button], .cat-main[role=button] { cursor: pointer; border-radius: 8px; }
 .sbc-main[role=button]:hover .sbc-title, .cat-main[role=button]:hover .sbc-title { color: var(--accent); }
 .sbc-main[role=button]:focus-visible, .cat-main[role=button]:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.mini[data-action=card-info], .tok[data-action=card-info] { cursor: pointer; }
+.mini[data-action=card-info]:hover, .mini[data-action=card-info]:focus-visible { border-color: var(--accent); outline: none; }
+.tok[data-action=card-info]:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.card-info .ci-head { display: grid; grid-template-columns: 64px minmax(0, 1fr) auto; gap: 12px; align-items: start; margin-bottom: 10px; }
+.card-info .ci-head .pc-rate { min-height: 76px; }
+.card-info .ci-head h3 { margin: 0; }
+.card-info .ci-head .pc-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+.ci-list { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 12px; margin: 0 0 12px; font-size: 14px; }
+.ci-list dt { color: var(--muted); } .ci-list dd { margin: 0; overflow-wrap: anywhere; }
+.card-info .pc-stats { margin-bottom: 10px; } .card-info .pc-extra { margin-bottom: 12px; }
 .pick-list { display: flex; flex-direction: column; gap: 6px; max-height: 55vh; overflow: auto; margin: 8px 0 12px; }
 .pick-row { display: grid; grid-template-columns: 46px minmax(0, 1fr); gap: 10px; align-items: center; text-align: left; padding: 8px 10px; border-radius: 10px; background: var(--surface-2); border: 1px solid var(--line); color: inherit; font: inherit; cursor: pointer; }
 .pick-row:hover, .pick-row:focus-visible { border-color: var(--accent); outline: none; }
@@ -6869,7 +6879,7 @@ a.btn { color: inherit; text-decoration: none; }
             (r.formationGuess || r.slotsGuess || d.layoutVerify ? '<div class="hint layout-warn"><span>' + (r.formationGuess ? 'Formation choisie par l\'appli (la moins chère pour ton club) : si le DCE en impose une autre dans le jeu, choisis-la ci-dessus.' : r.slotsGuess ? 'Postes choisis par l\'appli : si d\'autres postes sont verrouillés dans le jeu, touche « Choisir les postes verrouillés ».' : 'Formation reprise d\'une solution publiée : vérifie-la dans le jeu.') + '</span></div>' : '') +
             '<ul class="checklist">' + (r.details || []).map(function (q) { return '<li><span class="' + (q.ok ? 'y' : 'n') + '">' + (q.ok ? '✓' : '✗') + '</span><span>' + esc(E.condText(q.cond)) + '</span><span class="v">' + q.value + '</span></li>'; }).join('') + '</ul>' +
             (!r.ok ? '<p class="note" style="color:var(--bad)">Meilleure tentative avec ton club : les conditions marquées ✗ ne sont pas remplies.</p>' : '') +
-            '<span class="eyebrow">Composition, poste par poste</span><div class="minis">' + r.squad.filter(function (s) { return s.card; }).map(function (s) { return mini(s.card, '<span class="tagd">' + posFr(s.slot) + '</span>' + (!s.card.tradeable ? '<span class="tagd">NE</span>' : '')); }).join('') + '</div>' +
+            '<span class="eyebrow">Composition, poste par poste · touche un joueur pour voir sa carte</span><div class="minis">' + r.squad.filter(function (s) { return s.card; }).map(function (s) { return mini(s.card, '<span class="tagd">' + posFr(s.slot) + '</span>' + (!s.card.tradeable ? '<span class="tagd">NE</span>' : ''), { slot: s.slot, chem: s.chem, oop: !s.inPos }); }).join('') + '</div>' +
             (r.squad.some(function (s) { return s.closed; }) ? '<p class="note">Postes hachurés : verrouillés dans le jeu, n\'y mets personne.</p>' : '');
         }
       } else {
@@ -7211,8 +7221,60 @@ a.btn { color: inherit; text-decoration: none; }
     running = false; $('#runPlan').disabled = false; setTimeout(function () { pr.hidden = true; }, 500);
     renderPlan(); $('#planResults').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
-  function mini(c, extra) {
-    return '<span class="mini ' + tierOf(c.ovr) + (c.virtual ? ' virt' : '') + '"><b' + (c.virtual ? '' : ' class="' + faceCls(c) + '"') + '>' + c.ovr + '</b><span class="nm" data-notr>' + esc(c.virtual ? 'À recevoir (' + c.fromName + ')' : c.name) + '</span>' + (extra || '') + '</span>';
+  function ciAttrs(c, ctx) {
+    if (!c || c.virtual || !c.id) return '';
+    ctx = ctx || {};
+    return ' data-action="card-info" data-cid="' + esc(c.id) + '"' + (ctx.slot ? ' data-slot="' + esc(ctx.slot) + '"' : '') + (ctx.chem != null ? ' data-chem="' + ctx.chem + '"' : '') + (ctx.oop ? ' data-oop="1"' : '') + ' role="button" tabindex="0" title="Voir la carte"';
+  }
+  /* Fiche d'un joueur depuis un DCE (terrain ou liste) : nom complet, version, nation, ligue, club, stats, PlayStyles… */
+  var cardInfoCtx = null;
+  function cardStatsHTML(c) {
+    if (!c.stats) return '<p class="note">Stats non renseignées.</p>';
+    var SN = STAT_NAMES[typeof trLang === 'string' ? trLang : 'fr'] || STAT_NAMES.fr, L = c.positions[0] === 'GK' ? SN[1] : SN[0];
+    return '<div class="pc-stats">' + c.stats.map(function (v, i) { return '<div class="st"><span class="l" data-notr>' + L[i] + '</span><span class="b"><i class="' + (v >= 85 ? 'hi' : v >= 70 ? 'mid' : '') + '" style="width:' + Math.min(100, v) + '%"></i></span><span class="v">' + v + '</span></div>'; }).join('') + '</div>';
+  }
+  function openCardInfo(id, ctx) {
+    var c = findCard(id); if (!c) { toast('Cette carte n\'est plus dans ton club.'); return; }
+    var o = $('#overlay'), fromView = !o.hidden && !!o.querySelector('.sbc-view');
+    cardInfoCtx = Object.assign({ id: id, fromView: fromView }, ctx || {});
+    renderCardInfo(c, null);
+    // nom complet et carte de base du même joueur, d'après la base FC 27
+    loadFcBase().then(function (B) {
+      if (!B || !cardInfoCtx || cardInfoCtx.id !== id || o.hidden || !o.querySelector('.card-info')) return;
+      var bc = baseCandidates(B, { name: c.name, ovr: c.ovr, pos: c.positions[0], kind: c.kind, use: true });
+      if (bc.length === 1) renderCardInfo(c, B.rows[bc[0]]);
+    }).catch(function () { });
+  }
+  function renderCardInfo(c, bp) {
+    var ctx = cardInfoCtx || {}, S = effS(), o = $('#overlay');
+    var full = bp ? (bp[1] || bp[0]) : '', kindTxt = c.kind === 'base' ? E.QUALITY_FR[E.quality(c.ovr)] + (c.rare ? ' rare' : ' non rare') : (c.promo || E.KIND_FR[c.kind]);
+    var rows = [
+      ['Version', kindTxt + (c.kind !== 'base' && c.kind !== 'icon' && c.kind !== 'hero' ? ' (' + E.KIND_FR[c.kind] + ')' : '')],
+      ['Postes', c.positions.map(posFr).join(', ')],
+      ['Nation', flagOf(c.nation) + esc(c.nation)], ['Ligue', esc(c.league)], ['Club', esc(c.club)],
+      ['Échange', c.loan ? 'Prêt (' + c.loan + ' match' + (c.loan > 1 ? 's' : '') + ')' : c.tradeable ? 'Échangeable · ≈ ' + fmt(Math.round(E.cardValue(c, S))) + ' crédits' : 'Non échangeable'],
+      ['Score d\'objet', (c.score > 0 ? '' : '≈ ') + fmt(E.itemScore(c, S))]
+    ];
+    var bits = []; if (c.wf) bits.push('pied faible ' + c.wf + '★'); if (c.sm) bits.push('gestes techniques ' + c.sm + '★'); if (c.height) bits.push(c.height + ' cm');
+    if (bits.length) rows.push(['Profil', bits.join(' · ')]);
+    if (bp && c.kind !== 'base' && bp[2] !== c.ovr) rows.push(['Carte de base', bp[2] + ' · ' + posFr(bp[3].split(' ')[0])]);
+    var st = []; if (c.active) st.push('dans ton équipe active'); if (c.locked) st.push('protégée'); if (c.dup) st.push('doublon');
+    if (st.length) rows.push(['Dans ton club', st.join(' · ')]);
+    if (ctx.slot) rows.unshift(['Dans ce DCE', posFr(ctx.slot) + (ctx.chem != null && ctx.chem !== '' ? ' · collectif ' + ctx.chem + '/3' : '') + (ctx.oop ? ' · hors poste' : '')]);
+    var ps = (c.playstyles || []).map(function (p) { var plus = /\+\s*$/.test(p); return '<span class="ps' + (plus ? ' plus' : '') + '">' + esc(p) + '</span>'; }).join('') + (c.roles || []).map(function (rl) { return '<span class="ps role">' + esc(rl) + '</span>'; }).join('');
+    o.innerHTML = '<div class="panel card-info" role="dialog" aria-modal="true" aria-label="' + esc(c.name) + '">' +
+      '<div class="ci-head"><div class="pc-rate ' + faceCls(c) + '"><b>' + c.ovr + '</b><span>' + posFr(c.positions[0]) + '</span></div>' +
+      '<div style="min-width:0"><h3 data-notr>' + esc(c.name) + '</h3>' + (full && lowKey(full) !== lowKey(c.name) ? '<div class="small muted" data-notr>' + esc(full) + '</div>' : '') +
+      '<div class="pc-tags">' + kindChip(c) + loanOrPrice(c) + '</div></div>' +
+      '<button class="icon-btn" data-action="ci-close" aria-label="Fermer">✕</button></div>' +
+      '<dl class="ci-list">' + rows.map(function (r) { return '<dt>' + r[0] + '</dt><dd data-notr>' + r[1] + '</dd>'; }).join('') + '</dl>' +
+      cardStatsHTML(c) + (ps ? '<div class="pc-extra">' + ps + '</div>' : '') +
+      '<div class="row">' + (ctx.fromView ? '<button class="btn sm" data-action="ci-back">← Retour au DCE</button>' : '') +
+      '<button class="btn sm ghost" data-action="ci-edit">Modifier la fiche</button><button class="btn sm ghost" data-action="ci-close">Fermer</button></div></div>';
+    o.hidden = false;
+  }
+  function mini(c, extra, ctx) {
+    return '<span class="mini ' + tierOf(c.ovr) + (c.virtual ? ' virt' : '') + '"' + ciAttrs(c, ctx) + '><b' + (c.virtual ? '' : ' class="' + faceCls(c) + '"') + '>' + c.ovr + '</b><span class="nm" data-notr>' + esc(c.virtual ? 'À recevoir (' + c.fromName + ')' : c.name) + '</span>' + (extra || '') + '</span>';
   }
   function banBtn(c) { return c.virtual ? '' : '<button class="chip-x" data-action="ban-card" data-cid="' + esc(c.id) + '" aria-label="Ne pas utiliser ' + esc(c.name) + ' dans ce DCE" title="Ne pas utiliser cette carte ici">✕</button>'; }
   function pitchHTML(squad, opts) {
@@ -7222,7 +7284,7 @@ a.btn { color: inherit; text-decoration: none; }
         if (s.closed) return '<div class="tok closed-slot" style="left:' + s.x + '%;top:' + s.y + '%" role="img" aria-label="' + posFr(s.slot) + ' : poste verrouillé, ne rien mettre"><span class="tp">' + posFr(s.slot) + '</span><span class="lk">verrouillé</span></div>';
         if (!s.card) return '<div class="tok empty-slot" style="left:' + s.x + '%;top:' + s.y + '%"><span class="tp">' + posFr(s.slot) + '</span></div>';
         var pips = ''; for (var pk = 0; pk < 3; pk++) pips += '<i' + (pk < s.chem ? ' class="on"' : '') + '></i>';
-        return '<div class="tok ' + tierOf(s.card.ovr) + ' fk-' + faceKey(s.card) + (opts.mark && opts.mark[s.card.id] ? ' chg' : '') + '"' + (opts.edit ? ' data-si="' + i + '"' : '') + ' style="left:' + s.x + '%;top:' + s.y + '%" title="' + esc(s.card.name + ' — ' + s.card.nation + ' · ' + s.card.league + ' · ' + s.card.club) + '">' +
+        return '<div class="tok ' + tierOf(s.card.ovr) + ' fk-' + faceKey(s.card) + (opts.mark && opts.mark[s.card.id] ? ' chg' : '') + '"' + (opts.edit ? ' data-si="' + i + '"' : ciAttrs(s.card, { slot: s.slot, chem: s.chem, oop: !s.inPos })) + ' style="left:' + s.x + '%;top:' + s.y + '%" title="' + esc(s.card.name + ' — ' + s.card.nation + ' · ' + s.card.league + ' · ' + s.card.club) + '">' +
           '<b>' + s.card.ovr + '</b><span class="tp">' + posFr(s.slot) + '</span><span class="tn" data-notr>' + flagOf(s.card.nation) + esc(surname(s.card.name)) + '</span><span class="pips" role="img" aria-label="Collectif ' + s.chem + ' sur 3">' + pips + '</span>' + (!s.inPos ? '<span class="oop">hors poste</span>' : '') + '</div>';
       }).join('') + '</div>';
   }
@@ -7286,7 +7348,7 @@ a.btn { color: inherit; text-decoration: none; }
             '<ul class="checklist">' + (r.details || []).map(function (q) { return '<li><span class="' + (q.ok ? 'y' : 'n') + '">' + (q.ok ? '✓' : '✗') + '</span><span>' + esc(E.condText(q.cond)) + '</span><span class="v">' + q.value + '</span></li>'; }).join('') + '</ul>' +
             (!r.ok ? '<p class="note" style="color:var(--bad)">Meilleure tentative avec ton club : les conditions marquées ✗ ne sont pas remplies.</p>' : '') +
             (function () { var rc = (d.conds || []).filter(function (q) { return q.t === 'rating'; })[0]; return r.ok && rc && r.rating - rc.n >= 2 ? '<p class="hint">Note ' + r.rating + ' pour ' + rc.n + ' demandés : l\'appli n\'a pas trouvé moins cher avec ton club, mais des cartes plus fortes que nécessaire partent dans ce DCE.</p>' : ''; })() +
-            '<div class="minis">' + r.squad.filter(function (s) { return s.card; }).map(function (s) { return mini(s.card, '<span class="tagd">' + posFr(s.slot) + '</span>' + (!s.card.tradeable ? '<span class="tagd">NE</span>' : '') + banBtn(s.card)); }).join('') + '</div></div></div>';
+            '<div class="minis">' + r.squad.filter(function (s) { return s.card; }).map(function (s) { return mini(s.card, '<span class="tagd">' + posFr(s.slot) + '</span>' + (!s.card.tradeable ? '<span class="tagd">NE</span>' : '') + banBtn(s.card), { slot: s.slot, chem: s.chem, oop: !s.inPos }); }).join('') + '</div></div></div>';
         }
       }
       body += verdictHTML(d, r);
@@ -8202,6 +8264,10 @@ a.btn { color: inherit; text-decoration: none; }
     'sbc-down': function (b) { var i = findSbc(b.closest('[data-sid]').dataset.sid); if (i < state.sbcs.length - 1) { var t = state.sbcs[i + 1]; state.sbcs[i + 1] = state.sbcs[i]; state.sbcs[i] = t; commit(); renderSbcList(); } },
     'sbc-close': function () { editingSbc = null; $('#sbcEditor').hidden = true; },
     'sbc-save': saveSbc,
+    'card-info': function (b) { openCardInfo(b.dataset.cid, { slot: b.dataset.slot || '', chem: b.dataset.chem != null ? b.dataset.chem : null, oop: b.dataset.oop === '1' }); },
+    'ci-close': function () { cardInfoCtx = null; closeOverlay(); },
+    'ci-back': function () { cardInfoCtx = null; renderSbcView(); },
+    'ci-edit': function () { var id = cardInfoCtx && cardInfoCtx.id, c = id && findCard(id); cardInfoCtx = null; sbcViewSeq++; closeOverlay(); if (!c) return; if (state.ui.view !== 'club') go('club'); openCardEditor(c); },
     'pick-player': function (b) { var ps = pickState; if (!ps) return; var it = ps.list[ps.k], cand = it.c[+b.dataset.j]; applyCand(it.r, cand); if (cand.sp) fillFromBase(ps.B, it.r); ps.done.push(it.r); ps.k++; renderPick(); },
     'pick-none': function () { var ps = pickState; if (!ps) return; ps.list[ps.k].r.noBase = true; ps.k++; renderPick(); },
     'pick-later': function () { var ps = pickState; if (!ps) return; ps.k = ps.list.length; renderPick(); },
