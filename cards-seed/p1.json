@@ -1,6 +1,84 @@
 {
   "cards": [
     {
+      "name": "Morgan Rogers",
+      "ovr": 85,
+      "kind": "totw",
+      "rare": true,
+      "pos": "LM",
+      "alt": [],
+      "added": "2026-11-06",
+      "nation": "Angleterre",
+      "iso": "gb-eng",
+      "league": "Premier League",
+      "club": "Chelsea"
+    },
+    {
+      "name": "Yasin Ayari",
+      "ovr": 81,
+      "kind": "totw",
+      "rare": true,
+      "pos": "CAM",
+      "alt": [],
+      "added": "2026-11-06",
+      "nation": "Suède",
+      "iso": "se",
+      "league": "Premier League",
+      "club": "Brighton"
+    },
+    {
+      "name": "Bartosz Nowak",
+      "ovr": 80,
+      "kind": "totw",
+      "rare": true,
+      "pos": "LW",
+      "alt": [],
+      "added": "2026-11-06",
+      "nation": "Pologne",
+      "iso": "pl",
+      "league": "Ekstraklasa",
+      "club": "GKS Katowice"
+    },
+    {
+      "name": "Selen Altunkulak",
+      "ovr": 80,
+      "kind": "totw",
+      "rare": true,
+      "pos": "LM",
+      "alt": [],
+      "added": "2026-11-06",
+      "nation": "Turquie",
+      "iso": "tr",
+      "league": "Arkema Première Ligue",
+      "club": "Toulouse FC"
+    },
+    {
+      "name": "Samuel Mbangula",
+      "ovr": 80,
+      "kind": "totw",
+      "rare": true,
+      "pos": "LW",
+      "alt": [],
+      "added": "2026-11-06",
+      "nation": "Belgique",
+      "iso": "be",
+      "league": "Bundesliga",
+      "club": "SV Werder Bremen"
+    },
+    {
+      "name": "Gessime Yassine",
+      "ovr": 80,
+      "kind": "totw",
+      "rare": true,
+      "pos": "RW",
+      "alt": [],
+      "added": "2026-11-06",
+      "nation": "Maroc",
+      "iso": "ma",
+      "league": "Ligue 1",
+      "club": "Strasbourg"
+    },
+    {
       "name": "Kerolin",
       "ovr": 86,
       "kind": "totw",
@@ -9,7 +87,9 @@
       "alt": [],
       "nation": "Brésil",
       "iso": "br",
-      "added": "2026-11-05"
+      "added": "2026-11-05",
+      "league": "Liga F",
+      "club": "FC Barcelona"
     },
     {
       "name": "Jonny",
@@ -32,7 +112,8 @@
       ],
       "wf": 4,
       "sm": 3,
-      "added": "2026-11-05"
+      "added": "2026-11-05",
+      "club": "D. Alavés"
     },
     {
       "name": "Yannick Carrasco",
@@ -68,7 +149,10 @@
       "pos": "LB",
       "alt": [],
       "club": "Hertha BSC",
-      "added": "2026-11-05"
+      "added": "2026-11-05",
+      "nation": "Danemark",
+      "iso": "dk",
+      "league": "Bundesliga 2"
     },
     {
       "name": "Borja Sainz",
@@ -79,7 +163,9 @@
       "alt": [],
       "nation": "Espagne",
       "iso": "es",
-      "added": "2026-11-05"
+      "added": "2026-11-05",
+      "league": "Liga Portugal",
+      "club": "FC Porto"
     },
     {
       "name": "Aaron Collins",
@@ -89,7 +175,10 @@
       "pos": "ST",
       "alt": [],
       "club": "MK Dons",
-      "added": "2026-11-05"
+      "added": "2026-11-05",
+      "nation": "Pays de Galles",
+      "iso": "gb-wls",
+      "league": "EFL League One"
     },
     {
       "name": "Samuel Ballet",
@@ -98,7 +187,11 @@
       "rare": true,
       "pos": "LM",
       "alt": [],
-      "added": "2026-11-05"
+      "added": "2026-11-05",
+      "nation": "Suisse",
+      "iso": "ch",
+      "league": "Süper Lig",
+      "club": "Amed Sportif Faaliyetler"
     },
     {
       "name": "Trinity Rodman",
@@ -466,7 +559,11 @@
       "rare": true,
       "pos": "LM",
       "alt": [],
-      "added": "2026-11-01"
+      "added": "2026-11-01",
+      "nation": "Brésil",
+      "iso": "br",
+      "league": "Liga Portugal",
+      "club": "Académico de Viseu FC"
     },
     {
       "name": "Kristian Lonebu",
@@ -503,7 +600,9 @@
       "alt": [],
       "nation": "Angleterre",
       "iso": "gb-eng",
-      "added": "2026-11-01"
+      "added": "2026-11-01",
+      "league": "NWSL",
+      "club": "Denver Summit FC"
     },
     {
       "name": "Richard Koné",
@@ -514,7 +613,9 @@
       "alt": [],
       "league": "EFL Championship",
       "club": "QPR",
-      "added": "2026-11-01"
+      "added": "2026-11-01",
+      "nation": "Côte d'Ivoire",
+      "iso": "ci"
     },
     {
       "name": "Sebastian Szymański",
@@ -564,7 +665,9 @@
       "alt": [],
       "league": "Bundesliga",
       "club": "Borussia Mönchengladbach",
-      "added": "2026-11-01"
+      "added": "2026-11-01",
+      "nation": "Allemagne",
+      "iso": "de"
     }
   ]
 }
