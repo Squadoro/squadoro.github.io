@@ -3449,6 +3449,11 @@ a.btn { color: inherit; text-decoration: none; }
     if (trLang !== 'fr') trProcess($('#view-' + v));
   }
   window.addEventListener('hashchange', function () { show(currentView()); });
+  // remonte en haut de la page (en douceur si on retouche l'onglet déjà ouvert)
+  function toTop(smooth) {
+    var calm = false; try { calm = matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { }
+    try { window.scrollTo({ top: 0, left: 0, behavior: smooth && !calm ? 'smooth' : 'auto' }); } catch (e) { window.scrollTo(0, 0); }
+  }
   function go(v) { if (location.hash !== '#' + v) { try { location.hash = v; } catch (e) { show(v); } } else show(v); }
   function expiringSoon() {
     var t = todayStr(), tm = new Date(); tm.setDate(tm.getDate() + 1);
@@ -6229,8 +6234,8 @@ a.btn { color: inherit; text-decoration: none; }
     if (selMode) { var pk = e.target.closest('#cardList [data-id]'); if (pk) { var sid = pk.dataset.id; if (selIds[sid]) delete selIds[sid]; else selIds[sid] = 1; selDelConfirm = false; pk.classList.toggle('picked', !!selIds[sid]); renderSelBar(); return; } }
     var dp = e.target.closest(DND_SEL); if (dp) { if (!suppressClick) tapPick(dp); return; }
     var rf = e.target.closest('[data-resf]'); if (rf) { state.ui.resFilter = rf.dataset.resf; commit({ keepPlan: true }); renderPlan(); return; }
-    var tab = e.target.closest('.tab'); if (tab) { go(tab.dataset.view); return; }
-    var gt = e.target.closest('[data-goto]'); if (gt) { go(gt.dataset.goto); return; }
+    var tab = e.target.closest('.tab'); if (tab) { var same = tab.dataset.view === currentView(); go(tab.dataset.view); toTop(same); return; }
+    var gt = e.target.closest('[data-goto]'); if (gt) { var same2 = gt.dataset.goto === currentView(); go(gt.dataset.goto); toTop(same2); return; }
     var th = e.target.closest('[data-themeset]'); if (th) { state.ui.themeMode = th.dataset.themeset; applyTheme(); commit({ keepPlan: true }); renderSettings(); return; }
     var am = e.target.closest('[data-accentset]'); if (am) { state.ui.accent = am.dataset.accentset; applyTheme(); commit({ keepPlan: true }); renderSettings(); return; }
     var ss = e.target.closest('[data-socsort]'); if (ss) { state.ui.socSort = ss.dataset.socsort; commit({ keepPlan: true }); renderFriends(); return; }

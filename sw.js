@@ -1,5 +1,5 @@
 /* Squadoro : fonctionnement hors ligne. Les pages et les DCE sont cherchés sur le réseau d'abord, puis dans le cache. */
-const CACHE = 'squadoro-202611070154';
+const CACHE = 'squadoro-202611070758';
 const SHELL = ['./', 'index.html', 'privacy.html', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png', 'apple-touch-icon.png', 'catalog.json', 'market.json',
   'fonts/barlow-regular.woff', 'fonts/barlow-medium.woff', 'fonts/barlow-semibold.woff', 'fonts/barlow-bold.woff',
   'fonts/barlowcondensed-semibold.woff', 'fonts/barlowcondensed-bold.woff', 'fonts/barlowcondensed-bolditalic.woff', 'fonts/barlowcondensed-extrabolditalic.woff'];
