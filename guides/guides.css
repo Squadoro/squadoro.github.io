@@ -1,0 +1,49 @@
+:root {
+  --bg: #0A0F1C; --surface: #121A2E; --surface-2: #1A2440; --ink: #F2F5FA; --muted: #9AA6BF; --line: #243052;
+  --accent: #C8FF2E; --accent-ink: #0A0F1C; --link: #C8FF2E; color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root { --bg: #EEF1F7; --surface: #FFFFFF; --surface-2: #E6EBF3; --ink: #0B1222; --muted: #4D5A73; --line: #CDD5E3; --accent: #3D7A00; --accent-ink: #FFFFFF; --link: #2F6200; color-scheme: light; }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Barlow', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; font-size: 17px; line-height: 1.6; }
+a { color: var(--link); }
+.wrap { max-width: 760px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left)); padding-right: max(16px, env(safe-area-inset-right)); }
+.top { border-bottom: 1px solid var(--line); background: var(--bg); position: sticky; top: 0; z-index: 2; }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 60px; flex-wrap: wrap; padding-top: 6px; padding-bottom: 6px; }
+.brand { display: inline-flex; align-items: center; gap: 8px; color: var(--ink); text-decoration: none; font-family: 'Barlow Condensed', sans-serif; font-style: italic; font-weight: 800; font-size: 24px; text-transform: uppercase; }
+.brand .mark { display: inline-grid; place-items: center; width: 30px; height: 30px; background: var(--accent); color: var(--accent-ink); transform: skewX(-12deg); font-size: 20px; }
+.top nav { display: flex; align-items: center; gap: 14px; font-weight: 600; font-size: 15px; }
+.top nav a { color: var(--muted); text-decoration: none; padding: 8px 0; }
+.top nav a[aria-current="page"] { color: var(--ink); }
+.top nav a.cta { color: var(--accent-ink); background: var(--accent); padding: 8px 14px; transform: skewX(-12deg); display: inline-block; }
+main { padding-top: 26px; padding-bottom: 48px; }
+h1 { font-family: 'Barlow Condensed', sans-serif; font-style: italic; font-weight: 800; text-transform: uppercase; font-size: clamp(32px, 7vw, 46px); line-height: 1; margin: 0 0 12px; letter-spacing: .01em; }
+h2 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; font-size: 24px; line-height: 1.1; margin: 32px 0 8px; letter-spacing: .02em; }
+p, li { margin: 0 0 12px; }
+ul, ol { padding-left: 22px; margin: 0 0 14px; }
+.lead { font-size: 19px; color: var(--ink); }
+.meta, .crumbs { color: var(--muted); font-size: 14px; }
+.crumbs a { color: var(--muted); }
+.tip { background: var(--surface); border: 1px solid var(--line); padding: 14px 16px; margin: 18px 0; }
+.tip strong { display: block; font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; letter-spacing: .06em; color: var(--accent); margin-bottom: 2px; }
+.app { margin: 24px 0 8px; }
+.btn { display: inline-block; background: var(--accent); color: var(--accent-ink); text-decoration: none; font-weight: 700; padding: 12px 18px; transform: skewX(-12deg); }
+.ad { margin: 28px 0; min-height: 50px; }
+.ad-label { display: block; font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 4px; }
+.ad:has(ins[data-ad-status="unfilled"]) { display: none; }
+.related { margin-top: 36px; padding-top: 6px; border-top: 1px solid var(--line); }
+.related ul, .cards { list-style: none; padding: 0; }
+.related li { margin-bottom: 14px; }
+.related li a { font-weight: 700; }
+.related li span { display: block; color: var(--muted); font-size: 15px; }
+.cards { display: grid; gap: 10px; margin: 20px 0; }
+.cards a { display: block; text-decoration: none; color: var(--ink); background: var(--surface); border: 1px solid var(--line); padding: 14px 16px; }
+.cards a:hover, .cards a:focus-visible { border-color: var(--accent); outline: none; }
+.cards strong { display: block; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 21px; text-transform: uppercase; line-height: 1.15; }
+.cards span { display: block; color: var(--muted); font-size: 15px; margin-top: 4px; }
+.about-box { background: var(--surface); border: 1px solid var(--line); padding: 4px 16px 8px; margin-top: 28px; }
+.foot { border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; padding: 18px 0 28px; }
+.foot a { color: inherit; }
+@media (max-width: 520px) { .top nav { gap: 12px; font-size: 14px; } .top nav a.cta { padding: 7px 10px; } body { font-size: 16px; } .lead { font-size: 17px; } }

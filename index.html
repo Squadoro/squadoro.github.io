@@ -1114,7 +1114,7 @@ a.btn { color: inherit; text-decoration: none; }
     </div>
     <div class="settings-cols" id="settingsBody"></div>
   </section>
-  <footer class="legal" id="legalFoot" hidden><p>Squadoro est un outil indépendant créé par des fans. Il n'est pas affilié à Electronic Arts ni à EA SPORTS FC, et n'est ni approuvé ni soutenu par eux. Les noms de joueurs, clubs et compétitions appartiennent à leurs propriétaires.</p><p><a href="privacy.html">Confidentialité</a> · Tes données restent sur ton appareil.<span id="supportFoot" hidden> · <a data-support target="_blank" rel="noopener">Soutenir Squadoro</a></span> · <a href="#" data-action="share-app">Partager Squadoro</a></p></footer>
+  <footer class="legal" id="legalFoot" hidden><p>Squadoro est un outil indépendant créé par des fans. Il n'est pas affilié à Electronic Arts ni à EA SPORTS FC, et n'est ni approuvé ni soutenu par eux. Les noms de joueurs, clubs et compétitions appartiennent à leurs propriétaires.</p><p><a href="guides/" data-site>Guides des DCE</a> · <a href="a-propos.html" data-site>À propos</a> · <a href="privacy.html">Confidentialité</a> · Tes données restent sur ton appareil.<span id="supportFoot" hidden> · <a data-support target="_blank" rel="noopener">Soutenir Squadoro</a></span> · <a href="#" data-action="share-app">Partager Squadoro</a></p></footer>
 </main>
 
 <div class="toast" id="toast" hidden></div>
@@ -2529,8 +2529,9 @@ a.btn { color: inherit; text-decoration: none; }
     $$('[data-support]').forEach(function (a) { a.href = u; });
     ['supportHome', 'supportFoot', 'supportTop'].forEach(function (id) { var e = $('#' + id); if (e) e.hidden = false; });
   }
+  // Les annonces sont sur les pages de guides du site, plus dans l'appli (écrans de calcul) : seulement si config.ads.inApp est vrai
   function setupAds(a) {
-    if (!a || !/^ca-pub-\d{10,20}$/.test(a.client || '')) return;
+    if (!a || !a.inApp || !/^ca-pub-\d{10,20}$/.test(a.client || '')) return;
     adCfg = a;
     setTimeout(function () {
       var sc = document.createElement('script'); sc.async = true; sc.crossOrigin = 'anonymous';
@@ -6163,7 +6164,7 @@ a.btn { color: inherit; text-decoration: none; }
         (news.length ? '<ul class="news">' + news.map(function (n) { return '<li class="' + n[0] + '">' + esc(n[1]) + '</li>'; }).join('') + '</ul>' : '<p class="note">Rien de nouveau depuis ta dernière visite.</p>') + '</div>' +
       '<div class="panel"><h3>À faire en priorité</h3>' + (top.length ? '<div class="top3">' + top.map(function (t, k) { return '<div class="t"><span class="n">' + (k + 1) + '</span><div><strong>' + esc(t.name) + '</strong><div class="chips" style="margin-top:3px">' + t.reasons.map(function (z) { return '<span class="ovs ' + z[0] + '">' + esc(z[1]) + '</span>'; }).join('') + '</div></div></div>'; }).join('') + '</div>' : '<p class="note">' + (plan ? 'Ton club ou tes DCE ont changé : relance le calcul.' : 'Lance le calcul des DCE pour voir les meilleurs du jour.') + '</p><div class="row"><button class="btn primary sm" data-action="home-plan">Calculer les DCE</button></div>') + '</div>' +
       (soon.length ? '<div class="panel"><h3>Expirent bientôt</h3><ul class="news">' + soon.map(function (x) { return '<li class="bad">' + esc(x.d.name) + ' (' + (x.today ? 'aujourd\'hui' : 'demain') + ')' + dzSoonTag(x.d) + '</li>'; }).join('') + '</ul></div>' : '') +
-      '<div class="panel"><h3>Raccourcis</h3><div class="quick"><button class="btn" data-action="quick-add">Ajout rapide (packs)</button><button class="btn" data-goto="dce">Mes DCE</button><button class="btn" data-goto="equipe">Meilleure équipe</button><button class="btn" data-action="install">Installer l\'appli</button>' + (socialOn() ? '<button class="btn" data-goto="amis">Mes amis</button>' : '') + '<button class="btn" data-action="share-app">Partager Squadoro</button></div></div>' +
+      '<div class="panel"><h3>Raccourcis</h3><div class="quick"><button class="btn" data-action="quick-add">Ajout rapide (packs)</button><button class="btn" data-goto="dce">Mes DCE</button><button class="btn" data-goto="equipe">Meilleure équipe</button><button class="btn" data-action="install">Installer l\'appli</button>' + (socialOn() ? '<button class="btn" data-goto="amis">Mes amis</button>' : '') + '<button class="btn" data-action="share-app">Partager Squadoro</button>' + (SQ ? '<a class="btn" href="' + (BRIDGE ? 'https://squadoro.github.io/' : '') + 'guides/"' + (BRIDGE ? ' target="_blank" rel="noopener"' : '') + '>Guides des DCE</a>' : '') + '</div></div>' +
       '</div><div class="view" style="gap:12px">' + homeFriends() +
       (squad.length ? '<div class="panel"><div class="row" style="justify-content:space-between"><h3>Ton onze</h3><span class="muted small">' + esc(T.formation) + '</span></div><div class="pitch-wrap sm">' + pitchHTML(squad, { cls: 'sm' }) + '</div><div class="row"><button class="btn sm" data-goto="equipe">Voir l\'équipe</button></div></div>'
         : '<div class="panel"><h3>Ton onze</h3><p class="note">Pas encore calculé.</p><div class="row"><button class="btn sm primary" data-goto="equipe">Trouver ma meilleure équipe</button></div></div>') +
@@ -6534,6 +6535,7 @@ a.btn { color: inherit; text-decoration: none; }
   prevSnap = snapData();
   if (SQ) {
     $('#legalFoot').hidden = false;
+    if (BRIDGE) $$('[data-site]').forEach(function (a) { a.href = 'https://squadoro.github.io/' + a.getAttribute('href'); a.target = '_blank'; a.rel = 'noopener'; });
     $('#teamNote').innerHTML = 'L\'appli vise la <strong>note d\'équipe la plus haute</strong>, en gardant un collectif correct (au moins 24/33 si ton club le permet). Elle analyse aussi les stats de tes cartes pour départager les joueurs et les placer au meilleur poste.';
     if (!BRIDGE && 'serviceWorker' in navigator && location.protocol === 'https:') { try { navigator.serviceWorker.register('sw.js'); } catch (e) { } }
   }

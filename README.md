@@ -36,3 +36,13 @@ Mise à jour automatique : chaque soir, la tâche de publication compare le dern
 ## Polices
 
 Barlow et Barlow Condensed (The Barlow Project Authors), sous licence SIL Open Font License 1.1 : voir `fonts/OFL-Barlow.txt`.
+
+## Guides des DCE (pages de texte)
+
+Le dossier `guides/`, la page `a-propos.html`, `sitemap.xml` et `robots.txt` sont générés par `outils/guides/build_guides.py` à partir des textes de `outils/guides/articles.py` et `outils/guides/extras.py` :
+
+```
+python3 -I outils/guides/build_guides.py .
+```
+
+Les annonces Google AdSense ne sont affichées que sur ces pages de texte, jamais sur les écrans de l'appli (la configuration `ads.inApp` de `config.json` n'est pas activée).
