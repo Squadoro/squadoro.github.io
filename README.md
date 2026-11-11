@@ -17,7 +17,9 @@ Site : https://squadoro.github.io
 | `market.json` | Les prix planchers par note, mis à jour chaque soir. |
 | `privacy.html` | Politique de confidentialité. |
 | `manifest.webmanifest`, `sw.js`, icônes | Installation sur l'écran d'accueil et fonctionnement hors ligne. |
-| `serveur/worker.js` | Le serveur (Cloudflare Worker) : lecture des captures, limites par jour et base commune des cartes. |
+| `serveur/worker.js` | Le serveur (Cloudflare Worker) : lecture des captures, limites par jour, base commune des cartes, notifications du soir, messages des joueurs et statistiques anonymes. |
+| `guides/`, `en/guides/`, `es/guias/`, `a-propos.html`, `en/about.html`, `es/acerca-de.html` | Guides des DCE en français, anglais et espagnol, et pages À propos (générés par `outils/guides/build_guides.py`). |
+| `admin.html` | Tableau de bord de l'équipe (statistiques, messages des joueurs), protégé par le secret `ADMIN_KEY` du serveur. |
 
 Les données des joueurs (club, DCE, réglages) restent sur leur appareil. Seules les caractéristiques des cartes ajoutées (joueur, note, version, postes, nation, ligue, club, stats) rejoignent, sans rien d'identifiant, une base commune qui permet de retrouver une carte en tapant son nom. Ce partage se coupe dans les réglages.
 
@@ -36,13 +38,3 @@ Mise à jour automatique : chaque soir, la tâche de publication compare le dern
 ## Polices
 
 Barlow et Barlow Condensed (The Barlow Project Authors), sous licence SIL Open Font License 1.1 : voir `fonts/OFL-Barlow.txt`.
-
-## Guides des DCE (pages de texte)
-
-Le dossier `guides/`, la page `a-propos.html`, `sitemap.xml` et `robots.txt` sont générés par `outils/guides/build_guides.py` à partir des textes de `outils/guides/articles.py` et `outils/guides/extras.py` :
-
-```
-python3 -I outils/guides/build_guides.py .
-```
-
-Les annonces Google AdSense ne sont affichées que sur ces pages de texte, jamais sur les écrans de l'appli (la configuration `ads.inApp` de `config.json` n'est pas activée).

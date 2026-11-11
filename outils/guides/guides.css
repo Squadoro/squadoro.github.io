@@ -17,6 +17,9 @@ a { color: var(--link); }
 .top nav { display: flex; align-items: center; gap: 14px; font-weight: 600; font-size: 15px; }
 .top nav a { color: var(--muted); text-decoration: none; padding: 8px 0; }
 .top nav a[aria-current="page"] { color: var(--ink); }
+.top nav .langs { display: inline-flex; gap: 10px; padding-left: 12px; border-left: 1px solid var(--line); }
+.top nav .langs a { font-size: 13px; letter-spacing: .04em; }
+.top nav .langs a[aria-current] { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
 .top nav a.cta { color: var(--accent-ink); background: var(--accent); padding: 8px 14px; transform: skewX(-12deg); display: inline-block; }
 main { padding-top: 26px; padding-bottom: 48px; }
 h1 { font-family: 'Barlow Condensed', sans-serif; font-style: italic; font-weight: 800; text-transform: uppercase; font-size: clamp(32px, 7vw, 46px); line-height: 1; margin: 0 0 12px; letter-spacing: .01em; }

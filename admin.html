@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Tableau de bord Squadoro</title>
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<style>
+@font-face{font-family:'Barlow';font-weight:400;font-display:swap;src:url(fonts/barlow-regular.woff) format('woff')}
+@font-face{font-family:'Barlow';font-weight:600;font-display:swap;src:url(fonts/barlow-semibold.woff) format('woff')}
+@font-face{font-family:'Barlow';font-weight:700;font-display:swap;src:url(fonts/barlow-bold.woff) format('woff')}
+@font-face{font-family:'Barlow Condensed';font-weight:700;font-display:swap;src:url(fonts/barlowcondensed-bold.woff) format('woff')}
+@font-face{font-family:'Barlow Condensed';font-style:italic;font-weight:800;font-display:swap;src:url(fonts/barlowcondensed-extrabolditalic.woff) format('woff')}
+:root {
+  --bg: #0A0F1C; --surface: #121A2E; --surface-2: #1A2440; --ink: #F2F5FA; --muted: #9AA6BF; --line: #243052; --grid: #1E2944;
+  --accent: #C8FF2E; --accent-ink: #0A0F1C; --series-1: #3987e5; --series-1-hi: #5c9eea; --danger: #ff7a7a; color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root { --bg: #EEF1F7; --surface: #FFFFFF; --surface-2: #E6EBF3; --ink: #0B1222; --muted: #4D5A73; --line: #CDD5E3; --grid: #E3E8F0;
+    --accent: #3D7A00; --accent-ink: #FFFFFF; --series-1: #2a78d6; --series-1-hi: #1d63b8; --danger: #b42318; color-scheme: light; }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Barlow', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; font-size: 16px; line-height: 1.5; }
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 max(16px, env(safe-area-inset-right)) 40px max(16px, env(safe-area-inset-left)); }
+header { border-bottom: 1px solid var(--line); margin-bottom: 20px; }
+header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 60px; padding-bottom: 0; flex-wrap: wrap; }
+.brand { display: inline-flex; align-items: center; gap: 8px; font-family: 'Barlow Condensed', sans-serif; font-style: italic; font-weight: 800; font-size: 22px; text-transform: uppercase; color: var(--ink); text-decoration: none; }
+.brand .mark { display: inline-grid; place-items: center; width: 28px; height: 28px; background: var(--accent); color: var(--accent-ink); transform: skewX(-12deg); }
+.brand small { font-family: 'Barlow', sans-serif; font-style: normal; font-weight: 600; font-size: 14px; color: var(--muted); text-transform: none; margin-left: 6px; }
+h1, h2 { font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; letter-spacing: .02em; line-height: 1.1; }
+h1 { font-style: italic; font-weight: 800; font-size: 34px; margin: 0 0 4px; }
+h2 { font-weight: 700; font-size: 20px; margin: 0 0 10px; }
+.muted { color: var(--muted); }
+.btn { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); background: var(--surface-2); color: var(--ink); font: inherit; font-weight: 600; padding: 8px 14px; border-radius: 8px; cursor: pointer; min-height: 40px; }
+.btn.primary { background: var(--accent); color: var(--accent-ink); border-color: transparent; }
+.btn.sm { min-height: 32px; padding: 4px 10px; font-size: 14px; }
+.btn.danger { color: var(--danger); }
+.btn:focus-visible, input:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+input[type=password], input[type=text] { font: inherit; color: inherit; background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 9px 11px; min-width: 0; width: 100%; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px; margin-bottom: 16px; }
+.login { max-width: 420px; margin: 40px auto; }
+.login label { display: block; font-weight: 600; margin-bottom: 6px; }
+.row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-top: 12px; }
+.err { color: var(--danger); min-height: 1.5em; margin: 10px 0 0; }
+.top-row { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+.kpis { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; margin-bottom: 16px; }
+.kpi { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+.kpi b { display: block; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 32px; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.kpi span { color: var(--muted); font-size: 14px; }
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+.grid2 .card { margin-bottom: 0; }
+.chart { position: relative; }
+.chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+.chart .ax { fill: var(--muted); font-size: 12px; font-family: 'Barlow', sans-serif; }
+.chart .gl { stroke: var(--grid); stroke-width: 1; }
+.chart .bar { fill: var(--series-1); pointer-events: none; }
+.chart .hit { fill: transparent; cursor: default; outline: none; }
+.chart .hit:hover + .bar, .chart .hit:focus + .bar { fill: var(--series-1-hi); }
+.chart .val { fill: var(--ink); font-size: 12px; font-weight: 700; font-family: 'Barlow', sans-serif; }
+.tip { position: absolute; pointer-events: none; background: var(--surface-2); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; font-size: 13px; white-space: nowrap; transform: translate(-50%, -100%); box-shadow: 0 4px 14px rgba(0,0,0,.25); }
+.tip strong { display: block; font-size: 16px; }
+details { margin-top: 10px; }
+summary { cursor: pointer; color: var(--muted); font-weight: 600; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); }
+th { color: var(--muted); font-weight: 600; }
+td.n, th.n { text-align: right; }
+.scroll { overflow-x: auto; }
+.meter { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 10px; align-items: center; }
+.meter .lbl { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.meter .num { font-variant-numeric: tabular-nums; text-align: right; }
+.meter .trk { grid-column: 1 / -1; height: 6px; background: var(--grid); border-radius: 3px; margin-bottom: 8px; overflow: hidden; }
+.meter .trk i { display: block; height: 100%; background: var(--series-1); border-radius: 3px; }
+.fb { border-top: 1px solid var(--line); padding: 12px 0; }
+.fb:first-of-type { border-top: 0; }
+.fb .hd { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; font-size: 14px; color: var(--muted); }
+.tag { display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 13px; font-weight: 700; border: 1px solid var(--line); color: var(--ink); }
+.tag.bug { border-color: var(--danger); }
+.fb.unread .msg { font-weight: 600; }
+.fb .msg { white-space: pre-wrap; overflow-wrap: anywhere; margin: 6px 0; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); display: inline-block; }
+.empty { color: var(--muted); margin: 0; }
+.hint { font-size: 14px; color: var(--muted); margin: 8px 0 0; }
+label.chk { display: inline-flex; gap: 6px; align-items: center; font-size: 14px; color: var(--muted); }
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="brand" href="./"><span class="mark" aria-hidden="true">S</span>Squadoro<small>Tableau de bord</small></a><span id="who" class="muted"></span></div></header>
+<main class="wrap">
+  <section id="login" class="card login" hidden>
+    <h1>Tableau de bord</h1>
+    <p class="muted">Réservé à l'équipe de Squadoro. Le mot de passe est le secret <strong>ADMIN_KEY</strong> du serveur Cloudflare.</p>
+    <form id="loginForm">
+      <label for="key">Mot de passe</label>
+      <input type="password" id="key" autocomplete="current-password" required minlength="10">
+      <div class="row"><label class="chk"><input type="checkbox" id="remember" checked> Se souvenir sur cet appareil</label></div>
+      <div class="row"><button class="btn primary" type="submit">Ouvrir</button></div>
+      <p class="err" id="loginErr" role="alert"></p>
+    </form>
+  </section>
+  <section id="dash" hidden>
+    <div class="top-row">
+      <div><h1>Squadoro en chiffres</h1><p class="muted" id="updated" style="margin:0"></p></div>
+      <div class="row" style="margin:0"><button class="btn" id="refresh" type="button">Actualiser</button><button class="btn" id="logout" type="button">Se déconnecter</button></div>
+    </div>
+    <div class="kpis" id="kpis"></div>
+    <div class="card">
+      <h2>Joueurs par jour</h2>
+      <p class="muted" style="margin:-4px 0 10px;font-size:14px">30 derniers jours. Un joueur = un appareil qui a ouvert l'appli ce jour-là (site ou iPhone).</p>
+      <div class="chart" id="chart"></div>
+      <details><summary>Voir en tableau</summary><div class="scroll"><table id="dayTable"></table></div></details>
+    </div>
+    <div class="grid2" style="margin-bottom:16px">
+      <div class="card"><h2>DCE les plus calculés</h2><p class="muted" style="margin:-4px 0 10px;font-size:14px">7 derniers jours, en joueurs par jour.</p><div id="topSbc"></div></div>
+      <div class="card"><h2>DCE les plus faits</h2><p class="muted" style="margin:-4px 0 10px;font-size:14px">7 derniers jours.</p><div id="topDone"></div></div>
+      <div class="card"><h2>Plateformes</h2><p class="muted" style="margin:-4px 0 10px;font-size:14px">7 derniers jours.</p><div id="plats"></div></div>
+      <div class="card"><h2>Langues</h2><p class="muted" style="margin:-4px 0 10px;font-size:14px">7 derniers jours.</p><div id="langs"></div></div>
+    </div>
+    <div class="card">
+      <h2>Notifications</h2>
+      <div id="pushInfo"></div>
+    </div>
+    <div class="card">
+      <div class="top-row" style="margin-bottom:4px"><h2 style="margin:0">Messages des joueurs</h2><label class="chk"><input type="checkbox" id="onlyUnread"> Non lus seulement</label></div>
+      <div id="fbList"></div>
+    </div>
+  </section>
+  <p class="err" id="dashErr" role="alert"></p>
+</main>
+<script>
+(function () {
+  'use strict';
+  var $ = function (s) { return document.querySelector(s); };
+  var LOC = 'fr-BE', api = '', key = '', data = null, names = {};
+  var store = { get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: function (k, v) { try { if (v == null) localStorage.removeItem(k); else localStorage.setItem(k, v); } catch (e) { } } };
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  function fmt(n) { return Math.round(+n || 0).toLocaleString(LOC); }
+  function dayOf(t) { return new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Brussels', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date(t)); }
+  function dayLabel(d, long) { var p = d.split('-'); return new Date(+p[0], +p[1] - 1, +p[2], 12).toLocaleDateString(LOC, long ? { weekday: 'long', day: 'numeric', month: 'long' } : { day: 'numeric', month: 'short' }); }
+  var ERR = { no_admin: 'Le tableau de bord n\'est pas encore activé : ajoute le secret ADMIN_KEY dans les réglages du serveur Cloudflare (10 caractères au moins).', bad_key: 'Mot de passe incorrect.', locked: 'Trop d\'essais ratés aujourd\'hui. Réessaie demain.', offline: 'Le serveur ne répond pas. Vérifie ta connexion, ou que le serveur a bien la dernière version de worker.js.', bad_task: 'Le serveur n\'a pas encore la dernière version de worker.js : recolle-la dans Cloudflare.', db_error: 'Le serveur a eu un problème avec sa base de données. Réessaie dans un moment.' };
+  async function call(task, extra) {
+    var r;
+    try { r = await fetch(api, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(Object.assign({ task: task, key: key }, extra || {})) }); }
+    catch (e) { throw 'offline'; }
+    var j = null; try { j = await r.json(); } catch (e) { }
+    if (!r.ok) throw (j && j.error) || 'offline';
+    return j;
+  }
+  function showLogin(msg) { $('#dash').hidden = true; $('#login').hidden = false; $('#loginErr').textContent = msg || ''; $('#who').textContent = ''; }
+  async function load() {
+    $('#dashErr').textContent = '';
+    try { data = await call('admin_stats'); }
+    catch (e) { if (e === 'bad_key' || e === 'locked' || e === 'no_admin') { store.set('sq-admin', null); key = ''; showLogin(ERR[e]); } else { $('#dashErr').textContent = ERR[e] || ERR.offline; if (!data) showLogin(ERR[e] || ERR.offline); } return; }
+    $('#login').hidden = true; $('#dash').hidden = false; $('#who').textContent = 'Connecté';
+    render();
+  }
+  function statOf(day, k) { var x = (data.stat || []).find(function (s) { return s.day === day && s.k === k; }); return x ? x.n : 0; }
+  function render() {
+    var today = dayOf(Date.now()), days = [];
+    for (var i = 29; i >= 0; i--) days.push(dayOf(Date.now() - i * 864e5));
+    var users = {}; (data.days || []).forEach(function (r) { users[r.day] = r.n; });
+    var fresh = {}; (data.fresh || []).forEach(function (r) { fresh[r.day] = r.n; });
+    var newMonth = days.reduce(function (a, d) { return a + (fresh[d] || 0); }, 0);
+    var unread = (data.fb || []).filter(function (f) { return !f.rd; }).length;
+    $('#updated').textContent = 'Mis à jour à ' + new Date().toLocaleTimeString(LOC, { hour: '2-digit', minute: '2-digit' });
+    var k = $('#kpis'); k.textContent = '';
+    [[users[today] || 0, 'joueur aujourd\'hui', 'joueurs aujourd\'hui'], [Math.round((data.visits7 || 0) / 7), 'joueur par jour (moyenne 7 j)', 'joueurs par jour (moyenne 7 j)'], [newMonth, 'nouveau joueur (30 j)', 'nouveaux joueurs (30 j)'],
+     [statOf(today, 'img'), 'capture lue aujourd\'hui', 'captures lues aujourd\'hui'], [data.subs || 0, 'abonné aux notifications', 'abonnés aux notifications'], [unread, 'message non lu', 'messages non lus']].forEach(function (x) {
+      var d = el('div', 'kpi'); d.appendChild(el('b', '', fmt(x[0]))); d.appendChild(el('span', '', x[0] > 1 ? x[2] : x[1])); k.appendChild(d);
+    });
+    drawChart(days, users, today);
+    // tableau jour par jour
+    var t = $('#dayTable'); t.textContent = '';
+    var hr = el('tr'); ['Jour', 'Joueurs', 'Nouveaux', 'Captures', 'Calculs', 'Notifications', 'Messages'].forEach(function (h, j) { hr.appendChild(el('th', j ? 'n' : '', h)); }); t.appendChild(hr);
+    days.slice().reverse().forEach(function (d) {
+      var tr = el('tr'); tr.appendChild(el('td', '', dayLabel(d, true)));
+      [users[d] || 0, fresh[d] || 0, statOf(d, 'img'), statOf(d, 'plan'), statOf(d, 'push'), statOf(d, 'fb')].forEach(function (v) { tr.appendChild(el('td', 'n', fmt(v))); });
+      t.appendChild(tr);
+    });
+    meters('#topSbc', (data.sbcs || []).map(function (r) { return [nameOf(r.cid), r.n]; }), 'Pas encore de données : elles arrivent au fil des jours.');
+    meters('#topDone', (data.done || []).map(function (r) { return [nameOf(r.cid), r.n]; }), 'Pas encore de DCE faits enregistrés.');
+    var PL = { web: 'Site (navigateur)', pwa: 'Site installé (écran d\'accueil)', ios: 'Appli iPhone' }, LG = { fr: 'Français', en: 'Anglais', nl: 'Néerlandais', es: 'Espagnol' };
+    meters('#plats', (data.plats || []).sort(function (a, b) { return b.n - a.n; }).map(function (r) { return [PL[r.k] || r.k, r.n]; }), 'Pas encore de données.', true);
+    meters('#langs', (data.langs || []).sort(function (a, b) { return b.n - a.n; }).map(function (r) { return [LG[r.k] || r.k, r.n]; }), 'Pas encore de données.', true);
+    var pi = $('#pushInfo'); pi.textContent = '';
+    var p1 = el('p', '', fmt(data.subs || 0) + ' appareil' + ((data.subs || 0) > 1 ? 's' : '') + ' abonné' + ((data.subs || 0) > 1 ? 's' : '') + ' · ' + fmt(data.pushSent || 0) + ' notification' + ((data.pushSent || 0) > 1 ? 's' : '') + ' envoyée' + ((data.pushSent || 0) > 1 ? 's' : '') + ' en tout.'); p1.style.margin = '0';
+    pi.appendChild(p1);
+    pi.appendChild(el('p', 'hint', data.camp ? 'Dernière soirée (' + dayLabel(data.camp.id, true) + ') : ' + data.camp.neu + ' nouveau' + (data.camp.neu > 1 ? 'x' : '') + ' DCE annoncé' + (data.camp.neu > 1 ? 's' : '') + ', ' + data.camp.exp + ' DCE qui expiraient le lendemain.' : 'Aucune soirée de notifications pour l\'instant. Si ça dure, vérifie que la tâche programmée (Cron Trigger) est bien ajoutée dans Cloudflare.'));
+    renderFb();
+  }
+  // nom du DCE d'après le catalogue ; pour un DCE qui n'y est plus, son identifiant rendu lisible
+  function nameOf(cid) { return names[cid] || String(cid).replace(/^fc\d+-/, '').replace(/-/g, ' ').replace(/^./, function (c) { return c.toUpperCase(); }); }
+  function meters(sel, rows, empty, pct) {
+    var box = $(sel); box.textContent = '';
+    if (!rows.length) { box.appendChild(el('p', 'empty', empty)); return; }
+    var max = Math.max.apply(null, rows.map(function (r) { return r[1]; })) || 1, tot = rows.reduce(function (a, r) { return a + r[1]; }, 0) || 1;
+    var m = el('div', 'meter');
+    rows.slice(0, 10).forEach(function (r) {
+      m.appendChild(el('span', 'lbl', r[0]));
+      m.appendChild(el('span', 'num', fmt(r[1]) + (pct ? ' · ' + Math.round(r[1] / tot * 100) + ' %' : '')));
+      var trk = el('span', 'trk'), b = el('i'); b.style.width = Math.max(2, r[1] / max * 100) + '%'; trk.appendChild(b); m.appendChild(trk);
+    });
+    box.appendChild(m);
+  }
+  function nice(v) { if (v <= 5) return 5; var p = Math.pow(10, Math.floor(Math.log10(v))), f = v / p; return (f <= 1 ? 1 : f <= 2 ? 2 : f <= 5 ? 5 : 10) * p; }
+  function drawChart(days, users, today) {
+    var box = $('#chart'); box.textContent = '';
+    var W = Math.max(300, box.clientWidth || 600), H = 220, L = 36, R = 8, T = 18, B = 26, iw = W - L - R, ih = H - T - B;
+    var vals = days.map(function (d) { return users[d] || 0; }), top = nice(Math.max.apply(null, vals));
+    var NS = 'http://www.w3.org/2000/svg', svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H); svg.setAttribute('role', 'img');
+    svg.setAttribute('aria-label', 'Joueurs par jour sur 30 jours, de ' + fmt(Math.min.apply(null, vals)) + ' à ' + fmt(Math.max.apply(null, vals)) + ' ; aujourd\'hui ' + fmt(users[today] || 0) + '. Détail dans le tableau.');
+    function n(tag, at, txt) { var e = document.createElementNS(NS, tag); for (var a in at) e.setAttribute(a, at[a]); if (txt != null) e.textContent = txt; svg.appendChild(e); return e; }
+    [0, top / 2, top].forEach(function (v) { var y = T + ih - v / top * ih; n('line', { x1: L, x2: W - R, y1: y, y2: y, class: 'gl' }); n('text', { x: L - 6, y: y + 4, 'text-anchor': 'end', class: 'ax' }, fmt(v)); });
+    var band = iw / days.length, bw = Math.min(24, Math.max(3, band - 2));
+    var tip = el('div', 'tip'); tip.hidden = true;
+    days.forEach(function (d, i) {
+      var v = vals[i], x = L + i * band + (band - bw) / 2, h = v / top * ih, y = T + ih - h, r = Math.min(4, bw / 2, h);
+      var hit = n('rect', { x: L + i * band, y: T, width: band, height: ih, class: 'hit', tabindex: '0', 'aria-label': dayLabel(d, true) + ' : ' + fmt(v) + ' joueur' + (v > 1 ? 's' : '') });
+      if (h > 0) n('path', { class: 'bar', d: 'M' + x + ',' + (T + ih) + 'V' + (y + r) + 'Q' + x + ',' + y + ' ' + (x + r) + ',' + y + 'H' + (x + bw - r) + 'Q' + (x + bw) + ',' + y + ' ' + (x + bw) + ',' + (y + r) + 'V' + (T + ih) + 'Z' });
+      else n('rect', { class: 'bar', x: x, y: T + ih - 1, width: bw, height: 1 });
+      var show = function () { tip.textContent = ''; tip.appendChild(el('strong', '', fmt(v) + ' joueur' + (v > 1 ? 's' : ''))); tip.appendChild(el('span', 'muted', dayLabel(d, true))); tip.hidden = false; var bx = box.getBoundingClientRect(), sx = bx.width / W; tip.style.left = Math.min(bx.width - 70, Math.max(70, (x + bw / 2) * sx)) + 'px'; tip.style.top = (y * sx - 8) + 'px'; };
+      hit.addEventListener('pointerenter', show); hit.addEventListener('focus', show);
+      hit.addEventListener('pointerleave', function () { tip.hidden = true; }); hit.addEventListener('blur', function () { tip.hidden = true; });
+      if (i % 7 === 2 || i === days.length - 1) n('text', { x: x + bw / 2, y: H - 6, 'text-anchor': i === days.length - 1 ? 'end' : 'middle', class: 'ax' }, i === days.length - 1 ? 'auj.' : dayLabel(d));
+      if (i === days.length - 1 && v > 0) n('text', { x: x + bw / 2, y: y - 5, 'text-anchor': 'middle', class: 'val' }, fmt(v));
+    });
+    box.appendChild(svg); box.appendChild(tip);
+  }
+  function renderFb() {
+    var box = $('#fbList'); box.textContent = '';
+    var only = $('#onlyUnread').checked, list = (data.fb || []).filter(function (f) { return !only || !f.rd; });
+    if (!list.length) { box.appendChild(el('p', 'empty', only ? 'Aucun message non lu.' : 'Aucun message pour l\'instant.')); return; }
+    var KIND = { idea: 'Idée', bug: 'Bug', other: 'Autre' }, PL = { web: 'site', pwa: 'site installé', ios: 'iPhone' };
+    list.forEach(function (f) {
+      var it = el('div', 'fb' + (f.rd ? '' : ' unread')), hd = el('div', 'hd');
+      if (!f.rd) { var dt = el('span', 'dot'); dt.setAttribute('aria-label', 'non lu'); hd.appendChild(dt); }
+      hd.appendChild(el('span', 'tag ' + f.kind, KIND[f.kind] || f.kind));
+      hd.appendChild(el('span', '', new Date(f.ts).toLocaleString(LOC, { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }) + ' · ' + (f.lang || '?').toUpperCase() + ' · ' + (PL[f.plat] || f.plat || '?') + (f.ver ? ' · v' + f.ver : '')));
+      it.appendChild(hd);
+      it.appendChild(el('p', 'msg', f.msg));
+      if (f.contact) { var c = el('p', 'muted', 'Pour répondre : '); c.style.margin = '0 0 6px'; c.appendChild(el('strong', '', f.contact)); it.appendChild(c); }
+      var acts = el('div', 'row'); acts.style.marginTop = '4px';
+      var rb = el('button', 'btn sm', f.rd ? 'Marquer non lu' : 'Marquer comme lu'); rb.type = 'button';
+      rb.onclick = function () { act(f, f.rd ? 'unread' : 'read', rb); };
+      var db = el('button', 'btn sm danger', 'Supprimer'); db.type = 'button';
+      db.onclick = function () { if (db.dataset.sure) act(f, 'del', db); else { db.dataset.sure = '1'; db.textContent = 'Confirmer la suppression'; setTimeout(function () { if (db.isConnected) { delete db.dataset.sure; db.textContent = 'Supprimer'; } }, 4000); } };
+      acts.appendChild(rb); acts.appendChild(db); it.appendChild(acts); box.appendChild(it);
+    });
+  }
+  async function act(f, op, btn) {
+    btn.disabled = true;
+    try { await call('admin_fb', { id: f.id, op: op }); if (op === 'del') data.fb = data.fb.filter(function (x) { return x !== f; }); else f.rd = op === 'read' ? 1 : 0; render(); }
+    catch (e) { btn.disabled = false; $('#dashErr').textContent = ERR[e] || ERR.offline; }
+  }
+  $('#loginForm').addEventListener('submit', function (e) { e.preventDefault(); key = $('#key').value.trim(); if ($('#remember').checked) store.set('sq-admin', key); $('#loginErr').textContent = 'Connexion…'; load(); });
+  $('#refresh').addEventListener('click', load);
+  $('#logout').addEventListener('click', function () { store.set('sq-admin', null); key = ''; data = null; $('#key').value = ''; showLogin(''); });
+  $('#onlyUnread').addEventListener('change', renderFb);
+  var rt = null; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(function () { if (data) render(); }, 200); });
+  Promise.all([
+    fetch('config.json', { cache: 'no-store' }).then(function (r) { return r.json(); }).catch(function () { return {}; }),
+    fetch('catalog.json', { cache: 'no-store' }).then(function (r) { return r.json(); }).catch(function () { return {}; })
+  ]).then(function (got) {
+    api = got[0] && got[0].aiUrl || '';
+    ((got[1] && got[1].sbcs) || []).forEach(function (s) { if (s && s.cid) names[s.cid] = s.name; });
+    if (!api) { showLogin('Adresse du serveur introuvable (config.json).'); return; }
+    key = store.get('sq-admin') || '';
+    if (key) load(); else showLogin('');
+  });
+})();
+</script>
+</body>
+</html>

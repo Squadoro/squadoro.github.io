@@ -12,6 +12,10 @@
  * - Recherche sur le web (outil web search de Claude) de la nation, de la ligue et du club des joueurs
  *   introuvables autrement, avec des limites par jour.
  * - Amis : profils (pseudo, code ami) et résumé de progression visible seulement des amis.
+ * - Notifications (site seulement) : nouveaux DCE et DCE de la liste qui expirent demain, envoyés chaque soir
+ *   après la mise à jour du catalogue. Les clés de notification sont créées par le serveur la première fois.
+ * - Messages des joueurs (« Une idée ou un bug ? ») et statistiques anonymes (joueurs par jour, plateforme,
+ *   langue, DCE calculés), lisibles dans le tableau de bord avec ADMIN_KEY.
  *
  * Réglages du Worker (Settings → Variables and Secrets) :
  *   ANTHROPIC_API_KEY  (Secret, obligatoire) : ta clé d'API Anthropic.
@@ -23,6 +27,12 @@
  *   WEB_GLOBAL_LIMIT   (Text, facultatif)    : recherches sur le web par jour pour tous les joueurs, 200 par défaut
  *                                              (environ 1 centime chacune : 2 $ par jour au plus).
  *   SALT               (Secret, facultatif)  : sert à rendre anonymes les identifiants (sinon dérivé de la clé d'API).
+ *   ADMIN_KEY          (Secret, facultatif)  : mot de passe du tableau de bord (squadoro.github.io/admin.html),
+ *                                              10 caractères au moins. Sans lui, le tableau de bord est fermé.
+ *   PUSH_BATCH         (Text, facultatif)    : notifications envoyées à chaque passage de la tâche programmée, 8 par défaut
+ *                                              (offre gratuite : 10 ms de calcul par passage ; avec l'offre payante, 40 possible).
+ * Déclencheur (Settings → Trigger Events → Cron Triggers) : toutes les minutes (expression : cinq étoiles séparées par des espaces),
+ *   pour envoyer les notifications du soir. Sans lui, tout le reste marche, mais aucune notification n'est envoyée.
  * Liaisons (Bindings) :
  *   DB (D1 database) : limites, base commune des cartes et transferts. Les tables sont créées
  *     et mises à jour automatiquement.
@@ -109,7 +119,8 @@ async function quotaD1(env, db, day, dev, ip, task, images) {
   if (all + images > num(env.GLOBAL_DAILY_LIMIT, 1000)) return { ok: false, status: 429, body: { error: 'busy' } };
   const stmts = [
     db.prepare('INSERT INTO devs (d, first, last) VALUES (?1, ?2, ?3) ON CONFLICT(d) DO UPDATE SET last = excluded.last').bind(dh, first, day),
-    db.prepare(CNT_UP).bind(kd, images, day), db.prepare(CNT_UP).bind(ki, images, day), db.prepare(CNT_UP).bind(kg, images, day)
+    db.prepare(CNT_UP).bind(kd, images, day), db.prepare(CNT_UP).bind(ki, images, day), db.prepare(CNT_UP).bind(kg, images, day),
+    db.prepare(STAT_UP).bind(day, 'img', images)
   ];
   if (Math.random() < 0.03) {
     stmts.push(db.prepare('DELETE FROM cnt WHERE day < ?1').bind(daysAgo(3)));
@@ -160,7 +171,7 @@ async function checkQuota(env, request, device, task, images) {
 /* ---------- Base commune des cartes (D1) ---------- */
 const KINDS = ['base', 'totw', 'special', 'hero', 'hof', 'icon'];
 const POSITIONS = ['GK', 'LB', 'CB', 'RB', 'CDM', 'CM', 'CAM', 'LM', 'RM', 'LW', 'RW', 'ST'];
-const SCHEMA = 4;
+const SCHEMA = 5;
 const MAX_VOTERS = 20;   // au-delà, la carte est largement confirmée : on ne compte plus de nouveaux votes
 const MAX_VARIANTS = 6;  // versions différentes gardées par champ
 const VF = ['name', 'pos', 'alt', 'nation', 'league', 'club', 'stats', 'extra'];
@@ -182,6 +193,7 @@ async function migrate(db, ver) {
   if (ver < 2) await migrate2(db);
   if (ver < 3) await mergeDuplicates(db);
   if (ver < 4) await migrate4(db);
+  if (ver < 5) await migrate5(db);
   await db.prepare("INSERT INTO meta (k, v) VALUES ('schema', ?1) ON CONFLICT(k) DO UPDATE SET v = excluded.v").bind(String(SCHEMA)).run();
 }
 async function migrate2(db) {
@@ -792,6 +804,305 @@ async function handleWeb(env, request, body, origin) {
   return reply({ text: textOf(content.slice(lastTool + 1)) || textOf(content), searches }, 200, origin);
 }
 
+/* ---------- Notifications, avis des joueurs, statistiques anonymes, tableau de bord ---------- */
+// Schéma 5 : abonnements aux notifications, messages des joueurs, joueurs par jour, compteurs par jour.
+// Les joueurs par jour sont comptés sans identifiant de l'appareil : empreinte de l'adresse IP et du navigateur,
+// différente chaque jour (impossible de suivre quelqu'un d'un jour à l'autre).
+async function migrate5(db) {
+  await db.batch([
+    db.prepare("CREATE TABLE IF NOT EXISTS push (id INTEGER PRIMARY KEY, dh TEXT NOT NULL UNIQUE, ep TEXT NOT NULL UNIQUE, p256dh TEXT NOT NULL, auth TEXT NOT NULL, lang TEXT NOT NULL, prefs TEXT, last TEXT NOT NULL DEFAULT '', made INTEGER NOT NULL, upd INTEGER NOT NULL, fails INTEGER NOT NULL DEFAULT 0, sent INTEGER NOT NULL DEFAULT 0)"),
+    db.prepare('CREATE INDEX IF NOT EXISTS push_last ON push(last)'),
+    db.prepare('CREATE TABLE IF NOT EXISTS fb (id INTEGER PRIMARY KEY, ts INTEGER NOT NULL, dh TEXT NOT NULL, kind TEXT NOT NULL, msg TEXT NOT NULL, contact TEXT, lang TEXT, plat TEXT, ver TEXT, rd INTEGER NOT NULL DEFAULT 0)'),
+    db.prepare('CREATE TABLE IF NOT EXISTS seen (day TEXT NOT NULL, dh TEXT NOT NULL, plat TEXT, lang TEXT, PRIMARY KEY (day, dh)) WITHOUT ROWID'),
+    db.prepare('CREATE TABLE IF NOT EXISTS stat (day TEXT NOT NULL, k TEXT NOT NULL, n INTEGER NOT NULL, PRIMARY KEY (day, k)) WITHOUT ROWID')
+  ]);
+}
+const STAT_UP = 'INSERT INTO stat (day, k, n) VALUES (?1, ?2, ?3) ON CONFLICT(day, k) DO UPDATE SET n = stat.n + excluded.n';
+const LANGS4 = ['fr', 'en', 'nl', 'es'];
+const PLATS = ['web', 'pwa', 'ios'];
+const CATALOG_URL = 'https://squadoro.github.io/catalog.json';
+function validCid(c) { return typeof c === 'string' && /^[a-z0-9][a-z0-9-]{1,79}$/.test(c); }
+async function metaGet(db, k) { try { return JSON.parse((await db.prepare('SELECT v FROM meta WHERE k = ?1').bind(k).first('v')) || 'null'); } catch (e) { return null; } }
+function metaSet(db, k, v) { return db.prepare('INSERT INTO meta (k, v) VALUES (?1, ?2) ON CONFLICT(k) DO UPDATE SET v = excluded.v').bind(k, JSON.stringify(v)); }
+function brusselsHour(t) { return +new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Brussels', hour: '2-digit', hourCycle: 'h23' }).format(new Date(t)); }
+
+/* Web Push (RFC 8030, 8291, 8292) avec les outils de chiffrement du Worker, sans bibliothèque. */
+const enc8 = (s) => new TextEncoder().encode(s);
+function b64u(buf) { const b = new Uint8Array(buf); let s = ''; for (let i = 0; i < b.length; i++) s += String.fromCharCode(b[i]); return btoa(s).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, ''); }
+function unb64u(s) { s = String(s || '').replace(/-/g, '+').replace(/_/g, '/'); while (s.length % 4) s += '='; const bin = atob(s), out = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i); return out; }
+function cat8(...arrs) { let n = 0; for (const a of arrs) n += a.length; const o = new Uint8Array(n); let p = 0; for (const a of arrs) { o.set(a, p); p += a.length; } return o; }
+async function hmac(key, data) { const k = await crypto.subtle.importKey('raw', key, { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']); return new Uint8Array(await crypto.subtle.sign('HMAC', k, data)); }
+// Clés VAPID : créées par le serveur la première fois, puis gardées dans la base (rien à régler).
+let vapidCache = null;
+async function vapidKeys(db) {
+  if (vapidCache) return vapidCache;
+  let v = await metaGet(db, 'vapid');
+  if (!v) {
+    const kp = await crypto.subtle.generateKey({ name: 'ECDSA', namedCurve: 'P-256' }, true, ['sign', 'verify']);
+    const fresh = { jwk: await crypto.subtle.exportKey('jwk', kp.privateKey), pub: b64u(await crypto.subtle.exportKey('raw', kp.publicKey)) };
+    await db.prepare("INSERT INTO meta (k, v) VALUES ('vapid', ?1) ON CONFLICT(k) DO NOTHING").bind(JSON.stringify(fresh)).run();
+    v = await metaGet(db, 'vapid');
+  }
+  const jwk = Object.assign({}, v.jwk); delete jwk.key_ops; delete jwk.ext;
+  vapidCache = { pub: v.pub, key: await crypto.subtle.importKey('jwk', jwk, { name: 'ECDSA', namedCurve: 'P-256' }, false, ['sign']) };
+  return vapidCache;
+}
+const jwtCache = {};
+async function vapidHeader(v, endpoint) {
+  const aud = new URL(endpoint).origin, now = Math.floor(Date.now() / 1000), c = jwtCache[aud];
+  if (c && c.exp - now > 3600) return c.h;
+  const exp = now + 12 * 3600;
+  const unsigned = b64u(enc8(JSON.stringify({ typ: 'JWT', alg: 'ES256' }))) + '.' + b64u(enc8(JSON.stringify({ aud, exp, sub: 'https://squadoro.github.io/a-propos.html' })));
+  const sig = await crypto.subtle.sign({ name: 'ECDSA', hash: 'SHA-256' }, v.key, enc8(unsigned));
+  const h = 'vapid t=' + unsigned + '.' + b64u(sig) + ', k=' + v.pub;
+  jwtCache[aud] = { h, exp };
+  return h;
+}
+async function encryptPush(p256dh, auth, text) {
+  const ua = unb64u(p256dh), secret = unb64u(auth);
+  if (ua.length !== 65 || secret.length !== 16) throw new Error('bad_keys');
+  const uaKey = await crypto.subtle.importKey('raw', ua, { name: 'ECDH', namedCurve: 'P-256' }, false, []);
+  const as = await crypto.subtle.generateKey({ name: 'ECDH', namedCurve: 'P-256' }, true, ['deriveBits']);
+  const asPub = new Uint8Array(await crypto.subtle.exportKey('raw', as.publicKey));
+  const shared = new Uint8Array(await crypto.subtle.deriveBits({ name: 'ECDH', public: uaKey }, as.privateKey, 256));
+  const ikm = (await hmac(await hmac(secret, shared), cat8(enc8('WebPush: info\0'), ua, asPub, new Uint8Array([1])))).slice(0, 32);
+  const salt = crypto.getRandomValues(new Uint8Array(16));
+  const prk = await hmac(salt, ikm);
+  const cek = (await hmac(prk, cat8(enc8('Content-Encoding: aes128gcm\0'), new Uint8Array([1])))).slice(0, 16);
+  const nonce = (await hmac(prk, cat8(enc8('Content-Encoding: nonce\0'), new Uint8Array([1])))).slice(0, 12);
+  const key = await crypto.subtle.importKey('raw', cek, 'AES-GCM', false, ['encrypt']);
+  const ct = new Uint8Array(await crypto.subtle.encrypt({ name: 'AES-GCM', iv: nonce }, key, cat8(enc8(text), new Uint8Array([2]))));
+  const head = new Uint8Array(21 + asPub.length);
+  head.set(salt, 0); new DataView(head.buffer).setUint32(16, 4096); head[20] = asPub.length; head.set(asPub, 21);
+  return cat8(head, ct);
+}
+// Renvoie le code de réponse du service de notification (0 si injoignable) ; une erreur seulement si les clés de l'abonnement sont invalides.
+async function sendPush(v, sub, msg) {
+  const body = await encryptPush(sub.p256dh, sub.auth, JSON.stringify(msg));
+  const auth = await vapidHeader(v, sub.ep);
+  try {
+    const res = await fetch(sub.ep, { method: 'POST', body, headers: { Authorization: auth, 'Content-Encoding': 'aes128gcm', 'Content-Type': 'application/octet-stream', TTL: '86400', Urgency: 'normal' } });
+    return res.status;
+  } catch (e) { return 0; }
+}
+// Seuls les services de notification des navigateurs sont acceptés comme adresse d'envoi.
+const PUSH_HOSTS = /^(fcm\.googleapis\.com|android\.googleapis\.com|updates\.push\.services\.mozilla\.com|push\.services\.mozilla\.com|web\.push\.apple\.com|[a-z0-9-]+\.push\.apple\.com|[a-z0-9.-]+\.notify\.windows\.com)$/;
+function validEndpoint(u) { try { const x = new URL(u); return typeof u === 'string' && u.length < 1000 && x.protocol === 'https:' && PUSH_HOSTS.test(x.hostname); } catch (e) { return false; } }
+function cleanPrefs(p) {
+  p = p && typeof p === 'object' ? p : {};
+  const strs = (a, max, ok) => (Array.isArray(a) ? a : []).filter(ok).slice(0, max);
+  return { neu: p.neu !== false, exp: p.exp !== false, mute: strs(p.mute, 20, (x) => typeof x === 'string' && x.length > 0 && x.length <= 40), follow: strs(p.follow, 300, validCid) };
+}
+const PUSH_TXT = {
+  fr: { neu: (n) => (n > 1 ? n + ' nouveaux DCE : ' : 'Nouveau DCE : '), exp: 'Expire demain : ', more: (n) => ' et ' + n + ' autre' + (n > 1 ? 's' : ''), hiT: 'Notifications activées', hi: 'Tu seras prévenu des nouveaux DCE et de ceux de ta liste qui expirent demain.' },
+  en: { neu: (n) => (n > 1 ? n + ' new SBCs: ' : 'New SBC: '), exp: 'Ends tomorrow: ', more: (n) => ' and ' + n + ' more', hiT: 'Notifications on', hi: "You'll hear about new SBCs and the ones on your list that end tomorrow." },
+  nl: { neu: (n) => (n > 1 ? n + " nieuwe SBC's: " : 'Nieuwe SBC: '), exp: 'Verloopt morgen: ', more: (n) => ' en ' + n + ' meer', hiT: 'Meldingen staan aan', hi: "Je krijgt een melding bij nieuwe SBC's en bij SBC's op je lijst die morgen verlopen." },
+  es: { neu: (n) => (n > 1 ? n + ' SBC nuevos: ' : 'Nuevo SBC: '), exp: 'Termina mañana: ', more: (n) => ' y ' + n + ' más', hiT: 'Notificaciones activadas', hi: 'Te avisaremos de los SBC nuevos y de los de tu lista que terminan mañana.' }
+};
+function pushMsg(camp, s) {
+  const L = PUSH_TXT[s.lang] || PUSH_TXT.fr;
+  let p = {}; try { p = JSON.parse(s.prefs || '{}') || {}; } catch (e) { p = {}; }
+  const mute = new Set(p.mute || []), follow = new Set(p.follow || []);
+  const nm = (x) => (x.i18n && x.i18n[s.lang]) || x.name;
+  const neu = p.neu === false ? [] : (camp.neu || []).filter((x) => !mute.has(x.cat || 'Autres'));
+  const exp = p.exp === false ? [] : (camp.exp || []).filter((x) => follow.has(x.cid));
+  const list = (a) => a.slice(0, 3).map(nm).join(', ') + (a.length > 3 ? L.more(a.length - 3) : '');
+  const lines = [];
+  if (neu.length) lines.push(L.neu(neu.length) + list(neu));
+  if (exp.length) lines.push(L.exp + list(exp));
+  return lines.length ? { title: 'Squadoro', body: lines.join('\n'), tag: 'dce-' + camp.id, url: './#dce' } : null;
+}
+// Chaque soir, après la mise à jour du catalogue : un message par abonné, envoyé par petits lots (limite de calcul de l'offre gratuite).
+async function makeCampaign(db, day, hour) {
+  let catalog;
+  try { const r = await fetch(CATALOG_URL + '?t=' + Date.now(), { headers: { Accept: 'application/json' } }); if (!r.ok) return null; catalog = await r.json(); } catch (e) { return null; }
+  const upd = catalog && catalog.updatedAt ? dayOf(Date.parse(catalog.updatedAt)) : '';
+  if (upd !== day && hour < 23) return null; // on attend la publication du soir
+  const list = (Array.isArray(catalog.sbcs) ? catalog.sbcs : []).filter((x) => x && validCid(x.cid) && (!x.expires || x.expires >= day));
+  const seen = await metaGet(db, 'push_seen'), had = new Set(Array.isArray(seen) ? seen : []);
+  const short = (x) => {
+    const i18n = {};
+    for (const l of ['en', 'nl', 'es']) { const t = x.i18n && x.i18n[l] && x.i18n[l].name; if (typeof t === 'string' && t) i18n[l] = t.slice(0, 80); }
+    return { cid: x.cid, name: String(x.name || '').slice(0, 80), cat: String(x.category || 'Autres').slice(0, 40), i18n };
+  };
+  const tomorrow = dayOf(Date.now() + 864e5);
+  const camp = {
+    id: day, made: Date.now(),
+    neu: Array.isArray(seen) ? list.filter((x) => !had.has(x.cid)).map(short).slice(0, 30) : [], // première fois : rien d'annoncé, on retient seulement la liste
+    exp: list.filter((x) => x.expires === tomorrow).map(short).slice(0, 60)
+  };
+  await db.batch([metaSet(db, 'push_camp', camp), metaSet(db, 'push_seen', list.map((x) => x.cid).slice(0, 500))]);
+  return camp;
+}
+async function pushBatch(env, db, camp) {
+  const n = Math.min(40, num(env.PUSH_BATCH, 8)); // environ 0,7 ms de calcul par envoi : 8 envois tiennent dans les 10 ms de l'offre gratuite
+  const rows = (await db.prepare('SELECT id, ep, p256dh, auth, lang, prefs, fails FROM push WHERE last < ?1 ORDER BY id LIMIT ?2').bind(camp.id, n).all()).results || [];
+  if (!rows.length) return 0;
+  const v = await vapidKeys(db), stmts = [];
+  let sent = 0;
+  const done = (s) => db.prepare('UPDATE push SET last = ?2, fails = 0, sent = sent + 1 WHERE id = ?1').bind(s.id, camp.id);
+  for (const s of rows) {
+    const msg = pushMsg(camp, s);
+    if (!msg) { stmts.push(db.prepare('UPDATE push SET last = ?2 WHERE id = ?1').bind(s.id, camp.id)); continue; }
+    let st = 0;
+    try { st = await sendPush(v, s, msg); } catch (e) { st = -1; }
+    if (st >= 200 && st < 300) { sent++; stmts.push(done(s)); }
+    else if (st === 404 || st === 410 || st === -1) stmts.push(db.prepare('DELETE FROM push WHERE id = ?1').bind(s.id)); // abonnement expiré ou clés invalides
+    else if ((st === 0 || st === 429 || st >= 500) && s.fails < 4) stmts.push(db.prepare('UPDATE push SET fails = fails + 1 WHERE id = ?1').bind(s.id)); // on réessaie au prochain passage
+    else stmts.push(db.prepare('UPDATE push SET last = ?2, fails = fails + 1 WHERE id = ?1').bind(s.id, camp.id));
+  }
+  if (sent) stmts.push(db.prepare(STAT_UP).bind(today(), 'push', sent));
+  await db.batch(stmts);
+  return rows.length;
+}
+async function cleanupDaily(db, day) {
+  if ((await metaGet(db, 'clean')) === day) return;
+  const now = Date.now();
+  await db.batch([
+    metaSet(db, 'clean', day),
+    db.prepare('DELETE FROM seen WHERE day < ?1').bind(daysAgo(120)),
+    db.prepare('DELETE FROM stat WHERE day < ?1').bind(daysAgo(400)),
+    db.prepare('DELETE FROM fb WHERE ts < ?1').bind(now - 180 * 864e5),
+    db.prepare('DELETE FROM push WHERE fails >= 10 OR upd < ?1').bind(now - 180 * 864e5)
+  ]);
+}
+async function pushTick(env) {
+  const db = env.DB; if (!db) return;
+  await ensureSchema(db);
+  const now = Date.now(), day = today(), hour = brusselsHour(now);
+  let camp = await metaGet(db, 'push_camp');
+  if ((!camp || camp.id !== day) && hour >= 20) { const made = await makeCampaign(db, day, hour); if (made) camp = made; }
+  if (camp && now - (camp.made || 0) < 20 * 3600e3) await pushBatch(env, db, camp);
+  if (hour >= 4 && hour < 6) await cleanupDaily(db, day);
+}
+
+/* Requêtes de l'appli : notifications, avis, ping quotidien ; et du tableau de bord (clé ADMIN_KEY). */
+async function adminCheck(env, db, day, iph, key) {
+  if (typeof env.ADMIN_KEY !== 'string' || env.ADMIN_KEY.length < 10) return { error: 'no_admin', status: 503 };
+  const kf = 'adminko:' + day + ':' + iph;
+  const got = await counters(db, [kf]);
+  if ((got[kf] || 0) >= 10) return { error: 'locked', status: 429 };
+  if (typeof key !== 'string' || (await hid(env, 'adm:' + key, 32)) !== (await hid(env, 'adm:' + env.ADMIN_KEY, 32))) {
+    await db.prepare(CNT_UP).bind(kf, 1, day).run();
+    return { error: 'bad_key', status: 401 };
+  }
+  return null;
+}
+async function adminStats(db) {
+  const d30 = daysAgo(29), d7 = daysAgo(6);
+  const q = (sql, ...a) => db.prepare(sql).bind(...a);
+  const r = await db.batch([
+    q('SELECT day, COUNT(*) AS n FROM seen WHERE day >= ?1 GROUP BY day', d30),
+    q("SELECT day, n FROM stat WHERE day >= ?1 AND k = 'new'", d30),
+    q("SELECT day, k, n FROM stat WHERE day >= ?1 AND k IN ('img', 'plan', 'push', 'fb')", d30),
+    q('SELECT plat AS k, COUNT(DISTINCT dh) AS n FROM seen WHERE day >= ?1 GROUP BY plat', d7),
+    q('SELECT lang AS k, COUNT(DISTINCT dh) AS n FROM seen WHERE day >= ?1 GROUP BY lang', d7),
+    q("SELECT substr(k, 5) AS cid, SUM(n) AS n FROM stat WHERE day >= ?1 AND k LIKE 'sbc:%' GROUP BY k ORDER BY n DESC LIMIT 15", d7),
+    q("SELECT substr(k, 6) AS cid, SUM(n) AS n FROM stat WHERE day >= ?1 AND k LIKE 'done:%' GROUP BY k ORDER BY n DESC LIMIT 15", d7),
+    q('SELECT COUNT(*) AS n FROM seen WHERE day >= ?1', d7),
+    q('SELECT COUNT(*) AS n FROM seen WHERE day >= ?1', d30),
+    q("SELECT SUM(n) AS n FROM stat WHERE k = 'new'"),
+    q('SELECT COUNT(*) AS n, SUM(sent) AS s FROM push'),
+    q('SELECT COUNT(*) AS n FROM prof'),
+    q('SELECT id, ts, kind, msg, contact, lang, plat, ver, rd FROM fb ORDER BY id DESC LIMIT 100'),
+    q("SELECT v FROM meta WHERE k = 'push_camp'")
+  ]);
+  const rows = (i) => r[i].results || [], one = (i, c) => (rows(i)[0] || {})[c || 'n'] || 0;
+  let camp = null; try { camp = JSON.parse((rows(13)[0] || {}).v || 'null'); } catch (e) { camp = null; }
+  return {
+    days: rows(0), fresh: rows(1), stat: rows(2), plats: rows(3), langs: rows(4), sbcs: rows(5), done: rows(6),
+    visits7: one(7), visits30: one(8), total: one(9), subs: one(10), pushSent: one(10, 's'), profiles: one(11),
+    fb: rows(12), camp: camp ? { id: camp.id, neu: (camp.neu || []).length, exp: (camp.exp || []).length } : null
+  };
+}
+async function handleExtra(env, request, task, body, origin) {
+  const db = env.DB;
+  if (!db) return reply({ error: 'no_db' }, 503, origin);
+  await ensureSchema(db);
+  const day = today(), iph = await hid(env, 'ip:' + clientIp(request));
+
+  if (task === 'admin_stats' || task === 'admin_fb') {
+    const bad = await adminCheck(env, db, day, iph, body.key);
+    if (bad) return reply({ error: bad.error }, bad.status, origin);
+    if (task === 'admin_stats') return reply(await adminStats(db), 200, origin);
+    const id = int(body.id);
+    if (body.op === 'del') await db.prepare('DELETE FROM fb WHERE id = ?1').bind(id).run();
+    else await db.prepare('UPDATE fb SET rd = ?2 WHERE id = ?1').bind(id, body.op === 'unread' ? 0 : 1).run();
+    return reply({ ok: true }, 200, origin);
+  }
+
+  const lang = LANGS4.includes(body.lang) ? body.lang : 'fr';
+  if (task === 'ping') { // une fois par jour : plateforme, langue et compteurs de calcul, sans identifiant de l'appareil
+    const vh = await hid(env, 'seen:' + day + ':' + clientIp(request) + ':' + (request.headers.get('User-Agent') || ''), 10);
+    const kd = 'ping:' + day + ':' + vh, ki = 'pingip:' + day + ':' + iph;
+    const got = await counters(db, [kd, ki]);
+    if ((got[kd] || 0) >= 5 || (got[ki] || 0) >= 300) return reply({ ok: true }, 200, origin);
+    const plat = PLATS.includes(body.plat) ? body.plat : 'web';
+    const stmts = [
+      db.prepare(CNT_UP).bind(kd, 1, day), db.prepare(CNT_UP).bind(ki, 1, day),
+      db.prepare('INSERT OR IGNORE INTO seen (day, dh, plat, lang) VALUES (?1, ?2, ?3, ?4)').bind(day, vh, plat, lang)
+    ];
+    if (body.first === true && !(got[kd] || 0)) stmts.push(db.prepare(STAT_UP).bind(day, 'new', 1));
+    const ev = body.ev && typeof body.ev === 'object' ? body.ev : {};
+    const plans = Math.max(0, Math.min(100, int(ev.plans)));
+    if (plans) stmts.push(db.prepare(STAT_UP).bind(day, 'plan', plans));
+    for (const [pre, obj] of [['sbc:', ev.sbc], ['done:', ev.done]]) {
+      if (!obj || typeof obj !== 'object') continue;
+      Object.keys(obj).filter(validCid).slice(0, 40).forEach((cid) => { const n = Math.max(0, Math.min(20, int(obj[cid]))); if (n) stmts.push(db.prepare(STAT_UP).bind(day, pre + cid, n)); });
+    }
+    await db.batch(stmts);
+    return reply({ ok: true }, 200, origin);
+  }
+
+  const device = validDevice(body.device) ? body.device : null;
+  if (!device) return reply({ error: 'bad_request' }, 400, origin);
+  const dh = await hid(env, device);
+
+  if (task === 'push_key') return reply({ key: (await vapidKeys(db)).pub }, 200, origin);
+
+  if (task === 'push_sub') {
+    const s = body.sub || {}, k = s.keys || {};
+    if (!validEndpoint(s.endpoint) || typeof k.p256dh !== 'string' || typeof k.auth !== 'string' || k.p256dh.length > 120 || k.auth.length > 40) return reply({ error: 'bad_request' }, 400, origin);
+    const kd = 'psub:' + day + ':' + dh, got = await counters(db, [kd]);
+    if ((got[kd] || 0) >= 60) return reply({ error: 'rate_limited' }, 429, origin);
+    const prefs = JSON.stringify(cleanPrefs(body.prefs)), now = Date.now();
+    const old = await db.prepare('SELECT ep FROM push WHERE dh = ?1').bind(dh).first();
+    const camp = await metaGet(db, 'push_camp');
+    await db.batch([
+      db.prepare(CNT_UP).bind(kd, 1, day),
+      db.prepare('DELETE FROM push WHERE ep = ?1 AND dh <> ?2').bind(s.endpoint, dh),
+      db.prepare('INSERT INTO push (dh, ep, p256dh, auth, lang, prefs, last, made, upd) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?8) ON CONFLICT(dh) DO UPDATE SET ep = excluded.ep, p256dh = excluded.p256dh, auth = excluded.auth, lang = excluded.lang, prefs = excluded.prefs, upd = excluded.upd, fails = 0')
+        .bind(dh, s.endpoint, k.p256dh, k.auth, lang, prefs, camp ? camp.id : '', now)
+    ]);
+    let welcome = 0;
+    if (!old || old.ep !== s.endpoint) { // nouvel abonnement : petit message pour vérifier que tout marche
+      const L = PUSH_TXT[lang];
+      try { welcome = await sendPush(await vapidKeys(db), { ep: s.endpoint, p256dh: k.p256dh, auth: k.auth }, { title: L.hiT, body: L.hi, tag: 'hello', url: './#dce' }); } catch (e) { welcome = -1; }
+    }
+    return reply({ ok: true, welcome }, 200, origin);
+  }
+
+  if (task === 'push_unsub') { await db.prepare('DELETE FROM push WHERE dh = ?1').bind(dh).run(); return reply({ ok: true }, 200, origin); }
+
+  if (task === 'fb_send') {
+    const msg = String(body.msg || '').trim().slice(0, 2000);
+    if (msg.length < 3) return reply({ error: 'bad_request' }, 400, origin);
+    const kd = 'fb:' + day + ':' + dh, ki = 'fbip:' + day + ':' + iph, kg = 'fball:' + day;
+    const got = await counters(db, [kd, ki, kg]);
+    if ((got[kd] || 0) >= 5 || (got[ki] || 0) >= 15 || (got[kg] || 0) >= 300) return reply({ error: 'rate_limited' }, 429, origin);
+    const kind = ['idea', 'bug', 'other'].includes(body.kind) ? body.kind : 'other';
+    const plat = PLATS.includes(body.plat) ? body.plat : '', ver = /^[0-9a-z.]{1,12}$/i.test(body.ver || '') ? body.ver : '';
+    await db.batch([
+      db.prepare('INSERT INTO fb (ts, dh, kind, msg, contact, lang, plat, ver) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8)').bind(Date.now(), dh, kind, msg, String(body.contact || '').trim().slice(0, 120), lang, plat, ver),
+      db.prepare(CNT_UP).bind(kd, 1, day), db.prepare(CNT_UP).bind(ki, 1, day), db.prepare(CNT_UP).bind(kg, 1, day),
+      db.prepare(STAT_UP).bind(day, 'fb', 1)
+    ]);
+    return reply({ ok: true }, 200, origin);
+  }
+
+  return reply({ error: 'bad_task' }, 400, origin);
+}
+
 export default {
   async fetch(request, env, ctx) {
     const origin = request.headers.get('Origin') || '';
@@ -806,6 +1117,10 @@ export default {
     const task = body && body.task;
     if (typeof task === 'string' && (task.indexOf('cards_') === 0 || task.indexOf('xfer_') === 0 || task.indexOf('social_') === 0)) {
       try { return await handleData(env, ctx, request, task, body, allowOrigin); }
+      catch (e) { return reply({ error: 'db_error' }, 500, allowOrigin); }
+    }
+    if (typeof task === 'string' && (/^(push_|fb_|admin_)/.test(task) || task === 'ping')) {
+      try { return await handleExtra(env, request, task, body, allowOrigin); }
       catch (e) { return reply({ error: 'db_error' }, 500, allowOrigin); }
     }
     if (task === 'web') {
@@ -853,5 +1168,9 @@ export default {
     const data = await upstream.json();
     const out = (data.content || []).filter((c) => c.type === 'text').map((c) => c.text).join('');
     return reply({ text: out }, 200, allowOrigin);
+  },
+  // Tâche programmée (Cron Trigger, toutes les minutes) : notifications du soir et nettoyage de la base.
+  async scheduled(event, env, ctx) {
+    ctx.waitUntil(pushTick(env).catch(() => {}));
   }
 };
