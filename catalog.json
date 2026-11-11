@@ -1,2033 +1,1998 @@
 {
- "i18n": {
-  "en": {
-   "note": "October Ligue 1 POTM expected around 24 November, not added (announcement too far off). Jonny (Ultimate Scream) expired today at 18:00."
-  },
-  "es": {
-   "note": "POTM de la Ligue 1 de octubre esperado hacia el 24 de noviembre, no añadido (anuncio demasiado lejano). Jonny (Ultimate Scream) expiró hoy a las 18:00."
-  },
-  "nl": {
-   "note": "Ligue 1 POTM van oktober verwacht rond 24 november, niet toegevoegd (aankondiging te ver weg). Jonny (Ultimate Scream) is vandaag om 18:00 verlopen."
-  }
- },
- "note": "Ligue 1 POTM d'octobre attendu vers le 24 novembre, non ajouté (annonce trop lointaine). Jonny (Ultimate Scream) a expiré aujourd'hui à 18:00.",
- "sbcs": [
-  {
-   "category": "Joueurs",
-   "cid": "fc27-base-hero-pick",
-   "communityVerdict": "non",
-   "expires": "2026-11-08",
-   "i18n": {
+  "i18n": {
     "en": {
-     "category": "Players",
-     "name": "Base Hero Pick (1 of 4)",
-     "reward": "1 Base Hero of your choice out of 4 (untradeable)"
+      "note": "Announced but not added (too vague): Hall of FUT Unleashed expected around 20 November (Chiesa, Goretzka, Florenzi, Danjuma), October Ligue 1 POTM around 24 November. Martín Ojeda expired today at 19:00; Tiago Djaló (RTTK) is an objective, not an SBC."
     },
     "es": {
-     "category": "Jugadores",
-     "name": "Elección de Héroe básico (1 de 4)",
-     "reward": "1 Héroe básico a elegir entre 4 (intransferible)"
+      "note": "Anunciados pero no añadidos (demasiado vagos): Hall of FUT Unleashed esperado hacia el 20 de noviembre (Chiesa, Goretzka, Florenzi, Danjuma), JDM de la Ligue 1 de octubre hacia el 24 de noviembre. Martín Ojeda expiró hoy a las 19:00; Tiago Djaló (RTTK) es un objetivo, no un SBC."
     },
     "nl": {
-     "category": "Spelers",
-     "name": "Basis-held-keuze (1 uit 4)",
-     "reward": "1 basis-held naar keuze uit 4 (niet verhandelbaar)"
+      "note": "Aangekondigd maar niet toegevoegd (te vaag): Hall of FUT Unleashed verwacht rond 20 november (Chiesa, Goretzka, Florenzi, Danjuma), Ligue 1 POTM van oktober rond 24 november. Martín Ojeda is vandaag om 19:00 verlopen; Tiago Djaló (RTTK) is een objective, geen SBC."
     }
-   },
-   "kinds": "all",
-   "maxOvr": 0,
-   "minOvr": 45,
-   "name": "Choix de Héros de base (1 parmi 4)",
-   "repeat": 1,
-   "reward": "1 Héros de base au choix parmi 4 (non éch.)",
-   "target": 200000,
-   "type": "score"
   },
-  {
-   "category": "Joueurs",
-   "cid": "fc27-potm-l1-sept",
-   "communityVerdict": "non",
-   "expires": "2026-11-10",
-   "i18n": {
-    "en": {
-     "category": "Players",
-     "name": "Ligue 1 POTM – Ferran Torres",
-     "reward": "Ferran Torres POTM (85)"
-    },
-    "es": {
-     "category": "Jugadores",
-     "name": "JDM Ligue 1 – Ferran Torres",
-     "reward": "Ferran Torres JDM (85)"
-    },
-    "nl": {
-     "category": "Spelers",
-     "name": "Ligue 1 POTM – Ferran Torres",
-     "reward": "Ferran Torres POTM (85)"
-    }
-   },
-   "kinds": "all",
-   "maxOvr": 0,
-   "minOvr": 45,
-   "name": "POTM Ligue 1 – Ferran Torres",
-   "repeat": 1,
-   "reward": "Ferran Torres POTM (85)",
-   "rewardCount": 1,
-   "rewardMax": 85,
-   "rewardMin": 85,
-   "target": 123000,
-   "type": "score"
-  },
-  {
-   "category": "Mises à niveau",
-   "cid": "fc27-chemstyle-pick",
-   "communityVerdict": "selon",
-   "expires": "2026-11-12",
-   "i18n": {
-    "en": {
-     "category": "Upgrades",
-     "name": "Chemistry Style Pick (1 of 4)",
-     "note": "repeatable",
-     "reward": "1 chemistry style of your choice (Anchor, Engine, Shadow, Hunter)"
-    },
-    "es": {
-     "category": "Mejoras",
-     "name": "Elección de estilo de química (1 de 4)",
-     "note": "repetible",
-     "reward": "1 estilo de química a elegir (Anchor, Engine, Shadow, Hunter)"
-    },
-    "nl": {
-     "category": "Upgrades",
-     "name": "Chemistry-stijlkeuze (1 uit 4)",
-     "note": "herhaalbaar",
-     "reward": "1 chemistry-stijl naar keuze (Anchor, Engine, Shadow, Hunter)"
-    }
-   },
-   "kinds": "all",
-   "maxOvr": 0,
-   "minOvr": 45,
-   "name": "Choix de style de collectif (1 parmi 4)",
-   "note": "répétable",
-   "repeat": 1,
-   "reward": "1 style de collectif au choix (Anchor, Engine, Shadow, Hunter)",
-   "target": 5000,
-   "type": "score",
-   "verify": true
-  },
-  {
-   "category": "Ligues",
-   "cid": "fc27-llligaf-ll",
-   "communityVerdict": "selon",
-   "expires": "2026-12-06",
-   "i18n": {
-    "en": {
-     "category": "Leagues",
-     "name": "LALIGA & Liga F : LALIGA",
-     "note": "repeatable; target 3,000 according to futmind (4,500 in the previous version)",
-     "reward": "League Bronze & Silver pack · full set: 2 Gold players pack max 85"
-    },
-    "es": {
-     "category": "Ligas",
-     "name": "LALIGA & Liga F : LALIGA",
-     "note": "repetible; objetivo 3.000 según futmind (4.500 en la versión anterior)",
-     "reward": "Sobre bronce y plata de la liga · set completo: sobre de 2 jugadores oro máx. 85"
-    },
-    "nl": {
-     "category": "Competities",
-     "name": "LALIGA & Liga F : LALIGA",
-     "note": "herhaalbaar; doel 3.000 volgens futmind (4.500 in de vorige versie)",
-     "reward": "Brons- & zilverpakket van de competitie · volledige set: pakket met 2 gouden spelers max 85"
-    }
-   },
-   "kinds": "all",
-   "maxOvr": 0,
-   "minOvr": 45,
-   "name": "LALIGA & Liga F : LALIGA",
-   "note": "répétable ; objectif 3 000 selon futmind (4 500 dans la version précédente)",
-   "repeat": 1,
-   "reward": "Pack Bronze & Argent de la ligue · set complet : pack 2 joueurs Or max 85",
-   "setRewardCount": 2,
-   "setRewardMax": 85,
-   "setRewardMin": 75,
-   "target": 3000,
-   "type": "score",
-   "verify": true
-  },
-  {
-   "category": "Ligues",
-   "cid": "fc27-llligaf-lf",
-   "communityVerdict": "selon",
-   "expires": "2026-12-06",
-   "i18n": {
-    "en": {
-     "category": "Leagues",
-     "name": "LALIGA & Liga F : Liga F",
-     "note": "repeatable; target 3,000 according to futmind (4,500 in the previous version)",
-     "reward": "League Bronze & Silver pack · full set: 2 Gold players pack max 85"
-    },
-    "es": {
-     "category": "Ligas",
-     "name": "LALIGA & Liga F : Liga F",
-     "note": "repetible; objetivo 3.000 según futmind (4.500 en la versión anterior)",
-     "reward": "Sobre bronce y plata de la liga · set completo: sobre de 2 jugadores oro máx. 85"
-    },
-    "nl": {
-     "category": "Competities",
-     "name": "LALIGA & Liga F : Liga F",
-     "note": "herhaalbaar; doel 3.000 volgens futmind (4.500 in de vorige versie)",
-     "reward": "Brons- & zilverpakket van de competitie · volledige set: pakket met 2 gouden spelers max 85"
-    }
-   },
-   "kinds": "all",
-   "maxOvr": 0,
-   "minOvr": 45,
-   "name": "LALIGA & Liga F : Liga F",
-   "note": "répétable ; objectif 3 000 selon futmind (4 500 dans la version précédente)",
-   "repeat": 1,
-   "reward": "Pack Bronze & Argent de la ligue · set complet : pack 2 joueurs Or max 85",
-   "setRewardCount": 2,
-   "setRewardMax": 85,
-   "setRewardMin": 75,
-   "target": 3000,
-   "type": "score",
-   "verify": true
-  },
-  {
-   "category": "Ligues",
-   "cid": "fc27-plwsl-pl",
-   "communityVerdict": "non",
-   "expires": "2026-12-06",
-   "i18n": {
-    "en": {
-     "category": "Leagues",
-     "name": "Premier League & Barclays WSL : Premier League",
-     "note": "repeatable; back until 6 December according to futwiz, target taken from the previous version",
-     "reward": "League Bronze & Silver pack · full set: 2 Gold players pack max 85"
-    },
-    "es": {
-     "category": "Ligas",
-     "name": "Premier League & Barclays WSL : Premier League",
-     "note": "repetible; vuelve hasta el 6 de diciembre según futwiz, objetivo tomado de la versión anterior",
-     "reward": "Sobre bronce y plata de la liga · set completo: sobre de 2 jugadores oro máx. 85"
-    },
-    "nl": {
-     "category": "Competities",
-     "name": "Premier League & Barclays WSL : Premier League",
-     "note": "herhaalbaar; terug tot 6 december volgens futwiz, doel overgenomen van de vorige versie",
-     "reward": "Brons- & zilverpakket van de competitie · volledige set: pakket met 2 gouden spelers max 85"
-    }
-   },
-   "kinds": "all",
-   "maxOvr": 0,
-   "minOvr": 45,
-   "name": "Premier League & Barclays WSL : Premier League",
-   "note": "répétable ; de retour jusqu'au 6 décembre selon futwiz, objectif repris de la version précédente",
-   "repeat": 1,
-   "reward": "Pack Bronze & Argent de la ligue · set complet : pack 2 joueurs Or max 85",
-   "setRewardCount": 2,
-   "setRewardMax": 85,
-   "setRewardMin": 75,
-   "target": 6000,
-   "type": "score",
-   "verify": true
-  },
-  {
-   "category": "Ligues",
-   "cid": "fc27-plwsl-wsl",
-   "communityVerdict": "non",
-   "expires": "2026-12-06",
-   "i18n": {
-    "en": {
-     "category": "Leagues",
-     "name": "Premier League & Barclays WSL : Barclays WSL",
-     "note": "repeatable; back until 6 December according to futwiz, target taken from the previous version",
-     "reward": "League Bronze & Silver pack · full set: 2 Gold players pack max 85"
-    },
-    "es": {
-     "category": "Ligas",
-     "name": "Premier League & Barclays WSL : Barclays WSL",
-     "note": "repetible; vuelve hasta el 6 de diciembre según futwiz, objetivo tomado de la versión anterior",
-     "reward": "Sobre bronce y plata de la liga · set completo: sobre de 2 jugadores oro máx. 85"
-    },
-    "nl": {
-     "category": "Competities",
-     "name": "Premier League & Barclays WSL : Barclays WSL",
-     "note": "herhaalbaar; terug tot 6 december volgens futwiz, doel overgenomen van de vorige versie",
-     "reward": "Brons- & zilverpakket van de competitie · volledige set: pakket met 2 gouden spelers max 85"
-    }
-   },
-   "kinds": "all",
-   "maxOvr": 0,
-   "minOvr": 45,
-   "name": "Premier League & Barclays WSL : Barclays WSL",
-   "note": "répétable ; de retour jusqu'au 6 décembre selon futwiz, objectif repris de la version précédente",
-   "repeat": 1,
-   "reward": "Pack Bronze & Argent de la ligue · set complet : pack 2 joueurs Or max 85",
-   "setRewardCount": 2,
-   "setRewardMax": 85,
-   "setRewardMin": 75,
-   "target": 6000,
-   "type": "score",
-   "verify": true
-  },
-  {
-   "category": "Permanents",
-   "cid": "fc27-gold-reroll",
-   "i18n": {
-    "en": {
-     "category": "Permanent",
-     "name": "Gold Re-roll",
-     "note": "repeatable",
-     "reward": "2 Gold players 78+ pack"
-    },
-    "es": {
-     "category": "Permanentes",
-     "name": "Re-roll oro",
-     "note": "repetible",
-     "reward": "Sobre de 2 jugadores oro 78+"
-    },
-    "nl": {
-     "category": "Permanent",
-     "name": "Goud re-roll",
-     "note": "herhaalbaar",
-     "reward": "Pakket met 2 gouden spelers 78+"
-    }
-   },
-   "kinds": "all",
-   "maxOvr": 83,
-   "minOvr": 0,
-   "name": "Re-roll Or",
-   "note": "répétable",
-   "permanent": true,
-   "repeat": 1,
-   "reward": "Pack 2 joueurs Or 78+",
-   "rewardCount": 2,
-   "rewardMin": 78,
-   "target": 1250,
-   "type": "score"
-  },
-  {
-   "category": "Permanents",
-   "cid": "fc27-bs-reroll",
-   "i18n": {
-    "en": {
-     "category": "Permanent",
-     "name": "Bronze & Silver Re-roll",
-     "note": "repeatable",
-     "reward": "1 Gold player 75+ pack"
-    },
-    "es": {
-     "category": "Permanentes",
-     "name": "Re-roll bronce y plata",
-     "note": "repetible",
-     "reward": "Sobre de 1 jugador oro 75+"
-    },
-    "nl": {
-     "category": "Permanent",
-     "name": "Brons & zilver re-roll",
-     "note": "herhaalbaar",
-     "reward": "Pakket met 1 gouden speler 75+"
-    }
-   },
-   "kinds": "all",
-   "maxOvr": 74,
-   "minOvr": 0,
-   "name": "Re-roll Bronze & Argent",
-   "note": "répétable",
-   "permanent": true,
-   "repeat": 1,
-   "reward": "Pack 1 joueur Or 75+",
-   "rewardCount": 1,
-   "rewardMin": 75,
-   "target": 500,
-   "type": "score",
-   "verify": true
-  },
-  {
-   "category": "Fondamentaux",
-   "cid": "fc27-intro-player",
-   "i18n": {
-    "en": {
-     "category": "Foundations",
-     "name": "Intro to Player SBCs (Cristian Espinoza)",
-     "reward": "Cristian Espinoza (82)"
-    },
-    "es": {
-     "category": "Fundamentos",
-     "name": "Intro a los SBC de jugador (Cristian Espinoza)",
-     "reward": "Cristian Espinoza (82)"
-    },
-    "nl": {
-     "category": "Basis",
-     "name": "Intro speler-SBC's (Cristian Espinoza)",
-     "reward": "Cristian Espinoza (82)"
-    }
-   },
-   "kinds": "all",
-   "maxOvr": 0,
-   "minOvr": 45,
-   "name": "Intro aux DCE joueur (Cristian Espinoza)",
-   "permanent": true,
-   "repeat": 1,
-   "reward": "Cristian Espinoza (82)",
-   "rewardCount": 1,
-   "rewardMax": 82,
-   "rewardMin": 82,
-   "target": 4000,
-   "type": "score",
-   "verify": true
-  },
-  {
-   "category": "Fondamentaux",
-   "cid": "fc27-lna-1",
-   "conds": [
+  "note": "Annoncés mais non ajoutés (trop vagues) : Hall of FUT Unleashed attendu vers le 20 novembre (Chiesa, Goretzka, Florenzi, Danjuma), POTM Ligue 1 d'octobre vers le 24 novembre. Martín Ojeda a expiré aujourd'hui à 19:00 ; Tiago Djaló (RTTK) est un objectif, pas un DCE.",
+  "sbcs": [
     {
-     "field": "league",
-     "n": 3,
-     "op": "exactly",
-     "t": "distinct"
+      "category": "Mises à niveau",
+      "cid": "fc27-chemstyle-pick",
+      "communityVerdict": "selon",
+      "expires": "2026-11-12",
+      "i18n": {
+        "en": {
+          "category": "Upgrades",
+          "name": "Chemistry Style Pick (1 of 4)",
+          "note": "repeatable",
+          "reward": "1 chemistry style of your choice (Anchor, Engine, Shadow, Hunter)"
+        },
+        "es": {
+          "category": "Mejoras",
+          "name": "Elección de estilo de química (1 de 4)",
+          "note": "repetible",
+          "reward": "1 estilo de química a elegir (Anchor, Engine, Shadow, Hunter)"
+        },
+        "nl": {
+          "category": "Upgrades",
+          "name": "Chemistry-stijlkeuze (1 uit 4)",
+          "note": "herhaalbaar",
+          "reward": "1 chemistry-stijl naar keuze (Anchor, Engine, Shadow, Hunter)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Choix de style de collectif (1 parmi 4)",
+      "note": "répétable",
+      "repeat": 1,
+      "reward": "1 style de collectif au choix (Anchor, Engine, Shadow, Hunter)",
+      "target": 5000,
+      "type": "score",
+      "verify": true
     },
     {
-     "field": "nation",
-     "n": 2,
-     "op": "exactly",
-     "t": "distinct"
+      "category": "Ligues",
+      "cid": "fc27-llligaf-ll",
+      "communityVerdict": "selon",
+      "expires": "2026-12-06",
+      "i18n": {
+        "en": {
+          "category": "Leagues",
+          "name": "LALIGA & Liga F : LALIGA",
+          "note": "repeatable; target 3,000 according to futmind (4,500 in the previous version)",
+          "reward": "League Bronze & Silver pack · full set: 2 Gold players pack max 85"
+        },
+        "es": {
+          "category": "Ligas",
+          "name": "LALIGA & Liga F : LALIGA",
+          "note": "repetible; objetivo 3.000 según futmind (4.500 en la versión anterior)",
+          "reward": "Sobre bronce y plata de la liga · set completo: sobre de 2 jugadores oro máx. 85"
+        },
+        "nl": {
+          "category": "Competities",
+          "name": "LALIGA & Liga F : LALIGA",
+          "note": "herhaalbaar; doel 3.000 volgens futmind (4.500 in de vorige versie)",
+          "reward": "Brons- & zilverpakket van de competitie · volledige set: pakket met 2 gouden spelers max 85"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "LALIGA & Liga F : LALIGA",
+      "note": "répétable ; objectif 3 000 selon futmind (4 500 dans la version précédente)",
+      "repeat": 1,
+      "reward": "Pack Bronze & Argent de la ligue · set complet : pack 2 joueurs Or max 85",
+      "setRewardCount": 2,
+      "setRewardMax": 85,
+      "setRewardMin": 75,
+      "target": 3000,
+      "type": "score",
+      "verify": true
     },
     {
-     "field": "league",
-     "n": 6,
-     "op": "max",
-     "t": "same"
+      "category": "Ligues",
+      "cid": "fc27-llligaf-lf",
+      "communityVerdict": "selon",
+      "expires": "2026-12-06",
+      "i18n": {
+        "en": {
+          "category": "Leagues",
+          "name": "LALIGA & Liga F : Liga F",
+          "note": "repeatable; target 3,000 according to futmind (4,500 in the previous version)",
+          "reward": "League Bronze & Silver pack · full set: 2 Gold players pack max 85"
+        },
+        "es": {
+          "category": "Ligas",
+          "name": "LALIGA & Liga F : Liga F",
+          "note": "repetible; objetivo 3.000 según futmind (4.500 en la versión anterior)",
+          "reward": "Sobre bronce y plata de la liga · set completo: sobre de 2 jugadores oro máx. 85"
+        },
+        "nl": {
+          "category": "Competities",
+          "name": "LALIGA & Liga F : Liga F",
+          "note": "herhaalbaar; doel 3.000 volgens futmind (4.500 in de vorige versie)",
+          "reward": "Brons- & zilverpakket van de competitie · volledige set: pakket met 2 gouden spelers max 85"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "LALIGA & Liga F : Liga F",
+      "note": "répétable ; objectif 3 000 selon futmind (4 500 dans la version précédente)",
+      "repeat": 1,
+      "reward": "Pack Bronze & Argent de la ligue · set complet : pack 2 joueurs Or max 85",
+      "setRewardCount": 2,
+      "setRewardMax": 85,
+      "setRewardMin": 75,
+      "target": 3000,
+      "type": "score",
+      "verify": true
     },
     {
-     "field": "nation",
-     "n": 6,
-     "op": "max",
-     "t": "same"
+      "category": "Ligues",
+      "cid": "fc27-plwsl-pl",
+      "communityVerdict": "non",
+      "expires": "2026-12-06",
+      "i18n": {
+        "en": {
+          "category": "Leagues",
+          "name": "Premier League & Barclays WSL : Premier League",
+          "note": "repeatable; total set target 9 000 (fut.gg, futwiz), split here as 4 500 per challenge, to check",
+          "reward": "League Bronze & Silver pack · full set: 2 Gold players pack max 85"
+        },
+        "es": {
+          "category": "Ligas",
+          "name": "Premier League & Barclays WSL : Premier League",
+          "note": "repetible; objetivo total del set 9 000 (fut.gg, futwiz), repartido aquí en 4 500 por desafío, por verificar",
+          "reward": "Sobre bronce y plata de la liga · set completo: sobre de 2 jugadores oro máx. 85"
+        },
+        "nl": {
+          "category": "Competities",
+          "name": "Premier League & Barclays WSL : Premier League",
+          "note": "herhaalbaar; totaal setdoel 9 000 (fut.gg, futwiz), hier verdeeld als 4 500 per uitdaging, te controleren",
+          "reward": "Brons- & zilverpakket van de competitie · volledige set: pakket met 2 gouden spelers max 85"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Premier League & Barclays WSL : Premier League",
+      "note": "répétable ; objectif total du set 9 000 (fut.gg, futwiz), réparti ici 4 500 par défi, à vérifier",
+      "repeat": 1,
+      "reward": "Pack Bronze & Argent de la ligue · set complet : pack 2 joueurs Or max 85",
+      "setRewardCount": 2,
+      "setRewardMax": 85,
+      "setRewardMin": 75,
+      "target": 4500,
+      "type": "score",
+      "verify": true
     },
     {
-     "n": 30,
-     "op": "min",
-     "t": "chem"
+      "category": "Ligues",
+      "cid": "fc27-plwsl-wsl",
+      "communityVerdict": "non",
+      "expires": "2026-12-06",
+      "i18n": {
+        "en": {
+          "category": "Leagues",
+          "name": "Premier League & Barclays WSL : Barclays WSL",
+          "note": "repeatable; total set target 9 000 (fut.gg, futwiz), split here as 4 500 per challenge, to check",
+          "reward": "League Bronze & Silver pack · full set: 2 Gold players pack max 85"
+        },
+        "es": {
+          "category": "Ligas",
+          "name": "Premier League & Barclays WSL : Barclays WSL",
+          "note": "repetible; objetivo total del set 9 000 (fut.gg, futwiz), repartido aquí en 4 500 por desafío, por verificar",
+          "reward": "Sobre bronce y plata de la liga · set completo: sobre de 2 jugadores oro máx. 85"
+        },
+        "nl": {
+          "category": "Competities",
+          "name": "Premier League & Barclays WSL : Barclays WSL",
+          "note": "herhaalbaar; totaal setdoel 9 000 (fut.gg, futwiz), hier verdeeld als 4 500 per uitdaging, te controleren",
+          "reward": "Brons- & zilverpakket van de competitie · volledige set: pakket met 2 gouden spelers max 85"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Premier League & Barclays WSL : Barclays WSL",
+      "note": "répétable ; objectif total du set 9 000 (fut.gg, futwiz), réparti ici 4 500 par défi, à vérifier",
+      "repeat": 1,
+      "reward": "Pack Bronze & Argent de la ligue · set complet : pack 2 joueurs Or max 85",
+      "setRewardCount": 2,
+      "setRewardMax": 85,
+      "setRewardMin": 75,
+      "target": 4500,
+      "type": "score",
+      "verify": true
     },
     {
-     "n": 2,
-     "op": "exactly",
-     "t": "quality"
-    }
-   ],
-   "formation": "3-4-3",
-   "i18n": {
-    "en": {
-     "category": "Foundations",
-     "name": "Advanced League & Nation : 3 leagues & 2 nations",
-     "reward": "Full set: Jumbo Gold pack + 5,000 coins",
-     "set": "Advanced League & Nation"
-    },
-    "es": {
-     "category": "Fundamentos",
-     "name": "Liga y nación avanzado : 3 ligas y 2 naciones",
-     "reward": "Set completo: sobre oro grande + 5.000 monedas",
-     "set": "Liga y nación avanzado"
-    },
-    "nl": {
-     "category": "Basis",
-     "name": "Gevorderd competitie & nationaliteit : 3 competities & 2 nationaliteiten",
-     "reward": "Volledige set: groot goudpakket + 5.000 munten",
-     "set": "Gevorderd competitie & nationaliteit"
-    }
-   },
-   "layoutVerify": true,
-   "name": "Ligue & Nation avancé : 3 ligues & 2 nations",
-   "permanent": true,
-   "players": 11,
-   "repeat": 1,
-   "reward": "Set complet : pack Or géant + 5 000 crédits",
-   "set": "Ligue & Nation avancé",
-   "type": "classic"
-  },
-  {
-   "category": "Fondamentaux",
-   "cid": "fc27-lna-2",
-   "conds": [
-    {
-     "field": "league",
-     "n": 4,
-     "op": "exactly",
-     "t": "distinct"
+      "category": "Permanents",
+      "cid": "fc27-gold-reroll",
+      "i18n": {
+        "en": {
+          "category": "Permanent",
+          "name": "Gold Re-roll",
+          "note": "repeatable",
+          "reward": "2 Gold players 78+ pack"
+        },
+        "es": {
+          "category": "Permanentes",
+          "name": "Re-roll oro",
+          "note": "repetible",
+          "reward": "Sobre de 2 jugadores oro 78+"
+        },
+        "nl": {
+          "category": "Permanent",
+          "name": "Goud re-roll",
+          "note": "herhaalbaar",
+          "reward": "Pakket met 2 gouden spelers 78+"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 83,
+      "minOvr": 0,
+      "name": "Re-roll Or",
+      "note": "répétable",
+      "permanent": true,
+      "repeat": 1,
+      "reward": "Pack 2 joueurs Or 78+",
+      "rewardCount": 2,
+      "rewardMin": 78,
+      "target": 1250,
+      "type": "score"
     },
     {
-     "field": "nation",
-     "n": 5,
-     "op": "exactly",
-     "t": "distinct"
+      "category": "Permanents",
+      "cid": "fc27-bs-reroll",
+      "i18n": {
+        "en": {
+          "category": "Permanent",
+          "name": "Bronze & Silver Re-roll",
+          "note": "repeatable",
+          "reward": "1 Gold player 75+ pack"
+        },
+        "es": {
+          "category": "Permanentes",
+          "name": "Re-roll bronce y plata",
+          "note": "repetible",
+          "reward": "Sobre de 1 jugador oro 75+"
+        },
+        "nl": {
+          "category": "Permanent",
+          "name": "Brons & zilver re-roll",
+          "note": "herhaalbaar",
+          "reward": "Pakket met 1 gouden speler 75+"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 74,
+      "minOvr": 0,
+      "name": "Re-roll Bronze & Argent",
+      "note": "répétable",
+      "permanent": true,
+      "repeat": 1,
+      "reward": "Pack 1 joueur Or 75+",
+      "rewardCount": 1,
+      "rewardMin": 75,
+      "target": 500,
+      "type": "score",
+      "verify": true
     },
     {
-     "field": "league",
-     "n": 4,
-     "op": "max",
-     "t": "same"
+      "category": "Fondamentaux",
+      "cid": "fc27-intro-player",
+      "i18n": {
+        "en": {
+          "category": "Foundations",
+          "name": "Intro to Player SBCs (Cristian Espinoza)",
+          "reward": "Cristian Espinoza (82)"
+        },
+        "es": {
+          "category": "Fundamentos",
+          "name": "Intro a los SBC de jugador (Cristian Espinoza)",
+          "reward": "Cristian Espinoza (82)"
+        },
+        "nl": {
+          "category": "Basis",
+          "name": "Intro speler-SBC's (Cristian Espinoza)",
+          "reward": "Cristian Espinoza (82)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Intro aux DCE joueur (Cristian Espinoza)",
+      "permanent": true,
+      "repeat": 1,
+      "reward": "Cristian Espinoza (82)",
+      "rewardCount": 1,
+      "rewardMax": 82,
+      "rewardMin": 82,
+      "target": 4000,
+      "type": "score",
+      "verify": true
     },
     {
-     "field": "nation",
-     "n": 3,
-     "op": "max",
-     "t": "same"
+      "category": "Fondamentaux",
+      "cid": "fc27-lna-1",
+      "conds": [
+        {
+          "field": "league",
+          "n": 3,
+          "op": "exactly",
+          "t": "distinct"
+        },
+        {
+          "field": "nation",
+          "n": 2,
+          "op": "exactly",
+          "t": "distinct"
+        },
+        {
+          "field": "league",
+          "n": 6,
+          "op": "max",
+          "t": "same"
+        },
+        {
+          "field": "nation",
+          "n": 6,
+          "op": "max",
+          "t": "same"
+        },
+        {
+          "n": 30,
+          "op": "min",
+          "t": "chem"
+        },
+        {
+          "n": 2,
+          "op": "exactly",
+          "t": "quality"
+        }
+      ],
+      "formation": "3-4-3",
+      "i18n": {
+        "en": {
+          "category": "Foundations",
+          "name": "Advanced League & Nation : 3 leagues & 2 nations",
+          "reward": "Full set: Jumbo Gold pack + 5,000 coins",
+          "set": "Advanced League & Nation"
+        },
+        "es": {
+          "category": "Fundamentos",
+          "name": "Liga y nación avanzado : 3 ligas y 2 naciones",
+          "reward": "Set completo: sobre oro grande + 5.000 monedas",
+          "set": "Liga y nación avanzado"
+        },
+        "nl": {
+          "category": "Basis",
+          "name": "Gevorderd competitie & nationaliteit : 3 competities & 2 nationaliteiten",
+          "reward": "Volledige set: groot goudpakket + 5.000 munten",
+          "set": "Gevorderd competitie & nationaliteit"
+        }
+      },
+      "layoutVerify": true,
+      "name": "Ligue & Nation avancé : 3 ligues & 2 nations",
+      "permanent": true,
+      "players": 11,
+      "repeat": 1,
+      "reward": "Set complet : pack Or géant + 5 000 crédits",
+      "set": "Ligue & Nation avancé",
+      "type": "classic"
     },
     {
-     "n": 78,
-     "op": "min",
-     "t": "rating"
+      "category": "Fondamentaux",
+      "cid": "fc27-lna-2",
+      "conds": [
+        {
+          "field": "league",
+          "n": 4,
+          "op": "exactly",
+          "t": "distinct"
+        },
+        {
+          "field": "nation",
+          "n": 5,
+          "op": "exactly",
+          "t": "distinct"
+        },
+        {
+          "field": "league",
+          "n": 4,
+          "op": "max",
+          "t": "same"
+        },
+        {
+          "field": "nation",
+          "n": 3,
+          "op": "max",
+          "t": "same"
+        },
+        {
+          "n": 78,
+          "op": "min",
+          "t": "rating"
+        },
+        {
+          "n": 25,
+          "op": "min",
+          "t": "chem"
+        }
+      ],
+      "formation": "4-5-1",
+      "i18n": {
+        "en": {
+          "category": "Foundations",
+          "name": "Advanced League & Nation : 4 leagues & 5 nations",
+          "reward": "Full set: Jumbo Gold pack + 5,000 coins",
+          "set": "Advanced League & Nation"
+        },
+        "es": {
+          "category": "Fundamentos",
+          "name": "Liga y nación avanzado : 4 ligas y 5 naciones",
+          "reward": "Set completo: sobre oro grande + 5.000 monedas",
+          "set": "Liga y nación avanzado"
+        },
+        "nl": {
+          "category": "Basis",
+          "name": "Gevorderd competitie & nationaliteit : 4 competities & 5 nationaliteiten",
+          "reward": "Volledige set: groot goudpakket + 5.000 munten",
+          "set": "Gevorderd competitie & nationaliteit"
+        }
+      },
+      "layoutVerify": true,
+      "name": "Ligue & Nation avancé : 4 ligues & 5 nations",
+      "permanent": true,
+      "players": 11,
+      "repeat": 1,
+      "reward": "Set complet : pack Or géant + 5 000 crédits",
+      "set": "Ligue & Nation avancé",
+      "type": "classic"
     },
     {
-     "n": 25,
-     "op": "min",
-     "t": "chem"
-    }
-   ],
-   "formation": "4-5-1",
-   "i18n": {
-    "en": {
-     "category": "Foundations",
-     "name": "Advanced League & Nation : 4 leagues & 5 nations",
-     "reward": "Full set: Jumbo Gold pack + 5,000 coins",
-     "set": "Advanced League & Nation"
-    },
-    "es": {
-     "category": "Fundamentos",
-     "name": "Liga y nación avanzado : 4 ligas y 5 naciones",
-     "reward": "Set completo: sobre oro grande + 5.000 monedas",
-     "set": "Liga y nación avanzado"
-    },
-    "nl": {
-     "category": "Basis",
-     "name": "Gevorderd competitie & nationaliteit : 4 competities & 5 nationaliteiten",
-     "reward": "Volledige set: groot goudpakket + 5.000 munten",
-     "set": "Gevorderd competitie & nationaliteit"
-    }
-   },
-   "layoutVerify": true,
-   "name": "Ligue & Nation avancé : 4 ligues & 5 nations",
-   "permanent": true,
-   "players": 11,
-   "repeat": 1,
-   "reward": "Set complet : pack Or géant + 5 000 crédits",
-   "set": "Ligue & Nation avancé",
-   "type": "classic"
-  },
-  {
-   "category": "Fondamentaux",
-   "cid": "fc27-lna-3",
-   "conds": [
-    {
-     "field": "league",
-     "n": 5,
-     "op": "exactly",
-     "t": "distinct"
-    },
-    {
-     "field": "nation",
-     "n": 6,
-     "op": "exactly",
-     "t": "distinct"
-    },
-    {
-     "field": "club",
-     "n": 2,
-     "op": "max",
-     "t": "same"
-    },
-    {
-     "n": 81,
-     "op": "min",
-     "t": "rating"
-    },
-    {
-     "n": 25,
-     "op": "min",
-     "t": "chem"
-    }
-   ],
-   "formation": "3-5-2",
-   "i18n": {
-    "en": {
-     "category": "Foundations",
-     "name": "Advanced League & Nation : 5 leagues & 6 nations",
-     "reward": "Full set: Jumbo Gold pack + 5,000 coins",
-     "set": "Advanced League & Nation"
-    },
-    "es": {
-     "category": "Fundamentos",
-     "name": "Liga y nación avanzado : 5 ligas y 6 naciones",
-     "reward": "Set completo: sobre oro grande + 5.000 monedas",
-     "set": "Liga y nación avanzado"
-    },
-    "nl": {
-     "category": "Basis",
-     "name": "Gevorderd competitie & nationaliteit : 5 competities & 6 nationaliteiten",
-     "reward": "Volledige set: groot goudpakket + 5.000 munten",
-     "set": "Gevorderd competitie & nationaliteit"
-    }
-   },
-   "layoutVerify": true,
-   "name": "Ligue & Nation avancé : 5 ligues & 6 nations",
-   "permanent": true,
-   "players": 11,
-   "repeat": 1,
-   "reward": "Set complet : pack Or géant + 5 000 crédits",
-   "set": "Ligue & Nation avancé",
-   "type": "classic"
-  },
-  {
-   "category": "Joueurs",
-   "cid": "fc27-schuller-us",
-   "communityVerdict": "selon",
-   "expires": "2026-11-08",
-   "i18n": {
-    "en": {
-     "category": "Players",
-     "name": "Lea Schüller (Ultimate Scream)",
-     "note": "can be done once; card rating to confirm (86 according to fut.gg)",
-     "reward": "Lea Schüller Ultimate Scream 86 (untradeable)"
-    },
-    "es": {
-     "category": "Jugadores",
-     "name": "Lea Schüller (Ultimate Scream)",
-     "note": "se puede hacer una vez; valoración de la carta por confirmar (86 según fut.gg)",
-     "reward": "Lea Schüller Ultimate Scream 86 (intransferible)"
-    },
-    "nl": {
-     "category": "Spelers",
-     "name": "Lea Schüller (Ultimate Scream)",
-     "note": "één keer te doen; rating van de kaart te bevestigen (86 volgens fut.gg)",
-     "reward": "Lea Schüller Ultimate Scream 86 (niet verhandelbaar)"
-    }
-   },
-   "kinds": "all",
-   "maxOvr": 0,
-   "minOvr": 45,
-   "name": "Lea Schüller (Ultimate Scream)",
-   "note": "réalisable une fois ; note de la carte à confirmer (86 selon fut.gg)",
-   "repeat": 1,
-   "reward": "Lea Schüller Ultimate Scream 86 (non éch.)",
-   "rewardCount": 1,
-   "rewardMax": 86,
-   "rewardMin": 86,
-   "target": 35000,
-   "type": "score",
-   "verify": true
-  },
-  {
-   "announced": true,
-   "category": "Joueurs",
-   "cid": "fc27-potm-laliga-oct",
-   "expectedBy": "2026-11-09",
-   "expires": null,
-   "i18n": {
-    "en": {
-     "category": "Players",
-     "name": "LALIGA POTM (October)",
-     "note": "winner announced on 6 November: Kylian Mbappé (92); SBC not live yet, score unknown, probably very high"
-    },
-    "es": {
-     "category": "Jugadores",
-     "name": "JDM LALIGA (octubre)",
-     "note": "ganador anunciado el 6 de noviembre: Kylian Mbappé (92); SBC aún no disponible, puntuación desconocida, probablemente muy alta"
-    },
-    "nl": {
-     "category": "Spelers",
-     "name": "LALIGA POTM (oktober)",
-     "note": "winnaar bekendgemaakt op 6 november: Kylian Mbappé (92); SBC nog niet live, score onbekend, waarschijnlijk erg hoog"
-    }
-   },
-   "kinds": "all",
-   "maxOvr": 0,
-   "minOvr": 45,
-   "name": "POTM LALIGA (octobre)",
-   "note": "gagnant annoncé le 6 novembre : Kylian Mbappé (92) ; DCE pas encore en ligne, score inconnu, sans doute très élevé",
-   "repeat": 1,
-   "type": "score",
-   "verify": true
-  },
-  {
-   "category": "Joueurs",
-   "cid": "fc27-ojeda-us",
-   "communityVerdict": "selon",
-   "expires": "2026-11-11",
-   "i18n": {
-    "en": {
-     "category": "Players",
-     "name": "Martín Ojeda (Ultimate Scream)",
-     "note": "released on 4 November",
-     "reward": "Martín Ojeda Ultimate Scream card (84, untradeable)"
-    },
-    "es": {
-     "category": "Jugadores",
-     "name": "Martín Ojeda (Ultimate Scream)",
-     "note": "salió el 4 de noviembre",
-     "reward": "Carta Ultimate Scream de Martín Ojeda (84, intransferible)"
-    },
-    "nl": {
-     "category": "Spelers",
-     "name": "Martín Ojeda (Ultimate Scream)",
-     "note": "uitgekomen op 4 november",
-     "reward": "Ultimate Scream-kaart van Martín Ojeda (84, niet verhandelbaar)"
-    }
-   },
-   "kinds": "all",
-   "maxOvr": 0,
-   "minOvr": 45,
-   "name": "Martín Ojeda (Ultimate Scream)",
-   "note": "sorti le 4 novembre",
-   "repeat": 1,
-   "reward": "Carte Ultimate Scream de Martín Ojeda (84, non éch.)",
-   "rewardCount": 1,
-   "rewardMax": 84,
-   "rewardMin": 84,
-   "target": 24000,
-   "type": "score",
-   "verify": true
-  },
-  {
-   "category": "Joueurs",
-   "cid": "fc27-ampadu-us",
-   "communityVerdict": "oui",
-   "expires": "2026-11-10",
-   "i18n": {
-    "en": {
-     "category": "Players",
-     "name": "Ethan Ampadu (Ultimate Scream)",
-     "reward": "Ethan Ampadu Ultimate Scream card (85, untradeable)"
-    },
-    "es": {
-     "category": "Jugadores",
-     "name": "Ethan Ampadu (Ultimate Scream)",
-     "reward": "Carta Ultimate Scream de Ethan Ampadu (85, intransferible)"
-    },
-    "nl": {
-     "category": "Spelers",
-     "name": "Ethan Ampadu (Ultimate Scream)",
-     "reward": "Ultimate Scream-kaart van Ethan Ampadu (85, niet verhandelbaar)"
-    }
-   },
-   "kinds": "all",
-   "maxOvr": 0,
-   "minOvr": 45,
-   "name": "Ethan Ampadu (Ultimate Scream)",
-   "repeat": 1,
-   "reward": "Carte Ultimate Scream d'Ethan Ampadu (85, non éch.)",
-   "rewardCount": 1,
-   "rewardMax": 85,
-   "rewardMin": 85,
-   "target": 22000,
-   "type": "score",
-   "verify": true
-  },
-  {
-   "category": "Mises à niveau",
-   "cid": "fc27-2x83",
-   "communityVerdict": "selon",
-   "expires": "2026-11-10",
-   "i18n": {
-    "en": {
-     "category": "Upgrades",
-     "name": "2x 83+",
-     "note": "returns every 2 days",
-     "reward": "2 Gold players 83+ pack"
-    },
-    "es": {
-     "category": "Mejoras",
-     "name": "2x 83+",
-     "note": "vuelve cada 2 días",
-     "reward": "Sobre de 2 jugadores oro 83+"
-    },
-    "nl": {
-     "category": "Upgrades",
-     "name": "2x 83+",
-     "note": "komt elke 2 dagen terug",
-     "reward": "Pakket met 2 gouden spelers 83+"
-    }
-   },
-   "kinds": "all",
-   "maxOvr": 0,
-   "minOvr": 45,
-   "name": "2x 83+",
-   "note": "revient tous les 2 jours",
-   "repeat": 1,
-   "reward": "Pack 2 joueurs Or 83+",
-   "rewardCount": 2,
-   "rewardMin": 83,
-   "target": 5500,
-   "type": "score",
-   "verify": true
-  },
-  {
-   "category": "Mises à niveau",
-   "cid": "fc27-79-pick",
-   "communityVerdict": "selon",
-   "expires": "2026-11-09",
-   "i18n": {
-    "en": {
-     "category": "Upgrades",
-     "name": "79+ Gold Player Pick (1 of 3)",
-     "note": "repeatable",
-     "reward": "1 Gold player 79+ of your choice out of 3"
-    },
-    "es": {
-     "category": "Mejoras",
-     "name": "Elección de jugador oro 79+ (1 de 3)",
-     "note": "repetible",
-     "reward": "1 jugador oro 79+ a elegir entre 3"
-    },
-    "nl": {
-     "category": "Upgrades",
-     "name": "Goud-spelerkeuze 79+ (1 uit 3)",
-     "note": "herhaalbaar",
-     "reward": "1 gouden speler 79+ naar keuze uit 3"
-    }
-   },
-   "kinds": "all",
-   "maxOvr": 0,
-   "minOvr": 45,
-   "name": "Choix de joueur Or 79+ (1 parmi 3)",
-   "note": "répétable",
-   "repeat": 1,
-   "reward": "1 joueur Or 79+ au choix parmi 3",
-   "rewardCount": 1,
-   "rewardMin": 79,
-   "target": 2500,
-   "type": "score",
-   "verify": true
-  },
-  {
-   "category": "Mises à niveau",
-   "cid": "fc27-max88-hero",
-   "communityVerdict": "selon",
-   "expires": "2026-11-08",
-   "i18n": {
-    "en": {
-     "category": "Upgrades",
-     "name": "Max 88 Base Hero Upgrade",
-     "note": "returns every 3 days",
-     "reward": "1 Base Hero pack (max 88)"
-    },
-    "es": {
-     "category": "Mejoras",
-     "name": "Mejora de Héroe básico máx. 88",
-     "note": "vuelve cada 3 días",
-     "reward": "Sobre de 1 Héroe básico (máx. 88)"
-    },
-    "nl": {
-     "category": "Upgrades",
-     "name": "Basis-held max 88 Upgrade",
-     "note": "komt elke 3 dagen terug",
-     "reward": "Pakket met 1 basis-held (max 88)"
-    }
-   },
-   "kinds": "all",
-   "maxOvr": 0,
-   "minOvr": 45,
-   "name": "Héros de base max 88",
-   "note": "revient tous les 3 jours",
-   "repeat": 1,
-   "reward": "Pack 1 Héros de base (max 88)",
-   "rewardCount": 1,
-   "rewardMax": 88,
-   "rewardMin": 75,
-   "target": 140000,
-   "type": "score",
-   "verify": true
-  },
-  {
-   "category": "Ligues",
-   "cid": "fc27-sarsl-sa",
-   "communityVerdict": "selon",
-   "expires": "2026-12-06",
-   "i18n": {
-    "en": {
-     "category": "Leagues",
-     "name": "Serie A & ROSHN Saudi League : Serie A",
-     "note": "repeatable",
-     "reward": "League Bronze & Silver pack · full set: 2 Gold players pack max 85",
-     "set": "Serie A & ROSHN Saudi League"
-    },
-    "es": {
-     "category": "Ligas",
-     "name": "Serie A & ROSHN Saudi League : Serie A",
-     "note": "repetible",
-     "reward": "Sobre bronce y plata de la liga · set completo: sobre de 2 jugadores oro máx. 85",
-     "set": "Serie A & ROSHN Saudi League"
-    },
-    "nl": {
-     "category": "Competities",
-     "name": "Serie A & ROSHN Saudi League : Serie A",
-     "note": "herhaalbaar",
-     "reward": "Brons- & zilverpakket van de competitie · volledige set: pakket met 2 gouden spelers max 85",
-     "set": "Serie A & ROSHN Saudi League"
-    }
-   },
-   "kinds": "all",
-   "maxOvr": 0,
-   "minOvr": 45,
-   "name": "Serie A & ROSHN Saudi League : Serie A",
-   "note": "répétable",
-   "repeat": 1,
-   "reward": "Pack Bronze & Argent de la ligue · set complet : pack 2 joueurs Or max 85",
-   "set": "Serie A & ROSHN Saudi League",
-   "setRewardCount": 2,
-   "setRewardMax": 85,
-   "setRewardMin": 75,
-   "target": 1500,
-   "type": "score"
-  },
-  {
-   "category": "Ligues",
-   "cid": "fc27-sarsl-rsl",
-   "communityVerdict": "selon",
-   "expires": "2026-12-06",
-   "i18n": {
-    "en": {
-     "category": "Leagues",
-     "name": "Serie A & ROSHN Saudi League : ROSHN Saudi League",
-     "note": "repeatable",
-     "reward": "League Bronze & Silver pack · full set: 2 Gold players pack max 85",
-     "set": "Serie A & ROSHN Saudi League"
-    },
-    "es": {
-     "category": "Ligas",
-     "name": "Serie A & ROSHN Saudi League : ROSHN Saudi League",
-     "note": "repetible",
-     "reward": "Sobre bronce y plata de la liga · set completo: sobre de 2 jugadores oro máx. 85",
-     "set": "Serie A & ROSHN Saudi League"
-    },
-    "nl": {
-     "category": "Competities",
-     "name": "Serie A & ROSHN Saudi League : ROSHN Saudi League",
-     "note": "herhaalbaar",
-     "reward": "Brons- & zilverpakket van de competitie · volledige set: pakket met 2 gouden spelers max 85",
-     "set": "Serie A & ROSHN Saudi League"
-    }
-   },
-   "kinds": "all",
-   "maxOvr": 0,
-   "minOvr": 45,
-   "name": "Serie A & ROSHN Saudi League : ROSHN Saudi League",
-   "note": "répétable",
-   "repeat": 1,
-   "reward": "Pack Bronze & Argent de la ligue · set complet : pack 2 joueurs Or max 85",
-   "set": "Serie A & ROSHN Saudi League",
-   "setRewardCount": 2,
-   "setRewardMax": 85,
-   "setRewardMin": 75,
-   "target": 1500,
-   "type": "score"
-  },
-  {
-   "category": "Ligues",
-   "cid": "fc27-mlsnwsl-mls",
-   "communityVerdict": "selon",
-   "expires": "2026-12-06",
-   "i18n": {
-    "en": {
-     "category": "Leagues",
-     "name": "MLS & NWSL : MLS",
-     "note": "repeatable",
-     "reward": "League Bronze & Silver pack · full set: 2 Gold players pack max 85",
-     "set": "MLS & NWSL"
-    },
-    "es": {
-     "category": "Ligas",
-     "name": "MLS & NWSL : MLS",
-     "note": "repetible",
-     "reward": "Sobre bronce y plata de la liga · set completo: sobre de 2 jugadores oro máx. 85",
-     "set": "MLS & NWSL"
-    },
-    "nl": {
-     "category": "Competities",
-     "name": "MLS & NWSL : MLS",
-     "note": "herhaalbaar",
-     "reward": "Brons- & zilverpakket van de competitie · volledige set: pakket met 2 gouden spelers max 85",
-     "set": "MLS & NWSL"
-    }
-   },
-   "kinds": "all",
-   "maxOvr": 0,
-   "minOvr": 45,
-   "name": "MLS & NWSL : MLS",
-   "note": "répétable",
-   "repeat": 1,
-   "reward": "Pack Bronze & Argent de la ligue · set complet : pack 2 joueurs Or max 85",
-   "set": "MLS & NWSL",
-   "setRewardCount": 2,
-   "setRewardMax": 85,
-   "setRewardMin": 75,
-   "target": 1500,
-   "type": "score"
-  },
-  {
-   "category": "Ligues",
-   "cid": "fc27-mlsnwsl-nwsl",
-   "communityVerdict": "selon",
-   "expires": "2026-12-06",
-   "i18n": {
-    "en": {
-     "category": "Leagues",
-     "name": "MLS & NWSL : NWSL",
-     "note": "repeatable",
-     "reward": "League Bronze & Silver pack · full set: 2 Gold players pack max 85",
-     "set": "MLS & NWSL"
-    },
-    "es": {
-     "category": "Ligas",
-     "name": "MLS & NWSL : NWSL",
-     "note": "repetible",
-     "reward": "Sobre bronce y plata de la liga · set completo: sobre de 2 jugadores oro máx. 85",
-     "set": "MLS & NWSL"
-    },
-    "nl": {
-     "category": "Competities",
-     "name": "MLS & NWSL : NWSL",
-     "note": "herhaalbaar",
-     "reward": "Brons- & zilverpakket van de competitie · volledige set: pakket met 2 gouden spelers max 85",
-     "set": "MLS & NWSL"
-    }
-   },
-   "kinds": "all",
-   "maxOvr": 0,
-   "minOvr": 45,
-   "name": "MLS & NWSL : NWSL",
-   "note": "répétable",
-   "repeat": 1,
-   "reward": "Pack Bronze & Argent de la ligue · set complet : pack 2 joueurs Or max 85",
-   "set": "MLS & NWSL",
-   "setRewardCount": 2,
-   "setRewardMax": 85,
-   "setRewardMin": 75,
-   "target": 1500,
-   "type": "score"
-  },
-  {
-   "category": "Défis",
-   "cid": "fc27-marquee-atletico-barcelona",
-   "communityVerdict": "selon",
-   "conds": [
-    {
-     "field": "club",
-     "n": 2,
-     "op": "min",
-     "t": "from",
-     "value": "Atlético de Madrid, Atlético Madrid, Atletico, FC Barcelona, Barcelona"
+      "category": "Fondamentaux",
+      "cid": "fc27-lna-3",
+      "conds": [
+        {
+          "field": "league",
+          "n": 5,
+          "op": "exactly",
+          "t": "distinct"
+        },
+        {
+          "field": "nation",
+          "n": 6,
+          "op": "exactly",
+          "t": "distinct"
+        },
+        {
+          "field": "club",
+          "n": 2,
+          "op": "max",
+          "t": "same"
+        },
+        {
+          "n": 81,
+          "op": "min",
+          "t": "rating"
+        },
+        {
+          "n": 25,
+          "op": "min",
+          "t": "chem"
+        }
+      ],
+      "formation": "3-5-2",
+      "i18n": {
+        "en": {
+          "category": "Foundations",
+          "name": "Advanced League & Nation : 5 leagues & 6 nations",
+          "reward": "Full set: Jumbo Gold pack + 5,000 coins",
+          "set": "Advanced League & Nation"
+        },
+        "es": {
+          "category": "Fundamentos",
+          "name": "Liga y nación avanzado : 5 ligas y 6 naciones",
+          "reward": "Set completo: sobre oro grande + 5.000 monedas",
+          "set": "Liga y nación avanzado"
+        },
+        "nl": {
+          "category": "Basis",
+          "name": "Gevorderd competitie & nationaliteit : 5 competities & 6 nationaliteiten",
+          "reward": "Volledige set: groot goudpakket + 5.000 munten",
+          "set": "Gevorderd competitie & nationaliteit"
+        }
+      },
+      "layoutVerify": true,
+      "name": "Ligue & Nation avancé : 5 ligues & 6 nations",
+      "permanent": true,
+      "players": 11,
+      "repeat": 1,
+      "reward": "Set complet : pack Or géant + 5 000 crédits",
+      "set": "Ligue & Nation avancé",
+      "type": "classic"
     },
     {
-     "field": "nation",
-     "n": 3,
-     "op": "max",
-     "t": "same"
+      "category": "Joueurs",
+      "cid": "fc27-potm-laliga-oct",
+      "communityVerdict": "non",
+      "expires": "2026-12-07",
+      "i18n": {
+        "en": {
+          "category": "Players",
+          "name": "LALIGA POTM (October)",
+          "note": "estimated cost ~5.2 to 5.7 million coins",
+          "reward": "Kylian Mbappé LALIGA POTM (92, untradeable)"
+        },
+        "es": {
+          "category": "Jugadores",
+          "name": "JDM LALIGA (octubre)",
+          "note": "coste estimado ~5,2 a 5,7 millones de monedas",
+          "reward": "Kylian Mbappé JDM LALIGA (92, intransferible)"
+        },
+        "nl": {
+          "category": "Spelers",
+          "name": "LALIGA POTM (oktober)",
+          "note": "geschatte kosten ~5,2 tot 5,7 miljoen munten",
+          "reward": "Kylian Mbappé LALIGA POTM (92, niet verhandelbaar)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "POTM LALIGA (octobre)",
+      "note": "coût estimé ~5,2 à 5,7 millions de crédits",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "Kylian Mbappé POTM LALIGA (92, non éch.)",
+      "rewardCount": 1,
+      "rewardMax": 92,
+      "rewardMin": 92,
+      "target": 5200000,
+      "type": "score",
+      "verify": false
     },
     {
-     "field": "club",
-     "n": 4,
-     "op": "min",
-     "t": "same"
+      "category": "Ligues",
+      "cid": "fc27-sarsl-sa",
+      "communityVerdict": "selon",
+      "expires": "2026-12-06",
+      "i18n": {
+        "en": {
+          "category": "Leagues",
+          "name": "Serie A & ROSHN Saudi League : Serie A",
+          "note": "repeatable",
+          "reward": "League Bronze & Silver pack · full set: 2 Gold players pack max 85",
+          "set": "Serie A & ROSHN Saudi League"
+        },
+        "es": {
+          "category": "Ligas",
+          "name": "Serie A & ROSHN Saudi League : Serie A",
+          "note": "repetible",
+          "reward": "Sobre bronce y plata de la liga · set completo: sobre de 2 jugadores oro máx. 85",
+          "set": "Serie A & ROSHN Saudi League"
+        },
+        "nl": {
+          "category": "Competities",
+          "name": "Serie A & ROSHN Saudi League : Serie A",
+          "note": "herhaalbaar",
+          "reward": "Brons- & zilverpakket van de competitie · volledige set: pakket met 2 gouden spelers max 85",
+          "set": "Serie A & ROSHN Saudi League"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Serie A & ROSHN Saudi League : Serie A",
+      "note": "répétable",
+      "repeat": 1,
+      "reward": "Pack Bronze & Argent de la ligue · set complet : pack 2 joueurs Or max 85",
+      "set": "Serie A & ROSHN Saudi League",
+      "setRewardCount": 2,
+      "setRewardMax": 85,
+      "setRewardMin": 75,
+      "target": 1500,
+      "type": "score"
     },
     {
-     "field": "league",
-     "n": 3,
-     "op": "min",
-     "t": "distinct"
+      "category": "Ligues",
+      "cid": "fc27-sarsl-rsl",
+      "communityVerdict": "selon",
+      "expires": "2026-12-06",
+      "i18n": {
+        "en": {
+          "category": "Leagues",
+          "name": "Serie A & ROSHN Saudi League : ROSHN Saudi League",
+          "note": "repeatable",
+          "reward": "League Bronze & Silver pack · full set: 2 Gold players pack max 85",
+          "set": "Serie A & ROSHN Saudi League"
+        },
+        "es": {
+          "category": "Ligas",
+          "name": "Serie A & ROSHN Saudi League : ROSHN Saudi League",
+          "note": "repetible",
+          "reward": "Sobre bronce y plata de la liga · set completo: sobre de 2 jugadores oro máx. 85",
+          "set": "Serie A & ROSHN Saudi League"
+        },
+        "nl": {
+          "category": "Competities",
+          "name": "Serie A & ROSHN Saudi League : ROSHN Saudi League",
+          "note": "herhaalbaar",
+          "reward": "Brons- & zilverpakket van de competitie · volledige set: pakket met 2 gouden spelers max 85",
+          "set": "Serie A & ROSHN Saudi League"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Serie A & ROSHN Saudi League : ROSHN Saudi League",
+      "note": "répétable",
+      "repeat": 1,
+      "reward": "Pack Bronze & Argent de la ligue · set complet : pack 2 joueurs Or max 85",
+      "set": "Serie A & ROSHN Saudi League",
+      "setRewardCount": 2,
+      "setRewardMax": 85,
+      "setRewardMin": 75,
+      "target": 1500,
+      "type": "score"
     },
     {
-     "n": 75,
-     "t": "rating"
+      "category": "Ligues",
+      "cid": "fc27-mlsnwsl-mls",
+      "communityVerdict": "selon",
+      "expires": "2026-12-06",
+      "i18n": {
+        "en": {
+          "category": "Leagues",
+          "name": "MLS & NWSL : MLS",
+          "note": "repeatable",
+          "reward": "League Bronze & Silver pack · full set: 2 Gold players pack max 85",
+          "set": "MLS & NWSL"
+        },
+        "es": {
+          "category": "Ligas",
+          "name": "MLS & NWSL : MLS",
+          "note": "repetible",
+          "reward": "Sobre bronce y plata de la liga · set completo: sobre de 2 jugadores oro máx. 85",
+          "set": "MLS & NWSL"
+        },
+        "nl": {
+          "category": "Competities",
+          "name": "MLS & NWSL : MLS",
+          "note": "herhaalbaar",
+          "reward": "Brons- & zilverpakket van de competitie · volledige set: pakket met 2 gouden spelers max 85",
+          "set": "MLS & NWSL"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "MLS & NWSL : MLS",
+      "note": "répétable",
+      "repeat": 1,
+      "reward": "Pack Bronze & Argent de la ligue · set complet : pack 2 joueurs Or max 85",
+      "set": "MLS & NWSL",
+      "setRewardCount": 2,
+      "setRewardMax": 85,
+      "setRewardMin": 75,
+      "target": 1500,
+      "type": "score"
     },
     {
-     "n": 26,
-     "t": "chem"
-    }
-   ],
-   "expires": "2026-11-12",
-   "formation": "4-4-2",
-   "i18n": {
-    "en": {
-     "category": "Challenges",
-     "name": "Marquee Matchups : Atlético de Madrid v FC Barcelona",
-     "note": "formation from futwiz only; challenge reward to confirm",
-     "reward": "Small Electrum Pack · Full set: Large Mixed Electrum Players Pack",
-     "set": "Marquee Matchups"
-    },
-    "es": {
-     "category": "Desafíos",
-     "name": "Marquee Matchups : Atlético de Madrid v FC Barcelona",
-     "note": "formación solo según futwiz; recompensa del desafío por confirmar",
-     "reward": "Sobre pequeño Electrum · Set completo: sobre grande mixto de jugadores Electrum",
-     "set": "Marquee Matchups"
-    },
-    "nl": {
-     "category": "Uitdagingen",
-     "name": "Marquee Matchups : Atlético de Madrid v FC Barcelona",
-     "note": "formatie alleen volgens futwiz; beloning van de uitdaging te bevestigen",
-     "reward": "Klein Electrum-pakket · Volledige set: groot gemengd Electrum-spelerspakket",
-     "set": "Marquee Matchups"
-    }
-   },
-   "layoutVerify": true,
-   "name": "Marquee Matchups : Atlético de Madrid v FC Barcelona",
-   "note": "formation selon futwiz uniquement ; récompense du défi à confirmer",
-   "players": 11,
-   "repeat": 1,
-   "reward": "Petit pack Electrum · Set complet : grand pack de joueurs Electrum mixte",
-   "set": "Marquee Matchups",
-   "type": "classic",
-   "verify": true
-  },
-  {
-   "category": "Défis",
-   "cid": "fc27-marquee-fiorentina-juventus",
-   "communityVerdict": "selon",
-   "conds": [
-    {
-     "field": "club",
-     "n": 2,
-     "op": "min",
-     "t": "from",
-     "value": "ACF Fiorentina, Fiorentina, Juventus FC, Juventus"
+      "category": "Ligues",
+      "cid": "fc27-mlsnwsl-nwsl",
+      "communityVerdict": "selon",
+      "expires": "2026-12-06",
+      "i18n": {
+        "en": {
+          "category": "Leagues",
+          "name": "MLS & NWSL : NWSL",
+          "note": "repeatable",
+          "reward": "League Bronze & Silver pack · full set: 2 Gold players pack max 85",
+          "set": "MLS & NWSL"
+        },
+        "es": {
+          "category": "Ligas",
+          "name": "MLS & NWSL : NWSL",
+          "note": "repetible",
+          "reward": "Sobre bronce y plata de la liga · set completo: sobre de 2 jugadores oro máx. 85",
+          "set": "MLS & NWSL"
+        },
+        "nl": {
+          "category": "Competities",
+          "name": "MLS & NWSL : NWSL",
+          "note": "herhaalbaar",
+          "reward": "Brons- & zilverpakket van de competitie · volledige set: pakket met 2 gouden spelers max 85",
+          "set": "MLS & NWSL"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "MLS & NWSL : NWSL",
+      "note": "répétable",
+      "repeat": 1,
+      "reward": "Pack Bronze & Argent de la ligue · set complet : pack 2 joueurs Or max 85",
+      "set": "MLS & NWSL",
+      "setRewardCount": 2,
+      "setRewardMax": 85,
+      "setRewardMin": 75,
+      "target": 1500,
+      "type": "score"
     },
     {
-     "field": "club",
-     "n": 2,
-     "op": "min",
-     "t": "same"
+      "category": "Défis",
+      "cid": "fc27-marquee-atletico-barcelona",
+      "communityVerdict": "selon",
+      "conds": [
+        {
+          "field": "club",
+          "n": 2,
+          "op": "min",
+          "t": "from",
+          "value": "Atlético de Madrid, Atlético Madrid, Atletico, FC Barcelona, Barcelona"
+        },
+        {
+          "field": "nation",
+          "n": 3,
+          "op": "max",
+          "t": "same"
+        },
+        {
+          "field": "club",
+          "n": 4,
+          "op": "min",
+          "t": "same"
+        },
+        {
+          "field": "league",
+          "n": 3,
+          "op": "min",
+          "t": "distinct"
+        },
+        {
+          "n": 75,
+          "t": "rating"
+        },
+        {
+          "n": 26,
+          "t": "chem"
+        }
+      ],
+      "expires": "2026-11-12",
+      "formation": "4-4-2",
+      "i18n": {
+        "en": {
+          "category": "Challenges",
+          "name": "Marquee Matchups : Atlético de Madrid v FC Barcelona",
+          "note": "formation from futwiz only; challenge reward to confirm",
+          "reward": "Small Electrum Pack · Full set: Large Mixed Electrum Players Pack",
+          "set": "Marquee Matchups"
+        },
+        "es": {
+          "category": "Desafíos",
+          "name": "Marquee Matchups : Atlético de Madrid v FC Barcelona",
+          "note": "formación solo según futwiz; recompensa del desafío por confirmar",
+          "reward": "Sobre pequeño Electrum · Set completo: sobre grande mixto de jugadores Electrum",
+          "set": "Marquee Matchups"
+        },
+        "nl": {
+          "category": "Uitdagingen",
+          "name": "Marquee Matchups : Atlético de Madrid v FC Barcelona",
+          "note": "formatie alleen volgens futwiz; beloning van de uitdaging te bevestigen",
+          "reward": "Klein Electrum-pakket · Volledige set: groot gemengd Electrum-spelerspakket",
+          "set": "Marquee Matchups"
+        }
+      },
+      "layoutVerify": true,
+      "name": "Marquee Matchups : Atlético de Madrid v FC Barcelona",
+      "note": "formation selon futwiz uniquement ; récompense du défi à confirmer",
+      "players": 11,
+      "repeat": 1,
+      "reward": "Petit pack Electrum · Set complet : grand pack de joueurs Electrum mixte",
+      "set": "Marquee Matchups",
+      "type": "classic",
+      "verify": true
     },
     {
-     "field": "league",
-     "n": 4,
-     "op": "max",
-     "t": "same"
+      "category": "Défis",
+      "cid": "fc27-marquee-fiorentina-juventus",
+      "communityVerdict": "selon",
+      "conds": [
+        {
+          "field": "club",
+          "n": 2,
+          "op": "min",
+          "t": "from",
+          "value": "ACF Fiorentina, Fiorentina, Juventus FC, Juventus"
+        },
+        {
+          "field": "club",
+          "n": 2,
+          "op": "min",
+          "t": "same"
+        },
+        {
+          "field": "league",
+          "n": 4,
+          "op": "max",
+          "t": "same"
+        },
+        {
+          "n": 2,
+          "op": "min",
+          "q": 2,
+          "t": "qcount"
+        },
+        {
+          "n": 1,
+          "op": "min",
+          "t": "quality"
+        },
+        {
+          "n": 22,
+          "t": "chem"
+        }
+      ],
+      "expires": "2026-11-12",
+      "formation": "4-1-4-1",
+      "i18n": {
+        "en": {
+          "category": "Challenges",
+          "name": "Marquee Matchups : Fiorentina v Juventus FC",
+          "note": "formation from futwiz only; challenge reward to confirm",
+          "reward": "Small Gold Players Pack · Full set: Large Mixed Electrum Players Pack",
+          "set": "Marquee Matchups"
+        },
+        "es": {
+          "category": "Desafíos",
+          "name": "Marquee Matchups : Fiorentina v Juventus FC",
+          "note": "formación solo según futwiz; recompensa del desafío por confirmar",
+          "reward": "Sobre pequeño de jugadores oro · Set completo: sobre grande mixto de jugadores Electrum",
+          "set": "Marquee Matchups"
+        },
+        "nl": {
+          "category": "Uitdagingen",
+          "name": "Marquee Matchups : Fiorentina v Juventus FC",
+          "note": "formatie alleen volgens futwiz; beloning van de uitdaging te bevestigen",
+          "reward": "Klein pakket met gouden spelers · Volledige set: groot gemengd Electrum-spelerspakket",
+          "set": "Marquee Matchups"
+        }
+      },
+      "layoutVerify": true,
+      "name": "Marquee Matchups : Fiorentina v Juventus FC",
+      "note": "formation selon futwiz uniquement ; récompense du défi à confirmer",
+      "players": 11,
+      "repeat": 1,
+      "reward": "Petit pack de joueurs Or · Set complet : grand pack de joueurs Electrum mixte",
+      "set": "Marquee Matchups",
+      "type": "classic",
+      "verify": true
     },
     {
-     "n": 2,
-     "op": "min",
-     "q": 2,
-     "t": "qcount"
+      "category": "Défis",
+      "cid": "fc27-marquee-rennes-losc",
+      "communityVerdict": "selon",
+      "conds": [
+        {
+          "field": "club",
+          "n": 1,
+          "op": "min",
+          "t": "from",
+          "value": "Stade Rennais FC, Rennes, LOSC Lille, LOSC, Lille"
+        },
+        {
+          "field": "club",
+          "n": 2,
+          "op": "max",
+          "t": "same"
+        },
+        {
+          "field": "league",
+          "n": 3,
+          "op": "min",
+          "t": "distinct"
+        },
+        {
+          "n": 1,
+          "op": "min",
+          "q": 2,
+          "t": "qcount"
+        },
+        {
+          "n": 1,
+          "op": "min",
+          "t": "quality"
+        },
+        {
+          "n": 18,
+          "t": "chem"
+        }
+      ],
+      "expires": "2026-11-12",
+      "formation": "3-5-2",
+      "i18n": {
+        "en": {
+          "category": "Challenges",
+          "name": "Marquee Matchups : Stade Rennais FC v LOSC",
+          "note": "formation from futwiz only; challenge reward to confirm",
+          "reward": "Small pack (Silver, Gold or Electrum) · Full set: Large Mixed Electrum Players Pack",
+          "set": "Marquee Matchups"
+        },
+        "es": {
+          "category": "Desafíos",
+          "name": "Marquee Matchups : Stade Rennais FC v LOSC",
+          "note": "formación solo según futwiz; recompensa del desafío por confirmar",
+          "reward": "Sobre pequeño (plata, oro o Electrum) · Set completo: sobre grande mixto de jugadores Electrum",
+          "set": "Marquee Matchups"
+        },
+        "nl": {
+          "category": "Uitdagingen",
+          "name": "Marquee Matchups : Stade Rennais FC v LOSC",
+          "note": "formatie alleen volgens futwiz; beloning van de uitdaging te bevestigen",
+          "reward": "Klein pakket (zilver, goud of Electrum) · Volledige set: groot gemengd Electrum-spelerspakket",
+          "set": "Marquee Matchups"
+        }
+      },
+      "layoutVerify": true,
+      "name": "Marquee Matchups : Stade Rennais FC v LOSC",
+      "note": "formation selon futwiz uniquement ; récompense du défi à confirmer",
+      "players": 11,
+      "repeat": 1,
+      "reward": "Petit pack (Argent, Or ou Electrum) · Set complet : grand pack de joueurs Electrum mixte",
+      "set": "Marquee Matchups",
+      "type": "classic",
+      "verify": true
     },
     {
-     "n": 1,
-     "op": "min",
-     "t": "quality"
+      "category": "Défis",
+      "cid": "fc27-marquee-brugge-anderlecht",
+      "communityVerdict": "selon",
+      "conds": [
+        {
+          "field": "club",
+          "n": 1,
+          "op": "min",
+          "t": "from",
+          "value": "Club Brugge, Club Brugge KV, Brugge, RSC Anderlecht, Anderlecht"
+        },
+        {
+          "field": "club",
+          "n": 6,
+          "op": "max",
+          "t": "distinct"
+        },
+        {
+          "n": 3,
+          "op": "min",
+          "q": 1,
+          "t": "qcount"
+        },
+        {
+          "n": 0,
+          "op": "min",
+          "t": "quality"
+        },
+        {
+          "n": 14,
+          "t": "chem"
+        }
+      ],
+      "expires": "2026-11-12",
+      "formation": "4-3-3",
+      "i18n": {
+        "en": {
+          "category": "Challenges",
+          "name": "Marquee Matchups : Club Brugge v RSC Anderlecht",
+          "note": "formation from futwiz only; challenge reward to confirm",
+          "reward": "Silver Players Pack · Full set: Large Mixed Electrum Players Pack",
+          "set": "Marquee Matchups"
+        },
+        "es": {
+          "category": "Desafíos",
+          "name": "Marquee Matchups : Club Brugge v RSC Anderlecht",
+          "note": "formación solo según futwiz; recompensa del desafío por confirmar",
+          "reward": "Sobre de jugadores plata · Set completo: sobre grande mixto de jugadores Electrum",
+          "set": "Marquee Matchups"
+        },
+        "nl": {
+          "category": "Uitdagingen",
+          "name": "Marquee Matchups : Club Brugge v RSC Anderlecht",
+          "note": "formatie alleen volgens futwiz; beloning van de uitdaging te bevestigen",
+          "reward": "Pakket met zilveren spelers · Volledige set: groot gemengd Electrum-spelerspakket",
+          "set": "Marquee Matchups"
+        }
+      },
+      "layoutVerify": true,
+      "name": "Marquee Matchups : Club Brugge v RSC Anderlecht",
+      "note": "formation selon futwiz uniquement ; récompense du défi à confirmer",
+      "players": 11,
+      "repeat": 1,
+      "reward": "Pack de joueurs Argent · Set complet : grand pack de joueurs Electrum mixte",
+      "set": "Marquee Matchups",
+      "type": "classic",
+      "verify": true
     },
     {
-     "n": 22,
-     "t": "chem"
-    }
-   ],
-   "expires": "2026-11-12",
-   "formation": "4-1-4-1",
-   "i18n": {
-    "en": {
-     "category": "Challenges",
-     "name": "Marquee Matchups : Fiorentina v Juventus FC",
-     "note": "formation from futwiz only; challenge reward to confirm",
-     "reward": "Small Gold Players Pack · Full set: Large Mixed Electrum Players Pack",
-     "set": "Marquee Matchups"
-    },
-    "es": {
-     "category": "Desafíos",
-     "name": "Marquee Matchups : Fiorentina v Juventus FC",
-     "note": "formación solo según futwiz; recompensa del desafío por confirmar",
-     "reward": "Sobre pequeño de jugadores oro · Set completo: sobre grande mixto de jugadores Electrum",
-     "set": "Marquee Matchups"
-    },
-    "nl": {
-     "category": "Uitdagingen",
-     "name": "Marquee Matchups : Fiorentina v Juventus FC",
-     "note": "formatie alleen volgens futwiz; beloning van de uitdaging te bevestigen",
-     "reward": "Klein pakket met gouden spelers · Volledige set: groot gemengd Electrum-spelerspakket",
-     "set": "Marquee Matchups"
-    }
-   },
-   "layoutVerify": true,
-   "name": "Marquee Matchups : Fiorentina v Juventus FC",
-   "note": "formation selon futwiz uniquement ; récompense du défi à confirmer",
-   "players": 11,
-   "repeat": 1,
-   "reward": "Petit pack de joueurs Or · Set complet : grand pack de joueurs Electrum mixte",
-   "set": "Marquee Matchups",
-   "type": "classic",
-   "verify": true
-  },
-  {
-   "category": "Défis",
-   "cid": "fc27-marquee-rennes-losc",
-   "communityVerdict": "selon",
-   "conds": [
-    {
-     "field": "club",
-     "n": 1,
-     "op": "min",
-     "t": "from",
-     "value": "Stade Rennais FC, Rennes, LOSC Lille, LOSC, Lille"
+      "category": "Joueurs",
+      "cid": "fc27-potm-ligaf-oct",
+      "communityVerdict": "selon",
+      "expires": "2026-12-28",
+      "i18n": {
+        "en": {
+          "category": "Players",
+          "name": "Liga F POTM (October)",
+          "note": "estimated cost ~15 000 coins; ends 28 December at 18:00",
+          "reward": "Ainhoa Marín Liga F POTM (85, untradeable)"
+        },
+        "es": {
+          "category": "Jugadores",
+          "name": "JDM Liga F (octubre)",
+          "note": "coste estimado ~15 000 monedas; termina el 28 de diciembre a las 18:00",
+          "reward": "Ainhoa Marín JDM Liga F (85, intransferible)"
+        },
+        "nl": {
+          "category": "Spelers",
+          "name": "Liga F POTM (oktober)",
+          "note": "geschatte kosten ~15 000 munten; eindigt op 28 december om 18:00",
+          "reward": "Ainhoa Marín Liga F POTM (85, niet verhandelbaar)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "POTM Liga F (octobre)",
+      "note": "coût estimé ~15 000 crédits ; fin le 28 décembre à 18:00",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "Ainhoa Marín POTM Liga F (85, non éch.)",
+      "rewardCount": 1,
+      "rewardMax": 85,
+      "rewardMin": 85,
+      "target": 14000,
+      "type": "score",
+      "verify": false
     },
     {
-     "field": "club",
-     "n": 2,
-     "op": "max",
-     "t": "same"
+      "category": "Joueurs",
+      "cid": "fc27-openda-rttk",
+      "communityVerdict": "selon",
+      "expires": "2026-11-13",
+      "i18n": {
+        "en": {
+          "category": "Players",
+          "name": "Loïs Openda (RTTK)",
+          "note": "estimated cost ~98 600 coins",
+          "reward": "Loïs Openda RTTK card (85, untradeable)"
+        },
+        "es": {
+          "category": "Jugadores",
+          "name": "Loïs Openda (RTTK)",
+          "note": "coste estimado ~98 600 monedas",
+          "reward": "Carta RTTK de Loïs Openda (85, intransferible)"
+        },
+        "nl": {
+          "category": "Spelers",
+          "name": "Loïs Openda (RTTK)",
+          "note": "geschatte kosten ~98 600 munten",
+          "reward": "RTTK-kaart van Loïs Openda (85, niet verhandelbaar)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Loïs Openda (RTTK)",
+      "note": "coût estimé ~98 600 crédits",
+      "repeat": 1,
+      "reward": "Carte RTTK de Loïs Openda (85, non éch.)",
+      "rewardCount": 1,
+      "rewardMax": 85,
+      "rewardMin": 85,
+      "target": 96000,
+      "type": "score",
+      "verify": true
     },
     {
-     "field": "league",
-     "n": 3,
-     "op": "min",
-     "t": "distinct"
+      "category": "Mises à niveau",
+      "cid": "fc27-totw-81-1-8",
+      "communityVerdict": "selon",
+      "expires": "2026-11-13",
+      "i18n": {
+        "en": {
+          "category": "Upgrades",
+          "name": "81+ TOTW 1-8",
+          "reward": "1 TOTW 81+ player (TOTW 1 to 8)"
+        },
+        "es": {
+          "category": "Mejoras",
+          "name": "81+ EDLS 1-8",
+          "reward": "1 jugador EDLS 81+ (EDLS 1 a 8)"
+        },
+        "nl": {
+          "category": "Upgrades",
+          "name": "81+ TOTW 1-8",
+          "reward": "1 TOTW-speler 81+ (TOTW 1 t/m 8)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "81+ TOTW 1-8",
+      "repeat": 1,
+      "reward": "1 joueur TOTW 81+ (TOTW 1 à 8)",
+      "rewardCount": 1,
+      "rewardMin": 81,
+      "target": 18000,
+      "type": "score"
     },
     {
-     "n": 1,
-     "op": "min",
-     "q": 2,
-     "t": "qcount"
+      "category": "Ligues",
+      "cid": "fc27-blfbl-bl",
+      "communityVerdict": "selon",
+      "expires": "2026-12-06",
+      "i18n": {
+        "en": {
+          "category": "Leagues",
+          "name": "Bundesliga & Google Pixel Frauen-Bundesliga : Bundesliga",
+          "note": "repeatable",
+          "reward": "League Bronze & Silver pack · full set: 2 Gold players pack max 85",
+          "set": "Bundesliga & Google Pixel Frauen-Bundesliga"
+        },
+        "es": {
+          "category": "Ligas",
+          "name": "Bundesliga & Google Pixel Frauen-Bundesliga : Bundesliga",
+          "note": "repetible",
+          "reward": "Sobre bronce y plata de la liga · set completo: sobre de 2 jugadores oro máx. 85",
+          "set": "Bundesliga & Google Pixel Frauen-Bundesliga"
+        },
+        "nl": {
+          "category": "Competities",
+          "name": "Bundesliga & Google Pixel Frauen-Bundesliga : Bundesliga",
+          "note": "herhaalbaar",
+          "reward": "Brons- & zilverpakket van de competitie · volledige set: pakket met 2 gouden spelers max 85",
+          "set": "Bundesliga & Google Pixel Frauen-Bundesliga"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Bundesliga & Google Pixel Frauen-Bundesliga : Bundesliga",
+      "note": "répétable",
+      "repeat": 1,
+      "reward": "Pack Bronze & Argent de la ligue · set complet : pack 2 joueurs Or max 85",
+      "set": "Bundesliga & Google Pixel Frauen-Bundesliga",
+      "setRewardCount": 2,
+      "setRewardMax": 85,
+      "setRewardMin": 75,
+      "target": 2500,
+      "type": "score",
+      "verify": true
     },
     {
-     "n": 1,
-     "op": "min",
-     "t": "quality"
+      "category": "Ligues",
+      "cid": "fc27-blfbl-fbl",
+      "communityVerdict": "selon",
+      "expires": "2026-12-06",
+      "i18n": {
+        "en": {
+          "category": "Leagues",
+          "name": "Bundesliga & Google Pixel Frauen-Bundesliga : Google Pixel Frauen-Bundesliga",
+          "note": "repeatable",
+          "reward": "League Bronze & Silver pack · full set: 2 Gold players pack max 85",
+          "set": "Bundesliga & Google Pixel Frauen-Bundesliga"
+        },
+        "es": {
+          "category": "Ligas",
+          "name": "Bundesliga & Google Pixel Frauen-Bundesliga : Google Pixel Frauen-Bundesliga",
+          "note": "repetible",
+          "reward": "Sobre bronce y plata de la liga · set completo: sobre de 2 jugadores oro máx. 85",
+          "set": "Bundesliga & Google Pixel Frauen-Bundesliga"
+        },
+        "nl": {
+          "category": "Competities",
+          "name": "Bundesliga & Google Pixel Frauen-Bundesliga : Google Pixel Frauen-Bundesliga",
+          "note": "herhaalbaar",
+          "reward": "Brons- & zilverpakket van de competitie · volledige set: pakket met 2 gouden spelers max 85",
+          "set": "Bundesliga & Google Pixel Frauen-Bundesliga"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Bundesliga & Google Pixel Frauen-Bundesliga : Google Pixel Frauen-Bundesliga",
+      "note": "répétable",
+      "repeat": 1,
+      "reward": "Pack Bronze & Argent de la ligue · set complet : pack 2 joueurs Or max 85",
+      "set": "Bundesliga & Google Pixel Frauen-Bundesliga",
+      "setRewardCount": 2,
+      "setRewardMax": 85,
+      "setRewardMin": 75,
+      "target": 2500,
+      "type": "score",
+      "verify": true
     },
     {
-     "n": 18,
-     "t": "chem"
-    }
-   ],
-   "expires": "2026-11-12",
-   "formation": "3-5-2",
-   "i18n": {
-    "en": {
-     "category": "Challenges",
-     "name": "Marquee Matchups : Stade Rennais FC v LOSC",
-     "note": "formation from futwiz only; challenge reward to confirm",
-     "reward": "Small pack (Silver, Gold or Electrum) · Full set: Large Mixed Electrum Players Pack",
-     "set": "Marquee Matchups"
-    },
-    "es": {
-     "category": "Desafíos",
-     "name": "Marquee Matchups : Stade Rennais FC v LOSC",
-     "note": "formación solo según futwiz; recompensa del desafío por confirmar",
-     "reward": "Sobre pequeño (plata, oro o Electrum) · Set completo: sobre grande mixto de jugadores Electrum",
-     "set": "Marquee Matchups"
-    },
-    "nl": {
-     "category": "Uitdagingen",
-     "name": "Marquee Matchups : Stade Rennais FC v LOSC",
-     "note": "formatie alleen volgens futwiz; beloning van de uitdaging te bevestigen",
-     "reward": "Klein pakket (zilver, goud of Electrum) · Volledige set: groot gemengd Electrum-spelerspakket",
-     "set": "Marquee Matchups"
-    }
-   },
-   "layoutVerify": true,
-   "name": "Marquee Matchups : Stade Rennais FC v LOSC",
-   "note": "formation selon futwiz uniquement ; récompense du défi à confirmer",
-   "players": 11,
-   "repeat": 1,
-   "reward": "Petit pack (Argent, Or ou Electrum) · Set complet : grand pack de joueurs Electrum mixte",
-   "set": "Marquee Matchups",
-   "type": "classic",
-   "verify": true
-  },
-  {
-   "category": "Défis",
-   "cid": "fc27-marquee-brugge-anderlecht",
-   "communityVerdict": "selon",
-   "conds": [
-    {
-     "field": "club",
-     "n": 1,
-     "op": "min",
-     "t": "from",
-     "value": "Club Brugge, Club Brugge KV, Brugge, RSC Anderlecht, Anderlecht"
+      "category": "Ligues",
+      "cid": "fc27-l1apl-l1",
+      "communityVerdict": "selon",
+      "expires": "2026-12-06",
+      "i18n": {
+        "en": {
+          "category": "Leagues",
+          "name": "Ligue 1 & Arkema Première Ligue : Ligue 1",
+          "note": "repeatable",
+          "reward": "League Bronze & Silver pack · full set: 2 Gold players pack max 85",
+          "set": "Ligue 1 & Arkema Première Ligue"
+        },
+        "es": {
+          "category": "Ligas",
+          "name": "Ligue 1 & Arkema Première Ligue : Ligue 1",
+          "note": "repetible",
+          "reward": "Sobre bronce y plata de la liga · set completo: sobre de 2 jugadores oro máx. 85",
+          "set": "Ligue 1 & Arkema Première Ligue"
+        },
+        "nl": {
+          "category": "Competities",
+          "name": "Ligue 1 & Arkema Première Ligue : Ligue 1",
+          "note": "herhaalbaar",
+          "reward": "Brons- & zilverpakket van de competitie · volledige set: pakket met 2 gouden spelers max 85",
+          "set": "Ligue 1 & Arkema Première Ligue"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Ligue 1 & Arkema Première Ligue : Ligue 1",
+      "note": "répétable",
+      "repeat": 1,
+      "reward": "Pack Bronze & Argent de la ligue · set complet : pack 2 joueurs Or max 85",
+      "set": "Ligue 1 & Arkema Première Ligue",
+      "setRewardCount": 2,
+      "setRewardMax": 85,
+      "setRewardMin": 75,
+      "target": 2500,
+      "type": "score",
+      "verify": true
     },
     {
-     "field": "club",
-     "n": 6,
-     "op": "max",
-     "t": "distinct"
+      "category": "Ligues",
+      "cid": "fc27-l1apl-apl",
+      "communityVerdict": "selon",
+      "expires": "2026-12-06",
+      "i18n": {
+        "en": {
+          "category": "Leagues",
+          "name": "Ligue 1 & Arkema Première Ligue : Arkema Première Ligue",
+          "note": "repeatable",
+          "reward": "League Bronze & Silver pack · full set: 2 Gold players pack max 85",
+          "set": "Ligue 1 & Arkema Première Ligue"
+        },
+        "es": {
+          "category": "Ligas",
+          "name": "Ligue 1 & Arkema Première Ligue : Arkema Première Ligue",
+          "note": "repetible",
+          "reward": "Sobre bronce y plata de la liga · set completo: sobre de 2 jugadores oro máx. 85",
+          "set": "Ligue 1 & Arkema Première Ligue"
+        },
+        "nl": {
+          "category": "Competities",
+          "name": "Ligue 1 & Arkema Première Ligue : Arkema Première Ligue",
+          "note": "herhaalbaar",
+          "reward": "Brons- & zilverpakket van de competitie · volledige set: pakket met 2 gouden spelers max 85",
+          "set": "Ligue 1 & Arkema Première Ligue"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Ligue 1 & Arkema Première Ligue : Arkema Première Ligue",
+      "note": "répétable",
+      "repeat": 1,
+      "reward": "Pack Bronze & Argent de la ligue · set complet : pack 2 joueurs Or max 85",
+      "set": "Ligue 1 & Arkema Première Ligue",
+      "setRewardCount": 2,
+      "setRewardMax": 85,
+      "setRewardMin": 75,
+      "target": 2500,
+      "type": "score",
+      "verify": true
     },
     {
-     "n": 3,
-     "op": "min",
-     "q": 1,
-     "t": "qcount"
+      "category": "Permanents",
+      "cid": "fc27-gold-upgrade",
+      "conds": [
+        {
+          "n": 2,
+          "op": "min",
+          "t": "quality"
+        }
+      ],
+      "expires": null,
+      "formation": "4-1-2-1-2",
+      "i18n": {
+        "en": {
+          "category": "Permanent",
+          "name": "Gold Upgrade",
+          "note": "repeatable",
+          "reward": "2x 78+ Gold players pack (untradeable)"
+        },
+        "es": {
+          "category": "Permanentes",
+          "name": "Mejora oro",
+          "note": "repetible",
+          "reward": "Sobre de 2 jugadores oro 78+ (intransferible)"
+        },
+        "nl": {
+          "category": "Permanent",
+          "name": "Goud Upgrade",
+          "note": "herhaalbaar",
+          "reward": "Pakket met 2 gouden spelers 78+ (niet verhandelbaar)"
+        }
+      },
+      "name": "Amélioration Or",
+      "note": "répétable",
+      "permanent": true,
+      "players": 11,
+      "repeat": 1,
+      "reward": "Pack 2 joueurs Or 78+ (non éch.)",
+      "rewardCount": 2,
+      "rewardMin": 78,
+      "type": "classic",
+      "verify": true
     },
     {
-     "n": 0,
-     "op": "min",
-     "t": "quality"
+      "category": "Permanents",
+      "cid": "fc27-silver-upgrade",
+      "conds": [
+        {
+          "n": 1,
+          "op": "exactly",
+          "t": "quality"
+        }
+      ],
+      "expires": null,
+      "formation": "4-1-2-1-2",
+      "i18n": {
+        "en": {
+          "category": "Permanent",
+          "name": "Silver Upgrade",
+          "note": "repeatable",
+          "reward": "75+ Gold player pack (untradeable)"
+        },
+        "es": {
+          "category": "Permanentes",
+          "name": "Mejora plata",
+          "note": "repetible",
+          "reward": "Sobre de 1 jugador oro 75+ (intransferible)"
+        },
+        "nl": {
+          "category": "Permanent",
+          "name": "Zilver Upgrade",
+          "note": "herhaalbaar",
+          "reward": "Pakket met 1 gouden speler 75+ (niet verhandelbaar)"
+        }
+      },
+      "layoutVerify": true,
+      "name": "Amélioration Argent",
+      "note": "répétable",
+      "permanent": true,
+      "players": 11,
+      "repeat": 1,
+      "reward": "Pack 1 joueur Or 75+ (non éch.)",
+      "rewardCount": 1,
+      "rewardMin": 75,
+      "type": "classic"
     },
     {
-     "n": 14,
-     "t": "chem"
-    }
-   ],
-   "expires": "2026-11-12",
-   "formation": "4-3-3",
-   "i18n": {
-    "en": {
-     "category": "Challenges",
-     "name": "Marquee Matchups : Club Brugge v RSC Anderlecht",
-     "note": "formation from futwiz only; challenge reward to confirm",
-     "reward": "Silver Players Pack · Full set: Large Mixed Electrum Players Pack",
-     "set": "Marquee Matchups"
-    },
-    "es": {
-     "category": "Desafíos",
-     "name": "Marquee Matchups : Club Brugge v RSC Anderlecht",
-     "note": "formación solo según futwiz; recompensa del desafío por confirmar",
-     "reward": "Sobre de jugadores plata · Set completo: sobre grande mixto de jugadores Electrum",
-     "set": "Marquee Matchups"
-    },
-    "nl": {
-     "category": "Uitdagingen",
-     "name": "Marquee Matchups : Club Brugge v RSC Anderlecht",
-     "note": "formatie alleen volgens futwiz; beloning van de uitdaging te bevestigen",
-     "reward": "Pakket met zilveren spelers · Volledige set: groot gemengd Electrum-spelerspakket",
-     "set": "Marquee Matchups"
-    }
-   },
-   "layoutVerify": true,
-   "name": "Marquee Matchups : Club Brugge v RSC Anderlecht",
-   "note": "formation selon futwiz uniquement ; récompense du défi à confirmer",
-   "players": 11,
-   "repeat": 1,
-   "reward": "Pack de joueurs Argent · Set complet : grand pack de joueurs Electrum mixte",
-   "set": "Marquee Matchups",
-   "type": "classic",
-   "verify": true
-  },
-  {
-   "announced": true,
-   "category": "Joueurs",
-   "cid": "fc27-potm-ligaf-oct",
-   "expectedBy": "2026-11-10",
-   "expires": null,
-   "i18n": {
-    "en": {
-     "category": "Players",
-     "name": "Liga F POTM (October)",
-     "note": "winner not official yet; estimated date; score unknown"
-    },
-    "es": {
-     "category": "Jugadores",
-     "name": "JDM Liga F (octubre)",
-     "note": "ganadora aún no oficial; fecha estimada; puntuación desconocida"
-    },
-    "nl": {
-     "category": "Spelers",
-     "name": "Liga F POTM (oktober)",
-     "note": "winnaar nog niet officieel; geschatte datum; score onbekend"
-    }
-   },
-   "kinds": "all",
-   "maxOvr": 0,
-   "minOvr": 45,
-   "name": "POTM Liga F (octobre)",
-   "note": "gagnant pas encore officiel ; date estimée ; score inconnu",
-   "repeat": 1,
-   "type": "score",
-   "verify": true
-  },
-  {
-   "category": "Joueurs",
-   "cid": "fc27-openda-rttk",
-   "communityVerdict": "selon",
-   "expires": "2026-11-13",
-   "i18n": {
-    "en": {
-     "category": "Players",
-     "name": "Loïs Openda (RTTK)",
-     "note": "estimated cost ~121 000 coins",
-     "reward": "Loïs Openda RTTK card (85, untradeable)"
-    },
-    "es": {
-     "category": "Jugadores",
-     "name": "Loïs Openda (RTTK)",
-     "note": "coste estimado ~121 000 monedas",
-     "reward": "Carta RTTK de Loïs Openda (85, intransferible)"
-    },
-    "nl": {
-     "category": "Spelers",
-     "name": "Loïs Openda (RTTK)",
-     "note": "geschatte kosten ~121 000 munten",
-     "reward": "RTTK-kaart van Loïs Openda (85, niet verhandelbaar)"
-    }
-   },
-   "kinds": "all",
-   "maxOvr": 0,
-   "minOvr": 45,
-   "name": "Loïs Openda (RTTK)",
-   "note": "coût estimé ~121 000 crédits",
-   "repeat": 1,
-   "reward": "Carte RTTK de Loïs Openda (85, non éch.)",
-   "rewardCount": 1,
-   "rewardMax": 85,
-   "rewardMin": 85,
-   "target": 96000,
-   "type": "score",
-   "verify": true
-  },
-  {
-   "category": "Mises à niveau",
-   "cid": "fc27-totw-81-1-8",
-   "communityVerdict": "selon",
-   "expires": "2026-11-13",
-   "i18n": {
-    "en": {
-     "category": "Upgrades",
-     "name": "81+ TOTW 1-8",
-     "reward": "1 TOTW 81+ player (TOTW 1 to 8)"
-    },
-    "es": {
-     "category": "Mejoras",
-     "name": "81+ EDLS 1-8",
-     "reward": "1 jugador EDLS 81+ (EDLS 1 a 8)"
-    },
-    "nl": {
-     "category": "Upgrades",
-     "name": "81+ TOTW 1-8",
-     "reward": "1 TOTW-speler 81+ (TOTW 1 t/m 8)"
-    }
-   },
-   "kinds": "all",
-   "maxOvr": 0,
-   "minOvr": 45,
-   "name": "81+ TOTW 1-8",
-   "repeat": 1,
-   "reward": "1 joueur TOTW 81+ (TOTW 1 à 8)",
-   "rewardCount": 1,
-   "rewardMin": 81,
-   "target": 18000,
-   "type": "score"
-  },
-  {
-   "category": "Ligues",
-   "cid": "fc27-blfbl-bl",
-   "communityVerdict": "selon",
-   "expires": "2026-12-06",
-   "i18n": {
-    "en": {
-     "category": "Leagues",
-     "name": "Bundesliga & Google Pixel Frauen-Bundesliga : Bundesliga",
-     "note": "repeatable",
-     "reward": "League Bronze & Silver pack · full set: 2 Gold players pack max 85",
-     "set": "Bundesliga & Google Pixel Frauen-Bundesliga"
-    },
-    "es": {
-     "category": "Ligas",
-     "name": "Bundesliga & Google Pixel Frauen-Bundesliga : Bundesliga",
-     "note": "repetible",
-     "reward": "Sobre bronce y plata de la liga · set completo: sobre de 2 jugadores oro máx. 85",
-     "set": "Bundesliga & Google Pixel Frauen-Bundesliga"
-    },
-    "nl": {
-     "category": "Competities",
-     "name": "Bundesliga & Google Pixel Frauen-Bundesliga : Bundesliga",
-     "note": "herhaalbaar",
-     "reward": "Brons- & zilverpakket van de competitie · volledige set: pakket met 2 gouden spelers max 85",
-     "set": "Bundesliga & Google Pixel Frauen-Bundesliga"
-    }
-   },
-   "kinds": "all",
-   "maxOvr": 0,
-   "minOvr": 45,
-   "name": "Bundesliga & Google Pixel Frauen-Bundesliga : Bundesliga",
-   "note": "répétable",
-   "repeat": 1,
-   "reward": "Pack Bronze & Argent de la ligue · set complet : pack 2 joueurs Or max 85",
-   "set": "Bundesliga & Google Pixel Frauen-Bundesliga",
-   "setRewardCount": 2,
-   "setRewardMax": 85,
-   "setRewardMin": 75,
-   "target": 2500,
-   "type": "score",
-   "verify": true
-  },
-  {
-   "category": "Ligues",
-   "cid": "fc27-blfbl-fbl",
-   "communityVerdict": "selon",
-   "expires": "2026-12-06",
-   "i18n": {
-    "en": {
-     "category": "Leagues",
-     "name": "Bundesliga & Google Pixel Frauen-Bundesliga : Google Pixel Frauen-Bundesliga",
-     "note": "repeatable",
-     "reward": "League Bronze & Silver pack · full set: 2 Gold players pack max 85",
-     "set": "Bundesliga & Google Pixel Frauen-Bundesliga"
-    },
-    "es": {
-     "category": "Ligas",
-     "name": "Bundesliga & Google Pixel Frauen-Bundesliga : Google Pixel Frauen-Bundesliga",
-     "note": "repetible",
-     "reward": "Sobre bronce y plata de la liga · set completo: sobre de 2 jugadores oro máx. 85",
-     "set": "Bundesliga & Google Pixel Frauen-Bundesliga"
-    },
-    "nl": {
-     "category": "Competities",
-     "name": "Bundesliga & Google Pixel Frauen-Bundesliga : Google Pixel Frauen-Bundesliga",
-     "note": "herhaalbaar",
-     "reward": "Brons- & zilverpakket van de competitie · volledige set: pakket met 2 gouden spelers max 85",
-     "set": "Bundesliga & Google Pixel Frauen-Bundesliga"
-    }
-   },
-   "kinds": "all",
-   "maxOvr": 0,
-   "minOvr": 45,
-   "name": "Bundesliga & Google Pixel Frauen-Bundesliga : Google Pixel Frauen-Bundesliga",
-   "note": "répétable",
-   "repeat": 1,
-   "reward": "Pack Bronze & Argent de la ligue · set complet : pack 2 joueurs Or max 85",
-   "set": "Bundesliga & Google Pixel Frauen-Bundesliga",
-   "setRewardCount": 2,
-   "setRewardMax": 85,
-   "setRewardMin": 75,
-   "target": 2500,
-   "type": "score",
-   "verify": true
-  },
-  {
-   "category": "Ligues",
-   "cid": "fc27-l1apl-l1",
-   "communityVerdict": "selon",
-   "expires": "2026-12-06",
-   "i18n": {
-    "en": {
-     "category": "Leagues",
-     "name": "Ligue 1 & Arkema Première Ligue : Ligue 1",
-     "note": "repeatable",
-     "reward": "League Bronze & Silver pack · full set: 2 Gold players pack max 85",
-     "set": "Ligue 1 & Arkema Première Ligue"
-    },
-    "es": {
-     "category": "Ligas",
-     "name": "Ligue 1 & Arkema Première Ligue : Ligue 1",
-     "note": "repetible",
-     "reward": "Sobre bronce y plata de la liga · set completo: sobre de 2 jugadores oro máx. 85",
-     "set": "Ligue 1 & Arkema Première Ligue"
-    },
-    "nl": {
-     "category": "Competities",
-     "name": "Ligue 1 & Arkema Première Ligue : Ligue 1",
-     "note": "herhaalbaar",
-     "reward": "Brons- & zilverpakket van de competitie · volledige set: pakket met 2 gouden spelers max 85",
-     "set": "Ligue 1 & Arkema Première Ligue"
-    }
-   },
-   "kinds": "all",
-   "maxOvr": 0,
-   "minOvr": 45,
-   "name": "Ligue 1 & Arkema Première Ligue : Ligue 1",
-   "note": "répétable",
-   "repeat": 1,
-   "reward": "Pack Bronze & Argent de la ligue · set complet : pack 2 joueurs Or max 85",
-   "set": "Ligue 1 & Arkema Première Ligue",
-   "setRewardCount": 2,
-   "setRewardMax": 85,
-   "setRewardMin": 75,
-   "target": 2500,
-   "type": "score",
-   "verify": true
-  },
-  {
-   "category": "Ligues",
-   "cid": "fc27-l1apl-apl",
-   "communityVerdict": "selon",
-   "expires": "2026-12-06",
-   "i18n": {
-    "en": {
-     "category": "Leagues",
-     "name": "Ligue 1 & Arkema Première Ligue : Arkema Première Ligue",
-     "note": "repeatable",
-     "reward": "League Bronze & Silver pack · full set: 2 Gold players pack max 85",
-     "set": "Ligue 1 & Arkema Première Ligue"
-    },
-    "es": {
-     "category": "Ligas",
-     "name": "Ligue 1 & Arkema Première Ligue : Arkema Première Ligue",
-     "note": "repetible",
-     "reward": "Sobre bronce y plata de la liga · set completo: sobre de 2 jugadores oro máx. 85",
-     "set": "Ligue 1 & Arkema Première Ligue"
-    },
-    "nl": {
-     "category": "Competities",
-     "name": "Ligue 1 & Arkema Première Ligue : Arkema Première Ligue",
-     "note": "herhaalbaar",
-     "reward": "Brons- & zilverpakket van de competitie · volledige set: pakket met 2 gouden spelers max 85",
-     "set": "Ligue 1 & Arkema Première Ligue"
-    }
-   },
-   "kinds": "all",
-   "maxOvr": 0,
-   "minOvr": 45,
-   "name": "Ligue 1 & Arkema Première Ligue : Arkema Première Ligue",
-   "note": "répétable",
-   "repeat": 1,
-   "reward": "Pack Bronze & Argent de la ligue · set complet : pack 2 joueurs Or max 85",
-   "set": "Ligue 1 & Arkema Première Ligue",
-   "setRewardCount": 2,
-   "setRewardMax": 85,
-   "setRewardMin": 75,
-   "target": 2500,
-   "type": "score",
-   "verify": true
-  },
-  {
-   "category": "Permanents",
-   "cid": "fc27-gold-upgrade",
-   "conds": [
-    {
-     "n": 2,
-     "op": "min",
-     "t": "quality"
-    }
-   ],
-   "expires": null,
-   "formation": "4-1-2-1-2",
-   "i18n": {
-    "en": {
-     "category": "Permanent",
-     "name": "Gold Upgrade",
-     "note": "repeatable",
-     "reward": "2x 78+ Gold players pack (untradeable)"
-    },
-    "es": {
-     "category": "Permanentes",
-     "name": "Mejora oro",
-     "note": "repetible",
-     "reward": "Sobre de 2 jugadores oro 78+ (intransferible)"
-    },
-    "nl": {
-     "category": "Permanent",
-     "name": "Goud Upgrade",
-     "note": "herhaalbaar",
-     "reward": "Pakket met 2 gouden spelers 78+ (niet verhandelbaar)"
-    }
-   },
-   "name": "Amélioration Or",
-   "note": "répétable",
-   "permanent": true,
-   "players": 11,
-   "repeat": 1,
-   "reward": "Pack 2 joueurs Or 78+ (non éch.)",
-   "rewardCount": 2,
-   "rewardMin": 78,
-   "type": "classic",
-   "verify": true
-  },
-  {
-   "category": "Permanents",
-   "cid": "fc27-silver-upgrade",
-   "conds": [
-    {
-     "n": 1,
-     "op": "exactly",
-     "t": "quality"
-    }
-   ],
-   "expires": null,
-   "formation": "4-1-2-1-2",
-   "i18n": {
-    "en": {
-     "category": "Permanent",
-     "name": "Silver Upgrade",
-     "note": "repeatable",
-     "reward": "75+ Gold player pack (untradeable)"
-    },
-    "es": {
-     "category": "Permanentes",
-     "name": "Mejora plata",
-     "note": "repetible",
-     "reward": "Sobre de 1 jugador oro 75+ (intransferible)"
-    },
-    "nl": {
-     "category": "Permanent",
-     "name": "Zilver Upgrade",
-     "note": "herhaalbaar",
-     "reward": "Pakket met 1 gouden speler 75+ (niet verhandelbaar)"
-    }
-   },
-   "layoutVerify": true,
-   "name": "Amélioration Argent",
-   "note": "répétable",
-   "permanent": true,
-   "players": 11,
-   "repeat": 1,
-   "reward": "Pack 1 joueur Or 75+ (non éch.)",
-   "rewardCount": 1,
-   "rewardMin": 75,
-   "type": "classic"
-  },
-  {
-   "category": "Permanents",
-   "cid": "fc27-bronze-upgrade",
-   "conds": [
-    {
-     "n": 0,
-     "op": "exactly",
-     "t": "quality"
-    }
-   ],
-   "expires": null,
-   "formation": "4-1-2-1-2",
-   "i18n": {
-    "en": {
-     "category": "Permanent",
-     "name": "Bronze Upgrade",
-     "note": "repeatable",
-     "reward": "2 Silver players packs (untradeable)"
-    },
-    "es": {
-     "category": "Permanentes",
-     "name": "Mejora bronce",
-     "note": "repetible",
-     "reward": "2 sobres de jugadores plata (intransferible)"
-    },
-    "nl": {
-     "category": "Permanent",
-     "name": "Brons Upgrade",
-     "note": "herhaalbaar",
-     "reward": "2 zilveren spelerspakketten (niet verhandelbaar)"
-    }
-   },
-   "layoutVerify": true,
-   "name": "Amélioration Bronze",
-   "note": "répétable",
-   "permanent": true,
-   "players": 11,
-   "repeat": 1,
-   "reward": "2 packs joueurs Argent (non éch.)",
-   "type": "classic"
-  },
-  {
-   "announced": true,
-   "category": "Joueurs",
-   "cid": "fc27-potm-seriea-oct",
-   "expectedBy": "2026-11-12",
-   "expires": null,
-   "i18n": {
-    "en": {
-     "category": "Players",
-     "name": "Serie A POTM (October)",
-     "note": "estimated date; winner not announced yet, score unknown"
-    },
-    "es": {
-     "category": "Jugadores",
-     "name": "JDM Serie A (octubre)",
-     "note": "fecha estimada; ganador aún no anunciado, puntuación desconocida"
-    },
-    "nl": {
-     "category": "Spelers",
-     "name": "Serie A POTM (oktober)",
-     "note": "geschatte datum; winnaar nog niet bekend, score onbekend"
-    }
-   },
-   "kinds": "all",
-   "maxOvr": 0,
-   "minOvr": 45,
-   "name": "POTM Serie A (octobre)",
-   "note": "date estimée ; gagnant pas encore annoncé, score inconnu",
-   "repeat": 1,
-   "type": "score",
-   "verify": true
-  },
-  {
-   "announced": true,
-   "category": "Joueurs",
-   "cid": "fc27-potm-bundesliga-oct",
-   "expectedBy": "2026-11-12",
-   "expires": null,
-   "i18n": {
-    "en": {
-     "category": "Players",
-     "name": "Bundesliga POTM (October)",
-     "note": "estimated date; winner not announced yet, score unknown"
-    },
-    "es": {
-     "category": "Jugadores",
-     "name": "JDM Bundesliga (octubre)",
-     "note": "fecha estimada; ganador aún no anunciado, puntuación desconocida"
-    },
-    "nl": {
-     "category": "Spelers",
-     "name": "Bundesliga POTM (oktober)",
-     "note": "geschatte datum; winnaar nog niet bekend, score onbekend"
-    }
-   },
-   "kinds": "all",
-   "maxOvr": 0,
-   "minOvr": 45,
-   "name": "POTM Bundesliga (octobre)",
-   "note": "date estimée ; gagnant pas encore annoncé, score inconnu",
-   "repeat": 1,
-   "type": "score",
-   "verify": true
-  },
-  {
-   "announced": true,
-   "category": "Joueurs",
-   "cid": "fc27-potm-pl-oct",
-   "expectedBy": "2026-11-13",
-   "expires": null,
-   "i18n": {
-    "en": {
-     "category": "Players",
-     "name": "Premier League POTM (October)",
-     "note": "estimated date; winner not announced yet, score unknown"
-    },
-    "es": {
-     "category": "Jugadores",
-     "name": "JDM Premier League (octubre)",
-     "note": "fecha estimada; ganador aún no anunciado, puntuación desconocida"
-    },
-    "nl": {
-     "category": "Spelers",
-     "name": "Premier League POTM (oktober)",
-     "note": "geschatte datum; winnaar nog niet bekend, score onbekend"
-    }
-   },
-   "kinds": "all",
-   "maxOvr": 0,
-   "minOvr": 45,
-   "name": "POTM Premier League (octobre)",
-   "note": "date estimée ; gagnant pas encore annoncé, score inconnu",
-   "repeat": 1,
-   "type": "score",
-   "verify": true
-  },
-  {
-   "category": "Joueurs",
-   "cid": "fc27-kett-showdown",
-   "expires": "2026-11-10",
-   "i18n": {
-    "en": {
-     "category": "Players",
-     "name": "Franziska Kett (Showdown)",
-     "note": "released on 7 November; card tied to the UWCL match Paris Saint-Germain v FC Bayern München, may upgrade based on the result",
-     "reward": "Franziska Kett Showdown card (83, untradeable)"
-    },
-    "es": {
-     "category": "Jugadores",
-     "name": "Franziska Kett (Showdown)",
-     "note": "salió el 7 de noviembre; carta ligada al partido de la UWCL Paris Saint-Germain v FC Bayern München, puede mejorar según el resultado",
-     "reward": "Carta Showdown de Franziska Kett (83, intransferible)"
-    },
-    "nl": {
-     "category": "Spelers",
-     "name": "Franziska Kett (Showdown)",
-     "note": "uitgekomen op 7 november; kaart gekoppeld aan de UWCL-wedstrijd Paris Saint-Germain v FC Bayern München, kan upgraden afhankelijk van de uitslag",
-     "reward": "Showdown-kaart van Franziska Kett (83, niet verhandelbaar)"
-    }
-   },
-   "kinds": "all",
-   "maxOvr": 0,
-   "minOvr": 45,
-   "name": "Franziska Kett (Showdown)",
-   "note": "sorti le 7 novembre ; carte liée au match UWCL Paris Saint-Germain v FC Bayern München, peut évoluer selon le résultat",
-   "permanent": false,
-   "repeat": 1,
-   "reward": "Carte Showdown de Franziska Kett (83, non éch.)",
-   "rewardCount": 1,
-   "rewardMax": 83,
-   "rewardMin": 83,
-   "rewardTradeable": false,
-   "target": 12000,
-   "type": "score",
-   "verify": true
-  },
-  {
-   "category": "Joueurs",
-   "cid": "fc27-feller-showdown",
-   "expires": "2026-11-10",
-   "i18n": {
-    "en": {
-     "category": "Players",
-     "name": "Naomie Feller (Showdown)",
-     "note": "released on 7 November; card tied to the UWCL match Paris Saint-Germain v FC Bayern München, may upgrade based on the result",
-     "reward": "Naomie Feller Showdown card (83, untradeable)"
-    },
-    "es": {
-     "category": "Jugadores",
-     "name": "Naomie Feller (Showdown)",
-     "note": "salió el 7 de noviembre; carta ligada al partido de la UWCL Paris Saint-Germain v FC Bayern München, puede mejorar según el resultado",
-     "reward": "Carta Showdown de Naomie Feller (83, intransferible)"
-    },
-    "nl": {
-     "category": "Spelers",
-     "name": "Naomie Feller (Showdown)",
-     "note": "uitgekomen op 7 november; kaart gekoppeld aan de UWCL-wedstrijd Paris Saint-Germain v FC Bayern München, kan upgraden afhankelijk van de uitslag",
-     "reward": "Showdown-kaart van Naomie Feller (83, niet verhandelbaar)"
-    }
-   },
-   "kinds": "all",
-   "maxOvr": 0,
-   "minOvr": 45,
-   "name": "Naomie Feller (Showdown)",
-   "note": "sorti le 7 novembre ; carte liée au match UWCL Paris Saint-Germain v FC Bayern München, peut évoluer selon le résultat",
-   "permanent": false,
-   "repeat": 1,
-   "reward": "Carte Showdown de Naomie Feller (83, non éch.)",
-   "rewardCount": 1,
-   "rewardMax": 83,
-   "rewardMin": 83,
-   "rewardTradeable": false,
-   "target": 12000,
-   "type": "score",
-   "verify": true
-  },
-  {
-   "category": "Joueurs",
-   "cid": "fc27-olivia-smith-showdown",
-   "expires": "2026-11-12",
-   "i18n": {
-    "en": {
-     "category": "Players",
-     "name": "Olivia Smith (Showdown)",
-     "note": "released on 7 November; card tied to the UWCL match FC Barcelona v Arsenal, may upgrade based on the result",
-     "reward": "Olivia Smith Showdown card (84, untradeable)"
-    },
-    "es": {
-     "category": "Jugadores",
-     "name": "Olivia Smith (Showdown)",
-     "note": "salió el 7 de noviembre; carta ligada al partido de la UWCL FC Barcelona v Arsenal, puede mejorar según el resultado",
-     "reward": "Carta Showdown de Olivia Smith (84, intransferible)"
-    },
-    "nl": {
-     "category": "Spelers",
-     "name": "Olivia Smith (Showdown)",
-     "note": "uitgekomen op 7 november; kaart gekoppeld aan de UWCL-wedstrijd FC Barcelona v Arsenal, kan upgraden afhankelijk van de uitslag",
-     "reward": "Showdown-kaart van Olivia Smith (84, niet verhandelbaar)"
-    }
-   },
-   "kinds": "all",
-   "maxOvr": 0,
-   "minOvr": 45,
-   "name": "Olivia Smith (Showdown)",
-   "note": "sorti le 7 novembre ; carte liée au match UWCL FC Barcelona v Arsenal, peut évoluer selon le résultat",
-   "permanent": false,
-   "repeat": 1,
-   "reward": "Carte Showdown de Olivia Smith (84, non éch.)",
-   "rewardCount": 1,
-   "rewardMax": 84,
-   "rewardMin": 84,
-   "rewardTradeable": false,
-   "target": 16000,
-   "type": "score",
-   "verify": true
-  },
-  {
-   "category": "Joueurs",
-   "cid": "fc27-schertenleib-showdown",
-   "expires": "2026-11-12",
-   "i18n": {
-    "en": {
-     "category": "Players",
-     "name": "Sydney Schertenleib (Showdown)",
-     "note": "released on 7 November; card tied to the UWCL match FC Barcelona v Arsenal, may upgrade based on the result",
-     "reward": "Sydney Schertenleib Showdown card (84, untradeable)"
-    },
-    "es": {
-     "category": "Jugadores",
-     "name": "Sydney Schertenleib (Showdown)",
-     "note": "salió el 7 de noviembre; carta ligada al partido de la UWCL FC Barcelona v Arsenal, puede mejorar según el resultado",
-     "reward": "Carta Showdown de Sydney Schertenleib (84, intransferible)"
-    },
-    "nl": {
-     "category": "Spelers",
-     "name": "Sydney Schertenleib (Showdown)",
-     "note": "uitgekomen op 7 november; kaart gekoppeld aan de UWCL-wedstrijd FC Barcelona v Arsenal, kan upgraden afhankelijk van de uitslag",
-     "reward": "Showdown-kaart van Sydney Schertenleib (84, niet verhandelbaar)"
-    }
-   },
-   "kinds": "all",
-   "maxOvr": 0,
-   "minOvr": 45,
-   "name": "Sydney Schertenleib (Showdown)",
-   "note": "sorti le 7 novembre ; carte liée au match UWCL FC Barcelona v Arsenal, peut évoluer selon le résultat",
-   "permanent": false,
-   "repeat": 1,
-   "reward": "Carte Showdown de Sydney Schertenleib (84, non éch.)",
-   "rewardCount": 1,
-   "rewardMax": 84,
-   "rewardMin": 84,
-   "rewardTradeable": false,
-   "target": 16000,
-   "type": "score",
-   "verify": true
-  },
-  {
-   "category": "Défis",
-   "cid": "fc27-rttk-challenge-1",
-   "conds": [
-    {
-     "n": 14,
-     "t": "chem"
+      "category": "Permanents",
+      "cid": "fc27-bronze-upgrade",
+      "conds": [
+        {
+          "n": 0,
+          "op": "exactly",
+          "t": "quality"
+        }
+      ],
+      "expires": null,
+      "formation": "4-1-2-1-2",
+      "i18n": {
+        "en": {
+          "category": "Permanent",
+          "name": "Bronze Upgrade",
+          "note": "repeatable",
+          "reward": "2 Silver players packs (untradeable)"
+        },
+        "es": {
+          "category": "Permanentes",
+          "name": "Mejora bronce",
+          "note": "repetible",
+          "reward": "2 sobres de jugadores plata (intransferible)"
+        },
+        "nl": {
+          "category": "Permanent",
+          "name": "Brons Upgrade",
+          "note": "herhaalbaar",
+          "reward": "2 zilveren spelerspakketten (niet verhandelbaar)"
+        }
+      },
+      "layoutVerify": true,
+      "name": "Amélioration Bronze",
+      "note": "répétable",
+      "permanent": true,
+      "players": 11,
+      "repeat": 1,
+      "reward": "2 packs joueurs Argent (non éch.)",
+      "type": "classic"
     },
     {
-     "field": "league",
-     "n": 4,
-     "op": "min",
-     "t": "same"
+      "announced": true,
+      "category": "Joueurs",
+      "cid": "fc27-potm-seriea-oct",
+      "expectedBy": "2026-11-12",
+      "expires": null,
+      "i18n": {
+        "en": {
+          "category": "Players",
+          "name": "Serie A POTM (October)",
+          "note": "estimated date; winner not announced as of 11 November, score unknown"
+        },
+        "es": {
+          "category": "Jugadores",
+          "name": "JDM Serie A (octubre)",
+          "note": "fecha estimada; ganador aún no anunciado el 11 de noviembre, puntuación desconocida"
+        },
+        "nl": {
+          "category": "Spelers",
+          "name": "Serie A POTM (oktober)",
+          "note": "geschatte datum; winnaar nog niet bekend op 11 november, score onbekend"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "POTM Serie A (octobre)",
+      "note": "date estimée ; gagnant pas encore annoncé au 11 novembre, score inconnu",
+      "repeat": 1,
+      "type": "score",
+      "verify": true
     },
     {
-     "field": "club",
-     "n": 6,
-     "op": "max",
-     "t": "distinct"
+      "announced": true,
+      "category": "Joueurs",
+      "cid": "fc27-potm-bundesliga-oct",
+      "expectedBy": "2026-11-12",
+      "expires": null,
+      "i18n": {
+        "en": {
+          "category": "Players",
+          "name": "Bundesliga POTM (October)",
+          "note": "estimated date; winner not announced as of 11 November, score unknown"
+        },
+        "es": {
+          "category": "Jugadores",
+          "name": "JDM Bundesliga (octubre)",
+          "note": "fecha estimada; ganador aún no anunciado el 11 de noviembre, puntuación desconocida"
+        },
+        "nl": {
+          "category": "Spelers",
+          "name": "Bundesliga POTM (oktober)",
+          "note": "geschatte datum; winnaar nog niet bekend op 11 november, score onbekend"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "POTM Bundesliga (octobre)",
+      "note": "date estimée ; gagnant pas encore annoncé au 11 novembre, score inconnu",
+      "repeat": 1,
+      "type": "score",
+      "verify": true
     },
     {
-     "field": "nation",
-     "n": 5,
-     "op": "min",
-     "t": "distinct"
+      "announced": true,
+      "category": "Joueurs",
+      "cid": "fc27-potm-pl-oct",
+      "expectedBy": "2026-11-13",
+      "expires": null,
+      "i18n": {
+        "en": {
+          "category": "Players",
+          "name": "Premier League POTM (October)",
+          "note": "estimated date; winner not announced as of 11 November, score unknown"
+        },
+        "es": {
+          "category": "Jugadores",
+          "name": "JDM Premier League (octubre)",
+          "note": "fecha estimada; ganador aún no anunciado el 11 de noviembre, puntuación desconocida"
+        },
+        "nl": {
+          "category": "Spelers",
+          "name": "Premier League POTM (oktober)",
+          "note": "geschatte datum; winnaar nog niet bekend op 11 november, score onbekend"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "POTM Premier League (octobre)",
+      "note": "date estimée ; gagnant pas encore annoncé au 11 novembre, score inconnu",
+      "repeat": 1,
+      "type": "score",
+      "verify": true
     },
     {
-     "n": 3,
-     "op": "min",
-     "q": 1,
-     "t": "qcount"
+      "category": "Joueurs",
+      "cid": "fc27-olivia-smith-showdown",
+      "communityVerdict": "selon",
+      "expires": "2026-11-12",
+      "i18n": {
+        "en": {
+          "category": "Players",
+          "name": "Olivia Smith (Showdown)",
+          "note": "released on 7 November; card tied to the UWCL match FC Barcelona v Arsenal, may upgrade based on the result",
+          "reward": "Olivia Smith Showdown card (84, untradeable)"
+        },
+        "es": {
+          "category": "Jugadores",
+          "name": "Olivia Smith (Showdown)",
+          "note": "salió el 7 de noviembre; carta ligada al partido de la UWCL FC Barcelona v Arsenal, puede mejorar según el resultado",
+          "reward": "Carta Showdown de Olivia Smith (84, intransferible)"
+        },
+        "nl": {
+          "category": "Spelers",
+          "name": "Olivia Smith (Showdown)",
+          "note": "uitgekomen op 7 november; kaart gekoppeld aan de UWCL-wedstrijd FC Barcelona v Arsenal, kan upgraden afhankelijk van de uitslag",
+          "reward": "Showdown-kaart van Olivia Smith (84, niet verhandelbaar)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Olivia Smith (Showdown)",
+      "note": "sorti le 7 novembre ; carte liée au match UWCL FC Barcelona v Arsenal, peut évoluer selon le résultat",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "Carte Showdown de Olivia Smith (84, non éch.)",
+      "rewardCount": 1,
+      "rewardMax": 84,
+      "rewardMin": 84,
+      "rewardTradeable": false,
+      "target": 16000,
+      "type": "score",
+      "verify": true
     },
     {
-     "n": 0,
-     "op": "min",
-     "t": "quality"
+      "category": "Joueurs",
+      "cid": "fc27-schertenleib-showdown",
+      "communityVerdict": "oui",
+      "expires": "2026-11-12",
+      "i18n": {
+        "en": {
+          "category": "Players",
+          "name": "Sydney Schertenleib (Showdown)",
+          "note": "released on 7 November; card tied to the UWCL match FC Barcelona v Arsenal, may upgrade based on the result",
+          "reward": "Sydney Schertenleib Showdown card (84, untradeable)"
+        },
+        "es": {
+          "category": "Jugadores",
+          "name": "Sydney Schertenleib (Showdown)",
+          "note": "salió el 7 de noviembre; carta ligada al partido de la UWCL FC Barcelona v Arsenal, puede mejorar según el resultado",
+          "reward": "Carta Showdown de Sydney Schertenleib (84, intransferible)"
+        },
+        "nl": {
+          "category": "Spelers",
+          "name": "Sydney Schertenleib (Showdown)",
+          "note": "uitgekomen op 7 november; kaart gekoppeld aan de UWCL-wedstrijd FC Barcelona v Arsenal, kan upgraden afhankelijk van de uitslag",
+          "reward": "Showdown-kaart van Sydney Schertenleib (84, niet verhandelbaar)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Sydney Schertenleib (Showdown)",
+      "note": "sorti le 7 novembre ; carte liée au match UWCL FC Barcelona v Arsenal, peut évoluer selon le résultat",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "Carte Showdown de Sydney Schertenleib (84, non éch.)",
+      "rewardCount": 1,
+      "rewardMax": 84,
+      "rewardMin": 84,
+      "rewardTradeable": false,
+      "target": 16000,
+      "type": "score",
+      "verify": true
+    },
+    {
+      "category": "Joueurs",
+      "cid": "fc27-calafiori-rttk",
+      "communityVerdict": "selon",
+      "expires": "2026-11-15",
+      "i18n": {
+        "en": {
+          "category": "Players",
+          "name": "Riccardo Calafiori (RTTK)",
+          "note": "released 8 November; estimated cost ~129 000 to 139 000 coins; 86 rating from a single tracker, position to check",
+          "reward": "Riccardo Calafiori RTTK card (86, untradeable)"
+        },
+        "es": {
+          "category": "Jugadores",
+          "name": "Riccardo Calafiori (RTTK)",
+          "note": "salió el 8 de noviembre; coste estimado ~129 000 a 139 000 monedas; media 86 según un solo seguimiento, posición por verificar",
+          "reward": "Carta RTTK de Riccardo Calafiori (86, intransferible)"
+        },
+        "nl": {
+          "category": "Spelers",
+          "name": "Riccardo Calafiori (RTTK)",
+          "note": "uitgekomen op 8 november; geschatte kosten ~129 000 tot 139 000 munten; rating 86 volgens één tracker, positie te controleren",
+          "reward": "RTTK-kaart van Riccardo Calafiori (86, niet verhandelbaar)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Riccardo Calafiori (RTTK)",
+      "note": "sorti le 8 novembre ; coût estimé ~129 000 à 139 000 crédits ; note 86 selon un seul suivi, poste à vérifier",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "Carte RTTK de Riccardo Calafiori (86, non éch.)",
+      "rewardCount": 1,
+      "rewardMax": 86,
+      "rewardMin": 86,
+      "target": 135000,
+      "type": "score",
+      "verify": true
+    },
+    {
+      "category": "Joueurs",
+      "cid": "fc27-nwaneri-rttk",
+      "expires": "2026-11-18",
+      "i18n": {
+        "en": {
+          "category": "Players",
+          "name": "Ethan Nwaneri (RTTK)",
+          "note": "released today; estimated cost ~20 000 coins",
+          "reward": "Ethan Nwaneri RTTK card (85, untradeable)"
+        },
+        "es": {
+          "category": "Jugadores",
+          "name": "Ethan Nwaneri (RTTK)",
+          "note": "salió hoy; coste estimado ~20 000 monedas",
+          "reward": "Carta RTTK de Ethan Nwaneri (85, intransferible)"
+        },
+        "nl": {
+          "category": "Spelers",
+          "name": "Ethan Nwaneri (RTTK)",
+          "note": "vandaag uitgekomen; geschatte kosten ~20 000 munten",
+          "reward": "RTTK-kaart van Ethan Nwaneri (85, niet verhandelbaar)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Ethan Nwaneri (RTTK)",
+      "note": "sorti aujourd'hui ; coût estimé ~20 000 crédits",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "Carte RTTK de Ethan Nwaneri (85, non éch.)",
+      "rewardCount": 1,
+      "rewardMax": 85,
+      "rewardMin": 85,
+      "target": 20000,
+      "type": "score",
+      "verify": false
+    },
+    {
+      "category": "Joueurs",
+      "cid": "fc27-brobbey-rttk",
+      "communityVerdict": "oui",
+      "expires": "2026-11-16",
+      "i18n": {
+        "en": {
+          "category": "Players",
+          "name": "Brian Brobbey (RTTK)",
+          "note": "upgrades with Sunderland's Europa League results; estimated cost ~33 000 coins",
+          "reward": "Brian Brobbey RTTK card (85, untradeable)"
+        },
+        "es": {
+          "category": "Jugadores",
+          "name": "Brian Brobbey (RTTK)",
+          "note": "mejora con los resultados del Sunderland en la Europa League; coste estimado ~33 000 monedas",
+          "reward": "Carta RTTK de Brian Brobbey (85, intransferible)"
+        },
+        "nl": {
+          "category": "Spelers",
+          "name": "Brian Brobbey (RTTK)",
+          "note": "upgradet met de Europa League-resultaten van Sunderland; geschatte kosten ~33 000 munten",
+          "reward": "RTTK-kaart van Brian Brobbey (85, niet verhandelbaar)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Brian Brobbey (RTTK)",
+      "note": "évolue avec les résultats de Sunderland en Ligue Europa ; coût estimé ~33 000 crédits",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "Carte RTTK de Brian Brobbey (85, non éch.)",
+      "rewardCount": 1,
+      "rewardMax": 85,
+      "rewardMin": 85,
+      "target": 30000,
+      "type": "score",
+      "verify": false
+    },
+    {
+      "category": "Joueurs",
+      "cid": "fc27-shea-lacey-sp",
+      "communityVerdict": "oui",
+      "expires": "2026-11-16",
+      "i18n": {
+        "en": {
+          "category": "Players",
+          "name": "Shea Lacey (Star Performer)",
+          "note": "estimated cost ~46 000 coins",
+          "reward": "Shea Lacey Star Performer card (85, untradeable)"
+        },
+        "es": {
+          "category": "Jugadores",
+          "name": "Shea Lacey (Star Performer)",
+          "note": "coste estimado ~46 000 monedas",
+          "reward": "Carta Star Performer de Shea Lacey (85, intransferible)"
+        },
+        "nl": {
+          "category": "Spelers",
+          "name": "Shea Lacey (Star Performer)",
+          "note": "geschatte kosten ~46 000 munten",
+          "reward": "Star Performer-kaart van Shea Lacey (85, niet verhandelbaar)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Shea Lacey (Star Performer)",
+      "note": "coût estimé ~46 000 crédits",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "Carte Star Performer de Shea Lacey (85, non éch.)",
+      "rewardCount": 1,
+      "rewardMax": 85,
+      "rewardMin": 85,
+      "rewardTradeable": false,
+      "target": 42000,
+      "type": "score",
+      "verify": false
+    },
+    {
+      "category": "Mises à niveau",
+      "cid": "fc27-5x80-upgrade",
+      "communityVerdict": "selon",
+      "expires": "2026-11-17",
+      "i18n": {
+        "en": {
+          "category": "Upgrades",
+          "name": "5x 80+ Upgrade",
+          "note": "repeatable once, refreshes every 2 days; estimated cost ~8 000 coins",
+          "reward": "Pack of 5 Gold 80+ players (untradeable)"
+        },
+        "es": {
+          "category": "Mejoras",
+          "name": "Mejora 5x 80+",
+          "note": "repetible una vez, se renueva cada 2 días; coste estimado ~8 000 monedas",
+          "reward": "Sobre de 5 jugadores oro 80+ (intransferible)"
+        },
+        "nl": {
+          "category": "Upgrades",
+          "name": "5x 80+ Upgrade",
+          "note": "één keer herhaalbaar, vernieuwt elke 2 dagen; geschatte kosten ~8 000 munten",
+          "reward": "Pakket met 5 gouden spelers 80+ (niet verhandelbaar)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Amélioration 5x 80+",
+      "note": "refaisable une fois, se renouvelle tous les 2 jours ; coût estimé ~8 000 crédits",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "Pack 5 joueurs Or 80+ (non éch.)",
+      "rewardCount": 5,
+      "rewardMin": 80,
+      "rewardTradeable": false,
+      "target": 6750,
+      "type": "score",
+      "verify": false
+    },
+    {
+      "category": "Mises à niveau",
+      "cid": "fc27-3x79-upgrade",
+      "expires": "2026-11-16",
+      "i18n": {
+        "en": {
+          "category": "Upgrades",
+          "name": "3x 79+ Upgrade",
+          "note": "repeatable; estimated cost ~3 600 to 4 000 coins",
+          "reward": "Pack of 3 Gold 79+ players (untradeable)"
+        },
+        "es": {
+          "category": "Mejoras",
+          "name": "Mejora 3x 79+",
+          "note": "repetible; coste estimado ~3 600 a 4 000 monedas",
+          "reward": "Sobre de 3 jugadores oro 79+ (intransferible)"
+        },
+        "nl": {
+          "category": "Upgrades",
+          "name": "3x 79+ Upgrade",
+          "note": "herhaalbaar; geschatte kosten ~3 600 tot 4 000 munten",
+          "reward": "Pakket met 3 gouden spelers 79+ (niet verhandelbaar)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Amélioration 3x 79+",
+      "note": "répétable ; coût estimé ~3 600 à 4 000 crédits",
+      "permanent": false,
+      "repeat": 1,
+      "repeatable": true,
+      "reward": "Pack 3 joueurs Or 79+ (non éch.)",
+      "rewardCount": 3,
+      "rewardMin": 79,
+      "rewardTradeable": false,
+      "target": 3200,
+      "type": "score",
+      "verify": false
+    },
+    {
+      "category": "Défis",
+      "cid": "fc27-rttk-challenge-2",
+      "communityVerdict": "selon",
+      "conds": [
+        {
+          "n": 16,
+          "t": "chem"
+        },
+        {
+          "field": "league",
+          "n": 3,
+          "op": "max",
+          "t": "same"
+        },
+        {
+          "field": "league",
+          "n": 4,
+          "op": "min",
+          "t": "distinct"
+        },
+        {
+          "field": "nation",
+          "n": 5,
+          "op": "min",
+          "t": "same"
+        },
+        {
+          "n": 5,
+          "op": "min",
+          "q": 1,
+          "t": "qcount"
+        },
+        {
+          "n": 0,
+          "op": "min",
+          "t": "quality"
+        }
+      ],
+      "expires": "2026-11-13",
+      "formation": "4-4-2",
+      "i18n": {
+        "en": {
+          "category": "Challenges",
+          "name": "Road to the Knockouts Challenge 2",
+          "note": "Bronze & Silver squad; estimated cost ~3 700 coins",
+          "reward": "Small Mixed Players Pack"
+        },
+        "es": {
+          "category": "Desafíos",
+          "name": "Desafío Road to the Knockouts 2",
+          "note": "plantilla bronce y plata; coste estimado ~3 700 monedas",
+          "reward": "Sobre pequeño de jugadores mixto"
+        },
+        "nl": {
+          "category": "Uitdagingen",
+          "name": "Road to the Knockouts-uitdaging 2",
+          "note": "brons- & zilverteam; geschatte kosten ~3 700 munten",
+          "reward": "Klein gemengd spelerspakket"
+        }
+      },
+      "name": "Défi Road to the Knockouts 2",
+      "note": "équipe Bronze & Argent ; coût estimé ~3 700 crédits",
+      "permanent": false,
+      "players": 11,
+      "repeat": 1,
+      "reward": "Petit pack de joueurs mixte",
+      "rewardTradeable": true,
+      "type": "classic",
+      "verify": false
+    },
+    {
+      "category": "Défis",
+      "cid": "fc27-red-bull-wiiings",
+      "communityVerdict": "oui",
+      "conds": [
+        {
+          "field": "club",
+          "n": 1,
+          "op": "min",
+          "t": "from",
+          "value": "RB Leipzig, RB Salzburg, FC Salzburg, Leipzig"
+        },
+        {
+          "field": "club",
+          "n": 3,
+          "op": "min",
+          "t": "same"
+        },
+        {
+          "field": "nation",
+          "n": 4,
+          "op": "max",
+          "t": "distinct"
+        },
+        {
+          "n": 0,
+          "op": "min",
+          "t": "quality"
+        },
+        {
+          "n": 14,
+          "t": "chem"
+        }
+      ],
+      "expires": "2026-11-23",
+      "formation": "4-3-3",
+      "i18n": {
+        "en": {
+          "category": "Challenges",
+          "name": "Red Bull Wiiings Challenge",
+          "note": "at least 1 player from RB Leipzig or RB Salzburg; formation and positions from futmind only; estimated cost ~3 600 coins",
+          "reward": "Small Gold Players Pack"
+        },
+        "es": {
+          "category": "Desafíos",
+          "name": "Desafío Red Bull Wiiings",
+          "note": "al menos 1 jugador del RB Leipzig o del RB Salzburg; formación y posiciones solo según futmind; coste estimado ~3 600 monedas",
+          "reward": "Sobre pequeño de jugadores oro"
+        },
+        "nl": {
+          "category": "Uitdagingen",
+          "name": "Red Bull Wiiings-uitdaging",
+          "note": "minstens 1 speler van RB Leipzig of RB Salzburg; formatie en posities alleen volgens futmind; geschatte kosten ~3 600 munten",
+          "reward": "Klein goud spelerspakket"
+        }
+      },
+      "layoutVerify": true,
+      "name": "Défi Red Bull Wiiings",
+      "note": "au moins 1 joueur du RB Leipzig ou du RB Salzburg ; formation et postes d'après futmind seulement ; coût estimé ~3 600 crédits",
+      "permanent": false,
+      "players": 11,
+      "repeat": 1,
+      "reward": "Petit pack de joueurs Or",
+      "rewardTradeable": true,
+      "slots": [
+        "GK",
+        "LB",
+        "CB",
+        "CB",
+        "RB",
+        "CM",
+        "CM",
+        "CM",
+        "LW",
+        "ST",
+        "RW"
+      ],
+      "type": "classic",
+      "verify": false
     }
-   ],
-   "expires": "2026-11-10",
-   "formation": "4-4-2",
-   "i18n": {
-    "en": {
-     "category": "Challenges",
-     "name": "Road to the Knockouts Challenge 1",
-     "note": "released on 7 November; \"max 6 clubs\" per futmind, \"max 6 players from the same club\" per futwiz",
-     "reward": "Small Electrum Players Pack (untradeable)"
-    },
-    "es": {
-     "category": "Desafíos",
-     "name": "Desafío Road to the Knockouts 1",
-     "note": "salió el 7 de noviembre; \"máx. 6 clubes\" según futmind, \"máx. 6 jugadores del mismo club\" según futwiz",
-     "reward": "Sobre pequeño de jugadores Electrum (intransferible)"
-    },
-    "nl": {
-     "category": "Uitdagingen",
-     "name": "Road to the Knockouts-uitdaging 1",
-     "note": "uitgekomen op 7 november; \"max 6 clubs\" volgens futmind, \"max 6 spelers van dezelfde club\" volgens futwiz",
-     "reward": "Klein Electrum-spelerspakket (niet verhandelbaar)"
-    }
-   },
-   "name": "Défi Road to the Knockouts 1",
-   "note": "sorti le 7 novembre ; « max 6 clubs » selon futmind, « max 6 joueurs d'un même club » selon futwiz",
-   "permanent": false,
-   "players": 11,
-   "repeat": 1,
-   "reward": "Petit pack de joueurs Electrum (non éch.)",
-   "rewardTradeable": false,
-   "rewardValue": 11282,
-   "type": "classic",
-   "verify": true
-  }
- ],
- "updatedAt": "2026-11-07T18:55:00Z"
+  ],
+  "updatedAt": "2026-11-11T18:50:00Z"
 }
