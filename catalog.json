@@ -1,53 +1,17 @@
 {
   "i18n": {
     "en": {
-      "note": "Announced but not added (too vague): Hall of FUT Unleashed expected around 20 November (Chiesa, Goretzka, Florenzi, Danjuma), October Ligue 1 POTM around 24 November. Martín Ojeda expired today at 19:00; Tiago Djaló (RTTK) is an objective, not an SBC."
+      "note": "Announced but not added (too vague): Hall of FUT Unleashed expected on 13 November at 18:00 (leak), with Florenzi and McGeady SBCs or objectives without a date; October Ligue 1 POTM around 24 November (winner unknown)."
     },
     "es": {
-      "note": "Anunciados pero no añadidos (demasiado vagos): Hall of FUT Unleashed esperado hacia el 20 de noviembre (Chiesa, Goretzka, Florenzi, Danjuma), JDM de la Ligue 1 de octubre hacia el 24 de noviembre. Martín Ojeda expiró hoy a las 19:00; Tiago Djaló (RTTK) es un objetivo, no un SBC."
+      "note": "Anunciados pero no añadidos (demasiado vagos): Hall of FUT Unleashed esperado el 13 de noviembre a las 18:00 (filtración), con SBC u objetivos de Florenzi y McGeady sin fecha; JDM de la Ligue 1 de octubre hacia el 24 de noviembre (ganador desconocido)."
     },
     "nl": {
-      "note": "Aangekondigd maar niet toegevoegd (te vaag): Hall of FUT Unleashed verwacht rond 20 november (Chiesa, Goretzka, Florenzi, Danjuma), Ligue 1 POTM van oktober rond 24 november. Martín Ojeda is vandaag om 19:00 verlopen; Tiago Djaló (RTTK) is een objective, geen SBC."
+      "note": "Aangekondigd maar niet toegevoegd (te vaag): Hall of FUT Unleashed verwacht op 13 november om 18:00 (lek), met SBC's of objectives voor Florenzi en McGeady zonder datum; Ligue 1 POTM van oktober rond 24 november (winnaar onbekend)."
     }
   },
-  "note": "Annoncés mais non ajoutés (trop vagues) : Hall of FUT Unleashed attendu vers le 20 novembre (Chiesa, Goretzka, Florenzi, Danjuma), POTM Ligue 1 d'octobre vers le 24 novembre. Martín Ojeda a expiré aujourd'hui à 19:00 ; Tiago Djaló (RTTK) est un objectif, pas un DCE.",
+  "note": "Annoncés mais non ajoutés (trop vagues) : Hall of FUT Unleashed attendu le 13 novembre à 18:00 (fuite), avec des DCE ou objectifs Florenzi et McGeady sans date ; POTM Ligue 1 d'octobre vers le 24 novembre (gagnant inconnu).",
   "sbcs": [
-    {
-      "category": "Mises à niveau",
-      "cid": "fc27-chemstyle-pick",
-      "communityVerdict": "selon",
-      "expires": "2026-11-12",
-      "i18n": {
-        "en": {
-          "category": "Upgrades",
-          "name": "Chemistry Style Pick (1 of 4)",
-          "note": "repeatable",
-          "reward": "1 chemistry style of your choice (Anchor, Engine, Shadow, Hunter)"
-        },
-        "es": {
-          "category": "Mejoras",
-          "name": "Elección de estilo de química (1 de 4)",
-          "note": "repetible",
-          "reward": "1 estilo de química a elegir (Anchor, Engine, Shadow, Hunter)"
-        },
-        "nl": {
-          "category": "Upgrades",
-          "name": "Chemistry-stijlkeuze (1 uit 4)",
-          "note": "herhaalbaar",
-          "reward": "1 chemistry-stijl naar keuze (Anchor, Engine, Shadow, Hunter)"
-        }
-      },
-      "kinds": "all",
-      "maxOvr": 0,
-      "minOvr": 45,
-      "name": "Choix de style de collectif (1 parmi 4)",
-      "note": "répétable",
-      "repeat": 1,
-      "reward": "1 style de collectif au choix (Anchor, Engine, Shadow, Hunter)",
-      "target": 5000,
-      "type": "score",
-      "verify": true
-    },
     {
       "category": "Ligues",
       "cid": "fc27-llligaf-ll",
@@ -721,299 +685,6 @@
       "type": "score"
     },
     {
-      "category": "Défis",
-      "cid": "fc27-marquee-atletico-barcelona",
-      "communityVerdict": "selon",
-      "conds": [
-        {
-          "field": "club",
-          "n": 2,
-          "op": "min",
-          "t": "from",
-          "value": "Atlético de Madrid, Atlético Madrid, Atletico, FC Barcelona, Barcelona"
-        },
-        {
-          "field": "nation",
-          "n": 3,
-          "op": "max",
-          "t": "same"
-        },
-        {
-          "field": "club",
-          "n": 4,
-          "op": "min",
-          "t": "same"
-        },
-        {
-          "field": "league",
-          "n": 3,
-          "op": "min",
-          "t": "distinct"
-        },
-        {
-          "n": 75,
-          "t": "rating"
-        },
-        {
-          "n": 26,
-          "t": "chem"
-        }
-      ],
-      "expires": "2026-11-12",
-      "formation": "4-4-2",
-      "i18n": {
-        "en": {
-          "category": "Challenges",
-          "name": "Marquee Matchups : Atlético de Madrid v FC Barcelona",
-          "note": "formation from futwiz only; challenge reward to confirm",
-          "reward": "Small Electrum Pack · Full set: Large Mixed Electrum Players Pack",
-          "set": "Marquee Matchups"
-        },
-        "es": {
-          "category": "Desafíos",
-          "name": "Marquee Matchups : Atlético de Madrid v FC Barcelona",
-          "note": "formación solo según futwiz; recompensa del desafío por confirmar",
-          "reward": "Sobre pequeño Electrum · Set completo: sobre grande mixto de jugadores Electrum",
-          "set": "Marquee Matchups"
-        },
-        "nl": {
-          "category": "Uitdagingen",
-          "name": "Marquee Matchups : Atlético de Madrid v FC Barcelona",
-          "note": "formatie alleen volgens futwiz; beloning van de uitdaging te bevestigen",
-          "reward": "Klein Electrum-pakket · Volledige set: groot gemengd Electrum-spelerspakket",
-          "set": "Marquee Matchups"
-        }
-      },
-      "layoutVerify": true,
-      "name": "Marquee Matchups : Atlético de Madrid v FC Barcelona",
-      "note": "formation selon futwiz uniquement ; récompense du défi à confirmer",
-      "players": 11,
-      "repeat": 1,
-      "reward": "Petit pack Electrum · Set complet : grand pack de joueurs Electrum mixte",
-      "set": "Marquee Matchups",
-      "type": "classic",
-      "verify": true
-    },
-    {
-      "category": "Défis",
-      "cid": "fc27-marquee-fiorentina-juventus",
-      "communityVerdict": "selon",
-      "conds": [
-        {
-          "field": "club",
-          "n": 2,
-          "op": "min",
-          "t": "from",
-          "value": "ACF Fiorentina, Fiorentina, Juventus FC, Juventus"
-        },
-        {
-          "field": "club",
-          "n": 2,
-          "op": "min",
-          "t": "same"
-        },
-        {
-          "field": "league",
-          "n": 4,
-          "op": "max",
-          "t": "same"
-        },
-        {
-          "n": 2,
-          "op": "min",
-          "q": 2,
-          "t": "qcount"
-        },
-        {
-          "n": 1,
-          "op": "min",
-          "t": "quality"
-        },
-        {
-          "n": 22,
-          "t": "chem"
-        }
-      ],
-      "expires": "2026-11-12",
-      "formation": "4-1-4-1",
-      "i18n": {
-        "en": {
-          "category": "Challenges",
-          "name": "Marquee Matchups : Fiorentina v Juventus FC",
-          "note": "formation from futwiz only; challenge reward to confirm",
-          "reward": "Small Gold Players Pack · Full set: Large Mixed Electrum Players Pack",
-          "set": "Marquee Matchups"
-        },
-        "es": {
-          "category": "Desafíos",
-          "name": "Marquee Matchups : Fiorentina v Juventus FC",
-          "note": "formación solo según futwiz; recompensa del desafío por confirmar",
-          "reward": "Sobre pequeño de jugadores oro · Set completo: sobre grande mixto de jugadores Electrum",
-          "set": "Marquee Matchups"
-        },
-        "nl": {
-          "category": "Uitdagingen",
-          "name": "Marquee Matchups : Fiorentina v Juventus FC",
-          "note": "formatie alleen volgens futwiz; beloning van de uitdaging te bevestigen",
-          "reward": "Klein pakket met gouden spelers · Volledige set: groot gemengd Electrum-spelerspakket",
-          "set": "Marquee Matchups"
-        }
-      },
-      "layoutVerify": true,
-      "name": "Marquee Matchups : Fiorentina v Juventus FC",
-      "note": "formation selon futwiz uniquement ; récompense du défi à confirmer",
-      "players": 11,
-      "repeat": 1,
-      "reward": "Petit pack de joueurs Or · Set complet : grand pack de joueurs Electrum mixte",
-      "set": "Marquee Matchups",
-      "type": "classic",
-      "verify": true
-    },
-    {
-      "category": "Défis",
-      "cid": "fc27-marquee-rennes-losc",
-      "communityVerdict": "selon",
-      "conds": [
-        {
-          "field": "club",
-          "n": 1,
-          "op": "min",
-          "t": "from",
-          "value": "Stade Rennais FC, Rennes, LOSC Lille, LOSC, Lille"
-        },
-        {
-          "field": "club",
-          "n": 2,
-          "op": "max",
-          "t": "same"
-        },
-        {
-          "field": "league",
-          "n": 3,
-          "op": "min",
-          "t": "distinct"
-        },
-        {
-          "n": 1,
-          "op": "min",
-          "q": 2,
-          "t": "qcount"
-        },
-        {
-          "n": 1,
-          "op": "min",
-          "t": "quality"
-        },
-        {
-          "n": 18,
-          "t": "chem"
-        }
-      ],
-      "expires": "2026-11-12",
-      "formation": "3-5-2",
-      "i18n": {
-        "en": {
-          "category": "Challenges",
-          "name": "Marquee Matchups : Stade Rennais FC v LOSC",
-          "note": "formation from futwiz only; challenge reward to confirm",
-          "reward": "Small pack (Silver, Gold or Electrum) · Full set: Large Mixed Electrum Players Pack",
-          "set": "Marquee Matchups"
-        },
-        "es": {
-          "category": "Desafíos",
-          "name": "Marquee Matchups : Stade Rennais FC v LOSC",
-          "note": "formación solo según futwiz; recompensa del desafío por confirmar",
-          "reward": "Sobre pequeño (plata, oro o Electrum) · Set completo: sobre grande mixto de jugadores Electrum",
-          "set": "Marquee Matchups"
-        },
-        "nl": {
-          "category": "Uitdagingen",
-          "name": "Marquee Matchups : Stade Rennais FC v LOSC",
-          "note": "formatie alleen volgens futwiz; beloning van de uitdaging te bevestigen",
-          "reward": "Klein pakket (zilver, goud of Electrum) · Volledige set: groot gemengd Electrum-spelerspakket",
-          "set": "Marquee Matchups"
-        }
-      },
-      "layoutVerify": true,
-      "name": "Marquee Matchups : Stade Rennais FC v LOSC",
-      "note": "formation selon futwiz uniquement ; récompense du défi à confirmer",
-      "players": 11,
-      "repeat": 1,
-      "reward": "Petit pack (Argent, Or ou Electrum) · Set complet : grand pack de joueurs Electrum mixte",
-      "set": "Marquee Matchups",
-      "type": "classic",
-      "verify": true
-    },
-    {
-      "category": "Défis",
-      "cid": "fc27-marquee-brugge-anderlecht",
-      "communityVerdict": "selon",
-      "conds": [
-        {
-          "field": "club",
-          "n": 1,
-          "op": "min",
-          "t": "from",
-          "value": "Club Brugge, Club Brugge KV, Brugge, RSC Anderlecht, Anderlecht"
-        },
-        {
-          "field": "club",
-          "n": 6,
-          "op": "max",
-          "t": "distinct"
-        },
-        {
-          "n": 3,
-          "op": "min",
-          "q": 1,
-          "t": "qcount"
-        },
-        {
-          "n": 0,
-          "op": "min",
-          "t": "quality"
-        },
-        {
-          "n": 14,
-          "t": "chem"
-        }
-      ],
-      "expires": "2026-11-12",
-      "formation": "4-3-3",
-      "i18n": {
-        "en": {
-          "category": "Challenges",
-          "name": "Marquee Matchups : Club Brugge v RSC Anderlecht",
-          "note": "formation from futwiz only; challenge reward to confirm",
-          "reward": "Silver Players Pack · Full set: Large Mixed Electrum Players Pack",
-          "set": "Marquee Matchups"
-        },
-        "es": {
-          "category": "Desafíos",
-          "name": "Marquee Matchups : Club Brugge v RSC Anderlecht",
-          "note": "formación solo según futwiz; recompensa del desafío por confirmar",
-          "reward": "Sobre de jugadores plata · Set completo: sobre grande mixto de jugadores Electrum",
-          "set": "Marquee Matchups"
-        },
-        "nl": {
-          "category": "Uitdagingen",
-          "name": "Marquee Matchups : Club Brugge v RSC Anderlecht",
-          "note": "formatie alleen volgens futwiz; beloning van de uitdaging te bevestigen",
-          "reward": "Pakket met zilveren spelers · Volledige set: groot gemengd Electrum-spelerspakket",
-          "set": "Marquee Matchups"
-        }
-      },
-      "layoutVerify": true,
-      "name": "Marquee Matchups : Club Brugge v RSC Anderlecht",
-      "note": "formation selon futwiz uniquement ; récompense du défi à confirmer",
-      "players": 11,
-      "repeat": 1,
-      "reward": "Pack de joueurs Argent · Set complet : grand pack de joueurs Electrum mixte",
-      "set": "Marquee Matchups",
-      "type": "classic",
-      "verify": true
-    },
-    {
       "category": "Joueurs",
       "cid": "fc27-potm-ligaf-oct",
       "communityVerdict": "selon",
@@ -1425,68 +1096,84 @@
       "type": "classic"
     },
     {
-      "announced": true,
       "category": "Joueurs",
       "cid": "fc27-potm-seriea-oct",
-      "expectedBy": "2026-11-12",
-      "expires": null,
+      "expires": "2026-12-10",
       "i18n": {
         "en": {
           "category": "Players",
           "name": "Serie A POTM (October)",
-          "note": "estimated date; winner not announced as of 11 November, score unknown"
+          "note": "estimated cost ~22 000 coins; ends 10 December",
+          "reward": "Giacomo Calò Serie A POTM (85, untradeable)"
         },
         "es": {
           "category": "Jugadores",
           "name": "JDM Serie A (octubre)",
-          "note": "fecha estimada; ganador aún no anunciado el 11 de noviembre, puntuación desconocida"
+          "note": "coste estimado ~22 000 monedas; termina el 10 de diciembre",
+          "reward": "Giacomo Calò JDM Serie A (85, intransferible)"
         },
         "nl": {
           "category": "Spelers",
           "name": "Serie A POTM (oktober)",
-          "note": "geschatte datum; winnaar nog niet bekend op 11 november, score onbekend"
+          "note": "geschatte kosten ~22 000 munten; eindigt op 10 december",
+          "reward": "Giacomo Calò Serie A POTM (85, niet verhandelbaar)"
         }
       },
       "kinds": "all",
       "maxOvr": 0,
       "minOvr": 45,
       "name": "POTM Serie A (octobre)",
-      "note": "date estimée ; gagnant pas encore annoncé au 11 novembre, score inconnu",
+      "note": "coût estimé ~22 000 crédits ; fin le 10 décembre",
+      "permanent": false,
       "repeat": 1,
+      "reward": "Giacomo Calò POTM Serie A (85, non éch.)",
+      "rewardCount": 1,
+      "rewardMax": 85,
+      "rewardMin": 85,
+      "rewardTradeable": false,
+      "target": 23000,
       "type": "score",
-      "verify": true
+      "verify": false
     },
     {
-      "announced": true,
       "category": "Joueurs",
       "cid": "fc27-potm-bundesliga-oct",
-      "expectedBy": "2026-11-12",
-      "expires": null,
+      "expires": "2026-12-10",
       "i18n": {
         "en": {
           "category": "Players",
           "name": "Bundesliga POTM (October)",
-          "note": "estimated date; winner not announced as of 11 November, score unknown"
+          "note": "estimated cost ~12 000 coins; ends 10 December",
+          "reward": "Niclas Füllkrug Bundesliga POTM (85, untradeable)"
         },
         "es": {
           "category": "Jugadores",
           "name": "JDM Bundesliga (octubre)",
-          "note": "fecha estimada; ganador aún no anunciado el 11 de noviembre, puntuación desconocida"
+          "note": "coste estimado ~12 000 monedas; termina el 10 de diciembre",
+          "reward": "Niclas Füllkrug JDM Bundesliga (85, intransferible)"
         },
         "nl": {
           "category": "Spelers",
           "name": "Bundesliga POTM (oktober)",
-          "note": "geschatte datum; winnaar nog niet bekend op 11 november, score onbekend"
+          "note": "geschatte kosten ~12 000 munten; eindigt op 10 december",
+          "reward": "Niclas Füllkrug Bundesliga POTM (85, niet verhandelbaar)"
         }
       },
       "kinds": "all",
       "maxOvr": 0,
       "minOvr": 45,
       "name": "POTM Bundesliga (octobre)",
-      "note": "date estimée ; gagnant pas encore annoncé au 11 novembre, score inconnu",
+      "note": "coût estimé ~12 000 crédits ; fin le 10 décembre",
+      "permanent": false,
       "repeat": 1,
+      "reward": "Niclas Füllkrug POTM Bundesliga (85, non éch.)",
+      "rewardCount": 1,
+      "rewardMax": 85,
+      "rewardMin": 85,
+      "rewardTradeable": false,
+      "target": 12000,
       "type": "score",
-      "verify": true
+      "verify": false
     },
     {
       "announced": true,
@@ -1498,107 +1185,34 @@
         "en": {
           "category": "Players",
           "name": "Premier League POTM (October)",
-          "note": "estimated date; winner not announced as of 11 November, score unknown"
+          "note": "expected 13 November; score estimated from the October 85 POTMs (12 000 to 23 000)",
+          "reward": "Nicolas Jackson Premier League POTM (85, untradeable)"
         },
         "es": {
           "category": "Jugadores",
           "name": "JDM Premier League (octubre)",
-          "note": "fecha estimada; ganador aún no anunciado el 11 de noviembre, puntuación desconocida"
+          "note": "esperado el 13 de noviembre; puntuación estimada a partir de los JDM 85 de octubre (12 000 a 23 000)",
+          "reward": "Nicolas Jackson JDM Premier League (85, intransferible)"
         },
         "nl": {
           "category": "Spelers",
           "name": "Premier League POTM (oktober)",
-          "note": "geschatte datum; winnaar nog niet bekend op 11 november, score onbekend"
+          "note": "verwacht op 13 november; score geschat op basis van de POTM's 85 van oktober (12 000 tot 23 000)",
+          "reward": "Nicolas Jackson Premier League POTM (85, niet verhandelbaar)"
         }
       },
       "kinds": "all",
       "maxOvr": 0,
       "minOvr": 45,
       "name": "POTM Premier League (octobre)",
-      "note": "date estimée ; gagnant pas encore annoncé au 11 novembre, score inconnu",
+      "note": "attendu le 13 novembre ; score estimé d'après les POTM 85 d'octobre (12 000 à 23 000)",
       "repeat": 1,
-      "type": "score",
-      "verify": true
-    },
-    {
-      "category": "Joueurs",
-      "cid": "fc27-olivia-smith-showdown",
-      "communityVerdict": "selon",
-      "expires": "2026-11-12",
-      "i18n": {
-        "en": {
-          "category": "Players",
-          "name": "Olivia Smith (Showdown)",
-          "note": "released on 7 November; card tied to the UWCL match FC Barcelona v Arsenal, may upgrade based on the result",
-          "reward": "Olivia Smith Showdown card (84, untradeable)"
-        },
-        "es": {
-          "category": "Jugadores",
-          "name": "Olivia Smith (Showdown)",
-          "note": "salió el 7 de noviembre; carta ligada al partido de la UWCL FC Barcelona v Arsenal, puede mejorar según el resultado",
-          "reward": "Carta Showdown de Olivia Smith (84, intransferible)"
-        },
-        "nl": {
-          "category": "Spelers",
-          "name": "Olivia Smith (Showdown)",
-          "note": "uitgekomen op 7 november; kaart gekoppeld aan de UWCL-wedstrijd FC Barcelona v Arsenal, kan upgraden afhankelijk van de uitslag",
-          "reward": "Showdown-kaart van Olivia Smith (84, niet verhandelbaar)"
-        }
-      },
-      "kinds": "all",
-      "maxOvr": 0,
-      "minOvr": 45,
-      "name": "Olivia Smith (Showdown)",
-      "note": "sorti le 7 novembre ; carte liée au match UWCL FC Barcelona v Arsenal, peut évoluer selon le résultat",
-      "permanent": false,
-      "repeat": 1,
-      "reward": "Carte Showdown de Olivia Smith (84, non éch.)",
+      "reward": "Nicolas Jackson POTM Premier League (85, non éch.)",
       "rewardCount": 1,
-      "rewardMax": 84,
-      "rewardMin": 84,
+      "rewardMax": 85,
+      "rewardMin": 85,
       "rewardTradeable": false,
-      "target": 16000,
-      "type": "score",
-      "verify": true
-    },
-    {
-      "category": "Joueurs",
-      "cid": "fc27-schertenleib-showdown",
-      "communityVerdict": "oui",
-      "expires": "2026-11-12",
-      "i18n": {
-        "en": {
-          "category": "Players",
-          "name": "Sydney Schertenleib (Showdown)",
-          "note": "released on 7 November; card tied to the UWCL match FC Barcelona v Arsenal, may upgrade based on the result",
-          "reward": "Sydney Schertenleib Showdown card (84, untradeable)"
-        },
-        "es": {
-          "category": "Jugadores",
-          "name": "Sydney Schertenleib (Showdown)",
-          "note": "salió el 7 de noviembre; carta ligada al partido de la UWCL FC Barcelona v Arsenal, puede mejorar según el resultado",
-          "reward": "Carta Showdown de Sydney Schertenleib (84, intransferible)"
-        },
-        "nl": {
-          "category": "Spelers",
-          "name": "Sydney Schertenleib (Showdown)",
-          "note": "uitgekomen op 7 november; kaart gekoppeld aan de UWCL-wedstrijd FC Barcelona v Arsenal, kan upgraden afhankelijk van de uitslag",
-          "reward": "Showdown-kaart van Sydney Schertenleib (84, niet verhandelbaar)"
-        }
-      },
-      "kinds": "all",
-      "maxOvr": 0,
-      "minOvr": 45,
-      "name": "Sydney Schertenleib (Showdown)",
-      "note": "sorti le 7 novembre ; carte liée au match UWCL FC Barcelona v Arsenal, peut évoluer selon le résultat",
-      "permanent": false,
-      "repeat": 1,
-      "reward": "Carte Showdown de Sydney Schertenleib (84, non éch.)",
-      "rewardCount": 1,
-      "rewardMax": 84,
-      "rewardMin": 84,
-      "rewardTradeable": false,
-      "target": 16000,
+      "target": 15000,
       "type": "score",
       "verify": true
     },
@@ -1992,7 +1606,340 @@
       ],
       "type": "classic",
       "verify": false
+    },
+    {
+      "category": "Mises à niveau",
+      "cid": "fc27-campaign-mix-upgrade",
+      "expires": "2026-11-20",
+      "i18n": {
+        "en": {
+          "category": "Upgrades",
+          "name": "Campaign Mix Upgrade",
+          "note": "refreshes every 3 days; minimum rating not stated",
+          "reward": "Pack of 1 Destined for Glory or Future Stars player (untradeable)"
+        },
+        "es": {
+          "category": "Mejoras",
+          "name": "Mejora Campaign Mix",
+          "note": "se renueva cada 3 días; valoración mínima no indicada",
+          "reward": "Sobre de 1 jugador Destined for Glory o Future Stars (intransferible)"
+        },
+        "nl": {
+          "category": "Upgrades",
+          "name": "Campaign Mix Upgrade",
+          "note": "vernieuwt elke 3 dagen; minimale beoordeling niet vermeld",
+          "reward": "Pakket met 1 Destined for Glory- of Future Stars-speler (niet verhandelbaar)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Amélioration Campaign Mix",
+      "note": "se renouvelle tous les 3 jours ; note minimale non indiquée",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "Pack 1 joueur Destined for Glory ou Future Stars (non éch.)",
+      "rewardTradeable": false,
+      "target": 40000,
+      "type": "score",
+      "verify": false
+    },
+    {
+      "category": "Défis",
+      "cid": "fc27-marquee-spain-england",
+      "conds": [
+        {
+          "n": 76,
+          "t": "rating"
+        },
+        {
+          "n": 26,
+          "t": "chem"
+        },
+        {
+          "field": "league",
+          "n": 3,
+          "op": "min",
+          "t": "distinct"
+        },
+        {
+          "field": "club",
+          "n": 4,
+          "op": "max",
+          "t": "same"
+        },
+        {
+          "field": "nation",
+          "n": 3,
+          "op": "min",
+          "t": "same"
+        },
+        {
+          "field": "nation",
+          "n": 2,
+          "op": "min",
+          "t": "from",
+          "value": "England, Angleterre"
+        }
+      ],
+      "expires": "2026-11-19",
+      "formation": "4-4-2",
+      "i18n": {
+        "en": {
+          "category": "Challenges",
+          "name": "Marquee Matchups : Spain v England",
+          "note": "formation from futwiz only; set reward to confirm (sources disagree)",
+          "reward": "Small Electrum Pack · Full set: Jumbo Electrum Pack (to confirm)",
+          "set": "Marquee Matchups"
+        },
+        "es": {
+          "category": "Desafíos",
+          "name": "Marquee Matchups : España v Inglaterra",
+          "note": "formación solo según futwiz; recompensa del set por confirmar (fuentes discrepan)",
+          "reward": "Sobre pequeño Electrum · Set completo: sobre Electrum Jumbo (por confirmar)",
+          "set": "Marquee Matchups"
+        },
+        "nl": {
+          "category": "Uitdagingen",
+          "name": "Marquee Matchups : Spanje v Engeland",
+          "note": "formatie alleen volgens futwiz; setbeloning te bevestigen (bronnen spreken elkaar tegen)",
+          "reward": "Klein Electrum-pakket · Volledige set: Jumbo Electrum-pakket (te bevestigen)",
+          "set": "Marquee Matchups"
+        }
+      },
+      "layoutVerify": true,
+      "name": "Marquee Matchups : Espagne v Angleterre",
+      "note": "formation selon futwiz uniquement ; récompense du set à confirmer (sources divergentes)",
+      "permanent": false,
+      "players": 11,
+      "repeat": 1,
+      "reward": "Petit pack Electrum · Set complet : pack Electrum Jumbo (à confirmer)",
+      "rewardTradeable": true,
+      "set": "Marquee Matchups",
+      "type": "classic",
+      "verify": true
+    },
+    {
+      "category": "Défis",
+      "cid": "fc27-marquee-italy-france",
+      "conds": [
+        {
+          "n": 75,
+          "t": "rating"
+        },
+        {
+          "n": 22,
+          "t": "chem"
+        },
+        {
+          "field": "league",
+          "n": 4,
+          "op": "min",
+          "t": "same"
+        },
+        {
+          "field": "club",
+          "n": 3,
+          "op": "max",
+          "t": "same"
+        },
+        {
+          "field": "nation",
+          "n": 3,
+          "op": "min",
+          "t": "distinct"
+        },
+        {
+          "field": "nation",
+          "n": 2,
+          "op": "min",
+          "t": "from",
+          "value": "France"
+        }
+      ],
+      "expires": "2026-11-19",
+      "formation": "4-5-1",
+      "i18n": {
+        "en": {
+          "category": "Challenges",
+          "name": "Marquee Matchups : Italy v France",
+          "note": "formation from futwiz only; set reward to confirm (sources disagree)",
+          "reward": "Large Electrum Players Pack · Full set: Jumbo Electrum Pack (to confirm)",
+          "set": "Marquee Matchups"
+        },
+        "es": {
+          "category": "Desafíos",
+          "name": "Marquee Matchups : Italia v Francia",
+          "note": "formación solo según futwiz; recompensa del set por confirmar (fuentes discrepan)",
+          "reward": "Sobre grande de jugadores Electrum · Set completo: sobre Electrum Jumbo (por confirmar)",
+          "set": "Marquee Matchups"
+        },
+        "nl": {
+          "category": "Uitdagingen",
+          "name": "Marquee Matchups : Italië v Frankrijk",
+          "note": "formatie alleen volgens futwiz; setbeloning te bevestigen (bronnen spreken elkaar tegen)",
+          "reward": "Groot Electrum-spelerspakket · Volledige set: Jumbo Electrum-pakket (te bevestigen)",
+          "set": "Marquee Matchups"
+        }
+      },
+      "layoutVerify": true,
+      "name": "Marquee Matchups : Italie v France",
+      "note": "formation selon futwiz uniquement ; récompense du set à confirmer (sources divergentes)",
+      "permanent": false,
+      "players": 11,
+      "repeat": 1,
+      "reward": "Grand pack de joueurs Electrum · Set complet : pack Electrum Jumbo (à confirmer)",
+      "rewardTradeable": true,
+      "set": "Marquee Matchups",
+      "type": "classic",
+      "verify": true
+    },
+    {
+      "category": "Défis",
+      "cid": "fc27-marquee-germany-netherlands",
+      "conds": [
+        {
+          "n": 18,
+          "t": "chem"
+        },
+        {
+          "field": "league",
+          "n": 6,
+          "op": "max",
+          "t": "distinct"
+        },
+        {
+          "field": "club",
+          "n": 2,
+          "op": "min",
+          "t": "same"
+        },
+        {
+          "field": "nation",
+          "n": 1,
+          "op": "min",
+          "t": "from",
+          "value": "Netherlands, Holland, Pays-Bas"
+        },
+        {
+          "n": 1,
+          "op": "min",
+          "q": 2,
+          "t": "qcount"
+        },
+        {
+          "n": 1,
+          "op": "min",
+          "t": "quality"
+        }
+      ],
+      "expires": "2026-11-19",
+      "formation": "5-3-2",
+      "i18n": {
+        "en": {
+          "category": "Challenges",
+          "name": "Marquee Matchups : Germany v Netherlands",
+          "note": "formation from futwiz only; set reward to confirm (sources disagree)",
+          "reward": "Small Mixed Electrum Players Pack · Full set: Jumbo Electrum Pack (to confirm)",
+          "set": "Marquee Matchups"
+        },
+        "es": {
+          "category": "Desafíos",
+          "name": "Marquee Matchups : Alemania v Países Bajos",
+          "note": "formación solo según futwiz; recompensa del set por confirmar (fuentes discrepan)",
+          "reward": "Sobre pequeño mixto de jugadores Electrum · Set completo: sobre Electrum Jumbo (por confirmar)",
+          "set": "Marquee Matchups"
+        },
+        "nl": {
+          "category": "Uitdagingen",
+          "name": "Marquee Matchups : Duitsland v Nederland",
+          "note": "formatie alleen volgens futwiz; setbeloning te bevestigen (bronnen spreken elkaar tegen)",
+          "reward": "Klein gemengd Electrum-spelerspakket · Volledige set: Jumbo Electrum-pakket (te bevestigen)",
+          "set": "Marquee Matchups"
+        }
+      },
+      "layoutVerify": true,
+      "name": "Marquee Matchups : Allemagne v Pays-Bas",
+      "note": "formation selon futwiz uniquement ; récompense du set à confirmer (sources divergentes)",
+      "permanent": false,
+      "players": 11,
+      "repeat": 1,
+      "reward": "Petit pack de joueurs Electrum mixte · Set complet : pack Electrum Jumbo (à confirmer)",
+      "rewardTradeable": true,
+      "set": "Marquee Matchups",
+      "type": "classic",
+      "verify": true
+    },
+    {
+      "category": "Défis",
+      "cid": "fc27-marquee-portugal-denmark",
+      "conds": [
+        {
+          "n": 14,
+          "t": "chem"
+        },
+        {
+          "field": "club",
+          "n": 4,
+          "op": "min",
+          "t": "distinct"
+        },
+        {
+          "field": "nation",
+          "n": 1,
+          "op": "min",
+          "t": "from",
+          "value": "Denmark, Danemark"
+        },
+        {
+          "n": 1,
+          "op": "min",
+          "q": 2,
+          "t": "qcount"
+        },
+        {
+          "n": 1,
+          "op": "min",
+          "t": "quality"
+        }
+      ],
+      "expires": "2026-11-19",
+      "formation": "5-2-1-2",
+      "i18n": {
+        "en": {
+          "category": "Challenges",
+          "name": "Marquee Matchups : Portugal v Denmark",
+          "note": "formation from futwiz only; set reward to confirm (sources disagree)",
+          "reward": "Gold Pack · Full set: Jumbo Electrum Pack (to confirm)",
+          "set": "Marquee Matchups"
+        },
+        "es": {
+          "category": "Desafíos",
+          "name": "Marquee Matchups : Portugal v Dinamarca",
+          "note": "formación solo según futwiz; recompensa del set por confirmar (fuentes discrepan)",
+          "reward": "Sobre oro · Set completo: sobre Electrum Jumbo (por confirmar)",
+          "set": "Marquee Matchups"
+        },
+        "nl": {
+          "category": "Uitdagingen",
+          "name": "Marquee Matchups : Portugal v Denemarken",
+          "note": "formatie alleen volgens futwiz; setbeloning te bevestigen (bronnen spreken elkaar tegen)",
+          "reward": "Goud-pakket · Volledige set: Jumbo Electrum-pakket (te bevestigen)",
+          "set": "Marquee Matchups"
+        }
+      },
+      "layoutVerify": true,
+      "name": "Marquee Matchups : Portugal v Danemark",
+      "note": "formation selon futwiz uniquement ; récompense du set à confirmer (sources divergentes)",
+      "permanent": false,
+      "players": 11,
+      "repeat": 1,
+      "reward": "Pack Or · Set complet : pack Electrum Jumbo (à confirmer)",
+      "rewardTradeable": true,
+      "set": "Marquee Matchups",
+      "type": "classic",
+      "verify": true
     }
   ],
-  "updatedAt": "2026-11-11T18:50:00Z"
+  "updatedAt": "2026-11-12T18:50:00Z"
 }
