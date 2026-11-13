@@ -1242,6 +1242,137 @@
    "sm": 3,
    "promo": "POTM",
    "added": "2026-11-12"
+  },
+  {
+   "name": "Nicolas Jackson",
+   "ovr": 85,
+   "kind": "special",
+   "rare": true,
+   "pos": "ST",
+   "alt": [],
+   "nation": "Sénégal",
+   "iso": "sn",
+   "league": "Premier League",
+   "club": "Aston Villa",
+   "stats": [
+    84,
+    85,
+    75,
+    85,
+    46,
+    82
+   ],
+   "wf": 3,
+   "sm": 4,
+   "promo": "POTM",
+   "added": "2026-11-13"
+  },
+  {
+   "name": "Niclas Füllkrug",
+   "ovr": 85,
+   "kind": "special",
+   "rare": true,
+   "pos": "ST",
+   "alt": [],
+   "nation": "Allemagne",
+   "iso": "de",
+   "league": "Bundesliga",
+   "club": "SV Werder Bremen",
+   "stats": [
+    74,
+    90,
+    79,
+    86,
+    60,
+    89
+   ],
+   "wf": 4,
+   "sm": 3,
+   "promo": "POTM",
+   "added": "2026-11-13"
+  },
+  {
+   "name": "Giacomo Calò",
+   "ovr": 85,
+   "kind": "special",
+   "rare": true,
+   "pos": "CDM",
+   "alt": [
+    "CM"
+   ],
+   "nation": "Italie",
+   "iso": "it",
+   "league": "Serie A",
+   "club": "Frosinone",
+   "stats": [
+    80,
+    67,
+    82,
+    86,
+    82,
+    88
+   ],
+   "wf": 3,
+   "sm": 3,
+   "promo": "POTM",
+   "added": "2026-11-13"
+  },
+  {
+   "name": "Ethan Nwaneri",
+   "ovr": 85,
+   "kind": "special",
+   "rare": true,
+   "pos": "CAM",
+   "alt": [
+    "RM",
+    "RW"
+   ],
+   "nation": "Angleterre",
+   "iso": "gb-eng",
+   "league": "Bundesliga",
+   "club": "Borussia Dortmund",
+   "stats": [
+    86,
+    82,
+    85,
+    86,
+    56,
+    70
+   ],
+   "wf": 4,
+   "sm": 4,
+   "promo": "Road to the Knockouts",
+   "added": "2026-11-13"
+  },
+  {
+   "name": "Alessandro Florenzi",
+   "ovr": 87,
+   "kind": "special",
+   "rare": true,
+   "pos": "RB",
+   "alt": [
+    "LB",
+    "CDM",
+    "RM",
+    "CM",
+    "LM"
+   ],
+   "nation": "Italie",
+   "iso": "it",
+   "league": "Serie A",
+   "club": "HALL OF FUT",
+   "stats": [
+    90,
+    83,
+    83,
+    85,
+    84,
+    80
+   ],
+   "wf": 4,
+   "sm": 3,
+   "promo": "Hall of FUT Unleashed",
+   "added": "2026-11-13"
   }
  ]
 }
