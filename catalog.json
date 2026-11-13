@@ -1,16 +1,16 @@
 {
   "i18n": {
     "en": {
-      "note": "Announced but not added (too vague): Hall of FUT Unleashed expected on 13 November at 18:00 (leak), with Florenzi and McGeady SBCs or objectives without a date; October Ligue 1 POTM around 24 November (winner unknown)."
+      "note": "Announced but not added (too vague): Aiden McGeady (Hall of FUT Unleashed, 86) as an SBC or objective, no date; October Ligue 1 POTM around 24 November (winner unknown)."
     },
     "es": {
-      "note": "Anunciados pero no añadidos (demasiado vagos): Hall of FUT Unleashed esperado el 13 de noviembre a las 18:00 (filtración), con SBC u objetivos de Florenzi y McGeady sin fecha; JDM de la Ligue 1 de octubre hacia el 24 de noviembre (ganador desconocido)."
+      "note": "Anunciados pero no añadidos (demasiado vagos): Aiden McGeady (Hall of FUT Unleashed, 86) como SBC u objetivo, sin fecha; JDM de la Ligue 1 de octubre hacia el 24 de noviembre (ganador desconocido)."
     },
     "nl": {
-      "note": "Aangekondigd maar niet toegevoegd (te vaag): Hall of FUT Unleashed verwacht op 13 november om 18:00 (lek), met SBC's of objectives voor Florenzi en McGeady zonder datum; Ligue 1 POTM van oktober rond 24 november (winnaar onbekend)."
+      "note": "Aangekondigd maar niet toegevoegd (te vaag): Aiden McGeady (Hall of FUT Unleashed, 86) als SBC of doelstelling, zonder datum; Ligue 1 POTM van oktober rond 24 november (winnaar onbekend)."
     }
   },
-  "note": "Annoncés mais non ajoutés (trop vagues) : Hall of FUT Unleashed attendu le 13 novembre à 18:00 (fuite), avec des DCE ou objectifs Florenzi et McGeady sans date ; POTM Ligue 1 d'octobre vers le 24 novembre (gagnant inconnu).",
+  "note": "Annoncés mais non ajoutés (trop vagues) : Aiden McGeady (Hall of FUT Unleashed, 86) en DCE ou objectif, sans date ; POTM Ligue 1 d'octobre vers le 24 novembre (gagnant inconnu).",
   "sbcs": [
     {
       "category": "Ligues",
@@ -725,78 +725,6 @@
       "verify": false
     },
     {
-      "category": "Joueurs",
-      "cid": "fc27-openda-rttk",
-      "communityVerdict": "selon",
-      "expires": "2026-11-13",
-      "i18n": {
-        "en": {
-          "category": "Players",
-          "name": "Loïs Openda (RTTK)",
-          "note": "estimated cost ~98 600 coins",
-          "reward": "Loïs Openda RTTK card (85, untradeable)"
-        },
-        "es": {
-          "category": "Jugadores",
-          "name": "Loïs Openda (RTTK)",
-          "note": "coste estimado ~98 600 monedas",
-          "reward": "Carta RTTK de Loïs Openda (85, intransferible)"
-        },
-        "nl": {
-          "category": "Spelers",
-          "name": "Loïs Openda (RTTK)",
-          "note": "geschatte kosten ~98 600 munten",
-          "reward": "RTTK-kaart van Loïs Openda (85, niet verhandelbaar)"
-        }
-      },
-      "kinds": "all",
-      "maxOvr": 0,
-      "minOvr": 45,
-      "name": "Loïs Openda (RTTK)",
-      "note": "coût estimé ~98 600 crédits",
-      "repeat": 1,
-      "reward": "Carte RTTK de Loïs Openda (85, non éch.)",
-      "rewardCount": 1,
-      "rewardMax": 85,
-      "rewardMin": 85,
-      "target": 96000,
-      "type": "score",
-      "verify": true
-    },
-    {
-      "category": "Mises à niveau",
-      "cid": "fc27-totw-81-1-8",
-      "communityVerdict": "selon",
-      "expires": "2026-11-13",
-      "i18n": {
-        "en": {
-          "category": "Upgrades",
-          "name": "81+ TOTW 1-8",
-          "reward": "1 TOTW 81+ player (TOTW 1 to 8)"
-        },
-        "es": {
-          "category": "Mejoras",
-          "name": "81+ EDLS 1-8",
-          "reward": "1 jugador EDLS 81+ (EDLS 1 a 8)"
-        },
-        "nl": {
-          "category": "Upgrades",
-          "name": "81+ TOTW 1-8",
-          "reward": "1 TOTW-speler 81+ (TOTW 1 t/m 8)"
-        }
-      },
-      "kinds": "all",
-      "maxOvr": 0,
-      "minOvr": 45,
-      "name": "81+ TOTW 1-8",
-      "repeat": 1,
-      "reward": "1 joueur TOTW 81+ (TOTW 1 à 8)",
-      "rewardCount": 1,
-      "rewardMin": 81,
-      "target": 18000,
-      "type": "score"
-    },
-    {
       "category": "Ligues",
       "cid": "fc27-blfbl-bl",
       "communityVerdict": "selon",
@@ -1176,28 +1104,26 @@
       "verify": false
     },
     {
-      "announced": true,
       "category": "Joueurs",
       "cid": "fc27-potm-pl-oct",
-      "expectedBy": "2026-11-13",
-      "expires": null,
+      "expires": "2026-12-11",
       "i18n": {
         "en": {
           "category": "Players",
           "name": "Premier League POTM (October)",
-          "note": "expected 13 November; score estimated from the October 85 POTMs (12 000 to 23 000)",
+          "note": "released 13 November; ends 11 December",
           "reward": "Nicolas Jackson Premier League POTM (85, untradeable)"
         },
         "es": {
           "category": "Jugadores",
           "name": "JDM Premier League (octubre)",
-          "note": "esperado el 13 de noviembre; puntuación estimada a partir de los JDM 85 de octubre (12 000 a 23 000)",
+          "note": "publicado el 13 de noviembre; termina el 11 de diciembre",
           "reward": "Nicolas Jackson JDM Premier League (85, intransferible)"
         },
         "nl": {
           "category": "Spelers",
           "name": "Premier League POTM (oktober)",
-          "note": "verwacht op 13 november; score geschat op basis van de POTM's 85 van oktober (12 000 tot 23 000)",
+          "note": "uitgebracht op 13 november; eindigt op 11 december",
           "reward": "Nicolas Jackson Premier League POTM (85, niet verhandelbaar)"
         }
       },
@@ -1205,16 +1131,17 @@
       "maxOvr": 0,
       "minOvr": 45,
       "name": "POTM Premier League (octobre)",
-      "note": "attendu le 13 novembre ; score estimé d'après les POTM 85 d'octobre (12 000 à 23 000)",
+      "note": "sorti le 13 novembre ; fin le 11 décembre",
+      "permanent": false,
       "repeat": 1,
       "reward": "Nicolas Jackson POTM Premier League (85, non éch.)",
       "rewardCount": 1,
       "rewardMax": 85,
       "rewardMin": 85,
       "rewardTradeable": false,
-      "target": 15000,
+      "target": 17000,
       "type": "score",
-      "verify": true
+      "verify": false
     },
     {
       "category": "Joueurs",
@@ -1454,77 +1381,6 @@
       "rewardTradeable": false,
       "target": 3200,
       "type": "score",
-      "verify": false
-    },
-    {
-      "category": "Défis",
-      "cid": "fc27-rttk-challenge-2",
-      "communityVerdict": "selon",
-      "conds": [
-        {
-          "n": 16,
-          "t": "chem"
-        },
-        {
-          "field": "league",
-          "n": 3,
-          "op": "max",
-          "t": "same"
-        },
-        {
-          "field": "league",
-          "n": 4,
-          "op": "min",
-          "t": "distinct"
-        },
-        {
-          "field": "nation",
-          "n": 5,
-          "op": "min",
-          "t": "same"
-        },
-        {
-          "n": 5,
-          "op": "min",
-          "q": 1,
-          "t": "qcount"
-        },
-        {
-          "n": 0,
-          "op": "min",
-          "t": "quality"
-        }
-      ],
-      "expires": "2026-11-13",
-      "formation": "4-4-2",
-      "i18n": {
-        "en": {
-          "category": "Challenges",
-          "name": "Road to the Knockouts Challenge 2",
-          "note": "Bronze & Silver squad; estimated cost ~3 700 coins",
-          "reward": "Small Mixed Players Pack"
-        },
-        "es": {
-          "category": "Desafíos",
-          "name": "Desafío Road to the Knockouts 2",
-          "note": "plantilla bronce y plata; coste estimado ~3 700 monedas",
-          "reward": "Sobre pequeño de jugadores mixto"
-        },
-        "nl": {
-          "category": "Uitdagingen",
-          "name": "Road to the Knockouts-uitdaging 2",
-          "note": "brons- & zilverteam; geschatte kosten ~3 700 munten",
-          "reward": "Klein gemengd spelerspakket"
-        }
-      },
-      "name": "Défi Road to the Knockouts 2",
-      "note": "équipe Bronze & Argent ; coût estimé ~3 700 crédits",
-      "permanent": false,
-      "players": 11,
-      "repeat": 1,
-      "reward": "Petit pack de joueurs mixte",
-      "rewardTradeable": true,
-      "type": "classic",
       "verify": false
     },
     {
@@ -1939,7 +1795,153 @@
       "set": "Marquee Matchups",
       "type": "classic",
       "verify": true
+    },
+    {
+      "category": "Mises à niveau",
+      "cid": "fc27-totw-81-1-9",
+      "expires": "2026-11-20",
+      "i18n": {
+        "en": {
+          "category": "Upgrades",
+          "name": "81+ TOTW 1-9",
+          "note": "repeatable; ends 20 November",
+          "reward": "1 TOTW 81+ player (TOTW 1 to 9, untradeable)"
+        },
+        "es": {
+          "category": "Mejoras",
+          "name": "81+ EDLS 1-9",
+          "note": "repetible; termina el 20 de noviembre",
+          "reward": "1 jugador EDLS 81+ (EDLS 1 a 9, intransferible)"
+        },
+        "nl": {
+          "category": "Upgrades",
+          "name": "81+ TOTW 1-9",
+          "note": "herhaalbaar; eindigt op 20 november",
+          "reward": "1 TOTW-speler 81+ (TOTW 1 t/m 9, niet verhandelbaar)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "81+ TOTW 1-9",
+      "note": "refaisable ; fin le 20 novembre",
+      "permanent": false,
+      "repeat": 1,
+      "repeatable": true,
+      "reward": "1 joueur TOTW 81+ (TOTW 1 à 9, non éch.)",
+      "rewardCount": 1,
+      "rewardMin": 81,
+      "rewardTradeable": false,
+      "target": 18000,
+      "type": "score",
+      "verify": false
+    },
+    {
+      "category": "Joueurs",
+      "cid": "fc27-florenzi-hof",
+      "expires": "2026-12-04",
+      "i18n": {
+        "en": {
+          "category": "Players",
+          "name": "Alessandro Florenzi (Hall of FUT Unleashed)",
+          "note": "rating 87 per futwiz; RB position from a single source; ends 4 December",
+          "reward": "Alessandro Florenzi Hall of FUT Unleashed (87, untradeable)"
+        },
+        "es": {
+          "category": "Jugadores",
+          "name": "Alessandro Florenzi (Hall of FUT Unleashed)",
+          "note": "valoración 87 según futwiz; posición LD (RB) según una sola fuente; termina el 4 de diciembre",
+          "reward": "Alessandro Florenzi Hall of FUT Unleashed (87, intransferible)"
+        },
+        "nl": {
+          "category": "Spelers",
+          "name": "Alessandro Florenzi (Hall of FUT Unleashed)",
+          "note": "rating 87 volgens futwiz; positie RB volgens één bron; eindigt op 4 december",
+          "reward": "Alessandro Florenzi Hall of FUT Unleashed (87, niet verhandelbaar)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Alessandro Florenzi (Hall of FUT Unleashed)",
+      "note": "note 87 d'après futwiz ; poste DD (RB) d'après une seule source ; fin le 4 décembre",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "Alessandro Florenzi Hall of FUT Unleashed (87, non éch.)",
+      "rewardCount": 1,
+      "rewardMax": 87,
+      "rewardMin": 87,
+      "rewardTradeable": false,
+      "target": 380000,
+      "type": "score",
+      "verify": true
+    },
+    {
+      "category": "Défis",
+      "cid": "fc27-hof-unleashed-challenge-1",
+      "conds": [
+        {
+          "n": 14,
+          "t": "chem"
+        },
+        {
+          "field": "league",
+          "n": 4,
+          "op": "max",
+          "t": "same"
+        },
+        {
+          "field": "league",
+          "n": 3,
+          "op": "min",
+          "t": "distinct"
+        },
+        {
+          "field": "nation",
+          "n": 6,
+          "op": "max",
+          "t": "distinct"
+        },
+        {
+          "n": 3,
+          "op": "min",
+          "q": 1,
+          "t": "qcount"
+        }
+      ],
+      "expires": "2026-11-16",
+      "formation": "4-5-1",
+      "i18n": {
+        "en": {
+          "category": "Challenges",
+          "name": "Hall of FUT Unleashed Challenge 1",
+          "note": "ends 16 November; the Bronze player requirement shown by futwiz is inconsistent, check in game",
+          "reward": "Gold Pack (untradeable)"
+        },
+        "es": {
+          "category": "Desafíos",
+          "name": "Desafío Hall of FUT Unleashed 1",
+          "note": "termina el 16 de noviembre; el requisito de jugadores Bronce que muestra futwiz es incoherente, compruébalo en el juego",
+          "reward": "Sobre Oro (intransferible)"
+        },
+        "nl": {
+          "category": "Uitdagingen",
+          "name": "Hall of FUT Unleashed-uitdaging 1",
+          "note": "eindigt op 16 november; de Bronze-spelervoorwaarde op futwiz klopt niet, controleer in het spel",
+          "reward": "Goudpakket (niet verhandelbaar)"
+        }
+      },
+      "layoutVerify": true,
+      "name": "Défi Hall of FUT Unleashed 1",
+      "note": "fin le 16 novembre ; la condition sur les joueurs Bronze affichée par futwiz est incohérente, à vérifier dans le jeu",
+      "permanent": false,
+      "players": 11,
+      "repeat": 1,
+      "reward": "Pack Or (non éch.)",
+      "rewardTradeable": false,
+      "type": "classic",
+      "verify": true
     }
   ],
-  "updatedAt": "2026-11-12T18:50:00Z"
+  "updatedAt": "2026-11-13T18:45:00Z"
 }
