@@ -1,16 +1,16 @@
 {
   "i18n": {
     "en": {
-      "note": "Announced but not added (too vague): Aiden McGeady (Hall of FUT Unleashed, 86) as an SBC or objective, no date; October Ligue 1 POTM around 24 November (winner unknown)."
+      "note": "Announced but not added (too vague): Aiden McGeady (Hall of FUT Unleashed) as an SBC or objective, expected before 20 November; October Ligue 1 POTM around 24 November (winner unknown)."
     },
     "es": {
-      "note": "Anunciados pero no añadidos (demasiado vagos): Aiden McGeady (Hall of FUT Unleashed, 86) como SBC u objetivo, sin fecha; JDM de la Ligue 1 de octubre hacia el 24 de noviembre (ganador desconocido)."
+      "note": "Anunciados pero no añadidos (demasiado vagos): Aiden McGeady (Hall of FUT Unleashed) como SBC u objetivo, esperado antes del 20 de noviembre; JDM de la Ligue 1 de octubre hacia el 24 de noviembre (ganador desconocido)."
     },
     "nl": {
-      "note": "Aangekondigd maar niet toegevoegd (te vaag): Aiden McGeady (Hall of FUT Unleashed, 86) als SBC of doelstelling, zonder datum; Ligue 1 POTM van oktober rond 24 november (winnaar onbekend)."
+      "note": "Aangekondigd maar niet toegevoegd (te vaag): Aiden McGeady (Hall of FUT Unleashed) als SBC of doelstelling, verwacht vóór 20 november; Ligue 1 POTM van oktober rond 24 november (winnaar onbekend)."
     }
   },
-  "note": "Annoncés mais non ajoutés (trop vagues) : Aiden McGeady (Hall of FUT Unleashed, 86) en DCE ou objectif, sans date ; POTM Ligue 1 d'octobre vers le 24 novembre (gagnant inconnu).",
+  "note": "Annoncés mais non ajoutés (trop vagues) : Aiden McGeady (Hall of FUT Unleashed) en DCE ou objectif, attendu avant le 20 novembre ; POTM Ligue 1 d'octobre vers le 24 novembre (gagnant inconnu).",
   "sbcs": [
     {
       "category": "Ligues",
@@ -1941,7 +1941,123 @@
       "rewardTradeable": false,
       "type": "classic",
       "verify": true
+    },
+    {
+      "category": "Joueurs",
+      "cid": "fc27-goretzka-heritage",
+      "expires": "2026-11-21",
+      "i18n": {
+        "en": {
+          "category": "Players",
+          "name": "Leon Goretzka (FC Heritage)",
+          "note": "released today; rating 86 per fut.gg (another source says 91); estimated cost ~125 000 coins",
+          "reward": "Leon Goretzka FC Heritage card (86, CDM, untradeable)"
+        },
+        "es": {
+          "category": "Jugadores",
+          "name": "Leon Goretzka (FC Heritage)",
+          "note": "salió hoy; valoración 86 según fut.gg (otra fuente indica 91); coste estimado ~125 000 monedas",
+          "reward": "Carta FC Heritage de Leon Goretzka (86, MCD, intransferible)"
+        },
+        "nl": {
+          "category": "Spelers",
+          "name": "Leon Goretzka (FC Heritage)",
+          "note": "vandaag uitgekomen; rating 86 volgens fut.gg (een andere bron zegt 91); geschatte kosten ~125 000 munten",
+          "reward": "FC Heritage-kaart van Leon Goretzka (86, CDM, niet verhandelbaar)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Leon Goretzka (FC Heritage)",
+      "note": "sorti aujourd'hui ; note 86 d'après fut.gg (une autre source indique 91) ; coût estimé ~125 000 crédits",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "Carte FC Heritage de Leon Goretzka (86, MDC, non éch.)",
+      "rewardCount": 1,
+      "rewardMax": 86,
+      "rewardMin": 86,
+      "rewardTradeable": false,
+      "target": 130000,
+      "type": "score",
+      "verify": true
+    },
+    {
+      "announced": true,
+      "category": "Joueurs",
+      "cid": "fc27-chiesa-heritage",
+      "expectedBy": "2026-11-20",
+      "expires": null,
+      "i18n": {
+        "en": {
+          "category": "Players",
+          "name": "Federico Chiesa (FC Heritage)",
+          "note": "announced (leak) for the Hall of FUT Unleashed wave; rating and cost unknown",
+          "reward": "Federico Chiesa FC Heritage card (untradeable)"
+        },
+        "es": {
+          "category": "Jugadores",
+          "name": "Federico Chiesa (FC Heritage)",
+          "note": "anunciado (filtración) para la oleada Hall of FUT Unleashed; valoración y coste desconocidos",
+          "reward": "Carta FC Heritage de Federico Chiesa (intransferible)"
+        },
+        "nl": {
+          "category": "Spelers",
+          "name": "Federico Chiesa (FC Heritage)",
+          "note": "aangekondigd (lek) voor de Hall of FUT Unleashed-golf; rating en kosten onbekend",
+          "reward": "FC Heritage-kaart van Federico Chiesa (niet verhandelbaar)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Federico Chiesa (FC Heritage)",
+      "note": "annoncé (fuite) pour la vague Hall of FUT Unleashed ; note et coût inconnus",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "Carte FC Heritage de Federico Chiesa (non éch.)",
+      "rewardTradeable": false,
+      "type": "score",
+      "verify": true
+    },
+    {
+      "announced": true,
+      "category": "Joueurs",
+      "cid": "fc27-danjuma-heritage",
+      "expectedBy": "2026-11-20",
+      "expires": null,
+      "i18n": {
+        "en": {
+          "category": "Players",
+          "name": "Arnaut Danjuma (FC Heritage)",
+          "note": "announced (leak) for the Hall of FUT Unleashed wave; rating and cost unknown",
+          "reward": "Arnaut Danjuma FC Heritage card (untradeable)"
+        },
+        "es": {
+          "category": "Jugadores",
+          "name": "Arnaut Danjuma (FC Heritage)",
+          "note": "anunciado (filtración) para la oleada Hall of FUT Unleashed; valoración y coste desconocidos",
+          "reward": "Carta FC Heritage de Arnaut Danjuma (intransferible)"
+        },
+        "nl": {
+          "category": "Spelers",
+          "name": "Arnaut Danjuma (FC Heritage)",
+          "note": "aangekondigd (lek) voor de Hall of FUT Unleashed-golf; rating en kosten onbekend",
+          "reward": "FC Heritage-kaart van Arnaut Danjuma (niet verhandelbaar)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Arnaut Danjuma (FC Heritage)",
+      "note": "annoncé (fuite) pour la vague Hall of FUT Unleashed ; note et coût inconnus",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "Carte FC Heritage de Arnaut Danjuma (non éch.)",
+      "rewardTradeable": false,
+      "type": "score",
+      "verify": true
     }
   ],
-  "updatedAt": "2026-11-13T18:45:00Z"
+  "updatedAt": "2026-11-14T18:50:00Z"
 }
