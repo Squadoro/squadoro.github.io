@@ -1373,6 +1373,33 @@
    "sm": 3,
    "promo": "Hall of FUT Unleashed",
    "added": "2026-11-13"
+  },
+  {
+   "name": "Leon Goretzka",
+   "ovr": 86,
+   "kind": "special",
+   "rare": true,
+   "pos": "CDM",
+   "alt": [
+    "CM",
+    "CAM"
+   ],
+   "nation": "Allemagne",
+   "iso": "de",
+   "league": "Premier League",
+   "club": "Aston Villa",
+   "stats": [
+    82,
+    82,
+    85,
+    84,
+    84,
+    86
+   ],
+   "wf": 4,
+   "sm": 3,
+   "promo": "FC Heritage",
+   "added": "2026-11-14"
   }
  ]
 }
