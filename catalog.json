@@ -1,13 +1,13 @@
 {
   "i18n": {
     "en": {
-      "note": "Announced but not added (too vague): Aiden McGeady (Hall of FUT Unleashed) as an SBC or objective, expected before 20 November; October Ligue 1 POTM around 24 November (winner unknown)."
+      "note": "Announced but not added (too vague): Aiden McGeady (Hall of FUT Unleashed) as SBC or objective, expected before 20 November; Ligue 1 POTM for October around 24 November (winner unknown)."
     },
     "es": {
-      "note": "Anunciados pero no añadidos (demasiado vagos): Aiden McGeady (Hall of FUT Unleashed) como SBC u objetivo, esperado antes del 20 de noviembre; JDM de la Ligue 1 de octubre hacia el 24 de noviembre (ganador desconocido)."
+      "note": "Anunciados pero no añadidos (demasiado vagos): Aiden McGeady (Hall of FUT Unleashed) como SBC u objetivo, esperado antes del 20 de noviembre; POTM de Ligue 1 de octubre hacia el 24 de noviembre (ganador desconocido)."
     },
     "nl": {
-      "note": "Aangekondigd maar niet toegevoegd (te vaag): Aiden McGeady (Hall of FUT Unleashed) als SBC of doelstelling, verwacht vóór 20 november; Ligue 1 POTM van oktober rond 24 november (winnaar onbekend)."
+      "note": "Aangekondigd maar niet toegevoegd (te vaag): Aiden McGeady (Hall of FUT Unleashed) als SBC of doel, verwacht vóór 20 november; Ligue 1 POTM van oktober rond 24 november (winnaar onbekend)."
     }
   },
   "note": "Annoncés mais non ajoutés (trop vagues) : Aiden McGeady (Hall of FUT Unleashed) en DCE ou objectif, attendu avant le 20 novembre ; POTM Ligue 1 d'octobre vers le 24 novembre (gagnant inconnu).",
@@ -1145,46 +1145,6 @@
     },
     {
       "category": "Joueurs",
-      "cid": "fc27-calafiori-rttk",
-      "communityVerdict": "selon",
-      "expires": "2026-11-15",
-      "i18n": {
-        "en": {
-          "category": "Players",
-          "name": "Riccardo Calafiori (RTTK)",
-          "note": "released 8 November; estimated cost ~129 000 to 139 000 coins; 86 rating from a single tracker, position to check",
-          "reward": "Riccardo Calafiori RTTK card (86, untradeable)"
-        },
-        "es": {
-          "category": "Jugadores",
-          "name": "Riccardo Calafiori (RTTK)",
-          "note": "salió el 8 de noviembre; coste estimado ~129 000 a 139 000 monedas; media 86 según un solo seguimiento, posición por verificar",
-          "reward": "Carta RTTK de Riccardo Calafiori (86, intransferible)"
-        },
-        "nl": {
-          "category": "Spelers",
-          "name": "Riccardo Calafiori (RTTK)",
-          "note": "uitgekomen op 8 november; geschatte kosten ~129 000 tot 139 000 munten; rating 86 volgens één tracker, positie te controleren",
-          "reward": "RTTK-kaart van Riccardo Calafiori (86, niet verhandelbaar)"
-        }
-      },
-      "kinds": "all",
-      "maxOvr": 0,
-      "minOvr": 45,
-      "name": "Riccardo Calafiori (RTTK)",
-      "note": "sorti le 8 novembre ; coût estimé ~129 000 à 139 000 crédits ; note 86 selon un seul suivi, poste à vérifier",
-      "permanent": false,
-      "repeat": 1,
-      "reward": "Carte RTTK de Riccardo Calafiori (86, non éch.)",
-      "rewardCount": 1,
-      "rewardMax": 86,
-      "rewardMin": 86,
-      "target": 135000,
-      "type": "score",
-      "verify": true
-    },
-    {
-      "category": "Joueurs",
       "cid": "fc27-nwaneri-rttk",
       "expires": "2026-11-18",
       "i18n": {
@@ -2021,43 +1981,109 @@
       "verify": true
     },
     {
-      "announced": true,
       "category": "Joueurs",
       "cid": "fc27-danjuma-heritage",
-      "expectedBy": "2026-11-20",
-      "expires": null,
+      "expires": "2026-11-22",
       "i18n": {
         "en": {
           "category": "Players",
           "name": "Arnaut Danjuma (FC Heritage)",
-          "note": "announced (leak) for the Hall of FUT Unleashed wave; rating and cost unknown",
-          "reward": "Arnaut Danjuma FC Heritage card (untradeable)"
+          "note": "released today; rating 85 per fut.gg, ST; estimated cost ~48 000 to 50 000 coins",
+          "reward": "Arnaut Danjuma FC Heritage card (85, ST, untradeable)"
         },
         "es": {
           "category": "Jugadores",
           "name": "Arnaut Danjuma (FC Heritage)",
-          "note": "anunciado (filtración) para la oleada Hall of FUT Unleashed; valoración y coste desconocidos",
-          "reward": "Carta FC Heritage de Arnaut Danjuma (intransferible)"
+          "note": "salió hoy; valoración 85 según fut.gg, DC; coste estimado ~48 000 a 50 000 monedas",
+          "reward": "Carta FC Heritage de Arnaut Danjuma (85, DC, intransferible)"
         },
         "nl": {
           "category": "Spelers",
           "name": "Arnaut Danjuma (FC Heritage)",
-          "note": "aangekondigd (lek) voor de Hall of FUT Unleashed-golf; rating en kosten onbekend",
-          "reward": "FC Heritage-kaart van Arnaut Danjuma (niet verhandelbaar)"
+          "note": "vandaag uitgekomen; rating 85 volgens fut.gg, SP; geschatte kosten ~48 000 tot 50 000 munten",
+          "reward": "FC Heritage-kaart van Arnaut Danjuma (85, SP, niet verhandelbaar)"
         }
       },
       "kinds": "all",
       "maxOvr": 0,
       "minOvr": 45,
       "name": "Arnaut Danjuma (FC Heritage)",
-      "note": "annoncé (fuite) pour la vague Hall of FUT Unleashed ; note et coût inconnus",
+      "note": "sorti aujourd'hui ; note 85 d'après fut.gg, poste BU ; coût estimé ~48 000 à 50 000 crédits",
       "permanent": false,
       "repeat": 1,
-      "reward": "Carte FC Heritage de Arnaut Danjuma (non éch.)",
+      "reward": "Carte FC Heritage d'Arnaut Danjuma (85, BU, non éch.)",
+      "rewardCount": 1,
+      "rewardMax": 85,
+      "rewardMin": 85,
       "rewardTradeable": false,
+      "target": 50000,
       "type": "score",
+      "verify": true
+    },
+    {
+      "category": "Défis",
+      "cid": "fc27-hof-unleashed-challenge-2",
+      "conds": [
+        {
+          "field": "club",
+          "n": 3,
+          "op": "min",
+          "t": "same"
+        },
+        {
+          "field": "club",
+          "n": 5,
+          "op": "max",
+          "t": "distinct"
+        },
+        {
+          "n": 10,
+          "op": "min",
+          "q": 1,
+          "t": "qcount"
+        },
+        {
+          "n": 0,
+          "op": "min",
+          "t": "quality"
+        },
+        {
+          "n": 16,
+          "t": "chem"
+        }
+      ],
+      "expires": "2026-11-18",
+      "formation": "any",
+      "i18n": {
+        "en": {
+          "category": "Challenges",
+          "name": "Hall of FUT Unleashed Challenge 2",
+          "note": "released today, ends 18 November; formation and number of players not published, check in game",
+          "reward": "Small Electrum Players Pack"
+        },
+        "es": {
+          "category": "Desafíos",
+          "name": "Desafío Hall of FUT Unleashed 2",
+          "note": "salió hoy, termina el 18 de noviembre; formación y número de jugadores no publicados, compruébalo en el juego",
+          "reward": "Sobre pequeño de jugadores Electrum"
+        },
+        "nl": {
+          "category": "Uitdagingen",
+          "name": "Hall of FUT Unleashed-uitdaging 2",
+          "note": "vandaag uitgekomen, eindigt op 18 november; formatie en aantal spelers niet gepubliceerd, controleer in het spel",
+          "reward": "Klein Electrum-spelerspakket"
+        }
+      },
+      "layoutVerify": true,
+      "name": "Défi Hall of FUT Unleashed 2",
+      "note": "sorti aujourd'hui, fin le 18 novembre ; formation et nombre de joueurs non publiés, à vérifier dans le jeu",
+      "permanent": false,
+      "players": 11,
+      "repeat": 1,
+      "reward": "Petit pack de joueurs Electrum",
+      "type": "classic",
       "verify": true
     }
   ],
-  "updatedAt": "2026-11-14T18:50:00Z"
+  "updatedAt": "2026-11-15T18:40:00Z"
 }
