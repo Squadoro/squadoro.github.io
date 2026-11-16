@@ -1,16 +1,16 @@
 {
   "i18n": {
     "en": {
-      "note": "Announced but not added (too vague): Aiden McGeady (Hall of FUT Unleashed) as SBC or objective, expected before 20 November; Ligue 1 POTM for October around 24 November (winner unknown)."
+      "note": "Live but not included for lack of reliable requirements: 2x 80+ Upgrade (score target unknown, until 7 December) and Gallery Milestone (7 challenges, formation and player count unknown, final reward Paula León 83). Announced but too vague: Aiden McGeady (Hall of FUT Unleashed), Matchday Icon Pick (1 of 3), Ligue 1 POTM for October around 24 November."
     },
     "es": {
-      "note": "Anunciados pero no añadidos (demasiado vagos): Aiden McGeady (Hall of FUT Unleashed) como SBC u objetivo, esperado antes del 20 de noviembre; POTM de Ligue 1 de octubre hacia el 24 de noviembre (ganador desconocido)."
+      "note": "En línea pero no incluidos por falta de requisitos fiables: Mejora 2x 80+ (puntuación requerida desconocida, hasta el 7 de diciembre) y Gallery Milestone (7 desafíos, formación y número de jugadores desconocidos, recompensa final Paula León 83). Anunciados pero demasiado vagos: Aiden McGeady (Hall of FUT Unleashed), Elección de Icono Matchday (1 de 3), POTM de Ligue 1 de octubre hacia el 24 de noviembre."
     },
     "nl": {
-      "note": "Aangekondigd maar niet toegevoegd (te vaag): Aiden McGeady (Hall of FUT Unleashed) als SBC of doel, verwacht vóór 20 november; Ligue 1 POTM van oktober rond 24 november (winnaar onbekend)."
+      "note": "Live maar niet opgenomen bij gebrek aan betrouwbare eisen: 2x 80+ Upgrade (vereiste score onbekend, tot 7 december) en Gallery Milestone (7 uitdagingen, formatie en aantal spelers onbekend, eindbeloning Paula León 83). Aangekondigd maar te vaag: Aiden McGeady (Hall of FUT Unleashed), Matchday Icon Pick (1 uit 3), Ligue 1 POTM van oktober rond 24 november."
     }
   },
-  "note": "Annoncés mais non ajoutés (trop vagues) : Aiden McGeady (Hall of FUT Unleashed) en DCE ou objectif, attendu avant le 20 novembre ; POTM Ligue 1 d'octobre vers le 24 novembre (gagnant inconnu).",
+  "note": "En ligne mais non inclus faute de conditions fiables : Amélioration 2x 80+ (score requis inconnu, jusqu'au 7 décembre) et Gallery Milestone (7 défis, formation et nombre de joueurs inconnus, récompense finale Paula León 83). Annoncés mais trop vagues : Aiden McGeady (Hall of FUT Unleashed), Choix d'ICÔNE Matchday (1 parmi 3), POTM Ligue 1 d'octobre vers le 24 novembre.",
   "sbcs": [
     {
       "category": "Ligues",
@@ -1952,19 +1952,19 @@
         "en": {
           "category": "Players",
           "name": "Federico Chiesa (FC Heritage)",
-          "note": "announced (leak) for the Hall of FUT Unleashed wave; rating and cost unknown",
+          "note": "announced (leak) for the Hall of FUT Unleashed wave, 86 RM according to leaks; cost unknown",
           "reward": "Federico Chiesa FC Heritage card (untradeable)"
         },
         "es": {
           "category": "Jugadores",
           "name": "Federico Chiesa (FC Heritage)",
-          "note": "anunciado (filtración) para la oleada Hall of FUT Unleashed; valoración y coste desconocidos",
+          "note": "anunciado (filtración) para la oleada Hall of FUT Unleashed, 86 RM según filtraciones; coste desconocido",
           "reward": "Carta FC Heritage de Federico Chiesa (intransferible)"
         },
         "nl": {
           "category": "Spelers",
           "name": "Federico Chiesa (FC Heritage)",
-          "note": "aangekondigd (lek) voor de Hall of FUT Unleashed-golf; rating en kosten onbekend",
+          "note": "aangekondigd (lek) voor de Hall of FUT Unleashed-golf, 86 RM volgens lekken; kosten onbekend",
           "reward": "FC Heritage-kaart van Federico Chiesa (niet verhandelbaar)"
         }
       },
@@ -1972,7 +1972,7 @@
       "maxOvr": 0,
       "minOvr": 45,
       "name": "Federico Chiesa (FC Heritage)",
-      "note": "annoncé (fuite) pour la vague Hall of FUT Unleashed ; note et coût inconnus",
+      "note": "annoncé (fuite) pour la vague Hall of FUT Unleashed, 86 RM selon les fuites ; coût inconnu",
       "permanent": false,
       "repeat": 1,
       "reward": "Carte FC Heritage de Federico Chiesa (non éch.)",
@@ -2083,7 +2083,46 @@
       "reward": "Petit pack de joueurs Electrum",
       "type": "classic",
       "verify": true
+    },
+    {
+      "category": "Mises à niveau",
+      "cid": "fc27-tradeable-5x79-upgrade",
+      "expires": "2026-11-21",
+      "i18n": {
+        "en": {
+          "category": "Upgrades",
+          "name": "Tradeable 5x 79+ Upgrade",
+          "note": "repeatable 2 times; estimated cost ~7 400 coins",
+          "reward": "Pack of 5 Gold 79+ players (tradeable)"
+        },
+        "es": {
+          "category": "Mejoras",
+          "name": "Mejora 5x 79+ transferible",
+          "note": "repetible 2 veces; coste estimado ~7 400 monedas",
+          "reward": "Sobre de 5 jugadores oro 79+ (transferibles)"
+        },
+        "nl": {
+          "category": "Upgrades",
+          "name": "Verhandelbare 5x 79+ Upgrade",
+          "note": "2 keer herhaalbaar; geschatte kosten ~7 400 munten",
+          "reward": "Pakket met 5 gouden spelers 79+ (verhandelbaar)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Amélioration 5x 79+ échangeable",
+      "note": "refaisable 2 fois ; coût estimé ~7 400 crédits",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "Pack 5 joueurs Or 79+ (échangeables)",
+      "rewardCount": 5,
+      "rewardMin": 79,
+      "rewardTradeable": true,
+      "target": 7500,
+      "type": "score",
+      "verify": false
     }
   ],
-  "updatedAt": "2026-11-15T18:40:00Z"
+  "updatedAt": "2026-11-16T18:41:54Z"
 }
