@@ -1,16 +1,16 @@
 {
   "i18n": {
     "en": {
-      "note": "Live but not included for lack of reliable requirements: 2x 80+ Upgrade (score target unknown, until 7 December) and Gallery Milestone (7 challenges, formation and player count unknown, final reward Paula León 83). Announced but too vague: Aiden McGeady (Hall of FUT Unleashed), Matchday Icon Pick (1 of 3), Ligue 1 POTM for October around 24 November."
+      "note": "Live but not included for lack of reliable requirements: 2x 80+ Upgrade (score target unknown, until 7 December) and Gallery Milestone (7 challenges, formation and player count unknown, final reward Paula León 84). Announced but too vague: Aiden McGeady (Hall of FUT Unleashed), Base Hero Upgrade (Thunderstruck), Ligue 1 POTM for October (Sinayoko, Thauvin or Wahi, winner expected around 24 November)."
     },
     "es": {
-      "note": "En línea pero no incluidos por falta de requisitos fiables: Mejora 2x 80+ (puntuación requerida desconocida, hasta el 7 de diciembre) y Gallery Milestone (7 desafíos, formación y número de jugadores desconocidos, recompensa final Paula León 83). Anunciados pero demasiado vagos: Aiden McGeady (Hall of FUT Unleashed), Elección de Icono Matchday (1 de 3), POTM de Ligue 1 de octubre hacia el 24 de noviembre."
+      "note": "En línea pero no incluidos por falta de requisitos fiables: Mejora 2x 80+ (puntuación requerida desconocida, hasta el 7 de diciembre) y Gallery Milestone (7 desafíos, formación y número de jugadores desconocidos, recompensa final Paula León 84). Anunciados pero demasiado vagos: Aiden McGeady (Hall of FUT Unleashed), Mejora Base Hero (Thunderstruck), POTM de Ligue 1 de octubre (Sinayoko, Thauvin o Wahi, ganador previsto hacia el 24 de noviembre)."
     },
     "nl": {
-      "note": "Live maar niet opgenomen bij gebrek aan betrouwbare eisen: 2x 80+ Upgrade (vereiste score onbekend, tot 7 december) en Gallery Milestone (7 uitdagingen, formatie en aantal spelers onbekend, eindbeloning Paula León 83). Aangekondigd maar te vaag: Aiden McGeady (Hall of FUT Unleashed), Matchday Icon Pick (1 uit 3), Ligue 1 POTM van oktober rond 24 november."
+      "note": "Live maar niet opgenomen bij gebrek aan betrouwbare eisen: 2x 80+ Upgrade (vereiste score onbekend, tot 7 december) en Gallery Milestone (7 uitdagingen, formatie en aantal spelers onbekend, eindbeloning Paula León 84). Aangekondigd maar te vaag: Aiden McGeady (Hall of FUT Unleashed), Base Hero Upgrade (Thunderstruck), Ligue 1 POTM van oktober (Sinayoko, Thauvin of Wahi, winnaar verwacht rond 24 november)."
     }
   },
-  "note": "En ligne mais non inclus faute de conditions fiables : Amélioration 2x 80+ (score requis inconnu, jusqu'au 7 décembre) et Gallery Milestone (7 défis, formation et nombre de joueurs inconnus, récompense finale Paula León 83). Annoncés mais trop vagues : Aiden McGeady (Hall of FUT Unleashed), Choix d'ICÔNE Matchday (1 parmi 3), POTM Ligue 1 d'octobre vers le 24 novembre.",
+  "note": "En ligne mais non inclus faute de conditions fiables : Amélioration 2x 80+ (score requis inconnu, jusqu'au 7 décembre) et Gallery Milestone (7 défis, formation et nombre de joueurs inconnus, récompense finale Paula León 84). Annoncés mais trop vagues : Aiden McGeady (Hall of FUT Unleashed), mise à niveau Base Hero (Thunderstruck), POTM Ligue 1 d'octobre (Sinayoko, Thauvin ou Wahi, vainqueur attendu vers le 24 novembre).",
   "sbcs": [
     {
       "category": "Ligues",
@@ -1183,87 +1183,6 @@
       "verify": false
     },
     {
-      "category": "Joueurs",
-      "cid": "fc27-brobbey-rttk",
-      "communityVerdict": "oui",
-      "expires": "2026-11-16",
-      "i18n": {
-        "en": {
-          "category": "Players",
-          "name": "Brian Brobbey (RTTK)",
-          "note": "upgrades with Sunderland's Europa League results; estimated cost ~33 000 coins",
-          "reward": "Brian Brobbey RTTK card (85, untradeable)"
-        },
-        "es": {
-          "category": "Jugadores",
-          "name": "Brian Brobbey (RTTK)",
-          "note": "mejora con los resultados del Sunderland en la Europa League; coste estimado ~33 000 monedas",
-          "reward": "Carta RTTK de Brian Brobbey (85, intransferible)"
-        },
-        "nl": {
-          "category": "Spelers",
-          "name": "Brian Brobbey (RTTK)",
-          "note": "upgradet met de Europa League-resultaten van Sunderland; geschatte kosten ~33 000 munten",
-          "reward": "RTTK-kaart van Brian Brobbey (85, niet verhandelbaar)"
-        }
-      },
-      "kinds": "all",
-      "maxOvr": 0,
-      "minOvr": 45,
-      "name": "Brian Brobbey (RTTK)",
-      "note": "évolue avec les résultats de Sunderland en Ligue Europa ; coût estimé ~33 000 crédits",
-      "permanent": false,
-      "repeat": 1,
-      "reward": "Carte RTTK de Brian Brobbey (85, non éch.)",
-      "rewardCount": 1,
-      "rewardMax": 85,
-      "rewardMin": 85,
-      "target": 30000,
-      "type": "score",
-      "verify": false
-    },
-    {
-      "category": "Joueurs",
-      "cid": "fc27-shea-lacey-sp",
-      "communityVerdict": "oui",
-      "expires": "2026-11-16",
-      "i18n": {
-        "en": {
-          "category": "Players",
-          "name": "Shea Lacey (Star Performer)",
-          "note": "estimated cost ~46 000 coins",
-          "reward": "Shea Lacey Star Performer card (85, untradeable)"
-        },
-        "es": {
-          "category": "Jugadores",
-          "name": "Shea Lacey (Star Performer)",
-          "note": "coste estimado ~46 000 monedas",
-          "reward": "Carta Star Performer de Shea Lacey (85, intransferible)"
-        },
-        "nl": {
-          "category": "Spelers",
-          "name": "Shea Lacey (Star Performer)",
-          "note": "geschatte kosten ~46 000 munten",
-          "reward": "Star Performer-kaart van Shea Lacey (85, niet verhandelbaar)"
-        }
-      },
-      "kinds": "all",
-      "maxOvr": 0,
-      "minOvr": 45,
-      "name": "Shea Lacey (Star Performer)",
-      "note": "coût estimé ~46 000 crédits",
-      "permanent": false,
-      "repeat": 1,
-      "reward": "Carte Star Performer de Shea Lacey (85, non éch.)",
-      "rewardCount": 1,
-      "rewardMax": 85,
-      "rewardMin": 85,
-      "rewardTradeable": false,
-      "target": 42000,
-      "type": "score",
-      "verify": false
-    },
-    {
       "category": "Mises à niveau",
       "cid": "fc27-5x80-upgrade",
       "communityVerdict": "selon",
@@ -1300,46 +1219,6 @@
       "rewardMin": 80,
       "rewardTradeable": false,
       "target": 6750,
-      "type": "score",
-      "verify": false
-    },
-    {
-      "category": "Mises à niveau",
-      "cid": "fc27-3x79-upgrade",
-      "expires": "2026-11-16",
-      "i18n": {
-        "en": {
-          "category": "Upgrades",
-          "name": "3x 79+ Upgrade",
-          "note": "repeatable; estimated cost ~3 600 to 4 000 coins",
-          "reward": "Pack of 3 Gold 79+ players (untradeable)"
-        },
-        "es": {
-          "category": "Mejoras",
-          "name": "Mejora 3x 79+",
-          "note": "repetible; coste estimado ~3 600 a 4 000 monedas",
-          "reward": "Sobre de 3 jugadores oro 79+ (intransferible)"
-        },
-        "nl": {
-          "category": "Upgrades",
-          "name": "3x 79+ Upgrade",
-          "note": "herhaalbaar; geschatte kosten ~3 600 tot 4 000 munten",
-          "reward": "Pakket met 3 gouden spelers 79+ (niet verhandelbaar)"
-        }
-      },
-      "kinds": "all",
-      "maxOvr": 0,
-      "minOvr": 45,
-      "name": "Amélioration 3x 79+",
-      "note": "répétable ; coût estimé ~3 600 à 4 000 crédits",
-      "permanent": false,
-      "repeat": 1,
-      "repeatable": true,
-      "reward": "Pack 3 joueurs Or 79+ (non éch.)",
-      "rewardCount": 3,
-      "rewardMin": 79,
-      "rewardTradeable": false,
-      "target": 3200,
       "type": "score",
       "verify": false
     },
@@ -1837,72 +1716,6 @@
       "verify": true
     },
     {
-      "category": "Défis",
-      "cid": "fc27-hof-unleashed-challenge-1",
-      "conds": [
-        {
-          "n": 14,
-          "t": "chem"
-        },
-        {
-          "field": "league",
-          "n": 4,
-          "op": "max",
-          "t": "same"
-        },
-        {
-          "field": "league",
-          "n": 3,
-          "op": "min",
-          "t": "distinct"
-        },
-        {
-          "field": "nation",
-          "n": 6,
-          "op": "max",
-          "t": "distinct"
-        },
-        {
-          "n": 3,
-          "op": "min",
-          "q": 1,
-          "t": "qcount"
-        }
-      ],
-      "expires": "2026-11-16",
-      "formation": "4-5-1",
-      "i18n": {
-        "en": {
-          "category": "Challenges",
-          "name": "Hall of FUT Unleashed Challenge 1",
-          "note": "ends 16 November; the Bronze player requirement shown by futwiz is inconsistent, check in game",
-          "reward": "Gold Pack (untradeable)"
-        },
-        "es": {
-          "category": "Desafíos",
-          "name": "Desafío Hall of FUT Unleashed 1",
-          "note": "termina el 16 de noviembre; el requisito de jugadores Bronce que muestra futwiz es incoherente, compruébalo en el juego",
-          "reward": "Sobre Oro (intransferible)"
-        },
-        "nl": {
-          "category": "Uitdagingen",
-          "name": "Hall of FUT Unleashed-uitdaging 1",
-          "note": "eindigt op 16 november; de Bronze-spelervoorwaarde op futwiz klopt niet, controleer in het spel",
-          "reward": "Goudpakket (niet verhandelbaar)"
-        }
-      },
-      "layoutVerify": true,
-      "name": "Défi Hall of FUT Unleashed 1",
-      "note": "fin le 16 novembre ; la condition sur les joueurs Bronze affichée par futwiz est incohérente, à vérifier dans le jeu",
-      "permanent": false,
-      "players": 11,
-      "repeat": 1,
-      "reward": "Pack Or (non éch.)",
-      "rewardTradeable": false,
-      "type": "classic",
-      "verify": true
-    },
-    {
       "category": "Joueurs",
       "cid": "fc27-goretzka-heritage",
       "expires": "2026-11-21",
@@ -2122,7 +1935,207 @@
       "target": 7500,
       "type": "score",
       "verify": false
+    },
+    {
+      "category": "Mises à niveau",
+      "cid": "fc27-2x84-upgrade",
+      "expires": "2026-12-08",
+      "i18n": {
+        "en": {
+          "category": "Upgrades",
+          "name": "2x 84+ Upgrade",
+          "note": "released today; once only per futmind (futwiz lists it as repeatable); estimated cost ~9 350 coins",
+          "reward": "Pack of 2 Gold 84+ players (untradeable)"
+        },
+        "es": {
+          "category": "Mejoras",
+          "name": "Mejora 2x 84+",
+          "note": "salió hoy; una sola vez según futmind (futwiz la indica repetible); coste estimado ~9 350 monedas",
+          "reward": "Sobre de 2 jugadores oro 84+ (intransferible)"
+        },
+        "nl": {
+          "category": "Upgrades",
+          "name": "2x 84+ Upgrade",
+          "note": "vandaag uitgekomen; één keer volgens futmind (futwiz noemt hem herhaalbaar); geschatte kosten ~9 350 munten",
+          "reward": "Pakket met 2 gouden spelers 84+ (niet verhandelbaar)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Amélioration 2x 84+",
+      "note": "sorti aujourd'hui ; une seule fois selon futmind (futwiz l'indique refaisable) ; coût estimé ~9 350 crédits",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "Pack 2 joueurs Or 84+ (non éch.)",
+      "rewardCount": 2,
+      "rewardMin": 84,
+      "rewardTradeable": false,
+      "rewardValue": 30287,
+      "target": 9000,
+      "type": "score",
+      "verify": true
+    },
+    {
+      "category": "ICÔNES",
+      "cid": "fc27-base-icon-matchday-pick",
+      "expires": "2026-12-01",
+      "i18n": {
+        "en": {
+          "category": "Icons",
+          "name": "Base Icon Matchday Player Pick (1 of 3)",
+          "note": "released today; choice between Schmeichel (89), Barnes (88) and Petit (88), ratings per fut.gg and leaks; estimated cost ~307 000 coins",
+          "reward": "1 Base Icon of your choice out of 3: Schmeichel, Barnes or Petit (untradeable)"
+        },
+        "es": {
+          "category": "Iconos",
+          "name": "Elección de Icono base Matchday (1 de 3)",
+          "note": "salió hoy; elección entre Schmeichel (89), Barnes (88) y Petit (88), valoraciones según fut.gg y filtraciones; coste estimado ~307 000 monedas",
+          "reward": "1 Icono base a elegir entre 3: Schmeichel, Barnes o Petit (intransferible)"
+        },
+        "nl": {
+          "category": "Iconen",
+          "name": "Base Icon Matchday Player Pick (1 uit 3)",
+          "note": "vandaag uitgekomen; keuze tussen Schmeichel (89), Barnes (88) en Petit (88), ratings volgens fut.gg en lekken; geschatte kosten ~307 000 munten",
+          "reward": "1 basis-Icoon naar keuze uit 3: Schmeichel, Barnes of Petit (niet verhandelbaar)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Choix d'ICÔNE de base Matchday (1 parmi 3)",
+      "note": "sorti aujourd'hui ; choix entre Schmeichel (89), Barnes (88) et Petit (88), notes selon fut.gg et les fuites ; coût estimé ~307 000 crédits",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "1 ICÔNE de base au choix parmi 3 : Schmeichel, Barnes ou Petit (non éch.)",
+      "rewardCount": 1,
+      "rewardMax": 89,
+      "rewardMin": 88,
+      "rewardTradeable": false,
+      "target": 300000,
+      "type": "score",
+      "verify": true
+    },
+    {
+      "announced": true,
+      "category": "ICÔNES",
+      "cid": "fc27-batistuta-thunderstruck",
+      "expectedBy": "2026-11-20",
+      "expires": null,
+      "i18n": {
+        "en": {
+          "category": "Icons",
+          "name": "Gabriel Batistuta (Thunderstruck)",
+          "note": "announced (leak) for the Thunderstruck launch, expected on 20 November; 90 Icon per leaks; cost unknown",
+          "reward": "Gabriel Batistuta Thunderstruck Icon card (90, untradeable)"
+        },
+        "es": {
+          "category": "Iconos",
+          "name": "Gabriel Batistuta (Thunderstruck)",
+          "note": "anunciado (filtración) para el lanzamiento de Thunderstruck, previsto el 20 de noviembre; Icono 90 según filtraciones; coste desconocido",
+          "reward": "Carta Icono Thunderstruck de Gabriel Batistuta (90, intransferible)"
+        },
+        "nl": {
+          "category": "Iconen",
+          "name": "Gabriel Batistuta (Thunderstruck)",
+          "note": "aangekondigd (lek) voor de start van Thunderstruck, verwacht op 20 november; Icoon 90 volgens lekken; kosten onbekend",
+          "reward": "Thunderstruck Icoon-kaart van Gabriel Batistuta (90, niet verhandelbaar)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Gabriel Batistuta (Thunderstruck)",
+      "note": "annoncé (fuite) pour le lancement de Thunderstruck, attendu le 20 novembre ; ICÔNE 90 selon les fuites ; coût inconnu",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "Carte Thunderstruck ICÔNE de Gabriel Batistuta (90, non éch.)",
+      "rewardCount": 1,
+      "rewardMax": 90,
+      "rewardMin": 90,
+      "rewardTradeable": false,
+      "type": "score",
+      "verify": true
+    },
+    {
+      "announced": true,
+      "category": "ICÔNES",
+      "cid": "fc27-dunga-icon",
+      "expectedBy": "2026-11-20",
+      "expires": null,
+      "i18n": {
+        "en": {
+          "category": "Icons",
+          "name": "Dunga (Icon)",
+          "note": "announced (leak) for the first Thunderstruck week; 90 Icon per leaks; cost unknown",
+          "reward": "Dunga Icon card (90, untradeable)"
+        },
+        "es": {
+          "category": "Iconos",
+          "name": "Dunga (Icono)",
+          "note": "anunciado (filtración) para la primera semana de Thunderstruck; Icono 90 según filtraciones; coste desconocido",
+          "reward": "Carta Icono de Dunga (90, intransferible)"
+        },
+        "nl": {
+          "category": "Iconen",
+          "name": "Dunga (Icoon)",
+          "note": "aangekondigd (lek) voor de eerste Thunderstruck-week; Icoon 90 volgens lekken; kosten onbekend",
+          "reward": "Icoon-kaart van Dunga (90, niet verhandelbaar)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Dunga (ICÔNE)",
+      "note": "annoncé (fuite) pour la première semaine de Thunderstruck ; ICÔNE 90 selon les fuites ; coût inconnu",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "Carte ICÔNE de Dunga (90, non éch.)",
+      "rewardCount": 1,
+      "rewardMax": 90,
+      "rewardMin": 90,
+      "rewardTradeable": false,
+      "type": "score",
+      "verify": true
+    },
+    {
+      "announced": true,
+      "category": "ICÔNES",
+      "cid": "fc27-pepe-desailly-icon-pick",
+      "expectedBy": "2026-11-20",
+      "expires": null,
+      "i18n": {
+        "en": {
+          "category": "Icons",
+          "name": "Pepe or Desailly Icon Pick",
+          "note": "announced (leak) for the first Thunderstruck week; ratings and cost unknown",
+          "reward": "1 Icon of your choice: Pepe or Desailly (untradeable)"
+        },
+        "es": {
+          "category": "Iconos",
+          "name": "Elección de Icono Pepe o Desailly",
+          "note": "anunciado (filtración) para la primera semana de Thunderstruck; valoraciones y coste desconocidos",
+          "reward": "1 Icono a elegir: Pepe o Desailly (intransferible)"
+        },
+        "nl": {
+          "category": "Iconen",
+          "name": "Pepe of Desailly Icon Pick",
+          "note": "aangekondigd (lek) voor de eerste Thunderstruck-week; ratings en kosten onbekend",
+          "reward": "1 Icoon naar keuze: Pepe of Desailly (niet verhandelbaar)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Choix d'ICÔNE Pepe ou Desailly",
+      "note": "annoncé (fuite) pour la première semaine de Thunderstruck ; notes et coût inconnus",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "1 ICÔNE au choix : Pepe ou Desailly (non éch.)",
+      "rewardTradeable": false,
+      "type": "score",
+      "verify": true
     }
   ],
-  "updatedAt": "2026-11-16T18:41:54Z"
+  "updatedAt": "2026-11-17T18:45:00Z"
 }
