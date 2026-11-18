@@ -1,16 +1,16 @@
 {
   "i18n": {
     "en": {
-      "note": "Live but not included for lack of reliable requirements: 2x 80+ Upgrade (score target unknown, until 7 December) and Gallery Milestone (7 challenges, formation and player count unknown, final reward Paula León 84). Announced but too vague: Aiden McGeady (Hall of FUT Unleashed), Base Hero Upgrade (Thunderstruck), Ligue 1 POTM for October (Sinayoko, Thauvin or Wahi, winner expected around 24 November)."
+      "note": "Live but not included for lack of reliable requirements: 2x 80+ Upgrade (score target unknown, until 7 December) and Gallery Milestone (7 challenges, formation and player count unknown, final reward Paula León 84). Announced but too vague: Aiden McGeady (Hall of FUT Unleashed), Base Hero Upgrade and Paulo Dybala Flashback (Thunderstruck), Party Bag SBC (Destined for Glory or Future Stars), Ligue 1 POTM for October (winner expected around 24 November)."
     },
     "es": {
-      "note": "En línea pero no incluidos por falta de requisitos fiables: Mejora 2x 80+ (puntuación requerida desconocida, hasta el 7 de diciembre) y Gallery Milestone (7 desafíos, formación y número de jugadores desconocidos, recompensa final Paula León 84). Anunciados pero demasiado vagos: Aiden McGeady (Hall of FUT Unleashed), Mejora Base Hero (Thunderstruck), POTM de Ligue 1 de octubre (Sinayoko, Thauvin o Wahi, ganador previsto hacia el 24 de noviembre)."
+      "note": "En línea pero no incluidos por falta de requisitos fiables: Mejora 2x 80+ (puntuación requerida desconocida, hasta el 7 de diciembre) y Gallery Milestone (7 desafíos, formación y número de jugadores desconocidos, recompensa final Paula León 84). Anunciados pero demasiado vagos: Aiden McGeady (Hall of FUT Unleashed), Mejora Base Hero y Paulo Dybala Flashback (Thunderstruck), SBC Party Bag (Destined for Glory o Future Stars), POTM de Ligue 1 de octubre (ganador previsto hacia el 24 de noviembre)."
     },
     "nl": {
-      "note": "Live maar niet opgenomen bij gebrek aan betrouwbare eisen: 2x 80+ Upgrade (vereiste score onbekend, tot 7 december) en Gallery Milestone (7 uitdagingen, formatie en aantal spelers onbekend, eindbeloning Paula León 84). Aangekondigd maar te vaag: Aiden McGeady (Hall of FUT Unleashed), Base Hero Upgrade (Thunderstruck), Ligue 1 POTM van oktober (Sinayoko, Thauvin of Wahi, winnaar verwacht rond 24 november)."
+      "note": "Live maar niet opgenomen bij gebrek aan betrouwbare eisen: 2x 80+ Upgrade (vereiste score onbekend, tot 7 december) en Gallery Milestone (7 uitdagingen, formatie en aantal spelers onbekend, eindbeloning Paula León 84). Aangekondigd maar te vaag: Aiden McGeady (Hall of FUT Unleashed), Base Hero Upgrade en Paulo Dybala Flashback (Thunderstruck), Party Bag-SBC (Destined for Glory of Future Stars), Ligue 1 POTM van oktober (winnaar verwacht rond 24 november)."
     }
   },
-  "note": "En ligne mais non inclus faute de conditions fiables : Amélioration 2x 80+ (score requis inconnu, jusqu'au 7 décembre) et Gallery Milestone (7 défis, formation et nombre de joueurs inconnus, récompense finale Paula León 84). Annoncés mais trop vagues : Aiden McGeady (Hall of FUT Unleashed), mise à niveau Base Hero (Thunderstruck), POTM Ligue 1 d'octobre (Sinayoko, Thauvin ou Wahi, vainqueur attendu vers le 24 novembre).",
+  "note": "En ligne mais non inclus faute de conditions fiables : Amélioration 2x 80+ (score requis inconnu, jusqu'au 7 décembre) et Gallery Milestone (7 défis, formation et nombre de joueurs inconnus, récompense finale Paula León 84). Annoncés mais trop vagues : Aiden McGeady (Hall of FUT Unleashed), mise à niveau Base Hero et Paulo Dybala Flashback (Thunderstruck), DCE Party Bag (Destined for Glory ou Future Stars), POTM Ligue 1 d'octobre (vainqueur attendu vers le 24 novembre).",
   "sbcs": [
     {
       "category": "Ligues",
@@ -1144,85 +1144,6 @@
       "verify": false
     },
     {
-      "category": "Joueurs",
-      "cid": "fc27-nwaneri-rttk",
-      "expires": "2026-11-18",
-      "i18n": {
-        "en": {
-          "category": "Players",
-          "name": "Ethan Nwaneri (RTTK)",
-          "note": "released today; estimated cost ~20 000 coins",
-          "reward": "Ethan Nwaneri RTTK card (85, untradeable)"
-        },
-        "es": {
-          "category": "Jugadores",
-          "name": "Ethan Nwaneri (RTTK)",
-          "note": "salió hoy; coste estimado ~20 000 monedas",
-          "reward": "Carta RTTK de Ethan Nwaneri (85, intransferible)"
-        },
-        "nl": {
-          "category": "Spelers",
-          "name": "Ethan Nwaneri (RTTK)",
-          "note": "vandaag uitgekomen; geschatte kosten ~20 000 munten",
-          "reward": "RTTK-kaart van Ethan Nwaneri (85, niet verhandelbaar)"
-        }
-      },
-      "kinds": "all",
-      "maxOvr": 0,
-      "minOvr": 45,
-      "name": "Ethan Nwaneri (RTTK)",
-      "note": "sorti aujourd'hui ; coût estimé ~20 000 crédits",
-      "permanent": false,
-      "repeat": 1,
-      "reward": "Carte RTTK de Ethan Nwaneri (85, non éch.)",
-      "rewardCount": 1,
-      "rewardMax": 85,
-      "rewardMin": 85,
-      "target": 20000,
-      "type": "score",
-      "verify": false
-    },
-    {
-      "category": "Mises à niveau",
-      "cid": "fc27-5x80-upgrade",
-      "communityVerdict": "selon",
-      "expires": "2026-11-17",
-      "i18n": {
-        "en": {
-          "category": "Upgrades",
-          "name": "5x 80+ Upgrade",
-          "note": "repeatable once, refreshes every 2 days; estimated cost ~8 000 coins",
-          "reward": "Pack of 5 Gold 80+ players (untradeable)"
-        },
-        "es": {
-          "category": "Mejoras",
-          "name": "Mejora 5x 80+",
-          "note": "repetible una vez, se renueva cada 2 días; coste estimado ~8 000 monedas",
-          "reward": "Sobre de 5 jugadores oro 80+ (intransferible)"
-        },
-        "nl": {
-          "category": "Upgrades",
-          "name": "5x 80+ Upgrade",
-          "note": "één keer herhaalbaar, vernieuwt elke 2 dagen; geschatte kosten ~8 000 munten",
-          "reward": "Pakket met 5 gouden spelers 80+ (niet verhandelbaar)"
-        }
-      },
-      "kinds": "all",
-      "maxOvr": 0,
-      "minOvr": 45,
-      "name": "Amélioration 5x 80+",
-      "note": "refaisable une fois, se renouvelle tous les 2 jours ; coût estimé ~8 000 crédits",
-      "permanent": false,
-      "repeat": 1,
-      "reward": "Pack 5 joueurs Or 80+ (non éch.)",
-      "rewardCount": 5,
-      "rewardMin": 80,
-      "rewardTradeable": false,
-      "target": 6750,
-      "type": "score",
-      "verify": false
-    },
-    {
       "category": "Défis",
       "cid": "fc27-red-bull-wiiings",
       "communityVerdict": "oui",
@@ -1834,70 +1755,6 @@
       "verify": true
     },
     {
-      "category": "Défis",
-      "cid": "fc27-hof-unleashed-challenge-2",
-      "conds": [
-        {
-          "field": "club",
-          "n": 3,
-          "op": "min",
-          "t": "same"
-        },
-        {
-          "field": "club",
-          "n": 5,
-          "op": "max",
-          "t": "distinct"
-        },
-        {
-          "n": 10,
-          "op": "min",
-          "q": 1,
-          "t": "qcount"
-        },
-        {
-          "n": 0,
-          "op": "min",
-          "t": "quality"
-        },
-        {
-          "n": 16,
-          "t": "chem"
-        }
-      ],
-      "expires": "2026-11-18",
-      "formation": "any",
-      "i18n": {
-        "en": {
-          "category": "Challenges",
-          "name": "Hall of FUT Unleashed Challenge 2",
-          "note": "released today, ends 18 November; formation and number of players not published, check in game",
-          "reward": "Small Electrum Players Pack"
-        },
-        "es": {
-          "category": "Desafíos",
-          "name": "Desafío Hall of FUT Unleashed 2",
-          "note": "salió hoy, termina el 18 de noviembre; formación y número de jugadores no publicados, compruébalo en el juego",
-          "reward": "Sobre pequeño de jugadores Electrum"
-        },
-        "nl": {
-          "category": "Uitdagingen",
-          "name": "Hall of FUT Unleashed-uitdaging 2",
-          "note": "vandaag uitgekomen, eindigt op 18 november; formatie en aantal spelers niet gepubliceerd, controleer in het spel",
-          "reward": "Klein Electrum-spelerspakket"
-        }
-      },
-      "layoutVerify": true,
-      "name": "Défi Hall of FUT Unleashed 2",
-      "note": "sorti aujourd'hui, fin le 18 novembre ; formation et nombre de joueurs non publiés, à vérifier dans le jeu",
-      "permanent": false,
-      "players": 11,
-      "repeat": 1,
-      "reward": "Petit pack de joueurs Electrum",
-      "type": "classic",
-      "verify": true
-    },
-    {
       "category": "Mises à niveau",
       "cid": "fc27-tradeable-5x79-upgrade",
       "expires": "2026-11-21",
@@ -2026,19 +1883,19 @@
         "en": {
           "category": "Icons",
           "name": "Gabriel Batistuta (Thunderstruck)",
-          "note": "announced (leak) for the Thunderstruck launch, expected on 20 November; 90 Icon per leaks; cost unknown",
+          "note": "announced (leak) for Thunderstruck; some leaks place him in the Token Store rather than an SBC; cost unknown",
           "reward": "Gabriel Batistuta Thunderstruck Icon card (90, untradeable)"
         },
         "es": {
           "category": "Iconos",
           "name": "Gabriel Batistuta (Thunderstruck)",
-          "note": "anunciado (filtración) para el lanzamiento de Thunderstruck, previsto el 20 de noviembre; Icono 90 según filtraciones; coste desconocido",
+          "note": "anunciado (filtración) para Thunderstruck; algunas filtraciones lo sitúan en la tienda de fichas en lugar de un SBC; coste desconocido",
           "reward": "Carta Icono Thunderstruck de Gabriel Batistuta (90, intransferible)"
         },
         "nl": {
           "category": "Iconen",
           "name": "Gabriel Batistuta (Thunderstruck)",
-          "note": "aangekondigd (lek) voor de start van Thunderstruck, verwacht op 20 november; Icoon 90 volgens lekken; kosten onbekend",
+          "note": "aangekondigd (lek) voor Thunderstruck; sommige lekken plaatsen hem in de tokenwinkel in plaats van een SBC; kosten onbekend",
           "reward": "Thunderstruck Icoon-kaart van Gabriel Batistuta (90, niet verhandelbaar)"
         }
       },
@@ -2046,7 +1903,7 @@
       "maxOvr": 0,
       "minOvr": 45,
       "name": "Gabriel Batistuta (Thunderstruck)",
-      "note": "annoncé (fuite) pour le lancement de Thunderstruck, attendu le 20 novembre ; ICÔNE 90 selon les fuites ; coût inconnu",
+      "note": "annoncé (fuite) pour Thunderstruck ; certaines fuites le placent dans la boutique de jetons plutôt qu'en DCE ; coût inconnu",
       "permanent": false,
       "repeat": 1,
       "reward": "Carte Thunderstruck ICÔNE de Gabriel Batistuta (90, non éch.)",
@@ -2135,7 +1992,274 @@
       "rewardTradeable": false,
       "type": "score",
       "verify": true
+    },
+    {
+      "category": "Joueurs",
+      "cid": "fc27-cooper-showdown",
+      "expires": "2026-11-21",
+      "i18n": {
+        "en": {
+          "category": "Players",
+          "name": "Michelle Cooper (Showdown)",
+          "note": "released 18 November, NWSL Final Washington Spirit v KC Current; 1 squad of 11",
+          "reward": "Showdown Michelle Cooper 85 card (untradeable)"
+        },
+        "es": {
+          "category": "Jugadores",
+          "name": "Michelle Cooper (Showdown)",
+          "note": "salió el 18 de noviembre, final de la NWSL Washington Spirit v KC Current; 1 plantilla de 11",
+          "reward": "Carta Showdown 85 de Michelle Cooper (intransferible)"
+        },
+        "nl": {
+          "category": "Spelers",
+          "name": "Michelle Cooper (Showdown)",
+          "note": "uitgekomen op 18 november, NWSL-finale Washington Spirit v KC Current; 1 team van 11",
+          "reward": "Showdown-kaart 85 van Michelle Cooper (niet verhandelbaar)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Michelle Cooper (Showdown)",
+      "note": "sorti le 18 novembre, finale NWSL Washington Spirit v KC Current ; 1 équipe de 11",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "Carte Showdown 85 de Michelle Cooper (non éch.)",
+      "rewardCount": 1,
+      "rewardMax": 85,
+      "rewardMin": 85,
+      "rewardTradeable": false,
+      "target": 33000,
+      "type": "score",
+      "verify": false
+    },
+    {
+      "category": "Joueurs",
+      "cid": "fc27-di-guglielmo-showdown",
+      "expires": "2026-11-21",
+      "i18n": {
+        "en": {
+          "category": "Players",
+          "name": "Lucia Di Guglielmo (Showdown)",
+          "note": "released 18 November, NWSL Final Washington Spirit v KC Current; 1 squad of 11",
+          "reward": "Showdown Lucia Di Guglielmo 85 card (untradeable)"
+        },
+        "es": {
+          "category": "Jugadores",
+          "name": "Lucia Di Guglielmo (Showdown)",
+          "note": "salió el 18 de noviembre, final de la NWSL Washington Spirit v KC Current; 1 plantilla de 11",
+          "reward": "Carta Showdown 85 de Lucia Di Guglielmo (intransferible)"
+        },
+        "nl": {
+          "category": "Spelers",
+          "name": "Lucia Di Guglielmo (Showdown)",
+          "note": "uitgekomen op 18 november, NWSL-finale Washington Spirit v KC Current; 1 team van 11",
+          "reward": "Showdown-kaart 85 van Lucia Di Guglielmo (niet verhandelbaar)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Lucia Di Guglielmo (Showdown)",
+      "note": "sorti le 18 novembre, finale NWSL Washington Spirit v KC Current ; 1 équipe de 11",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "Carte Showdown 85 de Lucia Di Guglielmo (non éch.)",
+      "rewardCount": 1,
+      "rewardMax": 85,
+      "rewardMin": 85,
+      "rewardTradeable": false,
+      "target": 33000,
+      "type": "score",
+      "verify": false
+    },
+    {
+      "category": "ICÔNES",
+      "cid": "fc27-max88-base-icon-upgrade",
+      "expires": "2026-11-23",
+      "i18n": {
+        "en": {
+          "category": "Icons",
+          "name": "Max 88 Base Icon Upgrade",
+          "note": "repeatable once; 43 Base Icons in the pool according to leaks, minimum rating not published; estimated cost ~143 000 to 193 000 coins",
+          "reward": "Pack with 1 Base Icon up to 88 (untradeable)"
+        },
+        "es": {
+          "category": "Iconos",
+          "name": "Mejora de icono base máx. 88",
+          "note": "repetible una vez; 43 iconos base en el grupo según filtraciones, valoración mínima no publicada; coste estimado ~143 000 a 193 000 monedas",
+          "reward": "Sobre con 1 icono base hasta 88 (intransferible)"
+        },
+        "nl": {
+          "category": "Iconen",
+          "name": "Max 88 basis-icoon Upgrade",
+          "note": "één keer herhaalbaar; 43 basis-iconen in de pool volgens lekken, minimale beoordeling niet gepubliceerd; geschatte kosten ~143 000 tot 193 000 munten",
+          "reward": "Pakket met 1 basis-icoon tot 88 (niet verhandelbaar)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Amélioration ICÔNE de base Max 88",
+      "note": "répétable une fois ; 43 ICÔNES de base dans le lot selon les fuites, note minimale non publiée ; coût estimé ~143 000 à 193 000 crédits",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "Pack 1 ICÔNE de base jusqu'à 88 (non éch.)",
+      "rewardCount": 1,
+      "rewardMax": 88,
+      "rewardMin": 75,
+      "rewardTradeable": false,
+      "target": 200000,
+      "type": "score",
+      "verify": true
+    },
+    {
+      "category": "Défis",
+      "cid": "fc27-hof-unleashed-challenge-3",
+      "conds": [
+        {
+          "n": 18,
+          "t": "chem"
+        },
+        {
+          "field": "league",
+          "n": 4,
+          "op": "min",
+          "t": "same"
+        },
+        {
+          "field": "club",
+          "n": 3,
+          "op": "max",
+          "t": "same"
+        },
+        {
+          "field": "club",
+          "n": 5,
+          "op": "max",
+          "t": "distinct"
+        },
+        {
+          "field": "nation",
+          "n": 2,
+          "op": "min",
+          "t": "distinct"
+        },
+        {
+          "n": 1,
+          "op": "min",
+          "t": "quality"
+        }
+      ],
+      "expires": "2026-11-21",
+      "formation": "3-4-1-2",
+      "i18n": {
+        "en": {
+          "category": "Challenges",
+          "name": "Hall of FUT Unleashed Challenge 3",
+          "note": "released 18 November; formation and number of players according to futwiz",
+          "reward": "Mixed Players Pack (untradeable)"
+        },
+        "es": {
+          "category": "Desafíos",
+          "name": "Desafío Hall of FUT Unleashed 3",
+          "note": "salió el 18 de noviembre; formación y número de jugadores según futwiz",
+          "reward": "Sobre de jugadores variado (intransferible)"
+        },
+        "nl": {
+          "category": "Uitdagingen",
+          "name": "Hall of FUT Unleashed-uitdaging 3",
+          "note": "uitgekomen op 18 november; formatie en aantal spelers volgens futwiz",
+          "reward": "Gemengd spelerspakket (niet verhandelbaar)"
+        }
+      },
+      "layoutVerify": false,
+      "name": "Défi Hall of FUT Unleashed 3",
+      "note": "sorti le 18 novembre ; formation et nombre de joueurs d'après futwiz",
+      "permanent": false,
+      "players": 11,
+      "repeat": 1,
+      "reward": "Pack de joueurs mixte (non éch.)",
+      "rewardTradeable": false,
+      "type": "classic",
+      "verify": false
+    },
+    {
+      "announced": true,
+      "category": "Joueurs",
+      "cid": "fc27-davies-thunderstruck",
+      "expectedBy": "2026-11-27",
+      "expires": null,
+      "i18n": {
+        "en": {
+          "category": "Players",
+          "name": "Alphonso Davies (Thunderstruck)",
+          "note": "announced (leak) for Thunderstruck, release between 20 and 27 November; rating and cost unknown",
+          "reward": "Alphonso Davies Thunderstruck card (untradeable)"
+        },
+        "es": {
+          "category": "Jugadores",
+          "name": "Alphonso Davies (Thunderstruck)",
+          "note": "anunciado (filtración) para Thunderstruck, salida entre el 20 y el 27 de noviembre; valoración y coste desconocidos",
+          "reward": "Carta Thunderstruck de Alphonso Davies (intransferible)"
+        },
+        "nl": {
+          "category": "Spelers",
+          "name": "Alphonso Davies (Thunderstruck)",
+          "note": "aangekondigd (lek) voor Thunderstruck, release tussen 20 en 27 november; beoordeling en kosten onbekend",
+          "reward": "Thunderstruck-kaart van Alphonso Davies (niet verhandelbaar)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Alphonso Davies (Thunderstruck)",
+      "note": "annoncé (fuite) pour Thunderstruck, sortie entre le 20 et le 27 novembre ; note et coût inconnus",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "Carte Thunderstruck d'Alphonso Davies (non éch.)",
+      "rewardTradeable": false,
+      "type": "score",
+      "verify": true
+    },
+    {
+      "announced": true,
+      "category": "Joueurs",
+      "cid": "fc27-diaby-thunderstruck",
+      "expectedBy": "2026-11-27",
+      "expires": null,
+      "i18n": {
+        "en": {
+          "category": "Players",
+          "name": "Moussa Diaby (Thunderstruck)",
+          "note": "announced (leak) for Thunderstruck, release between 20 and 27 November; rating and cost unknown",
+          "reward": "Moussa Diaby Thunderstruck card (untradeable)"
+        },
+        "es": {
+          "category": "Jugadores",
+          "name": "Moussa Diaby (Thunderstruck)",
+          "note": "anunciado (filtración) para Thunderstruck, salida entre el 20 y el 27 de noviembre; valoración y coste desconocidos",
+          "reward": "Carta Thunderstruck de Moussa Diaby (intransferible)"
+        },
+        "nl": {
+          "category": "Spelers",
+          "name": "Moussa Diaby (Thunderstruck)",
+          "note": "aangekondigd (lek) voor Thunderstruck, release tussen 20 en 27 november; beoordeling en kosten onbekend",
+          "reward": "Thunderstruck-kaart van Moussa Diaby (niet verhandelbaar)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Moussa Diaby (Thunderstruck)",
+      "note": "annoncé (fuite) pour Thunderstruck, sortie entre le 20 et le 27 novembre ; note et coût inconnus",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "Carte Thunderstruck de Moussa Diaby (non éch.)",
+      "rewardTradeable": false,
+      "type": "score",
+      "verify": true
     }
   ],
-  "updatedAt": "2026-11-17T18:45:00Z"
+  "updatedAt": "2026-11-18T18:45:00Z"
 }
