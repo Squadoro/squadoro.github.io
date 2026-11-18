@@ -2151,6 +2151,97 @@
    "added": "2026-11-01",
    "nation": "Allemagne",
    "iso": "de"
+  },
+  {
+   "name": "Alexander Schlager",
+   "ovr": 80,
+   "kind": "totw",
+   "rare": true,
+   "pos": "GK",
+   "alt": [],
+   "nation": "Autriche",
+   "iso": "at",
+   "league": "Bundesliga",
+   "club": "SV Werder Bremen",
+   "added": "2026-11-18"
+  },
+  {
+   "name": "Maya Le Tissier",
+   "ovr": 86,
+   "kind": "totw",
+   "rare": true,
+   "pos": "CB",
+   "alt": [],
+   "nation": "Angleterre",
+   "iso": "gb-eng",
+   "league": "Barclays WSL",
+   "club": "Manchester Utd",
+   "added": "2026-11-18"
+  },
+  {
+   "name": "Benjamin White",
+   "ovr": 84,
+   "kind": "totw",
+   "rare": true,
+   "pos": "RB",
+   "alt": [],
+   "nation": "Angleterre",
+   "iso": "gb-eng",
+   "league": "Premier League",
+   "club": "Arsenal",
+   "added": "2026-11-18"
+  },
+  {
+   "name": "Luka Vušković",
+   "ovr": 83,
+   "kind": "totw",
+   "rare": true,
+   "pos": "CB",
+   "alt": [],
+   "nation": "Croatie",
+   "iso": "hr",
+   "league": "Premier League",
+   "club": "Brighton",
+   "added": "2026-11-18"
+  },
+  {
+   "name": "Jaheim Headley",
+   "ovr": 80,
+   "kind": "totw",
+   "rare": true,
+   "pos": "LB",
+   "alt": [],
+   "nation": "Angleterre",
+   "iso": "gb-eng",
+   "league": "EFL League Two",
+   "club": "Port Vale",
+   "added": "2026-11-18"
+  },
+  {
+   "name": "Nathan Ngoy",
+   "ovr": 80,
+   "kind": "totw",
+   "rare": true,
+   "pos": "CB",
+   "alt": [],
+   "nation": "Belgique",
+   "iso": "be",
+   "league": "Ligue 1",
+   "club": "LOSC Lille",
+   "added": "2026-11-18"
+  },
+  {
+   "name": "Svea Stoldt",
+   "ovr": 80,
+   "kind": "totw",
+   "rare": true,
+   "pos": "CB",
+   "alt": [],
+   "nation": "Allemagne",
+   "iso": "de",
+   "league": "Frauen-Bundesliga",
+   "club": "Hamburger SV",
+   "added": "2026-11-18"
   }
  ]
 }
