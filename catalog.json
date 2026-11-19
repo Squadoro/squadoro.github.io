@@ -1,16 +1,16 @@
 {
   "i18n": {
     "en": {
-      "note": "Live but not included for lack of reliable requirements: 2x 80+ Upgrade (score target unknown, until 7 December) and Gallery Milestone (7 challenges, formation and player count unknown, final reward Paula León 84). Announced but too vague: Aiden McGeady (Hall of FUT Unleashed), Base Hero Upgrade and Paulo Dybala Flashback (Thunderstruck), Party Bag SBC (Destined for Glory or Future Stars), Ligue 1 POTM for October (winner expected around 24 November)."
+      "note": "Live but not included for lack of reliable requirements: 2x 80+ Upgrade (score target unknown, until 7 December) and Gallery Milestone (7 challenges, formation and player count unknown, final reward Paula León 84). Announced but too vague: Thunderstruck wave 1 (Dybala Flashback, João Félix, Isco, Khéphren Thuram, Araujo, Villalibre, Bahoya, van Bergen FC Heritage: SBCs or objectives, by 27 November; Batistuta removed, expected in the Token Store), Aiden McGeady (Hall of FUT Unleashed), Base Hero Upgrade, Ligue 1 POTM for October (winner expected around 24 November)."
     },
     "es": {
-      "note": "En línea pero no incluidos por falta de requisitos fiables: Mejora 2x 80+ (puntuación requerida desconocida, hasta el 7 de diciembre) y Gallery Milestone (7 desafíos, formación y número de jugadores desconocidos, recompensa final Paula León 84). Anunciados pero demasiado vagos: Aiden McGeady (Hall of FUT Unleashed), Mejora Base Hero y Paulo Dybala Flashback (Thunderstruck), SBC Party Bag (Destined for Glory o Future Stars), POTM de Ligue 1 de octubre (ganador previsto hacia el 24 de noviembre)."
+      "note": "En línea pero no incluidos por falta de requisitos fiables: Mejora 2x 80+ (puntuación requerida desconocida, hasta el 7 de diciembre) y Gallery Milestone (7 desafíos, formación y número de jugadores desconocidos, recompensa final Paula León 84). Anunciados pero demasiado vagos: oleada 1 de Thunderstruck (Dybala Flashback, João Félix, Isco, Khéphren Thuram, Araujo, Villalibre, Bahoya, van Bergen FC Heritage: SBC u objetivos, antes del 27 de noviembre; Batistuta retirado, previsto en la tienda de fichas), Aiden McGeady (Hall of FUT Unleashed), mejora Base Hero, POTM de Ligue 1 de octubre (ganador previsto hacia el 24 de noviembre)."
     },
     "nl": {
-      "note": "Live maar niet opgenomen bij gebrek aan betrouwbare eisen: 2x 80+ Upgrade (vereiste score onbekend, tot 7 december) en Gallery Milestone (7 uitdagingen, formatie en aantal spelers onbekend, eindbeloning Paula León 84). Aangekondigd maar te vaag: Aiden McGeady (Hall of FUT Unleashed), Base Hero Upgrade en Paulo Dybala Flashback (Thunderstruck), Party Bag-SBC (Destined for Glory of Future Stars), Ligue 1 POTM van oktober (winnaar verwacht rond 24 november)."
+      "note": "Live maar niet opgenomen bij gebrek aan betrouwbare eisen: 2x 80+ Upgrade (vereiste score onbekend, tot 7 december) en Gallery Milestone (7 uitdagingen, formatie en aantal spelers onbekend, eindbeloning Paula León 84). Aangekondigd maar te vaag: Thunderstruck-golf 1 (Dybala Flashback, João Félix, Isco, Khéphren Thuram, Araujo, Villalibre, Bahoya, van Bergen FC Heritage: SBC's of doelstellingen, tegen 27 november; Batistuta verwijderd, verwacht in de tokenwinkel), Aiden McGeady (Hall of FUT Unleashed), Base Hero-upgrade, Ligue 1 POTM van oktober (winnaar verwacht rond 24 november)."
     }
   },
-  "note": "En ligne mais non inclus faute de conditions fiables : Amélioration 2x 80+ (score requis inconnu, jusqu'au 7 décembre) et Gallery Milestone (7 défis, formation et nombre de joueurs inconnus, récompense finale Paula León 84). Annoncés mais trop vagues : Aiden McGeady (Hall of FUT Unleashed), mise à niveau Base Hero et Paulo Dybala Flashback (Thunderstruck), DCE Party Bag (Destined for Glory ou Future Stars), POTM Ligue 1 d'octobre (vainqueur attendu vers le 24 novembre).",
+  "note": "En ligne mais non inclus faute de conditions fiables : Amélioration 2x 80+ (score requis inconnu, jusqu'au 7 décembre) et Gallery Milestone (7 défis, formation et nombre de joueurs inconnus, récompense finale Paula León 84). Annoncés mais trop vagues : vague Thunderstruck 1 (Dybala Flashback, João Félix, Isco, Khéphren Thuram, Araujo, Villalibre, Bahoya, van Bergen FC Heritage : DCE ou objectifs, d'ici le 27 novembre ; Batistuta retiré, attendu en boutique de jetons), Aiden McGeady (Hall of FUT Unleashed), mise à niveau Base Hero, POTM Ligue 1 d'octobre (vainqueur attendu vers le 24 novembre).",
   "sbcs": [
     {
       "category": "Ligues",
@@ -1261,302 +1261,6 @@
       "verify": false
     },
     {
-      "category": "Défis",
-      "cid": "fc27-marquee-spain-england",
-      "conds": [
-        {
-          "n": 76,
-          "t": "rating"
-        },
-        {
-          "n": 26,
-          "t": "chem"
-        },
-        {
-          "field": "league",
-          "n": 3,
-          "op": "min",
-          "t": "distinct"
-        },
-        {
-          "field": "club",
-          "n": 4,
-          "op": "max",
-          "t": "same"
-        },
-        {
-          "field": "nation",
-          "n": 3,
-          "op": "min",
-          "t": "same"
-        },
-        {
-          "field": "nation",
-          "n": 2,
-          "op": "min",
-          "t": "from",
-          "value": "England, Angleterre"
-        }
-      ],
-      "expires": "2026-11-19",
-      "formation": "4-4-2",
-      "i18n": {
-        "en": {
-          "category": "Challenges",
-          "name": "Marquee Matchups : Spain v England",
-          "note": "formation from futwiz only; set reward to confirm (sources disagree)",
-          "reward": "Small Electrum Pack · Full set: Jumbo Electrum Pack (to confirm)",
-          "set": "Marquee Matchups"
-        },
-        "es": {
-          "category": "Desafíos",
-          "name": "Marquee Matchups : España v Inglaterra",
-          "note": "formación solo según futwiz; recompensa del set por confirmar (fuentes discrepan)",
-          "reward": "Sobre pequeño Electrum · Set completo: sobre Electrum Jumbo (por confirmar)",
-          "set": "Marquee Matchups"
-        },
-        "nl": {
-          "category": "Uitdagingen",
-          "name": "Marquee Matchups : Spanje v Engeland",
-          "note": "formatie alleen volgens futwiz; setbeloning te bevestigen (bronnen spreken elkaar tegen)",
-          "reward": "Klein Electrum-pakket · Volledige set: Jumbo Electrum-pakket (te bevestigen)",
-          "set": "Marquee Matchups"
-        }
-      },
-      "layoutVerify": true,
-      "name": "Marquee Matchups : Espagne v Angleterre",
-      "note": "formation selon futwiz uniquement ; récompense du set à confirmer (sources divergentes)",
-      "permanent": false,
-      "players": 11,
-      "repeat": 1,
-      "reward": "Petit pack Electrum · Set complet : pack Electrum Jumbo (à confirmer)",
-      "rewardTradeable": true,
-      "set": "Marquee Matchups",
-      "type": "classic",
-      "verify": true
-    },
-    {
-      "category": "Défis",
-      "cid": "fc27-marquee-italy-france",
-      "conds": [
-        {
-          "n": 75,
-          "t": "rating"
-        },
-        {
-          "n": 22,
-          "t": "chem"
-        },
-        {
-          "field": "league",
-          "n": 4,
-          "op": "min",
-          "t": "same"
-        },
-        {
-          "field": "club",
-          "n": 3,
-          "op": "max",
-          "t": "same"
-        },
-        {
-          "field": "nation",
-          "n": 3,
-          "op": "min",
-          "t": "distinct"
-        },
-        {
-          "field": "nation",
-          "n": 2,
-          "op": "min",
-          "t": "from",
-          "value": "France"
-        }
-      ],
-      "expires": "2026-11-19",
-      "formation": "4-5-1",
-      "i18n": {
-        "en": {
-          "category": "Challenges",
-          "name": "Marquee Matchups : Italy v France",
-          "note": "formation from futwiz only; set reward to confirm (sources disagree)",
-          "reward": "Large Electrum Players Pack · Full set: Jumbo Electrum Pack (to confirm)",
-          "set": "Marquee Matchups"
-        },
-        "es": {
-          "category": "Desafíos",
-          "name": "Marquee Matchups : Italia v Francia",
-          "note": "formación solo según futwiz; recompensa del set por confirmar (fuentes discrepan)",
-          "reward": "Sobre grande de jugadores Electrum · Set completo: sobre Electrum Jumbo (por confirmar)",
-          "set": "Marquee Matchups"
-        },
-        "nl": {
-          "category": "Uitdagingen",
-          "name": "Marquee Matchups : Italië v Frankrijk",
-          "note": "formatie alleen volgens futwiz; setbeloning te bevestigen (bronnen spreken elkaar tegen)",
-          "reward": "Groot Electrum-spelerspakket · Volledige set: Jumbo Electrum-pakket (te bevestigen)",
-          "set": "Marquee Matchups"
-        }
-      },
-      "layoutVerify": true,
-      "name": "Marquee Matchups : Italie v France",
-      "note": "formation selon futwiz uniquement ; récompense du set à confirmer (sources divergentes)",
-      "permanent": false,
-      "players": 11,
-      "repeat": 1,
-      "reward": "Grand pack de joueurs Electrum · Set complet : pack Electrum Jumbo (à confirmer)",
-      "rewardTradeable": true,
-      "set": "Marquee Matchups",
-      "type": "classic",
-      "verify": true
-    },
-    {
-      "category": "Défis",
-      "cid": "fc27-marquee-germany-netherlands",
-      "conds": [
-        {
-          "n": 18,
-          "t": "chem"
-        },
-        {
-          "field": "league",
-          "n": 6,
-          "op": "max",
-          "t": "distinct"
-        },
-        {
-          "field": "club",
-          "n": 2,
-          "op": "min",
-          "t": "same"
-        },
-        {
-          "field": "nation",
-          "n": 1,
-          "op": "min",
-          "t": "from",
-          "value": "Netherlands, Holland, Pays-Bas"
-        },
-        {
-          "n": 1,
-          "op": "min",
-          "q": 2,
-          "t": "qcount"
-        },
-        {
-          "n": 1,
-          "op": "min",
-          "t": "quality"
-        }
-      ],
-      "expires": "2026-11-19",
-      "formation": "5-3-2",
-      "i18n": {
-        "en": {
-          "category": "Challenges",
-          "name": "Marquee Matchups : Germany v Netherlands",
-          "note": "formation from futwiz only; set reward to confirm (sources disagree)",
-          "reward": "Small Mixed Electrum Players Pack · Full set: Jumbo Electrum Pack (to confirm)",
-          "set": "Marquee Matchups"
-        },
-        "es": {
-          "category": "Desafíos",
-          "name": "Marquee Matchups : Alemania v Países Bajos",
-          "note": "formación solo según futwiz; recompensa del set por confirmar (fuentes discrepan)",
-          "reward": "Sobre pequeño mixto de jugadores Electrum · Set completo: sobre Electrum Jumbo (por confirmar)",
-          "set": "Marquee Matchups"
-        },
-        "nl": {
-          "category": "Uitdagingen",
-          "name": "Marquee Matchups : Duitsland v Nederland",
-          "note": "formatie alleen volgens futwiz; setbeloning te bevestigen (bronnen spreken elkaar tegen)",
-          "reward": "Klein gemengd Electrum-spelerspakket · Volledige set: Jumbo Electrum-pakket (te bevestigen)",
-          "set": "Marquee Matchups"
-        }
-      },
-      "layoutVerify": true,
-      "name": "Marquee Matchups : Allemagne v Pays-Bas",
-      "note": "formation selon futwiz uniquement ; récompense du set à confirmer (sources divergentes)",
-      "permanent": false,
-      "players": 11,
-      "repeat": 1,
-      "reward": "Petit pack de joueurs Electrum mixte · Set complet : pack Electrum Jumbo (à confirmer)",
-      "rewardTradeable": true,
-      "set": "Marquee Matchups",
-      "type": "classic",
-      "verify": true
-    },
-    {
-      "category": "Défis",
-      "cid": "fc27-marquee-portugal-denmark",
-      "conds": [
-        {
-          "n": 14,
-          "t": "chem"
-        },
-        {
-          "field": "club",
-          "n": 4,
-          "op": "min",
-          "t": "distinct"
-        },
-        {
-          "field": "nation",
-          "n": 1,
-          "op": "min",
-          "t": "from",
-          "value": "Denmark, Danemark"
-        },
-        {
-          "n": 1,
-          "op": "min",
-          "q": 2,
-          "t": "qcount"
-        },
-        {
-          "n": 1,
-          "op": "min",
-          "t": "quality"
-        }
-      ],
-      "expires": "2026-11-19",
-      "formation": "5-2-1-2",
-      "i18n": {
-        "en": {
-          "category": "Challenges",
-          "name": "Marquee Matchups : Portugal v Denmark",
-          "note": "formation from futwiz only; set reward to confirm (sources disagree)",
-          "reward": "Gold Pack · Full set: Jumbo Electrum Pack (to confirm)",
-          "set": "Marquee Matchups"
-        },
-        "es": {
-          "category": "Desafíos",
-          "name": "Marquee Matchups : Portugal v Dinamarca",
-          "note": "formación solo según futwiz; recompensa del set por confirmar (fuentes discrepan)",
-          "reward": "Sobre oro · Set completo: sobre Electrum Jumbo (por confirmar)",
-          "set": "Marquee Matchups"
-        },
-        "nl": {
-          "category": "Uitdagingen",
-          "name": "Marquee Matchups : Portugal v Denemarken",
-          "note": "formatie alleen volgens futwiz; setbeloning te bevestigen (bronnen spreken elkaar tegen)",
-          "reward": "Goud-pakket · Volledige set: Jumbo Electrum-pakket (te bevestigen)",
-          "set": "Marquee Matchups"
-        }
-      },
-      "layoutVerify": true,
-      "name": "Marquee Matchups : Portugal v Danemark",
-      "note": "formation selon futwiz uniquement ; récompense du set à confirmer (sources divergentes)",
-      "permanent": false,
-      "players": 11,
-      "repeat": 1,
-      "reward": "Pack Or · Set complet : pack Electrum Jumbo (à confirmer)",
-      "rewardTradeable": true,
-      "set": "Marquee Matchups",
-      "type": "classic",
-      "verify": true
-    },
-    {
       "category": "Mises à niveau",
       "cid": "fc27-totw-81-1-9",
       "expires": "2026-11-20",
@@ -1677,28 +1381,26 @@
       "verify": true
     },
     {
-      "announced": true,
       "category": "Joueurs",
       "cid": "fc27-chiesa-heritage",
-      "expectedBy": "2026-11-20",
-      "expires": null,
+      "expires": "2026-11-26",
       "i18n": {
         "en": {
           "category": "Players",
           "name": "Federico Chiesa (FC Heritage)",
-          "note": "announced (leak) for the Hall of FUT Unleashed wave, 86 RM according to leaks; cost unknown",
+          "note": "released today; 86 rating from leaks only; estimated cost ~136 000 to 172 000 coins per futmind",
           "reward": "Federico Chiesa FC Heritage card (untradeable)"
         },
         "es": {
           "category": "Jugadores",
           "name": "Federico Chiesa (FC Heritage)",
-          "note": "anunciado (filtración) para la oleada Hall of FUT Unleashed, 86 RM según filtraciones; coste desconocido",
+          "note": "salió hoy; valoración 86 solo según filtraciones; coste estimado ~136 000 a 172 000 monedas según futmind",
           "reward": "Carta FC Heritage de Federico Chiesa (intransferible)"
         },
         "nl": {
           "category": "Spelers",
           "name": "Federico Chiesa (FC Heritage)",
-          "note": "aangekondigd (lek) voor de Hall of FUT Unleashed-golf, 86 RM volgens lekken; kosten onbekend",
+          "note": "vandaag uitgekomen; rating 86 alleen volgens lekken; geschatte kosten ~136 000 tot 172 000 munten volgens futmind",
           "reward": "FC Heritage-kaart van Federico Chiesa (niet verhandelbaar)"
         }
       },
@@ -1706,11 +1408,15 @@
       "maxOvr": 0,
       "minOvr": 45,
       "name": "Federico Chiesa (FC Heritage)",
-      "note": "annoncé (fuite) pour la vague Hall of FUT Unleashed, 86 RM selon les fuites ; coût inconnu",
+      "note": "sorti aujourd'hui ; note 86 d'après les fuites seulement ; coût estimé ~136 000 à 172 000 crédits selon futmind",
       "permanent": false,
       "repeat": 1,
       "reward": "Carte FC Heritage de Federico Chiesa (non éch.)",
+      "rewardCount": 1,
+      "rewardMax": 86,
+      "rewardMin": 86,
       "rewardTradeable": false,
+      "target": 150000,
       "type": "score",
       "verify": true
     },
@@ -1876,67 +1582,26 @@
     {
       "announced": true,
       "category": "ICÔNES",
-      "cid": "fc27-batistuta-thunderstruck",
-      "expectedBy": "2026-11-20",
-      "expires": null,
-      "i18n": {
-        "en": {
-          "category": "Icons",
-          "name": "Gabriel Batistuta (Thunderstruck)",
-          "note": "announced (leak) for Thunderstruck; some leaks place him in the Token Store rather than an SBC; cost unknown",
-          "reward": "Gabriel Batistuta Thunderstruck Icon card (90, untradeable)"
-        },
-        "es": {
-          "category": "Iconos",
-          "name": "Gabriel Batistuta (Thunderstruck)",
-          "note": "anunciado (filtración) para Thunderstruck; algunas filtraciones lo sitúan en la tienda de fichas en lugar de un SBC; coste desconocido",
-          "reward": "Carta Icono Thunderstruck de Gabriel Batistuta (90, intransferible)"
-        },
-        "nl": {
-          "category": "Iconen",
-          "name": "Gabriel Batistuta (Thunderstruck)",
-          "note": "aangekondigd (lek) voor Thunderstruck; sommige lekken plaatsen hem in de tokenwinkel in plaats van een SBC; kosten onbekend",
-          "reward": "Thunderstruck Icoon-kaart van Gabriel Batistuta (90, niet verhandelbaar)"
-        }
-      },
-      "kinds": "all",
-      "maxOvr": 0,
-      "minOvr": 45,
-      "name": "Gabriel Batistuta (Thunderstruck)",
-      "note": "annoncé (fuite) pour Thunderstruck ; certaines fuites le placent dans la boutique de jetons plutôt qu'en DCE ; coût inconnu",
-      "permanent": false,
-      "repeat": 1,
-      "reward": "Carte Thunderstruck ICÔNE de Gabriel Batistuta (90, non éch.)",
-      "rewardCount": 1,
-      "rewardMax": 90,
-      "rewardMin": 90,
-      "rewardTradeable": false,
-      "type": "score",
-      "verify": true
-    },
-    {
-      "announced": true,
-      "category": "ICÔNES",
       "cid": "fc27-dunga-icon",
-      "expectedBy": "2026-11-20",
+      "expectedBy": "2026-11-27",
       "expires": null,
       "i18n": {
         "en": {
           "category": "Icons",
           "name": "Dunga (Icon)",
-          "note": "announced (leak) for the first Thunderstruck week; 90 Icon per leaks; cost unknown",
+          "note": "announced (leak) as a Thunderstruck SBC or objective, expected by 27 November; cost unknown",
           "reward": "Dunga Icon card (90, untradeable)"
         },
         "es": {
           "category": "Iconos",
           "name": "Dunga (Icono)",
-          "note": "anunciado (filtración) para la primera semana de Thunderstruck; Icono 90 según filtraciones; coste desconocido",
+          "note": "anunciado (filtración) como SBC u objetivo Thunderstruck, previsto antes del 27 de noviembre; coste desconocido",
           "reward": "Carta Icono de Dunga (90, intransferible)"
         },
         "nl": {
           "category": "Iconen",
           "name": "Dunga (Icoon)",
-          "note": "aangekondigd (lek) voor de eerste Thunderstruck-week; Icoon 90 volgens lekken; kosten onbekend",
+          "note": "aangekondigd (lek) als Thunderstruck-SBC of -doelstelling, verwacht tegen 27 november; kosten onbekend",
           "reward": "Icoon-kaart van Dunga (90, niet verhandelbaar)"
         }
       },
@@ -1944,7 +1609,7 @@
       "maxOvr": 0,
       "minOvr": 45,
       "name": "Dunga (ICÔNE)",
-      "note": "annoncé (fuite) pour la première semaine de Thunderstruck ; ICÔNE 90 selon les fuites ; coût inconnu",
+      "note": "annoncé (fuite) en DCE ou objectif Thunderstruck, sortie attendue d'ici le 27 novembre ; coût inconnu",
       "permanent": false,
       "repeat": 1,
       "reward": "Carte ICÔNE de Dunga (90, non éch.)",
@@ -1959,25 +1624,25 @@
       "announced": true,
       "category": "ICÔNES",
       "cid": "fc27-pepe-desailly-icon-pick",
-      "expectedBy": "2026-11-20",
+      "expectedBy": "2026-11-27",
       "expires": null,
       "i18n": {
         "en": {
           "category": "Icons",
           "name": "Pepe or Desailly Icon Pick",
-          "note": "announced (leak) for the first Thunderstruck week; ratings and cost unknown",
+          "note": "announced (leak) as a Thunderstruck SBC or objective, expected by 27 November; cost unknown",
           "reward": "1 Icon of your choice: Pepe or Desailly (untradeable)"
         },
         "es": {
           "category": "Iconos",
           "name": "Elección de Icono Pepe o Desailly",
-          "note": "anunciado (filtración) para la primera semana de Thunderstruck; valoraciones y coste desconocidos",
+          "note": "anunciado (filtración) como SBC u objetivo Thunderstruck, previsto antes del 27 de noviembre; coste desconocido",
           "reward": "1 Icono a elegir: Pepe o Desailly (intransferible)"
         },
         "nl": {
           "category": "Iconen",
           "name": "Pepe of Desailly Icon Pick",
-          "note": "aangekondigd (lek) voor de eerste Thunderstruck-week; ratings en kosten onbekend",
+          "note": "aangekondigd (lek) als Thunderstruck-SBC of -doelstelling, verwacht tegen 27 november; kosten onbekend",
           "reward": "1 Icoon naar keuze: Pepe of Desailly (niet verhandelbaar)"
         }
       },
@@ -1985,7 +1650,7 @@
       "maxOvr": 0,
       "minOvr": 45,
       "name": "Choix d'ICÔNE Pepe ou Desailly",
-      "note": "annoncé (fuite) pour la première semaine de Thunderstruck ; notes et coût inconnus",
+      "note": "annoncé (fuite) en DCE ou objectif Thunderstruck, sortie attendue d'ici le 27 novembre ; coût inconnu",
       "permanent": false,
       "repeat": 1,
       "reward": "1 ICÔNE au choix : Pepe ou Desailly (non éch.)",
@@ -2259,7 +1924,424 @@
       "rewardTradeable": false,
       "type": "score",
       "verify": true
+    },
+    {
+      "category": "Mises à niveau",
+      "cid": "fc27-10x82-upgrade",
+      "conds": [
+        {
+          "n": 81,
+          "t": "rating"
+        },
+        {
+          "n": 1,
+          "op": "min",
+          "t": "totw"
+        }
+      ],
+      "expires": "2026-11-26",
+      "formation": "4-2-3-1",
+      "i18n": {
+        "en": {
+          "category": "Upgrades",
+          "name": "10x 82+ Upgrade",
+          "note": "released today; can be done 2 times per futmind; estimated cost ~16 550 coins",
+          "reward": "Pack of 10 Gold 82+ players (untradeable)"
+        },
+        "es": {
+          "category": "Mejoras",
+          "name": "Mejora 10x 82+",
+          "note": "salió hoy; se puede hacer 2 veces según futmind; coste estimado ~16 550 monedas",
+          "reward": "Sobre de 10 jugadores oro 82+ (intransferible)"
+        },
+        "nl": {
+          "category": "Upgrades",
+          "name": "10x 82+ Upgrade",
+          "note": "vandaag uitgekomen; 2 keer te doen volgens futmind; geschatte kosten ~16 550 munten",
+          "reward": "Pakket met 10 gouden spelers 82+ (niet verhandelbaar)"
+        }
+      },
+      "name": "Amélioration 10x 82+",
+      "note": "sorti aujourd'hui ; faisable 2 fois selon futmind ; coût estimé ~16 550 crédits",
+      "permanent": false,
+      "players": 11,
+      "repeat": 1,
+      "reward": "Pack 10 joueurs Or 82+ (non éch.)",
+      "rewardCount": 10,
+      "rewardMin": 82,
+      "rewardTradeable": false,
+      "rewardValue": 21990,
+      "type": "classic",
+      "verify": false
+    },
+    {
+      "category": "Défis",
+      "cid": "fc27-marquee-liverpool-manutd",
+      "conds": [
+        {
+          "n": 76,
+          "t": "rating"
+        },
+        {
+          "n": 26,
+          "t": "chem"
+        },
+        {
+          "field": "league",
+          "n": 6,
+          "op": "max",
+          "t": "distinct"
+        },
+        {
+          "field": "club",
+          "n": 3,
+          "op": "min",
+          "t": "distinct"
+        },
+        {
+          "field": "club",
+          "n": 2,
+          "op": "min",
+          "t": "from",
+          "value": "Liverpool, Manchester United, Man Utd"
+        },
+        {
+          "field": "nation",
+          "n": 4,
+          "op": "max",
+          "t": "same"
+        }
+      ],
+      "expires": "2026-11-26",
+      "formation": "4-4-2",
+      "i18n": {
+        "en": {
+          "category": "Challenges",
+          "name": "Marquee Matchups : Liverpool v Manchester United",
+          "note": "at least 2 players from Liverpool or Man Utd; estimated cost ~6 600 coins",
+          "reward": "Large Mixed Electrum Pack · Full set: Jumbo Mixed Electrum Pack (Large on one futwiz page, to confirm)",
+          "set": "Marquee Matchups"
+        },
+        "es": {
+          "category": "Desafíos",
+          "name": "Marquee Matchups : Liverpool v Manchester United",
+          "note": "al menos 2 jugadores del Liverpool o del Man Utd; coste estimado ~6 600 monedas",
+          "reward": "Sobre Electrum mixto grande · Set completo: sobre Electrum mixto Jumbo (Large en una página de futwiz, por confirmar)",
+          "set": "Marquee Matchups"
+        },
+        "nl": {
+          "category": "Uitdagingen",
+          "name": "Marquee Matchups : Liverpool v Manchester United",
+          "note": "minstens 2 spelers van Liverpool of Man Utd; geschatte kosten ~6 600 munten",
+          "reward": "Groot gemengd Electrum-pakket · Volledige set: Jumbo gemengd Electrum-pakket (Large op één futwiz-pagina, te bevestigen)",
+          "set": "Marquee Matchups"
+        }
+      },
+      "name": "Marquee Matchups : Liverpool v Manchester United",
+      "note": "au moins 2 joueurs de Liverpool ou Man Utd ; coût estimé ~6 600 crédits",
+      "permanent": false,
+      "players": 11,
+      "repeat": 1,
+      "reward": "Pack Electrum mixte large · Set complet : pack Electrum mixte Jumbo (Large selon une page futwiz, à confirmer)",
+      "rewardTradeable": true,
+      "set": "Marquee Matchups",
+      "type": "classic",
+      "verify": true
+    },
+    {
+      "category": "Défis",
+      "cid": "fc27-marquee-sevilla-betis",
+      "conds": [
+        {
+          "n": 75,
+          "t": "rating"
+        },
+        {
+          "n": 22,
+          "t": "chem"
+        },
+        {
+          "field": "league",
+          "n": 4,
+          "op": "max",
+          "t": "same"
+        },
+        {
+          "field": "club",
+          "n": 2,
+          "op": "min",
+          "t": "same"
+        },
+        {
+          "field": "club",
+          "n": 2,
+          "op": "min",
+          "t": "from",
+          "value": "Sevilla FC, Sevilla, Real Betis, Betis"
+        },
+        {
+          "field": "nation",
+          "n": 5,
+          "op": "max",
+          "t": "distinct"
+        }
+      ],
+      "expires": "2026-11-26",
+      "formation": "4-1-4-1",
+      "i18n": {
+        "en": {
+          "category": "Challenges",
+          "name": "Marquee Matchups : Sevilla FC v Real Betis",
+          "note": "at least 2 players from Sevilla FC or Real Betis; estimated cost ~6 700 coins",
+          "reward": "Small Electrum Pack · Full set: Jumbo Mixed Electrum Pack (Large on one futwiz page, to confirm)",
+          "set": "Marquee Matchups"
+        },
+        "es": {
+          "category": "Desafíos",
+          "name": "Marquee Matchups : Sevilla FC v Real Betis",
+          "note": "al menos 2 jugadores del Sevilla FC o del Real Betis; coste estimado ~6 700 monedas",
+          "reward": "Sobre Electrum pequeño · Set completo: sobre Electrum mixto Jumbo (Large en una página de futwiz, por confirmar)",
+          "set": "Marquee Matchups"
+        },
+        "nl": {
+          "category": "Uitdagingen",
+          "name": "Marquee Matchups : Sevilla FC v Real Betis",
+          "note": "minstens 2 spelers van Sevilla FC of Real Betis; geschatte kosten ~6 700 munten",
+          "reward": "Klein Electrum-pakket · Volledige set: Jumbo gemengd Electrum-pakket (Large op één futwiz-pagina, te bevestigen)",
+          "set": "Marquee Matchups"
+        }
+      },
+      "name": "Marquee Matchups : Sevilla FC v Real Betis",
+      "note": "au moins 2 joueurs du Séville FC ou du Betis ; coût estimé ~6 700 crédits",
+      "permanent": false,
+      "players": 11,
+      "repeat": 1,
+      "reward": "Petit pack Electrum · Set complet : pack Electrum mixte Jumbo (Large selon une page futwiz, à confirmer)",
+      "rewardTradeable": true,
+      "set": "Marquee Matchups",
+      "type": "classic",
+      "verify": true
+    },
+    {
+      "category": "Défis",
+      "cid": "fc27-marquee-milano-frosinone",
+      "conds": [
+        {
+          "n": 18,
+          "t": "chem"
+        },
+        {
+          "field": "league",
+          "n": 3,
+          "op": "min",
+          "t": "distinct"
+        },
+        {
+          "field": "club",
+          "n": 3,
+          "op": "max",
+          "t": "same"
+        },
+        {
+          "field": "club",
+          "n": 1,
+          "op": "min",
+          "t": "from",
+          "value": "Milano FC, Frosinone Calcio, Frosinone"
+        },
+        {
+          "n": 1,
+          "op": "min",
+          "q": 2,
+          "t": "qcount"
+        },
+        {
+          "n": 1,
+          "op": "min",
+          "t": "quality"
+        }
+      ],
+      "expires": "2026-11-26",
+      "formation": "3-5-2",
+      "i18n": {
+        "en": {
+          "category": "Challenges",
+          "name": "Marquee Matchups : Milano FC v Frosinone Calcio",
+          "note": "at least 1 player from Milano FC or Frosinone; estimated cost ~5 800 coins",
+          "reward": "Small Gold Players Pack · Full set: Jumbo Mixed Electrum Pack (Large on one futwiz page, to confirm)",
+          "set": "Marquee Matchups"
+        },
+        "es": {
+          "category": "Desafíos",
+          "name": "Marquee Matchups : Milano FC v Frosinone Calcio",
+          "note": "al menos 1 jugador del Milano FC o del Frosinone; coste estimado ~5 800 monedas",
+          "reward": "Sobre pequeño de jugadores oro · Set completo: sobre Electrum mixto Jumbo (Large en una página de futwiz, por confirmar)",
+          "set": "Marquee Matchups"
+        },
+        "nl": {
+          "category": "Uitdagingen",
+          "name": "Marquee Matchups : Milano FC v Frosinone Calcio",
+          "note": "minstens 1 speler van Milano FC of Frosinone; geschatte kosten ~5 800 munten",
+          "reward": "Klein goud spelerspakket · Volledige set: Jumbo gemengd Electrum-pakket (Large op één futwiz-pagina, te bevestigen)",
+          "set": "Marquee Matchups"
+        }
+      },
+      "name": "Marquee Matchups : Milano FC v Frosinone Calcio",
+      "note": "au moins 1 joueur du Milano FC ou de Frosinone ; coût estimé ~5 800 crédits",
+      "permanent": false,
+      "players": 11,
+      "repeat": 1,
+      "reward": "Petit pack de joueurs Or · Set complet : pack Electrum mixte Jumbo (Large selon une page futwiz, à confirmer)",
+      "rewardTradeable": true,
+      "set": "Marquee Matchups",
+      "type": "classic",
+      "verify": true
+    },
+    {
+      "category": "Défis",
+      "cid": "fc27-marquee-losc-ol",
+      "conds": [
+        {
+          "n": 14,
+          "t": "chem"
+        },
+        {
+          "field": "club",
+          "n": 5,
+          "op": "max",
+          "t": "distinct"
+        },
+        {
+          "field": "club",
+          "n": 1,
+          "op": "min",
+          "t": "from",
+          "value": "LOSC Lille, LOSC, Lille, Olympique Lyonnais, OL, Lyon"
+        },
+        {
+          "n": 1,
+          "op": "min",
+          "q": 2,
+          "t": "qcount"
+        },
+        {
+          "n": 1,
+          "op": "min",
+          "t": "quality"
+        }
+      ],
+      "expires": "2026-11-26",
+      "formation": "4-3-3",
+      "i18n": {
+        "en": {
+          "category": "Challenges",
+          "name": "Marquee Matchups : LOSC v Olympique Lyonnais",
+          "note": "at least 1 player from LOSC or OL; estimated cost ~5 600 coins",
+          "reward": "Large Silver Players Pack · Full set: Jumbo Mixed Electrum Pack (Large on one futwiz page, to confirm)",
+          "set": "Marquee Matchups"
+        },
+        "es": {
+          "category": "Desafíos",
+          "name": "Marquee Matchups : LOSC v Olympique Lyonnais",
+          "note": "al menos 1 jugador del LOSC o del OL; coste estimado ~5 600 monedas",
+          "reward": "Sobre grande de jugadores plata · Set completo: sobre Electrum mixto Jumbo (Large en una página de futwiz, por confirmar)",
+          "set": "Marquee Matchups"
+        },
+        "nl": {
+          "category": "Uitdagingen",
+          "name": "Marquee Matchups : LOSC v Olympique Lyonnais",
+          "note": "minstens 1 speler van LOSC of OL; geschatte kosten ~5 600 munten",
+          "reward": "Groot zilver spelerspakket · Volledige set: Jumbo gemengd Electrum-pakket (Large op één futwiz-pagina, te bevestigen)",
+          "set": "Marquee Matchups"
+        }
+      },
+      "name": "Marquee Matchups : LOSC v Olympique Lyonnais",
+      "note": "au moins 1 joueur du LOSC ou de l'OL ; coût estimé ~5 600 crédits",
+      "permanent": false,
+      "players": 11,
+      "repeat": 1,
+      "reward": "Grand pack de joueurs Argent · Set complet : pack Electrum mixte Jumbo (Large selon une page futwiz, à confirmer)",
+      "rewardTradeable": true,
+      "set": "Marquee Matchups",
+      "type": "classic",
+      "verify": true
+    },
+    {
+      "announced": true,
+      "category": "Joueurs",
+      "cid": "fc27-zechiel-showdown",
+      "expectedBy": "2026-11-27",
+      "expires": null,
+      "i18n": {
+        "en": {
+          "category": "Players",
+          "name": "Gjivai Zechiël (Showdown)",
+          "note": "announced (leak) as a Showdown SBC Feyenoord v Ajax (Feyenoord); rating and cost unknown",
+          "reward": "Gjivai Zechiël Showdown card (untradeable)"
+        },
+        "es": {
+          "category": "Jugadores",
+          "name": "Gjivai Zechiël (Showdown)",
+          "note": "anunciado (filtración) como SBC Showdown Feyenoord v Ajax (Feyenoord); valoración y coste desconocidos",
+          "reward": "Carta Showdown de Gjivai Zechiël (intransferible)"
+        },
+        "nl": {
+          "category": "Spelers",
+          "name": "Gjivai Zechiël (Showdown)",
+          "note": "aangekondigd (lek) als Showdown-SBC Feyenoord v Ajax (Feyenoord); rating en kosten onbekend",
+          "reward": "Showdown-kaart van Gjivai Zechiël (niet verhandelbaar)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Gjivai Zechiël (Showdown)",
+      "note": "annoncé (fuite) en DCE Showdown Feyenoord v Ajax (Feyenoord) ; note et coût inconnus",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "Carte Showdown de Gjivai Zechiël (non éch.)",
+      "rewardTradeable": false,
+      "type": "score",
+      "verify": true
+    },
+    {
+      "announced": true,
+      "category": "Joueurs",
+      "cid": "fc27-kehrer-showdown",
+      "expectedBy": "2026-11-27",
+      "expires": null,
+      "i18n": {
+        "en": {
+          "category": "Players",
+          "name": "Thilo Kehrer (Showdown)",
+          "note": "announced (leak) as a Showdown SBC Feyenoord v Ajax (Ajax); rating and cost unknown",
+          "reward": "Thilo Kehrer Showdown card (untradeable)"
+        },
+        "es": {
+          "category": "Jugadores",
+          "name": "Thilo Kehrer (Showdown)",
+          "note": "anunciado (filtración) como SBC Showdown Feyenoord v Ajax (Ajax); valoración y coste desconocidos",
+          "reward": "Carta Showdown de Thilo Kehrer (intransferible)"
+        },
+        "nl": {
+          "category": "Spelers",
+          "name": "Thilo Kehrer (Showdown)",
+          "note": "aangekondigd (lek) als Showdown-SBC Feyenoord v Ajax (Ajax); rating en kosten onbekend",
+          "reward": "Showdown-kaart van Thilo Kehrer (niet verhandelbaar)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Thilo Kehrer (Showdown)",
+      "note": "annoncé (fuite) en DCE Showdown Feyenoord v Ajax (Ajax) ; note et coût inconnus",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "Carte Showdown de Thilo Kehrer (non éch.)",
+      "rewardTradeable": false,
+      "type": "score",
+      "verify": true
     }
   ],
-  "updatedAt": "2026-11-18T18:45:00Z"
+  "updatedAt": "2026-11-19T18:45:00Z"
 }
