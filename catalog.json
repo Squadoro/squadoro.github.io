@@ -1,16 +1,16 @@
 {
   "i18n": {
     "en": {
-      "note": "Live but not included for lack of reliable requirements: 2x 80+ Upgrade (score target unknown, until 7 December) and Gallery Milestone (7 challenges, formation and player count unknown, final reward Paula León 84). Announced but too vague: Thunderstruck wave 1 (Dybala Flashback, João Félix, Isco, Khéphren Thuram, Araujo, Villalibre, Bahoya, van Bergen FC Heritage: SBCs or objectives, by 27 November; Batistuta removed, expected in the Token Store), Aiden McGeady (Hall of FUT Unleashed), Base Hero Upgrade, Ligue 1 POTM for October (winner expected around 24 November)."
+      "note": "Live but not included for lack of reliable requirements: 2x 80+ Upgrade (until 7 December), 2x 81+ Upgrade and Daily Login Upgrade (3x 79+), until 4 December, score targets unknown, and Gallery Milestone (7 challenges, formation and player count unknown, final reward Paula León 84). Announced but too vague: rest of Thunderstruck wave 1 (João Félix, Isco, Khéphren Thuram, Araujo, Villalibre, Bahoya, van Bergen FC Heritage: SBCs or objectives, by 27 November), Aiden McGeady (Hall of FUT Unleashed), Ligue 1 POTM for October (winner expected around 24 November), further Black Friday Flash challenges."
     },
     "es": {
-      "note": "En línea pero no incluidos por falta de requisitos fiables: Mejora 2x 80+ (puntuación requerida desconocida, hasta el 7 de diciembre) y Gallery Milestone (7 desafíos, formación y número de jugadores desconocidos, recompensa final Paula León 84). Anunciados pero demasiado vagos: oleada 1 de Thunderstruck (Dybala Flashback, João Félix, Isco, Khéphren Thuram, Araujo, Villalibre, Bahoya, van Bergen FC Heritage: SBC u objetivos, antes del 27 de noviembre; Batistuta retirado, previsto en la tienda de fichas), Aiden McGeady (Hall of FUT Unleashed), mejora Base Hero, POTM de Ligue 1 de octubre (ganador previsto hacia el 24 de noviembre)."
+      "note": "En línea pero no incluidos por falta de requisitos fiables: Mejora 2x 80+ (hasta el 7 de diciembre), Mejora 2x 81+ y Mejora de inicio de sesión diario (3x 79+), hasta el 4 de diciembre, puntuaciones requeridas desconocidas, y Gallery Milestone (7 desafíos, formación y número de jugadores desconocidos, recompensa final Paula León 84). Anunciados pero demasiado vagos: resto de la oleada 1 de Thunderstruck (João Félix, Isco, Khéphren Thuram, Araujo, Villalibre, Bahoya, van Bergen FC Heritage: SBC u objetivos, antes del 27 de noviembre), Aiden McGeady (Hall of FUT Unleashed), POTM de Ligue 1 de octubre (ganador previsto hacia el 24 de noviembre), más desafíos Black Friday Flash."
     },
     "nl": {
-      "note": "Live maar niet opgenomen bij gebrek aan betrouwbare eisen: 2x 80+ Upgrade (vereiste score onbekend, tot 7 december) en Gallery Milestone (7 uitdagingen, formatie en aantal spelers onbekend, eindbeloning Paula León 84). Aangekondigd maar te vaag: Thunderstruck-golf 1 (Dybala Flashback, João Félix, Isco, Khéphren Thuram, Araujo, Villalibre, Bahoya, van Bergen FC Heritage: SBC's of doelstellingen, tegen 27 november; Batistuta verwijderd, verwacht in de tokenwinkel), Aiden McGeady (Hall of FUT Unleashed), Base Hero-upgrade, Ligue 1 POTM van oktober (winnaar verwacht rond 24 november)."
+      "note": "Live maar niet opgenomen bij gebrek aan betrouwbare eisen: 2x 80+ Upgrade (tot 7 december), 2x 81+ Upgrade en Daily Login Upgrade (3x 79+), tot 4 december, vereiste scores onbekend, en Gallery Milestone (7 uitdagingen, formatie en aantal spelers onbekend, eindbeloning Paula León 84). Aangekondigd maar te vaag: rest van Thunderstruck-golf 1 (João Félix, Isco, Khéphren Thuram, Araujo, Villalibre, Bahoya, van Bergen FC Heritage: SBC's of doelstellingen, tegen 27 november), Aiden McGeady (Hall of FUT Unleashed), Ligue 1 POTM van oktober (winnaar verwacht rond 24 november), verdere Black Friday Flash-uitdagingen."
     }
   },
-  "note": "En ligne mais non inclus faute de conditions fiables : Amélioration 2x 80+ (score requis inconnu, jusqu'au 7 décembre) et Gallery Milestone (7 défis, formation et nombre de joueurs inconnus, récompense finale Paula León 84). Annoncés mais trop vagues : vague Thunderstruck 1 (Dybala Flashback, João Félix, Isco, Khéphren Thuram, Araujo, Villalibre, Bahoya, van Bergen FC Heritage : DCE ou objectifs, d'ici le 27 novembre ; Batistuta retiré, attendu en boutique de jetons), Aiden McGeady (Hall of FUT Unleashed), mise à niveau Base Hero, POTM Ligue 1 d'octobre (vainqueur attendu vers le 24 novembre).",
+  "note": "En ligne mais non inclus faute de conditions fiables : Amélioration 2x 80+ (jusqu'au 7 décembre), Amélioration 2x 81+ et Amélioration connexion quotidienne (3x 79+), jusqu'au 4 décembre, scores requis inconnus, et Gallery Milestone (7 défis, formation et nombre de joueurs inconnus, récompense finale Paula León 84). Annoncés mais trop vagues : suite de la vague Thunderstruck 1 (João Félix, Isco, Khéphren Thuram, Araujo, Villalibre, Bahoya, van Bergen FC Heritage : DCE ou objectifs, d'ici le 27 novembre), Aiden McGeady (Hall of FUT Unleashed), POTM Ligue 1 d'octobre (vainqueur attendu vers le 24 novembre), autres défis Black Friday Flash.",
   "sbcs": [
     {
       "category": "Ligues",
@@ -1226,24 +1226,24 @@
     {
       "category": "Mises à niveau",
       "cid": "fc27-campaign-mix-upgrade",
-      "expires": "2026-11-20",
+      "expires": "2026-11-27",
       "i18n": {
         "en": {
           "category": "Upgrades",
           "name": "Campaign Mix Upgrade",
-          "note": "refreshes every 3 days; minimum rating not stated",
+          "note": "renewed today, refreshes every 3 days; minimum rating not stated",
           "reward": "Pack of 1 Destined for Glory or Future Stars player (untradeable)"
         },
         "es": {
           "category": "Mejoras",
           "name": "Mejora Campaign Mix",
-          "note": "se renueva cada 3 días; valoración mínima no indicada",
+          "note": "renovada hoy, se renueva cada 3 días; valoración mínima no indicada",
           "reward": "Sobre de 1 jugador Destined for Glory o Future Stars (intransferible)"
         },
         "nl": {
           "category": "Upgrades",
           "name": "Campaign Mix Upgrade",
-          "note": "vernieuwt elke 3 dagen; minimale beoordeling niet vermeld",
+          "note": "vandaag vernieuwd, vernieuwt elke 3 dagen; minimale beoordeling niet vermeld",
           "reward": "Pakket met 1 Destined for Glory- of Future Stars-speler (niet verhandelbaar)"
         }
       },
@@ -1251,52 +1251,13 @@
       "maxOvr": 0,
       "minOvr": 45,
       "name": "Amélioration Campaign Mix",
-      "note": "se renouvelle tous les 3 jours ; note minimale non indiquée",
-      "permanent": false,
-      "repeat": 1,
-      "reward": "Pack 1 joueur Destined for Glory ou Future Stars (non éch.)",
-      "rewardTradeable": false,
-      "target": 40000,
-      "type": "score",
-      "verify": false
-    },
-    {
-      "category": "Mises à niveau",
-      "cid": "fc27-totw-81-1-9",
-      "expires": "2026-11-20",
-      "i18n": {
-        "en": {
-          "category": "Upgrades",
-          "name": "81+ TOTW 1-9",
-          "note": "repeatable; ends 20 November",
-          "reward": "1 TOTW 81+ player (TOTW 1 to 9, untradeable)"
-        },
-        "es": {
-          "category": "Mejoras",
-          "name": "81+ EDLS 1-9",
-          "note": "repetible; termina el 20 de noviembre",
-          "reward": "1 jugador EDLS 81+ (EDLS 1 a 9, intransferible)"
-        },
-        "nl": {
-          "category": "Upgrades",
-          "name": "81+ TOTW 1-9",
-          "note": "herhaalbaar; eindigt op 20 november",
-          "reward": "1 TOTW-speler 81+ (TOTW 1 t/m 9, niet verhandelbaar)"
-        }
-      },
-      "kinds": "all",
-      "maxOvr": 0,
-      "minOvr": 45,
-      "name": "81+ TOTW 1-9",
-      "note": "refaisable ; fin le 20 novembre",
+      "note": "renouvelé aujourd'hui, se renouvelle tous les 3 jours ; note minimale non indiquée",
       "permanent": false,
       "repeat": 1,
       "repeatable": true,
-      "reward": "1 joueur TOTW 81+ (TOTW 1 à 9, non éch.)",
-      "rewardCount": 1,
-      "rewardMin": 81,
+      "reward": "Pack 1 joueur Destined for Glory ou Future Stars (non éch.)",
       "rewardTradeable": false,
-      "target": 18000,
+      "target": 40000,
       "type": "score",
       "verify": false
     },
@@ -1580,43 +1541,42 @@
       "verify": true
     },
     {
-      "announced": true,
       "category": "ICÔNES",
       "cid": "fc27-dunga-icon",
-      "expectedBy": "2026-11-27",
-      "expires": null,
+      "expires": "2026-12-11",
       "i18n": {
         "en": {
           "category": "Icons",
           "name": "Dunga (Icon)",
-          "note": "announced (leak) as a Thunderstruck SBC or objective, expected by 27 November; cost unknown",
-          "reward": "Dunga Icon card (90, untradeable)"
+          "note": "released today (Thunderstruck); rated 89 per fut.gg and futwiz (other sources: 90 or 91); estimated cost ~455 000 coins",
+          "reward": "Dunga Thunderstruck Icon card (89, CDM, untradeable)"
         },
         "es": {
           "category": "Iconos",
           "name": "Dunga (Icono)",
-          "note": "anunciado (filtración) como SBC u objetivo Thunderstruck, previsto antes del 27 de noviembre; coste desconocido",
-          "reward": "Carta Icono de Dunga (90, intransferible)"
+          "note": "salió hoy (Thunderstruck); valoración 89 según fut.gg y futwiz (otras fuentes: 90 o 91); coste estimado ~455 000 monedas",
+          "reward": "Carta Icono Thunderstruck de Dunga (89, MCD, intransferible)"
         },
         "nl": {
           "category": "Iconen",
           "name": "Dunga (Icoon)",
-          "note": "aangekondigd (lek) als Thunderstruck-SBC of -doelstelling, verwacht tegen 27 november; kosten onbekend",
-          "reward": "Icoon-kaart van Dunga (90, niet verhandelbaar)"
+          "note": "vandaag uitgekomen (Thunderstruck); rating 89 volgens fut.gg en futwiz (andere bronnen: 90 of 91); geschatte kosten ~455 000 munten",
+          "reward": "Thunderstruck-Icoonkaart van Dunga (89, CDM, niet verhandelbaar)"
         }
       },
       "kinds": "all",
       "maxOvr": 0,
       "minOvr": 45,
       "name": "Dunga (ICÔNE)",
-      "note": "annoncé (fuite) en DCE ou objectif Thunderstruck, sortie attendue d'ici le 27 novembre ; coût inconnu",
+      "note": "sorti aujourd'hui (Thunderstruck) ; note 89 d'après fut.gg et futwiz (autres sources : 90 ou 91) ; coût estimé ~455 000 crédits",
       "permanent": false,
       "repeat": 1,
-      "reward": "Carte ICÔNE de Dunga (90, non éch.)",
+      "reward": "Carte ICÔNE Thunderstruck de Dunga (89, MDC, non éch.)",
       "rewardCount": 1,
-      "rewardMax": 90,
-      "rewardMin": 90,
+      "rewardMax": 89,
+      "rewardMin": 89,
       "rewardTradeable": false,
+      "target": 420000,
       "type": "score",
       "verify": true
     },
@@ -1888,42 +1848,44 @@
       "verify": true
     },
     {
-      "announced": true,
       "category": "Joueurs",
       "cid": "fc27-diaby-thunderstruck",
-      "expectedBy": "2026-11-27",
-      "expires": null,
+      "expires": "2026-11-27",
       "i18n": {
         "en": {
           "category": "Players",
           "name": "Moussa Diaby (Thunderstruck)",
-          "note": "announced (leak) for Thunderstruck, release between 20 and 27 November; rating and cost unknown",
-          "reward": "Moussa Diaby Thunderstruck card (untradeable)"
+          "note": "released today; estimated cost ~36 000 to 46 000 coins",
+          "reward": "Moussa Diaby Thunderstruck card (86, RM, untradeable)"
         },
         "es": {
           "category": "Jugadores",
           "name": "Moussa Diaby (Thunderstruck)",
-          "note": "anunciado (filtración) para Thunderstruck, salida entre el 20 y el 27 de noviembre; valoración y coste desconocidos",
-          "reward": "Carta Thunderstruck de Moussa Diaby (intransferible)"
+          "note": "salió hoy; coste estimado ~36 000 a 46 000 monedas",
+          "reward": "Carta Thunderstruck de Moussa Diaby (86, MD, intransferible)"
         },
         "nl": {
           "category": "Spelers",
           "name": "Moussa Diaby (Thunderstruck)",
-          "note": "aangekondigd (lek) voor Thunderstruck, release tussen 20 en 27 november; beoordeling en kosten onbekend",
-          "reward": "Thunderstruck-kaart van Moussa Diaby (niet verhandelbaar)"
+          "note": "vandaag uitgekomen; geschatte kosten ~36 000 tot 46 000 munten",
+          "reward": "Thunderstruck-kaart van Moussa Diaby (86, RM, niet verhandelbaar)"
         }
       },
       "kinds": "all",
       "maxOvr": 0,
       "minOvr": 45,
       "name": "Moussa Diaby (Thunderstruck)",
-      "note": "annoncé (fuite) pour Thunderstruck, sortie entre le 20 et le 27 novembre ; note et coût inconnus",
+      "note": "sorti aujourd'hui ; coût estimé ~36 000 à 46 000 crédits",
       "permanent": false,
       "repeat": 1,
-      "reward": "Carte Thunderstruck de Moussa Diaby (non éch.)",
+      "reward": "Carte Thunderstruck de Moussa Diaby (86, MD, non éch.)",
+      "rewardCount": 1,
+      "rewardMax": 86,
+      "rewardMin": 86,
       "rewardTradeable": false,
+      "target": 42000,
       "type": "score",
-      "verify": true
+      "verify": false
     },
     {
       "category": "Mises à niveau",
@@ -2341,7 +2303,195 @@
       "rewardTradeable": false,
       "type": "score",
       "verify": true
+    },
+    {
+      "category": "Joueurs",
+      "cid": "fc27-dybala-flashback",
+      "expires": "2026-12-11",
+      "i18n": {
+        "en": {
+          "category": "Players",
+          "name": "Paulo Dybala (Flashback)",
+          "note": "released today (Thunderstruck, wave 1)",
+          "reward": "Paulo Dybala Flashback card (88, untradeable)"
+        },
+        "es": {
+          "category": "Jugadores",
+          "name": "Paulo Dybala (Flashback)",
+          "note": "salió hoy (Thunderstruck, oleada 1)",
+          "reward": "Carta Flashback de Paulo Dybala (88, intransferible)"
+        },
+        "nl": {
+          "category": "Spelers",
+          "name": "Paulo Dybala (Flashback)",
+          "note": "vandaag uitgekomen (Thunderstruck, golf 1)",
+          "reward": "Flashback-kaart van Paulo Dybala (88, niet verhandelbaar)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Paulo Dybala (Flashback)",
+      "note": "sorti aujourd'hui (Thunderstruck, vague 1)",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "Carte Flashback de Paulo Dybala (88, non éch.)",
+      "rewardCount": 1,
+      "rewardMax": 88,
+      "rewardMin": 88,
+      "rewardTradeable": false,
+      "target": 375000,
+      "type": "score",
+      "verify": false
+    },
+    {
+      "category": "Mises à niveau",
+      "cid": "fc27-82-totw-1-10-upgrade",
+      "expires": "2026-11-27",
+      "i18n": {
+        "en": {
+          "category": "Upgrades",
+          "name": "82+ TOTW 1-10 Upgrade",
+          "note": "released today, replaces the 81+ TOTW 1-9",
+          "reward": "Pack of 1 TOTW 82+ player (TOTW 1 to 10, untradeable)"
+        },
+        "es": {
+          "category": "Mejoras",
+          "name": "Mejora 82+ TOTW 1-10",
+          "note": "salió hoy, sustituye a la 81+ TOTW 1-9",
+          "reward": "Sobre de 1 jugador TOTW 82+ (TOTW 1 a 10, intransferible)"
+        },
+        "nl": {
+          "category": "Upgrades",
+          "name": "82+ TOTW 1-10 Upgrade",
+          "note": "vandaag uitgekomen, vervangt de 81+ TOTW 1-9",
+          "reward": "Pakket met 1 TOTW-speler 82+ (TOTW 1 tot 10, niet verhandelbaar)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Amélioration 82+ TOTW 1-10",
+      "note": "sortie aujourd'hui, remplace la 81+ TOTW 1-9",
+      "permanent": false,
+      "repeat": 1,
+      "repeatable": true,
+      "reward": "Pack 1 joueur TOTW 82+ (TOTW 1 à 10, non éch.)",
+      "rewardCount": 1,
+      "rewardMin": 82,
+      "rewardTradeable": false,
+      "target": 15000,
+      "type": "score",
+      "verify": false
+    },
+    {
+      "category": "Mises à niveau",
+      "cid": "fc27-base-hero-upgrade",
+      "expires": "2026-11-27",
+      "i18n": {
+        "en": {
+          "category": "Upgrades",
+          "name": "Base Hero Upgrade",
+          "note": "released today, refreshes every 2 days",
+          "reward": "Pack of 1 Base Hero (untradeable)"
+        },
+        "es": {
+          "category": "Mejoras",
+          "name": "Mejora Héroe base",
+          "note": "salió hoy, se renueva cada 2 días",
+          "reward": "Sobre de 1 Héroe base (intransferible)"
+        },
+        "nl": {
+          "category": "Upgrades",
+          "name": "Base Hero-upgrade",
+          "note": "vandaag uitgekomen, vernieuwt elke 2 dagen",
+          "reward": "Pakket met 1 Base Hero (niet verhandelbaar)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Amélioration Héros de base",
+      "note": "sortie aujourd'hui, se renouvelle tous les 2 jours",
+      "permanent": false,
+      "repeat": 1,
+      "repeatable": true,
+      "reward": "Pack 1 Héros de base (non éch.)",
+      "rewardTradeable": false,
+      "target": 60000,
+      "type": "score",
+      "verify": false
+    },
+    {
+      "category": "Défis",
+      "cid": "fc27-black-friday-flash-3",
+      "conds": [
+        {
+          "n": 28,
+          "t": "chem"
+        },
+        {
+          "field": "league",
+          "n": 4,
+          "op": "min",
+          "t": "same"
+        },
+        {
+          "field": "club",
+          "n": 3,
+          "op": "max",
+          "t": "same"
+        },
+        {
+          "field": "nation",
+          "n": 3,
+          "op": "min",
+          "t": "distinct"
+        },
+        {
+          "n": 5,
+          "op": "min",
+          "q": 2,
+          "t": "qcount"
+        },
+        {
+          "n": 1,
+          "op": "min",
+          "t": "quality"
+        }
+      ],
+      "expires": "2026-11-20",
+      "formation": "3-4-1-2",
+      "i18n": {
+        "en": {
+          "category": "Challenges",
+          "name": "Black Friday Flash 3",
+          "note": "flash challenge, ends tonight at 20:00 (Belgian time)",
+          "reward": "Jumbo Gold Pack (untradeable)"
+        },
+        "es": {
+          "category": "Desafíos",
+          "name": "Black Friday Flash 3",
+          "note": "desafío relámpago, termina esta noche a las 20:00 (hora belga)",
+          "reward": "Sobre Oro jumbo (intransferible)"
+        },
+        "nl": {
+          "category": "Uitdagingen",
+          "name": "Black Friday Flash 3",
+          "note": "flitsuitdaging, eindigt vanavond om 20:00 (Belgische tijd)",
+          "reward": "Jumbo Goud-pakket (niet verhandelbaar)"
+        }
+      },
+      "name": "Black Friday Flash 3",
+      "note": "défi éclair, se termine ce soir à 20:00 (heure belge)",
+      "permanent": false,
+      "players": 11,
+      "repeat": 1,
+      "reward": "Méga pack Or (non éch.)",
+      "rewardTradeable": false,
+      "type": "classic",
+      "verify": false
     }
   ],
-  "updatedAt": "2026-11-19T18:45:00Z"
+  "updatedAt": "2026-11-20T18:50:00Z"
 }
