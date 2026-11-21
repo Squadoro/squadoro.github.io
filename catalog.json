@@ -1,16 +1,16 @@
 {
   "i18n": {
     "en": {
-      "note": "Live but not included for lack of reliable requirements: 2x 80+ Upgrade (until 7 December), 2x 81+ Upgrade and Daily Login Upgrade (3x 79+), until 4 December, score targets unknown, and Gallery Milestone (7 challenges, formation and player count unknown, final reward Paula León 84). Announced but too vague: rest of Thunderstruck wave 1 (João Félix, Isco, Khéphren Thuram, Araujo, Villalibre, Bahoya, van Bergen FC Heritage: SBCs or objectives, by 27 November), Aiden McGeady (Hall of FUT Unleashed), Ligue 1 POTM for October (winner expected around 24 November), further Black Friday Flash challenges."
+      "note": "Live but not included for lack of reliable requirements: Daily Thunderstruck Challenge 1 (released today, reward Large Electrum Pack, requirements and formation unknown), 2x 80+ Upgrade (until 7 December), 2x 81+ Upgrade and Daily Login Upgrade (3x 79+), until 4 December, score targets unknown, and Gallery Milestone (7 challenges, formation and player count unknown, final reward Paula León 84). Announced but too vague: rest of Thunderstruck wave 1 (João Félix, Isco, Khéphren Thuram, Araujo, Villalibre, Bahoya: SBCs or objectives, by 27 November), Aiden McGeady (Hall of FUT Unleashed), Ligue 1 POTM for October (winner expected around 24 November), other Black Friday Flash challenges."
     },
     "es": {
-      "note": "En línea pero no incluidos por falta de requisitos fiables: Mejora 2x 80+ (hasta el 7 de diciembre), Mejora 2x 81+ y Mejora de inicio de sesión diario (3x 79+), hasta el 4 de diciembre, puntuaciones requeridas desconocidas, y Gallery Milestone (7 desafíos, formación y número de jugadores desconocidos, recompensa final Paula León 84). Anunciados pero demasiado vagos: resto de la oleada 1 de Thunderstruck (João Félix, Isco, Khéphren Thuram, Araujo, Villalibre, Bahoya, van Bergen FC Heritage: SBC u objetivos, antes del 27 de noviembre), Aiden McGeady (Hall of FUT Unleashed), POTM de Ligue 1 de octubre (ganador previsto hacia el 24 de noviembre), más desafíos Black Friday Flash."
+      "note": "En juego pero no incluidos por falta de requisitos fiables: Desafío diario Thunderstruck 1 (salió hoy, recompensa Sobre grande Electrum, requisitos y formación desconocidos), Mejora 2x 80+ (hasta el 7 de diciembre), Mejora 2x 81+ y Mejora de conexión diaria (3x 79+), hasta el 4 de diciembre, puntuaciones requeridas desconocidas, y Gallery Milestone (7 desafíos, formación y número de jugadores desconocidos, recompensa final Paula León 84). Anunciados pero demasiado vagos: resto de la oleada Thunderstruck 1 (João Félix, Isco, Khéphren Thuram, Araujo, Villalibre, Bahoya: SBC u objetivos, antes del 27 de noviembre), Aiden McGeady (Hall of FUT Unleashed), POTM Ligue 1 de octubre (ganador previsto hacia el 24 de noviembre), otros desafíos Black Friday Flash."
     },
     "nl": {
-      "note": "Live maar niet opgenomen bij gebrek aan betrouwbare eisen: 2x 80+ Upgrade (tot 7 december), 2x 81+ Upgrade en Daily Login Upgrade (3x 79+), tot 4 december, vereiste scores onbekend, en Gallery Milestone (7 uitdagingen, formatie en aantal spelers onbekend, eindbeloning Paula León 84). Aangekondigd maar te vaag: rest van Thunderstruck-golf 1 (João Félix, Isco, Khéphren Thuram, Araujo, Villalibre, Bahoya, van Bergen FC Heritage: SBC's of doelstellingen, tegen 27 november), Aiden McGeady (Hall of FUT Unleashed), Ligue 1 POTM van oktober (winnaar verwacht rond 24 november), verdere Black Friday Flash-uitdagingen."
+      "note": "Live maar niet opgenomen bij gebrek aan betrouwbare eisen: Dagelijkse Thunderstruck-uitdaging 1 (vandaag uitgekomen, beloning Groot Electrum-pakket, eisen en formatie onbekend), 2x 80+ Upgrade (tot 7 december), 2x 81+ Upgrade en Dagelijkse login-upgrade (3x 79+), tot 4 december, vereiste scores onbekend, en Gallery Milestone (7 uitdagingen, formatie en aantal spelers onbekend, eindbeloning Paula León 84). Aangekondigd maar te vaag: rest van Thunderstruck-golf 1 (João Félix, Isco, Khéphren Thuram, Araujo, Villalibre, Bahoya: SBC's of doelen, tegen 27 november), Aiden McGeady (Hall of FUT Unleashed), POTM Ligue 1 van oktober (winnaar verwacht rond 24 november), andere Black Friday Flash-uitdagingen."
     }
   },
-  "note": "En ligne mais non inclus faute de conditions fiables : Amélioration 2x 80+ (jusqu'au 7 décembre), Amélioration 2x 81+ et Amélioration connexion quotidienne (3x 79+), jusqu'au 4 décembre, scores requis inconnus, et Gallery Milestone (7 défis, formation et nombre de joueurs inconnus, récompense finale Paula León 84). Annoncés mais trop vagues : suite de la vague Thunderstruck 1 (João Félix, Isco, Khéphren Thuram, Araujo, Villalibre, Bahoya, van Bergen FC Heritage : DCE ou objectifs, d'ici le 27 novembre), Aiden McGeady (Hall of FUT Unleashed), POTM Ligue 1 d'octobre (vainqueur attendu vers le 24 novembre), autres défis Black Friday Flash.",
+  "note": "En ligne mais non inclus faute de conditions fiables : Défi quotidien Thunderstruck 1 (sorti aujourd'hui, récompense Grand pack Electrum, conditions et formation inconnues), Amélioration 2x 80+ (jusqu'au 7 décembre), Amélioration 2x 81+ et Amélioration connexion quotidienne (3x 79+), jusqu'au 4 décembre, scores requis inconnus, et Gallery Milestone (7 défis, formation et nombre de joueurs inconnus, récompense finale Paula León 84). Annoncés mais trop vagues : suite de la vague Thunderstruck 1 (João Félix, Isco, Khéphren Thuram, Araujo, Villalibre, Bahoya : DCE ou objectifs, d'ici le 27 novembre), Aiden McGeady (Hall of FUT Unleashed), POTM Ligue 1 d'octobre (vainqueur attendu vers le 24 novembre), autres défis Black Friday Flash.",
   "sbcs": [
     {
       "category": "Ligues",
@@ -1303,65 +1303,25 @@
     },
     {
       "category": "Joueurs",
-      "cid": "fc27-goretzka-heritage",
-      "expires": "2026-11-21",
-      "i18n": {
-        "en": {
-          "category": "Players",
-          "name": "Leon Goretzka (FC Heritage)",
-          "note": "released today; rating 86 per fut.gg (another source says 91); estimated cost ~125 000 coins",
-          "reward": "Leon Goretzka FC Heritage card (86, CDM, untradeable)"
-        },
-        "es": {
-          "category": "Jugadores",
-          "name": "Leon Goretzka (FC Heritage)",
-          "note": "salió hoy; valoración 86 según fut.gg (otra fuente indica 91); coste estimado ~125 000 monedas",
-          "reward": "Carta FC Heritage de Leon Goretzka (86, MCD, intransferible)"
-        },
-        "nl": {
-          "category": "Spelers",
-          "name": "Leon Goretzka (FC Heritage)",
-          "note": "vandaag uitgekomen; rating 86 volgens fut.gg (een andere bron zegt 91); geschatte kosten ~125 000 munten",
-          "reward": "FC Heritage-kaart van Leon Goretzka (86, CDM, niet verhandelbaar)"
-        }
-      },
-      "kinds": "all",
-      "maxOvr": 0,
-      "minOvr": 45,
-      "name": "Leon Goretzka (FC Heritage)",
-      "note": "sorti aujourd'hui ; note 86 d'après fut.gg (une autre source indique 91) ; coût estimé ~125 000 crédits",
-      "permanent": false,
-      "repeat": 1,
-      "reward": "Carte FC Heritage de Leon Goretzka (86, MDC, non éch.)",
-      "rewardCount": 1,
-      "rewardMax": 86,
-      "rewardMin": 86,
-      "rewardTradeable": false,
-      "target": 130000,
-      "type": "score",
-      "verify": true
-    },
-    {
-      "category": "Joueurs",
       "cid": "fc27-chiesa-heritage",
       "expires": "2026-11-26",
       "i18n": {
         "en": {
           "category": "Players",
           "name": "Federico Chiesa (FC Heritage)",
-          "note": "released today; 86 rating from leaks only; estimated cost ~136 000 to 172 000 coins per futmind",
+          "note": "86 rating from leaks only; estimated cost ~136 000 to 172 000 coins per futmind",
           "reward": "Federico Chiesa FC Heritage card (untradeable)"
         },
         "es": {
           "category": "Jugadores",
           "name": "Federico Chiesa (FC Heritage)",
-          "note": "salió hoy; valoración 86 solo según filtraciones; coste estimado ~136 000 a 172 000 monedas según futmind",
+          "note": "valoración 86 solo según filtraciones; coste estimado ~136 000 a 172 000 monedas según futmind",
           "reward": "Carta FC Heritage de Federico Chiesa (intransferible)"
         },
         "nl": {
           "category": "Spelers",
           "name": "Federico Chiesa (FC Heritage)",
-          "note": "vandaag uitgekomen; rating 86 alleen volgens lekken; geschatte kosten ~136 000 tot 172 000 munten volgens futmind",
+          "note": "rating 86 alleen volgens lekken; geschatte kosten ~136 000 tot 172 000 munten volgens futmind",
           "reward": "FC Heritage-kaart van Federico Chiesa (niet verhandelbaar)"
         }
       },
@@ -1369,7 +1329,7 @@
       "maxOvr": 0,
       "minOvr": 45,
       "name": "Federico Chiesa (FC Heritage)",
-      "note": "sorti aujourd'hui ; note 86 d'après les fuites seulement ; coût estimé ~136 000 à 172 000 crédits selon futmind",
+      "note": "note 86 d'après les fuites seulement ; coût estimé ~136 000 à 172 000 crédits selon futmind",
       "permanent": false,
       "repeat": 1,
       "reward": "Carte FC Heritage de Federico Chiesa (non éch.)",
@@ -1389,19 +1349,19 @@
         "en": {
           "category": "Players",
           "name": "Arnaut Danjuma (FC Heritage)",
-          "note": "released today; rating 85 per fut.gg, ST; estimated cost ~48 000 to 50 000 coins",
+          "note": "rating 85 per fut.gg, ST; estimated cost ~48 000 to 50 000 coins",
           "reward": "Arnaut Danjuma FC Heritage card (85, ST, untradeable)"
         },
         "es": {
           "category": "Jugadores",
           "name": "Arnaut Danjuma (FC Heritage)",
-          "note": "salió hoy; valoración 85 según fut.gg, DC; coste estimado ~48 000 a 50 000 monedas",
+          "note": "valoración 85 según fut.gg, DC; coste estimado ~48 000 a 50 000 monedas",
           "reward": "Carta FC Heritage de Arnaut Danjuma (85, DC, intransferible)"
         },
         "nl": {
           "category": "Spelers",
           "name": "Arnaut Danjuma (FC Heritage)",
-          "note": "vandaag uitgekomen; rating 85 volgens fut.gg, SP; geschatte kosten ~48 000 tot 50 000 munten",
+          "note": "rating 85 volgens fut.gg, SP; geschatte kosten ~48 000 tot 50 000 munten",
           "reward": "FC Heritage-kaart van Arnaut Danjuma (85, SP, niet verhandelbaar)"
         }
       },
@@ -1409,7 +1369,7 @@
       "maxOvr": 0,
       "minOvr": 45,
       "name": "Arnaut Danjuma (FC Heritage)",
-      "note": "sorti aujourd'hui ; note 85 d'après fut.gg, poste BU ; coût estimé ~48 000 à 50 000 crédits",
+      "note": "note 85 d'après fut.gg, poste BU ; coût estimé ~48 000 à 50 000 crédits",
       "permanent": false,
       "repeat": 1,
       "reward": "Carte FC Heritage d'Arnaut Danjuma (85, BU, non éch.)",
@@ -1423,64 +1383,25 @@
     },
     {
       "category": "Mises à niveau",
-      "cid": "fc27-tradeable-5x79-upgrade",
-      "expires": "2026-11-21",
-      "i18n": {
-        "en": {
-          "category": "Upgrades",
-          "name": "Tradeable 5x 79+ Upgrade",
-          "note": "repeatable 2 times; estimated cost ~7 400 coins",
-          "reward": "Pack of 5 Gold 79+ players (tradeable)"
-        },
-        "es": {
-          "category": "Mejoras",
-          "name": "Mejora 5x 79+ transferible",
-          "note": "repetible 2 veces; coste estimado ~7 400 monedas",
-          "reward": "Sobre de 5 jugadores oro 79+ (transferibles)"
-        },
-        "nl": {
-          "category": "Upgrades",
-          "name": "Verhandelbare 5x 79+ Upgrade",
-          "note": "2 keer herhaalbaar; geschatte kosten ~7 400 munten",
-          "reward": "Pakket met 5 gouden spelers 79+ (verhandelbaar)"
-        }
-      },
-      "kinds": "all",
-      "maxOvr": 0,
-      "minOvr": 45,
-      "name": "Amélioration 5x 79+ échangeable",
-      "note": "refaisable 2 fois ; coût estimé ~7 400 crédits",
-      "permanent": false,
-      "repeat": 1,
-      "reward": "Pack 5 joueurs Or 79+ (échangeables)",
-      "rewardCount": 5,
-      "rewardMin": 79,
-      "rewardTradeable": true,
-      "target": 7500,
-      "type": "score",
-      "verify": false
-    },
-    {
-      "category": "Mises à niveau",
       "cid": "fc27-2x84-upgrade",
       "expires": "2026-12-08",
       "i18n": {
         "en": {
           "category": "Upgrades",
           "name": "2x 84+ Upgrade",
-          "note": "released today; once only per futmind (futwiz lists it as repeatable); estimated cost ~9 350 coins",
+          "note": "once only per futmind (futwiz lists it as repeatable); estimated cost ~9 350 coins",
           "reward": "Pack of 2 Gold 84+ players (untradeable)"
         },
         "es": {
           "category": "Mejoras",
           "name": "Mejora 2x 84+",
-          "note": "salió hoy; una sola vez según futmind (futwiz la indica repetible); coste estimado ~9 350 monedas",
+          "note": "una sola vez según futmind (futwiz la indica repetible); coste estimado ~9 350 monedas",
           "reward": "Sobre de 2 jugadores oro 84+ (intransferible)"
         },
         "nl": {
           "category": "Upgrades",
           "name": "2x 84+ Upgrade",
-          "note": "vandaag uitgekomen; één keer volgens futmind (futwiz noemt hem herhaalbaar); geschatte kosten ~9 350 munten",
+          "note": "één keer volgens futmind (futwiz noemt hem herhaalbaar); geschatte kosten ~9 350 munten",
           "reward": "Pakket met 2 gouden spelers 84+ (niet verhandelbaar)"
         }
       },
@@ -1488,7 +1409,7 @@
       "maxOvr": 0,
       "minOvr": 45,
       "name": "Amélioration 2x 84+",
-      "note": "sorti aujourd'hui ; une seule fois selon futmind (futwiz l'indique refaisable) ; coût estimé ~9 350 crédits",
+      "note": "une seule fois selon futmind (futwiz l'indique refaisable) ; coût estimé ~9 350 crédits",
       "permanent": false,
       "repeat": 1,
       "reward": "Pack 2 joueurs Or 84+ (non éch.)",
@@ -1508,19 +1429,19 @@
         "en": {
           "category": "Icons",
           "name": "Base Icon Matchday Player Pick (1 of 3)",
-          "note": "released today; choice between Schmeichel (89), Barnes (88) and Petit (88), ratings per fut.gg and leaks; estimated cost ~307 000 coins",
+          "note": "choice between Schmeichel (89), Barnes (88) and Petit (88), ratings per fut.gg and leaks; estimated cost ~307 000 coins",
           "reward": "1 Base Icon of your choice out of 3: Schmeichel, Barnes or Petit (untradeable)"
         },
         "es": {
           "category": "Iconos",
           "name": "Elección de Icono base Matchday (1 de 3)",
-          "note": "salió hoy; elección entre Schmeichel (89), Barnes (88) y Petit (88), valoraciones según fut.gg y filtraciones; coste estimado ~307 000 monedas",
+          "note": "elección entre Schmeichel (89), Barnes (88) y Petit (88), valoraciones según fut.gg y filtraciones; coste estimado ~307 000 monedas",
           "reward": "1 Icono base a elegir entre 3: Schmeichel, Barnes o Petit (intransferible)"
         },
         "nl": {
           "category": "Iconen",
           "name": "Base Icon Matchday Player Pick (1 uit 3)",
-          "note": "vandaag uitgekomen; keuze tussen Schmeichel (89), Barnes (88) en Petit (88), ratings volgens fut.gg en lekken; geschatte kosten ~307 000 munten",
+          "note": "keuze tussen Schmeichel (89), Barnes (88) en Petit (88), ratings volgens fut.gg en lekken; geschatte kosten ~307 000 munten",
           "reward": "1 basis-Icoon naar keuze uit 3: Schmeichel, Barnes of Petit (niet verhandelbaar)"
         }
       },
@@ -1528,7 +1449,7 @@
       "maxOvr": 0,
       "minOvr": 45,
       "name": "Choix d'ICÔNE de base Matchday (1 parmi 3)",
-      "note": "sorti aujourd'hui ; choix entre Schmeichel (89), Barnes (88) et Petit (88), notes selon fut.gg et les fuites ; coût estimé ~307 000 crédits",
+      "note": "choix entre Schmeichel (89), Barnes (88) et Petit (88), notes selon fut.gg et les fuites ; coût estimé ~307 000 crédits",
       "permanent": false,
       "repeat": 1,
       "reward": "1 ICÔNE de base au choix parmi 3 : Schmeichel, Barnes ou Petit (non éch.)",
@@ -1619,86 +1540,6 @@
       "verify": true
     },
     {
-      "category": "Joueurs",
-      "cid": "fc27-cooper-showdown",
-      "expires": "2026-11-21",
-      "i18n": {
-        "en": {
-          "category": "Players",
-          "name": "Michelle Cooper (Showdown)",
-          "note": "released 18 November, NWSL Final Washington Spirit v KC Current; 1 squad of 11",
-          "reward": "Showdown Michelle Cooper 85 card (untradeable)"
-        },
-        "es": {
-          "category": "Jugadores",
-          "name": "Michelle Cooper (Showdown)",
-          "note": "salió el 18 de noviembre, final de la NWSL Washington Spirit v KC Current; 1 plantilla de 11",
-          "reward": "Carta Showdown 85 de Michelle Cooper (intransferible)"
-        },
-        "nl": {
-          "category": "Spelers",
-          "name": "Michelle Cooper (Showdown)",
-          "note": "uitgekomen op 18 november, NWSL-finale Washington Spirit v KC Current; 1 team van 11",
-          "reward": "Showdown-kaart 85 van Michelle Cooper (niet verhandelbaar)"
-        }
-      },
-      "kinds": "all",
-      "maxOvr": 0,
-      "minOvr": 45,
-      "name": "Michelle Cooper (Showdown)",
-      "note": "sorti le 18 novembre, finale NWSL Washington Spirit v KC Current ; 1 équipe de 11",
-      "permanent": false,
-      "repeat": 1,
-      "reward": "Carte Showdown 85 de Michelle Cooper (non éch.)",
-      "rewardCount": 1,
-      "rewardMax": 85,
-      "rewardMin": 85,
-      "rewardTradeable": false,
-      "target": 33000,
-      "type": "score",
-      "verify": false
-    },
-    {
-      "category": "Joueurs",
-      "cid": "fc27-di-guglielmo-showdown",
-      "expires": "2026-11-21",
-      "i18n": {
-        "en": {
-          "category": "Players",
-          "name": "Lucia Di Guglielmo (Showdown)",
-          "note": "released 18 November, NWSL Final Washington Spirit v KC Current; 1 squad of 11",
-          "reward": "Showdown Lucia Di Guglielmo 85 card (untradeable)"
-        },
-        "es": {
-          "category": "Jugadores",
-          "name": "Lucia Di Guglielmo (Showdown)",
-          "note": "salió el 18 de noviembre, final de la NWSL Washington Spirit v KC Current; 1 plantilla de 11",
-          "reward": "Carta Showdown 85 de Lucia Di Guglielmo (intransferible)"
-        },
-        "nl": {
-          "category": "Spelers",
-          "name": "Lucia Di Guglielmo (Showdown)",
-          "note": "uitgekomen op 18 november, NWSL-finale Washington Spirit v KC Current; 1 team van 11",
-          "reward": "Showdown-kaart 85 van Lucia Di Guglielmo (niet verhandelbaar)"
-        }
-      },
-      "kinds": "all",
-      "maxOvr": 0,
-      "minOvr": 45,
-      "name": "Lucia Di Guglielmo (Showdown)",
-      "note": "sorti le 18 novembre, finale NWSL Washington Spirit v KC Current ; 1 équipe de 11",
-      "permanent": false,
-      "repeat": 1,
-      "reward": "Carte Showdown 85 de Lucia Di Guglielmo (non éch.)",
-      "rewardCount": 1,
-      "rewardMax": 85,
-      "rewardMin": 85,
-      "rewardTradeable": false,
-      "target": 33000,
-      "type": "score",
-      "verify": false
-    },
-    {
       "category": "ICÔNES",
       "cid": "fc27-max88-base-icon-upgrade",
       "expires": "2026-11-23",
@@ -1739,111 +1580,42 @@
       "verify": true
     },
     {
-      "category": "Défis",
-      "cid": "fc27-hof-unleashed-challenge-3",
-      "conds": [
-        {
-          "n": 18,
-          "t": "chem"
-        },
-        {
-          "field": "league",
-          "n": 4,
-          "op": "min",
-          "t": "same"
-        },
-        {
-          "field": "club",
-          "n": 3,
-          "op": "max",
-          "t": "same"
-        },
-        {
-          "field": "club",
-          "n": 5,
-          "op": "max",
-          "t": "distinct"
-        },
-        {
-          "field": "nation",
-          "n": 2,
-          "op": "min",
-          "t": "distinct"
-        },
-        {
-          "n": 1,
-          "op": "min",
-          "t": "quality"
-        }
-      ],
-      "expires": "2026-11-21",
-      "formation": "3-4-1-2",
-      "i18n": {
-        "en": {
-          "category": "Challenges",
-          "name": "Hall of FUT Unleashed Challenge 3",
-          "note": "released 18 November; formation and number of players according to futwiz",
-          "reward": "Mixed Players Pack (untradeable)"
-        },
-        "es": {
-          "category": "Desafíos",
-          "name": "Desafío Hall of FUT Unleashed 3",
-          "note": "salió el 18 de noviembre; formación y número de jugadores según futwiz",
-          "reward": "Sobre de jugadores variado (intransferible)"
-        },
-        "nl": {
-          "category": "Uitdagingen",
-          "name": "Hall of FUT Unleashed-uitdaging 3",
-          "note": "uitgekomen op 18 november; formatie en aantal spelers volgens futwiz",
-          "reward": "Gemengd spelerspakket (niet verhandelbaar)"
-        }
-      },
-      "layoutVerify": false,
-      "name": "Défi Hall of FUT Unleashed 3",
-      "note": "sorti le 18 novembre ; formation et nombre de joueurs d'après futwiz",
-      "permanent": false,
-      "players": 11,
-      "repeat": 1,
-      "reward": "Pack de joueurs mixte (non éch.)",
-      "rewardTradeable": false,
-      "type": "classic",
-      "verify": false
-    },
-    {
-      "announced": true,
       "category": "Joueurs",
       "cid": "fc27-davies-thunderstruck",
-      "expectedBy": "2026-11-27",
       "expires": null,
       "i18n": {
         "en": {
           "category": "Players",
           "name": "Alphonso Davies (Thunderstruck)",
-          "note": "announced (leak) for Thunderstruck, release between 20 and 27 November; rating and cost unknown",
-          "reward": "Alphonso Davies Thunderstruck card (untradeable)"
+          "note": "released today; end date not confirmed; estimated cost ~228 000 to 244 000 coins",
+          "reward": "Alphonso Davies Thunderstruck card (87, LB, untradeable)"
         },
         "es": {
           "category": "Jugadores",
           "name": "Alphonso Davies (Thunderstruck)",
-          "note": "anunciado (filtración) para Thunderstruck, salida entre el 20 y el 27 de noviembre; valoración y coste desconocidos",
-          "reward": "Carta Thunderstruck de Alphonso Davies (intransferible)"
+          "note": "salió hoy; fecha de fin no confirmada; coste estimado ~228 000 a 244 000 monedas",
+          "reward": "Carta Thunderstruck de Alphonso Davies (87, LI, intransferible)"
         },
         "nl": {
           "category": "Spelers",
           "name": "Alphonso Davies (Thunderstruck)",
-          "note": "aangekondigd (lek) voor Thunderstruck, release tussen 20 en 27 november; beoordeling en kosten onbekend",
-          "reward": "Thunderstruck-kaart van Alphonso Davies (niet verhandelbaar)"
+          "note": "vandaag uitgekomen; einddatum niet bevestigd; geschatte kosten ~228 000 tot 244 000 munten",
+          "reward": "Thunderstruck-kaart van Alphonso Davies (87, LB, niet verhandelbaar)"
         }
       },
       "kinds": "all",
       "maxOvr": 0,
       "minOvr": 45,
       "name": "Alphonso Davies (Thunderstruck)",
-      "note": "annoncé (fuite) pour Thunderstruck, sortie entre le 20 et le 27 novembre ; note et coût inconnus",
+      "note": "sorti aujourd'hui ; date de fin non confirmée ; coût estimé ~228 000 à 244 000 crédits",
       "permanent": false,
       "repeat": 1,
-      "reward": "Carte Thunderstruck d'Alphonso Davies (non éch.)",
+      "reward": "Carte Thunderstruck d'Alphonso Davies (87, DG, non éch.)",
+      "rewardCount": 1,
+      "rewardMax": 87,
+      "rewardMin": 87,
       "rewardTradeable": false,
+      "target": 270000,
       "type": "score",
       "verify": true
     },
@@ -1855,19 +1627,19 @@
         "en": {
           "category": "Players",
           "name": "Moussa Diaby (Thunderstruck)",
-          "note": "released today; estimated cost ~36 000 to 46 000 coins",
+          "note": "estimated cost ~36 000 to 46 000 coins",
           "reward": "Moussa Diaby Thunderstruck card (86, RM, untradeable)"
         },
         "es": {
           "category": "Jugadores",
           "name": "Moussa Diaby (Thunderstruck)",
-          "note": "salió hoy; coste estimado ~36 000 a 46 000 monedas",
+          "note": "coste estimado ~36 000 a 46 000 monedas",
           "reward": "Carta Thunderstruck de Moussa Diaby (86, MD, intransferible)"
         },
         "nl": {
           "category": "Spelers",
           "name": "Moussa Diaby (Thunderstruck)",
-          "note": "vandaag uitgekomen; geschatte kosten ~36 000 tot 46 000 munten",
+          "note": "geschatte kosten ~36 000 tot 46 000 munten",
           "reward": "Thunderstruck-kaart van Moussa Diaby (86, RM, niet verhandelbaar)"
         }
       },
@@ -1875,7 +1647,7 @@
       "maxOvr": 0,
       "minOvr": 45,
       "name": "Moussa Diaby (Thunderstruck)",
-      "note": "sorti aujourd'hui ; coût estimé ~36 000 à 46 000 crédits",
+      "note": "coût estimé ~36 000 à 46 000 crédits",
       "permanent": false,
       "repeat": 1,
       "reward": "Carte Thunderstruck de Moussa Diaby (86, MD, non éch.)",
@@ -1907,24 +1679,24 @@
         "en": {
           "category": "Upgrades",
           "name": "10x 82+ Upgrade",
-          "note": "released today; can be done 2 times per futmind; estimated cost ~16 550 coins",
+          "note": "can be done 2 times per futmind; estimated cost ~16 550 coins",
           "reward": "Pack of 10 Gold 82+ players (untradeable)"
         },
         "es": {
           "category": "Mejoras",
           "name": "Mejora 10x 82+",
-          "note": "salió hoy; se puede hacer 2 veces según futmind; coste estimado ~16 550 monedas",
+          "note": "se puede hacer 2 veces según futmind; coste estimado ~16 550 monedas",
           "reward": "Sobre de 10 jugadores oro 82+ (intransferible)"
         },
         "nl": {
           "category": "Upgrades",
           "name": "10x 82+ Upgrade",
-          "note": "vandaag uitgekomen; 2 keer te doen volgens futmind; geschatte kosten ~16 550 munten",
+          "note": "2 keer te doen volgens futmind; geschatte kosten ~16 550 munten",
           "reward": "Pakket met 10 gouden spelers 82+ (niet verhandelbaar)"
         }
       },
       "name": "Amélioration 10x 82+",
-      "note": "sorti aujourd'hui ; faisable 2 fois selon futmind ; coût estimé ~16 550 crédits",
+      "note": "faisable 2 fois selon futmind ; coût estimé ~16 550 crédits",
       "permanent": false,
       "players": 11,
       "repeat": 1,
@@ -2423,75 +2195,121 @@
       "verify": false
     },
     {
-      "category": "Défis",
-      "cid": "fc27-black-friday-flash-3",
-      "conds": [
-        {
-          "n": 28,
-          "t": "chem"
-        },
-        {
-          "field": "league",
-          "n": 4,
-          "op": "min",
-          "t": "same"
-        },
-        {
-          "field": "club",
-          "n": 3,
-          "op": "max",
-          "t": "same"
-        },
-        {
-          "field": "nation",
-          "n": 3,
-          "op": "min",
-          "t": "distinct"
-        },
-        {
-          "n": 5,
-          "op": "min",
-          "q": 2,
-          "t": "qcount"
-        },
-        {
-          "n": 1,
-          "op": "min",
-          "t": "quality"
-        }
-      ],
-      "expires": "2026-11-20",
-      "formation": "3-4-1-2",
+      "category": "Joueurs",
+      "cid": "fc27-van-bergen-heritage",
+      "expires": "2026-11-28",
       "i18n": {
         "en": {
-          "category": "Challenges",
-          "name": "Black Friday Flash 3",
-          "note": "flash challenge, ends tonight at 20:00 (Belgian time)",
-          "reward": "Jumbo Gold Pack (untradeable)"
+          "category": "Players",
+          "name": "Mitchell van Bergen (FC Heritage)",
+          "note": "released today; estimated cost ~23 150 coins",
+          "reward": "Mitchell van Bergen FC Heritage card (86, untradeable)"
         },
         "es": {
-          "category": "Desafíos",
-          "name": "Black Friday Flash 3",
-          "note": "desafío relámpago, termina esta noche a las 20:00 (hora belga)",
-          "reward": "Sobre Oro jumbo (intransferible)"
+          "category": "Jugadores",
+          "name": "Mitchell van Bergen (FC Heritage)",
+          "note": "salió hoy; coste estimado ~23 150 monedas",
+          "reward": "Carta FC Heritage de Mitchell van Bergen (86, intransferible)"
         },
         "nl": {
-          "category": "Uitdagingen",
-          "name": "Black Friday Flash 3",
-          "note": "flitsuitdaging, eindigt vanavond om 20:00 (Belgische tijd)",
-          "reward": "Jumbo Goud-pakket (niet verhandelbaar)"
+          "category": "Spelers",
+          "name": "Mitchell van Bergen (FC Heritage)",
+          "note": "vandaag uitgekomen; geschatte kosten ~23 150 munten",
+          "reward": "FC Heritage-kaart van Mitchell van Bergen (86, niet verhandelbaar)"
         }
       },
-      "name": "Black Friday Flash 3",
-      "note": "défi éclair, se termine ce soir à 20:00 (heure belge)",
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Mitchell van Bergen (FC Heritage)",
+      "note": "sorti aujourd'hui ; coût estimé ~23 150 crédits",
       "permanent": false,
-      "players": 11,
       "repeat": 1,
-      "reward": "Méga pack Or (non éch.)",
+      "reward": "Carte FC Heritage de Mitchell van Bergen (86, non éch.)",
+      "rewardCount": 1,
+      "rewardMax": 86,
+      "rewardMin": 86,
       "rewardTradeable": false,
-      "type": "classic",
+      "target": 25000,
+      "type": "score",
       "verify": false
+    },
+    {
+      "category": "Mises à niveau",
+      "cid": "fc27-year-in-review-pick",
+      "expires": null,
+      "i18n": {
+        "en": {
+          "category": "Upgrades",
+          "name": "Year in Review Player Pick (1 of 3)",
+          "note": "released today; repeatable once per day; end date not confirmed; estimated cost ~21 000 coins",
+          "reward": "1 player of your choice out of 3, from SBCs released up to 4 November (untradeable)"
+        },
+        "es": {
+          "category": "Mejoras",
+          "name": "Elección de jugador Year in Review (1 de 3)",
+          "note": "salió hoy; repetible una vez al día; fecha de fin no confirmada; coste estimado ~21 000 monedas",
+          "reward": "1 jugador a elegir entre 3, de SBC publicados hasta el 4 de noviembre (intransferible)"
+        },
+        "nl": {
+          "category": "Upgrades",
+          "name": "Year in Review-spelerkeuze (1 uit 3)",
+          "note": "vandaag uitgekomen; één keer per dag herhaalbaar; einddatum niet bevestigd; geschatte kosten ~21 000 munten",
+          "reward": "1 speler naar keuze uit 3, uit SBC's verschenen tot 4 november (niet verhandelbaar)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Choix de joueur Year in Review (1 parmi 3)",
+      "note": "sorti aujourd'hui ; refaisable une fois par jour ; date de fin non confirmée ; coût estimé ~21 000 crédits",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "1 joueur au choix parmi 3, issus des DCE sortis jusqu'au 4 novembre (non éch.)",
+      "rewardTradeable": false,
+      "target": 23000,
+      "type": "score",
+      "verify": true
+    },
+    {
+      "category": "Mises à niveau",
+      "cid": "fc27-3of10-80-pick",
+      "expires": "2026-12-04",
+      "i18n": {
+        "en": {
+          "category": "Upgrades",
+          "name": "3 of 10 80+ Gold Player Pick",
+          "note": "released today; repeatable once per day (futmind says 2 times in total); estimated cost ~5 900 coins",
+          "reward": "3 Gold 80+ players of your choice out of 10 (untradeable)"
+        },
+        "es": {
+          "category": "Mejoras",
+          "name": "Elección de 3 de 10 jugadores oro 80+",
+          "note": "salió hoy; repetible una vez al día (futmind indica 2 veces en total); coste estimado ~5 900 monedas",
+          "reward": "3 jugadores oro 80+ a elegir entre 10 (intransferibles)"
+        },
+        "nl": {
+          "category": "Upgrades",
+          "name": "Keuze van 3 uit 10 gouden spelers 80+",
+          "note": "vandaag uitgekomen; één keer per dag herhaalbaar (futmind zegt 2 keer in totaal); geschatte kosten ~5 900 munten",
+          "reward": "3 gouden spelers 80+ naar keuze uit 10 (niet verhandelbaar)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Choix de 3 joueurs Or 80+ parmi 10",
+      "note": "sorti aujourd'hui ; refaisable une fois par jour (futmind indique 2 fois au total) ; coût estimé ~5 900 crédits",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "3 joueurs Or 80+ au choix parmi 10 (non éch.)",
+      "rewardCount": 3,
+      "rewardMin": 80,
+      "rewardTradeable": false,
+      "target": 6000,
+      "type": "score",
+      "verify": true
     }
   ],
-  "updatedAt": "2026-11-20T18:50:00Z"
+  "updatedAt": "2026-11-21T18:50:00Z"
 }
