@@ -500,6 +500,48 @@
    "club": "ICÔNES",
    "promo": "Thunderstruck",
    "added": "2026-11-20"
+  },
+  {
+   "name": "Dunga",
+   "ovr": 89,
+   "kind": "icon",
+   "rare": true,
+   "pos": "CDM",
+   "alt": [],
+   "nation": "Brésil",
+   "iso": "br",
+   "league": "ICÔNES",
+   "club": "ICÔNES",
+   "promo": "Thunderstruck",
+   "added": "2026-11-21"
+  },
+  {
+   "name": "Alphonso Davies",
+   "ovr": 87,
+   "kind": "special",
+   "rare": true,
+   "pos": "LB",
+   "alt": [],
+   "nation": "Canada",
+   "iso": "ca",
+   "league": "Bundesliga",
+   "club": "FC Bayern München",
+   "promo": "Thunderstruck",
+   "added": "2026-11-21"
+  },
+  {
+   "name": "Moussa Diaby",
+   "ovr": 86,
+   "kind": "special",
+   "rare": true,
+   "pos": "RM",
+   "alt": [],
+   "nation": "France",
+   "iso": "fr",
+   "league": "ROSHN Saudi League",
+   "club": "Al Ittihad",
+   "promo": "Thunderstruck",
+   "added": "2026-11-21"
   }
  ]
 }
