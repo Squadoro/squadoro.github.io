@@ -1,6 +1,6 @@
 {
  "v": 1,
- "updatedAt": "2026-11-21T19:28:01Z",
+ "updatedAt": "2026-11-22T19:23:04Z",
  "note": "Cartes spéciales d'EA SPORTS FC 27 (TOTW, promos, ICÔNES, Héros…) relevées chaque soir par la tâche de publication de Squadoro à partir des annonces publiques.",
  "backfill": [
   "TOTW 1",
@@ -21,7 +21,9 @@
   "Future Stars équipe 1",
   "Future Stars équipe 2",
   "Road to the Knockouts équipe 1 (complément)",
-  "Road to the Knockouts DCE et objectifs"
+  "Road to the Knockouts DCE et objectifs",
+  "TOTW 10",
+  "Showdown (complément)"
  ],
  "cards": [
   {
@@ -5574,6 +5576,90 @@
    "club": "Al Ittihad",
    "promo": "Thunderstruck",
    "added": "2026-11-21"
+  },
+  {
+   "name": "Thilo Kehrer",
+   "ovr": 84,
+   "kind": "special",
+   "rare": true,
+   "pos": "CB",
+   "alt": [],
+   "nation": "Allemagne",
+   "iso": "de",
+   "league": "Eredivisie",
+   "club": "Ajax",
+   "promo": "Showdown",
+   "added": "2026-11-22"
+  },
+  {
+   "name": "Gjivai Zechiël",
+   "ovr": 84,
+   "kind": "special",
+   "rare": true,
+   "pos": "CM",
+   "alt": [],
+   "nation": "Pays-Bas",
+   "iso": "nl",
+   "league": "Eredivisie",
+   "club": "Feyenoord",
+   "promo": "Showdown",
+   "added": "2026-11-22"
+  },
+  {
+   "name": "Víctor Guzmán",
+   "ovr": 82,
+   "kind": "special",
+   "rare": true,
+   "pos": "CB",
+   "alt": [],
+   "nation": "Mexique",
+   "iso": "mx",
+   "league": "Liga MX",
+   "club": "Monterrey",
+   "promo": "Showdown",
+   "added": "2026-11-22"
+  },
+  {
+   "name": "Ramiro Árciga",
+   "ovr": 82,
+   "kind": "special",
+   "rare": true,
+   "pos": "RW",
+   "alt": [],
+   "nation": "Mexique",
+   "iso": "mx",
+   "league": "Liga MX",
+   "club": "Club Tijuana",
+   "promo": "Showdown",
+   "added": "2026-11-22"
+  },
+  {
+   "name": "Carlos Augusto",
+   "ovr": 83,
+   "kind": "special",
+   "rare": true,
+   "pos": "LB",
+   "alt": [],
+   "nation": "Brésil",
+   "iso": "br",
+   "league": "Serie A",
+   "club": "Lombardia FC",
+   "promo": "Showdown",
+   "added": "2026-11-22"
+  },
+  {
+   "name": "Ruben Loftus-Cheek",
+   "ovr": 83,
+   "kind": "special",
+   "rare": true,
+   "pos": "CAM",
+   "alt": [],
+   "nation": "Angleterre",
+   "iso": "gb-eng",
+   "league": "Serie A",
+   "club": "Milano FC",
+   "promo": "Showdown",
+   "added": "2026-11-22"
   }
  ]
 }
