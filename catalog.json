@@ -1,16 +1,16 @@
 {
   "i18n": {
     "en": {
-      "note": "Live but not included for lack of reliable requirements: Daily Thunderstruck Challenge 1 (released today, reward Large Electrum Pack, requirements and formation unknown), 2x 80+ Upgrade (until 7 December), 2x 81+ Upgrade and Daily Login Upgrade (3x 79+), until 4 December, score targets unknown, and Gallery Milestone (7 challenges, formation and player count unknown, final reward Paula León 84). Announced but too vague: rest of Thunderstruck wave 1 (João Félix, Isco, Khéphren Thuram, Araujo, Villalibre, Bahoya: SBCs or objectives, by 27 November), Aiden McGeady (Hall of FUT Unleashed), Ligue 1 POTM for October (winner expected around 24 November), other Black Friday Flash challenges."
+      "note": "Live but not included for lack of reliable requirements: Daily Login Upgrade (3x 79+, until 4 December, sources disagree on requirements) and Gallery Milestone (7 challenges each needing a specific Squad Foundations player, final reward Paula León 84). Announced but too vague: rest of the Thunderstruck Team 1 wave (Isco, Khéphren Thuram, Araujo, Villalibre, Bahoya: SBCs or objectives, by 27 November), Aiden McGeady (Hall of FUT Unleashed), Ligue 1 POTM for October (winner expected around 24 November), other Black Friday Flash challenges."
     },
     "es": {
-      "note": "En juego pero no incluidos por falta de requisitos fiables: Desafío diario Thunderstruck 1 (salió hoy, recompensa Sobre grande Electrum, requisitos y formación desconocidos), Mejora 2x 80+ (hasta el 7 de diciembre), Mejora 2x 81+ y Mejora de conexión diaria (3x 79+), hasta el 4 de diciembre, puntuaciones requeridas desconocidas, y Gallery Milestone (7 desafíos, formación y número de jugadores desconocidos, recompensa final Paula León 84). Anunciados pero demasiado vagos: resto de la oleada Thunderstruck 1 (João Félix, Isco, Khéphren Thuram, Araujo, Villalibre, Bahoya: SBC u objetivos, antes del 27 de noviembre), Aiden McGeady (Hall of FUT Unleashed), POTM Ligue 1 de octubre (ganador previsto hacia el 24 de noviembre), otros desafíos Black Friday Flash."
+      "note": "En línea pero no incluidos por falta de requisitos fiables: Mejora de inicio de sesión diario (3x 79+, hasta el 4 de diciembre, las fuentes se contradicen) y Gallery Milestone (7 desafíos que piden cada uno un jugador Squad Foundations concreto, recompensa final Paula León 84). Anunciados pero demasiado vagos: resto de la oleada Thunderstruck 1 (Isco, Khéphren Thuram, Araujo, Villalibre, Bahoya: SBC u objetivos, antes del 27 de noviembre), Aiden McGeady (Hall of FUT Unleashed), POTM de Ligue 1 de octubre (ganador previsto hacia el 24 de noviembre), otros desafíos Black Friday Flash."
     },
     "nl": {
-      "note": "Live maar niet opgenomen bij gebrek aan betrouwbare eisen: Dagelijkse Thunderstruck-uitdaging 1 (vandaag uitgekomen, beloning Groot Electrum-pakket, eisen en formatie onbekend), 2x 80+ Upgrade (tot 7 december), 2x 81+ Upgrade en Dagelijkse login-upgrade (3x 79+), tot 4 december, vereiste scores onbekend, en Gallery Milestone (7 uitdagingen, formatie en aantal spelers onbekend, eindbeloning Paula León 84). Aangekondigd maar te vaag: rest van Thunderstruck-golf 1 (João Félix, Isco, Khéphren Thuram, Araujo, Villalibre, Bahoya: SBC's of doelen, tegen 27 november), Aiden McGeady (Hall of FUT Unleashed), POTM Ligue 1 van oktober (winnaar verwacht rond 24 november), andere Black Friday Flash-uitdagingen."
+      "note": "Live maar niet opgenomen wegens onbetrouwbare eisen: Dagelijkse login-upgrade (3x 79+, tot 4 december, bronnen spreken elkaar tegen) en Gallery Milestone (7 uitdagingen die elk een specifieke Squad Foundations-speler vragen, eindbeloning Paula León 84). Aangekondigd maar te vaag: rest van de Thunderstruck Team 1-golf (Isco, Khéphren Thuram, Araujo, Villalibre, Bahoya: SBC's of doelstellingen, tegen 27 november), Aiden McGeady (Hall of FUT Unleashed), Ligue 1 POTM van oktober (winnaar verwacht rond 24 november), andere Black Friday Flash-uitdagingen."
     }
   },
-  "note": "En ligne mais non inclus faute de conditions fiables : Défi quotidien Thunderstruck 1 (sorti aujourd'hui, récompense Grand pack Electrum, conditions et formation inconnues), Amélioration 2x 80+ (jusqu'au 7 décembre), Amélioration 2x 81+ et Amélioration connexion quotidienne (3x 79+), jusqu'au 4 décembre, scores requis inconnus, et Gallery Milestone (7 défis, formation et nombre de joueurs inconnus, récompense finale Paula León 84). Annoncés mais trop vagues : suite de la vague Thunderstruck 1 (João Félix, Isco, Khéphren Thuram, Araujo, Villalibre, Bahoya : DCE ou objectifs, d'ici le 27 novembre), Aiden McGeady (Hall of FUT Unleashed), POTM Ligue 1 d'octobre (vainqueur attendu vers le 24 novembre), autres défis Black Friday Flash.",
+  "note": "En ligne mais non inclus faute de conditions fiables : Amélioration connexion quotidienne (3x 79+, jusqu'au 4 décembre, conditions incohérentes entre les sources) et Gallery Milestone (7 défis demandant chacun un joueur Squad Foundations précis, récompense finale Paula León 84). Annoncés mais trop vagues : suite de la vague Thunderstruck 1 (Isco, Khéphren Thuram, Araujo, Villalibre, Bahoya : DCE ou objectifs, d'ici le 27 novembre), Aiden McGeady (Hall of FUT Unleashed), POTM Ligue 1 d'octobre (vainqueur attendu vers le 24 novembre), autres défis Black Friday Flash.",
   "sbcs": [
     {
       "category": "Ligues",
@@ -1342,46 +1342,6 @@
       "verify": true
     },
     {
-      "category": "Joueurs",
-      "cid": "fc27-danjuma-heritage",
-      "expires": "2026-11-22",
-      "i18n": {
-        "en": {
-          "category": "Players",
-          "name": "Arnaut Danjuma (FC Heritage)",
-          "note": "rating 85 per fut.gg, ST; estimated cost ~48 000 to 50 000 coins",
-          "reward": "Arnaut Danjuma FC Heritage card (85, ST, untradeable)"
-        },
-        "es": {
-          "category": "Jugadores",
-          "name": "Arnaut Danjuma (FC Heritage)",
-          "note": "valoración 85 según fut.gg, DC; coste estimado ~48 000 a 50 000 monedas",
-          "reward": "Carta FC Heritage de Arnaut Danjuma (85, DC, intransferible)"
-        },
-        "nl": {
-          "category": "Spelers",
-          "name": "Arnaut Danjuma (FC Heritage)",
-          "note": "rating 85 volgens fut.gg, SP; geschatte kosten ~48 000 tot 50 000 munten",
-          "reward": "FC Heritage-kaart van Arnaut Danjuma (85, SP, niet verhandelbaar)"
-        }
-      },
-      "kinds": "all",
-      "maxOvr": 0,
-      "minOvr": 45,
-      "name": "Arnaut Danjuma (FC Heritage)",
-      "note": "note 85 d'après fut.gg, poste BU ; coût estimé ~48 000 à 50 000 crédits",
-      "permanent": false,
-      "repeat": 1,
-      "reward": "Carte FC Heritage d'Arnaut Danjuma (85, BU, non éch.)",
-      "rewardCount": 1,
-      "rewardMax": 85,
-      "rewardMin": 85,
-      "rewardTradeable": false,
-      "target": 50000,
-      "type": "score",
-      "verify": true
-    },
-    {
       "category": "Mises à niveau",
       "cid": "fc27-2x84-upgrade",
       "expires": "2026-12-08",
@@ -1502,44 +1462,6 @@
       "verify": true
     },
     {
-      "announced": true,
-      "category": "ICÔNES",
-      "cid": "fc27-pepe-desailly-icon-pick",
-      "expectedBy": "2026-11-27",
-      "expires": null,
-      "i18n": {
-        "en": {
-          "category": "Icons",
-          "name": "Pepe or Desailly Icon Pick",
-          "note": "announced (leak) as a Thunderstruck SBC or objective, expected by 27 November; cost unknown",
-          "reward": "1 Icon of your choice: Pepe or Desailly (untradeable)"
-        },
-        "es": {
-          "category": "Iconos",
-          "name": "Elección de Icono Pepe o Desailly",
-          "note": "anunciado (filtración) como SBC u objetivo Thunderstruck, previsto antes del 27 de noviembre; coste desconocido",
-          "reward": "1 Icono a elegir: Pepe o Desailly (intransferible)"
-        },
-        "nl": {
-          "category": "Iconen",
-          "name": "Pepe of Desailly Icon Pick",
-          "note": "aangekondigd (lek) als Thunderstruck-SBC of -doelstelling, verwacht tegen 27 november; kosten onbekend",
-          "reward": "1 Icoon naar keuze: Pepe of Desailly (niet verhandelbaar)"
-        }
-      },
-      "kinds": "all",
-      "maxOvr": 0,
-      "minOvr": 45,
-      "name": "Choix d'ICÔNE Pepe ou Desailly",
-      "note": "annoncé (fuite) en DCE ou objectif Thunderstruck, sortie attendue d'ici le 27 novembre ; coût inconnu",
-      "permanent": false,
-      "repeat": 1,
-      "reward": "1 ICÔNE au choix : Pepe ou Desailly (non éch.)",
-      "rewardTradeable": false,
-      "type": "score",
-      "verify": true
-    },
-    {
       "category": "ICÔNES",
       "cid": "fc27-max88-base-icon-upgrade",
       "expires": "2026-11-23",
@@ -1582,24 +1504,25 @@
     {
       "category": "Joueurs",
       "cid": "fc27-davies-thunderstruck",
-      "expires": null,
+      "communityVerdict": "selon",
+      "expires": "2026-12-12",
       "i18n": {
         "en": {
           "category": "Players",
           "name": "Alphonso Davies (Thunderstruck)",
-          "note": "released today; end date not confirmed; estimated cost ~228 000 to 244 000 coins",
+          "note": "estimated cost ~256 000 to 287 000 coins",
           "reward": "Alphonso Davies Thunderstruck card (87, LB, untradeable)"
         },
         "es": {
           "category": "Jugadores",
           "name": "Alphonso Davies (Thunderstruck)",
-          "note": "salió hoy; fecha de fin no confirmada; coste estimado ~228 000 a 244 000 monedas",
+          "note": "coste estimado ~256 000 a 287 000 monedas",
           "reward": "Carta Thunderstruck de Alphonso Davies (87, LI, intransferible)"
         },
         "nl": {
           "category": "Spelers",
           "name": "Alphonso Davies (Thunderstruck)",
-          "note": "vandaag uitgekomen; einddatum niet bevestigd; geschatte kosten ~228 000 tot 244 000 munten",
+          "note": "geschatte kosten ~256 000 tot 287 000 munten",
           "reward": "Thunderstruck-kaart van Alphonso Davies (87, LB, niet verhandelbaar)"
         }
       },
@@ -1607,7 +1530,7 @@
       "maxOvr": 0,
       "minOvr": 45,
       "name": "Alphonso Davies (Thunderstruck)",
-      "note": "sorti aujourd'hui ; date de fin non confirmée ; coût estimé ~228 000 à 244 000 crédits",
+      "note": "coût estimé ~256 000 à 287 000 crédits",
       "permanent": false,
       "repeat": 1,
       "reward": "Carte Thunderstruck d'Alphonso Davies (87, DG, non éch.)",
@@ -1617,7 +1540,7 @@
       "rewardTradeable": false,
       "target": 270000,
       "type": "score",
-      "verify": true
+      "verify": false
     },
     {
       "category": "Joueurs",
@@ -2309,7 +2232,487 @@
       "target": 6000,
       "type": "score",
       "verify": true
+    },
+    {
+      "category": "Joueurs",
+      "cid": "fc27-joao-felix-thunderstruck",
+      "expires": "2026-12-13",
+      "i18n": {
+        "en": {
+          "category": "Players",
+          "name": "João Félix (Thunderstruck)",
+          "note": "released today; item score 250 000; community verdict not known yet",
+          "reward": "João Félix Thunderstruck card (87, untradeable)"
+        },
+        "es": {
+          "category": "Jugadores",
+          "name": "João Félix (Thunderstruck)",
+          "note": "salió hoy; puntuación de objetos 250 000; valoración de la comunidad aún desconocida",
+          "reward": "Carta Thunderstruck de João Félix (87, intransferible)"
+        },
+        "nl": {
+          "category": "Spelers",
+          "name": "João Félix (Thunderstruck)",
+          "note": "vandaag uitgekomen; itemscore 250 000; oordeel van de community nog onbekend",
+          "reward": "Thunderstruck-kaart van João Félix (87, niet verhandelbaar)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "João Félix (Thunderstruck)",
+      "note": "sorti aujourd'hui ; score d'objet 250 000 ; avis de la communauté pas encore connu",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "Carte Thunderstruck de João Félix (87, non éch.)",
+      "rewardCount": 1,
+      "rewardMax": 87,
+      "rewardMin": 87,
+      "rewardTradeable": false,
+      "target": 250000,
+      "type": "score",
+      "verify": false
+    },
+    {
+      "category": "Mises à niveau",
+      "cid": "fc27-ultimate-scream-upgrade",
+      "expires": "2026-11-27",
+      "i18n": {
+        "en": {
+          "category": "Upgrades",
+          "name": "Ultimate Scream Upgrade",
+          "note": "can be done 1 time, refreshes every 2 days; item score 30 000",
+          "reward": "1 Ultimate Scream player (no Heroes, untradeable)"
+        },
+        "es": {
+          "category": "Mejoras",
+          "name": "Mejora Ultimate Scream",
+          "note": "se puede hacer 1 vez, se renueva cada 2 días; puntuación de objetos 30 000",
+          "reward": "1 jugador Ultimate Scream (sin Héroes, intransferible)"
+        },
+        "nl": {
+          "category": "Upgrades",
+          "name": "Ultimate Scream Upgrade",
+          "note": "1 keer te doen, vernieuwt elke 2 dagen; itemscore 30 000",
+          "reward": "1 Ultimate Scream-speler (geen Heroes, niet verhandelbaar)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Amélioration Ultimate Scream",
+      "note": "faisable 1 fois, se renouvelle tous les 2 jours ; score d'objet 30 000",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "1 joueur Ultimate Scream (hors Héros, non éch.)",
+      "rewardTradeable": false,
+      "target": 30000,
+      "type": "score",
+      "verify": false
+    },
+    {
+      "category": "Mises à niveau",
+      "cid": "fc27-tradeable-10x80-upgrade",
+      "expires": "2026-11-27",
+      "i18n": {
+        "en": {
+          "category": "Upgrades",
+          "name": "Tradeable 10x 80+ Upgrade",
+          "note": "can be done 1 time; item score 14 000",
+          "reward": "Pack of 10 Gold 80+ players (tradeable)"
+        },
+        "es": {
+          "category": "Mejoras",
+          "name": "Mejora 10x 80+ transferibles",
+          "note": "se puede hacer 1 vez; puntuación de objetos 14 000",
+          "reward": "Sobre de 10 jugadores oro 80+ (transferibles)"
+        },
+        "nl": {
+          "category": "Upgrades",
+          "name": "Verhandelbare 10x 80+ Upgrade",
+          "note": "1 keer te doen; itemscore 14 000",
+          "reward": "Pakket met 10 gouden spelers 80+ (verhandelbaar)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Amélioration 10x 80+ échangeables",
+      "note": "faisable 1 fois ; score d'objet 14 000",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "Pack 10 joueurs Or 80+ (échangeables)",
+      "rewardCount": 10,
+      "rewardMin": 80,
+      "rewardTradeable": true,
+      "target": 14000,
+      "type": "score",
+      "verify": false
+    },
+    {
+      "category": "Défis",
+      "cid": "fc27-daily-thunderstruck-2",
+      "conds": [
+        {
+          "n": 75,
+          "t": "rating"
+        },
+        {
+          "n": 28,
+          "t": "chem"
+        },
+        {
+          "field": "league",
+          "n": 3,
+          "op": "max",
+          "t": "same"
+        },
+        {
+          "field": "league",
+          "n": 6,
+          "op": "max",
+          "t": "distinct"
+        },
+        {
+          "field": "club",
+          "n": 2,
+          "op": "min",
+          "t": "same"
+        },
+        {
+          "field": "club",
+          "n": 3,
+          "op": "min",
+          "t": "distinct"
+        }
+      ],
+      "expires": "2026-11-23",
+      "formation": "4-1-3-2",
+      "i18n": {
+        "en": {
+          "category": "Challenges",
+          "name": "Daily Thunderstruck Challenge 2",
+          "note": "released today, until tomorrow 19:00; minimum chemistry 28 as shown on futwiz, to be checked",
+          "reward": "Jumbo Electrum Pack (untradeable)"
+        },
+        "es": {
+          "category": "Desafíos",
+          "name": "Desafío diario Thunderstruck 2",
+          "note": "salió hoy, hasta mañana a las 19:00; química mínima 28 según futwiz, por verificar",
+          "reward": "Sobre Electrum gigante (intransferible)"
+        },
+        "nl": {
+          "category": "Uitdagingen",
+          "name": "Dagelijkse Thunderstruck-uitdaging 2",
+          "note": "vandaag uitgekomen, tot morgen 19:00; minimale chemie 28 zoals op futwiz, te controleren",
+          "reward": "Jumbo Electrum-pakket (niet verhandelbaar)"
+        }
+      },
+      "name": "Défi quotidien Thunderstruck 2",
+      "note": "sorti aujourd'hui, jusqu'à demain 19:00 ; collectif minimum 28 tel qu'affiché sur futwiz, à vérifier",
+      "permanent": false,
+      "players": 11,
+      "repeat": 1,
+      "reward": "Pack Electrum géant (non éch.)",
+      "rewardTradeable": false,
+      "type": "classic",
+      "verify": true
+    },
+    {
+      "category": "Mises à niveau",
+      "cid": "fc27-2x80-upgrade",
+      "conds": [
+        {
+          "n": 2,
+          "op": "min",
+          "t": "quality"
+        }
+      ],
+      "expires": "2026-12-07",
+      "formation": "4-5-1",
+      "i18n": {
+        "en": {
+          "category": "Upgrades",
+          "name": "2x 80+ Upgrade",
+          "note": "repeatable without limit; 5 Gold players minimum; estimated cost ~3 300 coins",
+          "reward": "Pack of 2 Gold 80+ players (untradeable)"
+        },
+        "es": {
+          "category": "Mejoras",
+          "name": "Mejora 2x 80+",
+          "note": "repetible sin límite; mínimo 5 jugadores oro; coste estimado ~3 300 monedas",
+          "reward": "Sobre de 2 jugadores oro 80+ (intransferible)"
+        },
+        "nl": {
+          "category": "Upgrades",
+          "name": "2x 80+ Upgrade",
+          "note": "onbeperkt herhaalbaar; minimaal 5 gouden spelers; geschatte kosten ~3 300 munten",
+          "reward": "Pakket met 2 gouden spelers 80+ (niet verhandelbaar)"
+        }
+      },
+      "name": "Amélioration 2x 80+",
+      "note": "refaisable sans limite ; 5 joueurs Or minimum ; coût estimé ~3 300 crédits",
+      "permanent": false,
+      "players": 5,
+      "repeat": 1,
+      "repeatable": true,
+      "reward": "Pack 2 joueurs Or 80+ (non éch.)",
+      "rewardCount": 2,
+      "rewardMin": 80,
+      "rewardTradeable": false,
+      "type": "classic",
+      "verify": false
+    },
+    {
+      "category": "Mises à niveau",
+      "cid": "fc27-2x81-upgrade",
+      "conds": [
+        {
+          "n": 2,
+          "op": "min",
+          "t": "quality"
+        }
+      ],
+      "expires": "2026-12-04",
+      "formation": "4-4-2",
+      "i18n": {
+        "en": {
+          "category": "Upgrades",
+          "name": "2x 81+ Upgrade",
+          "note": "repeatable without limit; 6 Gold players minimum; estimated cost ~3 900 coins",
+          "reward": "Pack of 2 Gold 81+ players (untradeable)"
+        },
+        "es": {
+          "category": "Mejoras",
+          "name": "Mejora 2x 81+",
+          "note": "repetible sin límite; mínimo 6 jugadores oro; coste estimado ~3 900 monedas",
+          "reward": "Sobre de 2 jugadores oro 81+ (intransferible)"
+        },
+        "nl": {
+          "category": "Upgrades",
+          "name": "2x 81+ Upgrade",
+          "note": "onbeperkt herhaalbaar; minimaal 6 gouden spelers; geschatte kosten ~3 900 munten",
+          "reward": "Pakket met 2 gouden spelers 81+ (niet verhandelbaar)"
+        }
+      },
+      "name": "Amélioration 2x 81+",
+      "note": "refaisable sans limite ; 6 joueurs Or minimum ; coût estimé ~3 900 crédits",
+      "permanent": false,
+      "players": 6,
+      "repeat": 1,
+      "repeatable": true,
+      "reward": "Pack 2 joueurs Or 81+ (non éch.)",
+      "rewardCount": 2,
+      "rewardMin": 81,
+      "rewardTradeable": false,
+      "type": "classic",
+      "verify": false
+    },
+    {
+      "category": "ICÔNES",
+      "cid": "fc27-pepe-desailly-icon-pick",
+      "expires": "2026-12-13",
+      "i18n": {
+        "en": {
+          "category": "Icons",
+          "name": "Pepe or Desailly Icon Pick: 45 OVR Challenge 1",
+          "note": "challenge 1 of 5 (500 000 in total); Full set: 1 Base Icon of your choice, Pepe or Desailly (untradeable); per-challenge reward to be confirmed",
+          "reward": "Large Gold Pack (tradeable)",
+          "set": "Pepe or Desailly Icon Pick"
+        },
+        "es": {
+          "category": "Iconos",
+          "name": "Elección de Icono Pepe o Desailly: Desafío 45 OVR 1",
+          "note": "desafío 1 de 5 (500 000 en total); Set completo: 1 Icono base a elegir, Pepe o Desailly (intransferible); recompensa por desafío por confirmar",
+          "reward": "Sobre oro grande (transferible)",
+          "set": "Elección de Icono Pepe o Desailly"
+        },
+        "nl": {
+          "category": "Iconen",
+          "name": "Pepe of Desailly Icon Pick: 45 OVR-uitdaging 1",
+          "note": "uitdaging 1 van 5 (500 000 in totaal); Volledige set: 1 basis-Icoon naar keuze, Pepe of Desailly (niet verhandelbaar); beloning per uitdaging te bevestigen",
+          "reward": "Groot goud pakket (verhandelbaar)",
+          "set": "Pepe of Desailly Icon Pick"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Choix d'ICÔNE Pepe ou Desailly : Défi 45 OVR 1",
+      "note": "défi 1 sur 5 (500 000 au total) ; Set complet : 1 ICÔNE de base au choix, Pepe ou Desailly (non éch.) ; récompense par défi à confirmer",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "Grand pack Or (éch.)",
+      "rewardTradeable": true,
+      "set": "Choix d'ICÔNE Pepe ou Desailly",
+      "target": 100000,
+      "type": "score",
+      "verify": true
+    },
+    {
+      "category": "ICÔNES",
+      "cid": "fc27-pepe-desailly-icon-pick-2",
+      "expires": "2026-12-13",
+      "i18n": {
+        "en": {
+          "category": "Icons",
+          "name": "Pepe or Desailly Icon Pick: 45 OVR Challenge 2",
+          "note": "challenge 2 of 5 (500 000 in total); Full set: 1 Base Icon of your choice, Pepe or Desailly (untradeable); per-challenge reward to be confirmed",
+          "reward": "Large Gold Pack (tradeable)",
+          "set": "Pepe or Desailly Icon Pick"
+        },
+        "es": {
+          "category": "Iconos",
+          "name": "Elección de Icono Pepe o Desailly: Desafío 45 OVR 2",
+          "note": "desafío 2 de 5 (500 000 en total); Set completo: 1 Icono base a elegir, Pepe o Desailly (intransferible); recompensa por desafío por confirmar",
+          "reward": "Sobre oro grande (transferible)",
+          "set": "Elección de Icono Pepe o Desailly"
+        },
+        "nl": {
+          "category": "Iconen",
+          "name": "Pepe of Desailly Icon Pick: 45 OVR-uitdaging 2",
+          "note": "uitdaging 2 van 5 (500 000 in totaal); Volledige set: 1 basis-Icoon naar keuze, Pepe of Desailly (niet verhandelbaar); beloning per uitdaging te bevestigen",
+          "reward": "Groot goud pakket (verhandelbaar)",
+          "set": "Pepe of Desailly Icon Pick"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Choix d'ICÔNE Pepe ou Desailly : Défi 45 OVR 2",
+      "note": "défi 2 sur 5 (500 000 au total) ; Set complet : 1 ICÔNE de base au choix, Pepe ou Desailly (non éch.) ; récompense par défi à confirmer",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "Grand pack Or (éch.)",
+      "rewardTradeable": true,
+      "set": "Choix d'ICÔNE Pepe ou Desailly",
+      "target": 100000,
+      "type": "score",
+      "verify": true
+    },
+    {
+      "category": "ICÔNES",
+      "cid": "fc27-pepe-desailly-icon-pick-3",
+      "expires": "2026-12-13",
+      "i18n": {
+        "en": {
+          "category": "Icons",
+          "name": "Pepe or Desailly Icon Pick: 45 OVR Challenge 3",
+          "note": "challenge 3 of 5 (500 000 in total); Full set: 1 Base Icon of your choice, Pepe or Desailly (untradeable); per-challenge reward to be confirmed",
+          "reward": "Large Gold Pack (tradeable)",
+          "set": "Pepe or Desailly Icon Pick"
+        },
+        "es": {
+          "category": "Iconos",
+          "name": "Elección de Icono Pepe o Desailly: Desafío 45 OVR 3",
+          "note": "desafío 3 de 5 (500 000 en total); Set completo: 1 Icono base a elegir, Pepe o Desailly (intransferible); recompensa por desafío por confirmar",
+          "reward": "Sobre oro grande (transferible)",
+          "set": "Elección de Icono Pepe o Desailly"
+        },
+        "nl": {
+          "category": "Iconen",
+          "name": "Pepe of Desailly Icon Pick: 45 OVR-uitdaging 3",
+          "note": "uitdaging 3 van 5 (500 000 in totaal); Volledige set: 1 basis-Icoon naar keuze, Pepe of Desailly (niet verhandelbaar); beloning per uitdaging te bevestigen",
+          "reward": "Groot goud pakket (verhandelbaar)",
+          "set": "Pepe of Desailly Icon Pick"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Choix d'ICÔNE Pepe ou Desailly : Défi 45 OVR 3",
+      "note": "défi 3 sur 5 (500 000 au total) ; Set complet : 1 ICÔNE de base au choix, Pepe ou Desailly (non éch.) ; récompense par défi à confirmer",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "Grand pack Or (éch.)",
+      "rewardTradeable": true,
+      "set": "Choix d'ICÔNE Pepe ou Desailly",
+      "target": 100000,
+      "type": "score",
+      "verify": true
+    },
+    {
+      "category": "ICÔNES",
+      "cid": "fc27-pepe-desailly-icon-pick-4",
+      "expires": "2026-12-13",
+      "i18n": {
+        "en": {
+          "category": "Icons",
+          "name": "Pepe or Desailly Icon Pick: 45 OVR Challenge 4",
+          "note": "challenge 4 of 5 (500 000 in total); Full set: 1 Base Icon of your choice, Pepe or Desailly (untradeable); per-challenge reward to be confirmed",
+          "reward": "Large Gold Pack (tradeable)",
+          "set": "Pepe or Desailly Icon Pick"
+        },
+        "es": {
+          "category": "Iconos",
+          "name": "Elección de Icono Pepe o Desailly: Desafío 45 OVR 4",
+          "note": "desafío 4 de 5 (500 000 en total); Set completo: 1 Icono base a elegir, Pepe o Desailly (intransferible); recompensa por desafío por confirmar",
+          "reward": "Sobre oro grande (transferible)",
+          "set": "Elección de Icono Pepe o Desailly"
+        },
+        "nl": {
+          "category": "Iconen",
+          "name": "Pepe of Desailly Icon Pick: 45 OVR-uitdaging 4",
+          "note": "uitdaging 4 van 5 (500 000 in totaal); Volledige set: 1 basis-Icoon naar keuze, Pepe of Desailly (niet verhandelbaar); beloning per uitdaging te bevestigen",
+          "reward": "Groot goud pakket (verhandelbaar)",
+          "set": "Pepe of Desailly Icon Pick"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Choix d'ICÔNE Pepe ou Desailly : Défi 45 OVR 4",
+      "note": "défi 4 sur 5 (500 000 au total) ; Set complet : 1 ICÔNE de base au choix, Pepe ou Desailly (non éch.) ; récompense par défi à confirmer",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "Grand pack Or (éch.)",
+      "rewardTradeable": true,
+      "set": "Choix d'ICÔNE Pepe ou Desailly",
+      "target": 100000,
+      "type": "score",
+      "verify": true
+    },
+    {
+      "category": "ICÔNES",
+      "cid": "fc27-pepe-desailly-icon-pick-5",
+      "expires": "2026-12-13",
+      "i18n": {
+        "en": {
+          "category": "Icons",
+          "name": "Pepe or Desailly Icon Pick: 45 OVR Challenge 5",
+          "note": "challenge 5 of 5 (500 000 in total); Full set: 1 Base Icon of your choice, Pepe or Desailly (untradeable); per-challenge reward to be confirmed",
+          "reward": "Large Gold Pack (tradeable)",
+          "set": "Pepe or Desailly Icon Pick"
+        },
+        "es": {
+          "category": "Iconos",
+          "name": "Elección de Icono Pepe o Desailly: Desafío 45 OVR 5",
+          "note": "desafío 5 de 5 (500 000 en total); Set completo: 1 Icono base a elegir, Pepe o Desailly (intransferible); recompensa por desafío por confirmar",
+          "reward": "Sobre oro grande (transferible)",
+          "set": "Elección de Icono Pepe o Desailly"
+        },
+        "nl": {
+          "category": "Iconen",
+          "name": "Pepe of Desailly Icon Pick: 45 OVR-uitdaging 5",
+          "note": "uitdaging 5 van 5 (500 000 in totaal); Volledige set: 1 basis-Icoon naar keuze, Pepe of Desailly (niet verhandelbaar); beloning per uitdaging te bevestigen",
+          "reward": "Groot goud pakket (verhandelbaar)",
+          "set": "Pepe of Desailly Icon Pick"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Choix d'ICÔNE Pepe ou Desailly : Défi 45 OVR 5",
+      "note": "défi 5 sur 5 (500 000 au total) ; Set complet : 1 ICÔNE de base au choix, Pepe ou Desailly (non éch.) ; récompense par défi à confirmer",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "Grand pack Or (éch.)",
+      "rewardTradeable": true,
+      "set": "Choix d'ICÔNE Pepe ou Desailly",
+      "target": 100000,
+      "type": "score",
+      "verify": true
     }
   ],
-  "updatedAt": "2026-11-21T18:50:00Z"
+  "updatedAt": "2026-11-22T18:45:00Z"
 }
