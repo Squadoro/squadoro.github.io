@@ -542,6 +542,34 @@
    "club": "Al Ittihad",
    "promo": "Thunderstruck",
    "added": "2026-11-21"
+  },
+  {
+   "name": "Thilo Kehrer",
+   "ovr": 84,
+   "kind": "special",
+   "rare": true,
+   "pos": "CB",
+   "alt": [],
+   "nation": "Allemagne",
+   "iso": "de",
+   "league": "Eredivisie",
+   "club": "Ajax",
+   "promo": "Showdown",
+   "added": "2026-11-22"
+  },
+  {
+   "name": "Gjivai Zechiël",
+   "ovr": 84,
+   "kind": "special",
+   "rare": true,
+   "pos": "CM",
+   "alt": [],
+   "nation": "Pays-Bas",
+   "iso": "nl",
+   "league": "Eredivisie",
+   "club": "Feyenoord",
+   "promo": "Showdown",
+   "added": "2026-11-22"
   }
  ]
 }
