@@ -570,6 +570,48 @@
    "club": "Feyenoord",
    "promo": "Showdown",
    "added": "2026-11-22"
+  },
+  {
+   "name": "Warren Zaïre-Emery",
+   "ovr": 89,
+   "kind": "special",
+   "rare": true,
+   "pos": "RB",
+   "alt": [],
+   "nation": "France",
+   "iso": "fr",
+   "league": "Ligue 1",
+   "club": "Paris SG",
+   "promo": "Thunderstruck",
+   "added": "2026-11-23"
+  },
+  {
+   "name": "Elena Julve",
+   "ovr": 88,
+   "kind": "special",
+   "rare": true,
+   "pos": "RW",
+   "alt": [],
+   "nation": "Espagne",
+   "iso": "es",
+   "league": "Liga F",
+   "club": "Badalona Women",
+   "promo": "Thunderstruck",
+   "added": "2026-11-23"
+  },
+  {
+   "name": "Christian Pulisic",
+   "ovr": 87,
+   "kind": "special",
+   "rare": true,
+   "pos": "ST",
+   "alt": [],
+   "nation": "États-Unis",
+   "iso": "us",
+   "league": "Serie A",
+   "club": "Milano FC",
+   "promo": "Thunderstruck",
+   "added": "2026-11-23"
   }
  ]
 }
