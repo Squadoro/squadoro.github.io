@@ -1,6 +1,6 @@
 {
  "v": 1,
- "updatedAt": "2026-11-22T19:23:04Z",
+ "updatedAt": "2026-11-23T19:23:09Z",
  "note": "Cartes spéciales d'EA SPORTS FC 27 (TOTW, promos, ICÔNES, Héros…) relevées chaque soir par la tâche de publication de Squadoro à partir des annonces publiques.",
  "backfill": [
   "TOTW 1",
@@ -23,7 +23,8 @@
   "Road to the Knockouts équipe 1 (complément)",
   "Road to the Knockouts DCE et objectifs",
   "TOTW 10",
-  "Showdown (complément)"
+  "Showdown (complément)",
+  "Thunderstruck équipe 1"
  ],
  "cards": [
   {
@@ -5660,6 +5661,48 @@
    "club": "Milano FC",
    "promo": "Showdown",
    "added": "2026-11-22"
+  },
+  {
+   "name": "Warren Zaïre-Emery",
+   "ovr": 89,
+   "kind": "special",
+   "rare": true,
+   "pos": "RB",
+   "alt": [],
+   "nation": "France",
+   "iso": "fr",
+   "league": "Ligue 1",
+   "club": "Paris SG",
+   "promo": "Thunderstruck",
+   "added": "2026-11-23"
+  },
+  {
+   "name": "Elena Julve",
+   "ovr": 88,
+   "kind": "special",
+   "rare": true,
+   "pos": "RW",
+   "alt": [],
+   "nation": "Espagne",
+   "iso": "es",
+   "league": "Liga F",
+   "club": "Badalona Women",
+   "promo": "Thunderstruck",
+   "added": "2026-11-23"
+  },
+  {
+   "name": "Christian Pulisic",
+   "ovr": 87,
+   "kind": "special",
+   "rare": true,
+   "pos": "ST",
+   "alt": [],
+   "nation": "États-Unis",
+   "iso": "us",
+   "league": "Serie A",
+   "club": "Milano FC",
+   "promo": "Thunderstruck",
+   "added": "2026-11-23"
   }
  ]
 }
