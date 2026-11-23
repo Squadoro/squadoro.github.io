@@ -1,16 +1,16 @@
 {
   "i18n": {
     "en": {
-      "note": "Live but not included for lack of reliable requirements: Daily Login Upgrade (3x 79+, until 4 December, sources disagree on requirements) and Gallery Milestone (7 challenges each needing a specific Squad Foundations player, final reward Paula León 84). Announced but too vague: rest of the Thunderstruck Team 1 wave (Isco, Khéphren Thuram, Araujo, Villalibre, Bahoya: SBCs or objectives, by 27 November), Aiden McGeady (Hall of FUT Unleashed), Ligue 1 POTM for October (winner expected around 24 November), other Black Friday Flash challenges."
+      "note": "Live but not included for lack of reliable requirements: Daily Login Upgrade (3x 79+, until 4 December, sources disagree on requirements) and Gallery Milestone (7 challenges each needing a specific Squad Foundations player, final reward Paula León 84). Announced but too vague: rest of the Thunderstruck Team 1 wave (Isco, Khéphren Thuram, Villalibre, Bahoya: SBCs or objectives, by 27 November), Thunderstruck Team 2 expected Friday 27 November (SBCs not known yet), Aiden McGeady (Hall of FUT Unleashed), Ligue 1 POTM for October (winner expected soon)."
     },
     "es": {
-      "note": "En línea pero no incluidos por falta de requisitos fiables: Mejora de inicio de sesión diario (3x 79+, hasta el 4 de diciembre, las fuentes se contradicen) y Gallery Milestone (7 desafíos que piden cada uno un jugador Squad Foundations concreto, recompensa final Paula León 84). Anunciados pero demasiado vagos: resto de la oleada Thunderstruck 1 (Isco, Khéphren Thuram, Araujo, Villalibre, Bahoya: SBC u objetivos, antes del 27 de noviembre), Aiden McGeady (Hall of FUT Unleashed), POTM de Ligue 1 de octubre (ganador previsto hacia el 24 de noviembre), otros desafíos Black Friday Flash."
+      "note": "En línea pero no incluidos por falta de requisitos fiables: Mejora de inicio de sesión diario (3x 79+, hasta el 4 de diciembre, las fuentes se contradicen) y Gallery Milestone (7 desafíos que piden cada uno un jugador Squad Foundations concreto, recompensa final Paula León 84). Anunciados pero demasiado vagos: resto de la oleada Thunderstruck 1 (Isco, Khéphren Thuram, Villalibre, Bahoya: SBC u objetivos, antes del 27 de noviembre), Thunderstruck Team 2 previsto el viernes 27 de noviembre (SBC aún desconocidos), Aiden McGeady (Hall of FUT Unleashed), POTM de Ligue 1 de octubre (ganador previsto pronto)."
     },
     "nl": {
-      "note": "Live maar niet opgenomen wegens onbetrouwbare eisen: Dagelijkse login-upgrade (3x 79+, tot 4 december, bronnen spreken elkaar tegen) en Gallery Milestone (7 uitdagingen die elk een specifieke Squad Foundations-speler vragen, eindbeloning Paula León 84). Aangekondigd maar te vaag: rest van de Thunderstruck Team 1-golf (Isco, Khéphren Thuram, Araujo, Villalibre, Bahoya: SBC's of doelstellingen, tegen 27 november), Aiden McGeady (Hall of FUT Unleashed), Ligue 1 POTM van oktober (winnaar verwacht rond 24 november), andere Black Friday Flash-uitdagingen."
+      "note": "Live maar niet opgenomen wegens onbetrouwbare eisen: Dagelijkse login-upgrade (3x 79+, tot 4 december, bronnen spreken elkaar tegen) en Gallery Milestone (7 uitdagingen die elk een specifieke Squad Foundations-speler vragen, eindbeloning Paula León 84). Aangekondigd maar te vaag: rest van de Thunderstruck Team 1-golf (Isco, Khéphren Thuram, Villalibre, Bahoya: SBC's of doelstellingen, tegen 27 november), Thunderstruck Team 2 verwacht vrijdag 27 november (SBC's nog niet bekend), Aiden McGeady (Hall of FUT Unleashed), Ligue 1 POTM van oktober (winnaar binnenkort verwacht)."
     }
   },
-  "note": "En ligne mais non inclus faute de conditions fiables : Amélioration connexion quotidienne (3x 79+, jusqu'au 4 décembre, conditions incohérentes entre les sources) et Gallery Milestone (7 défis demandant chacun un joueur Squad Foundations précis, récompense finale Paula León 84). Annoncés mais trop vagues : suite de la vague Thunderstruck 1 (Isco, Khéphren Thuram, Araujo, Villalibre, Bahoya : DCE ou objectifs, d'ici le 27 novembre), Aiden McGeady (Hall of FUT Unleashed), POTM Ligue 1 d'octobre (vainqueur attendu vers le 24 novembre), autres défis Black Friday Flash.",
+  "note": "En ligne mais non inclus faute de conditions fiables : Amélioration connexion quotidienne (3x 79+, jusqu'au 4 décembre, conditions incohérentes entre les sources) et Gallery Milestone (7 défis demandant chacun un joueur Squad Foundations précis, récompense finale Paula León 84). Annoncés mais trop vagues : suite de la vague Thunderstruck 1 (Isco, Khéphren Thuram, Villalibre, Bahoya : DCE ou objectifs, d'ici le 27 novembre), Thunderstruck 2 attendu vendredi 27 novembre (DCE pas encore connus), Aiden McGeady (Hall of FUT Unleashed), POTM Ligue 1 d'octobre (vainqueur attendu prochainement).",
   "sbcs": [
     {
       "category": "Ligues",
@@ -1464,24 +1464,25 @@
     {
       "category": "ICÔNES",
       "cid": "fc27-max88-base-icon-upgrade",
+      "communityVerdict": "selon",
       "expires": "2026-11-23",
       "i18n": {
         "en": {
           "category": "Icons",
           "name": "Max 88 Base Icon Upgrade",
-          "note": "repeatable once; 43 Base Icons in the pool according to leaks, minimum rating not published; estimated cost ~143 000 to 193 000 coins",
+          "note": "repeatable once; marked \"new\" on fut.gg tonight while futfc listed it as ending today: possibly extended, end date to be checked; estimated cost ~240 000 coins",
           "reward": "Pack with 1 Base Icon up to 88 (untradeable)"
         },
         "es": {
           "category": "Iconos",
           "name": "Mejora de icono base máx. 88",
-          "note": "repetible una vez; 43 iconos base en el grupo según filtraciones, valoración mínima no publicada; coste estimado ~143 000 a 193 000 monedas",
+          "note": "repetible una vez; marcado como \"nuevo\" en fut.gg esta noche cuando futfc lo daba por terminado hoy: quizá prorrogado, fecha de fin por verificar; coste estimado ~240 000 monedas",
           "reward": "Sobre con 1 icono base hasta 88 (intransferible)"
         },
         "nl": {
           "category": "Iconen",
           "name": "Max 88 basis-icoon Upgrade",
-          "note": "één keer herhaalbaar; 43 basis-iconen in de pool volgens lekken, minimale beoordeling niet gepubliceerd; geschatte kosten ~143 000 tot 193 000 munten",
+          "note": "één keer herhaalbaar; vanavond als \"nieuw\" gemarkeerd op fut.gg terwijl futfc het einde vandaag aangaf: mogelijk verlengd, einddatum te controleren; geschatte kosten ~240 000 munten",
           "reward": "Pakket met 1 basis-icoon tot 88 (niet verhandelbaar)"
         }
       },
@@ -1489,7 +1490,7 @@
       "maxOvr": 0,
       "minOvr": 45,
       "name": "Amélioration ICÔNE de base Max 88",
-      "note": "répétable une fois ; 43 ICÔNES de base dans le lot selon les fuites, note minimale non publiée ; coût estimé ~143 000 à 193 000 crédits",
+      "note": "répétable une fois ; marqué « nouveau » sur fut.gg ce soir alors que futfc le donnait fini aujourd'hui : peut-être prolongé, date de fin à vérifier ; coût estimé ~240 000 crédits",
       "permanent": false,
       "repeat": 1,
       "reward": "Pack 1 ICÔNE de base jusqu'à 88 (non éch.)",
@@ -2712,7 +2713,162 @@
       "target": 100000,
       "type": "score",
       "verify": true
+    },
+    {
+      "category": "Joueurs",
+      "cid": "fc27-araujo-thunderstruck",
+      "expires": "2026-11-30",
+      "i18n": {
+        "en": {
+          "category": "Players",
+          "name": "Ronald Araujo (Thunderstruck)",
+          "note": "released today, not repeatable; estimated cost ~92 000 to 97 000 coins",
+          "reward": "Ronald Araujo Thunderstruck card (86, CB, untradeable)"
+        },
+        "es": {
+          "category": "Jugadores",
+          "name": "Ronald Araujo (Thunderstruck)",
+          "note": "salió hoy, no repetible; coste estimado ~92 000 a 97 000 monedas",
+          "reward": "Carta Thunderstruck de Ronald Araujo (86, DFC, intransferible)"
+        },
+        "nl": {
+          "category": "Spelers",
+          "name": "Ronald Araujo (Thunderstruck)",
+          "note": "vandaag uitgekomen, niet herhaalbaar; geschatte kosten ~92 000 tot 97 000 munten",
+          "reward": "Thunderstruck-kaart van Ronald Araujo (86, CV, niet verhandelbaar)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Ronald Araujo (Thunderstruck)",
+      "note": "sorti aujourd'hui, non répétable ; coût estimé ~92 000 à 97 000 crédits",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "Carte Thunderstruck de Ronald Araujo (86, DC, non éch.)",
+      "rewardCount": 1,
+      "rewardMax": 86,
+      "rewardMin": 86,
+      "rewardTradeable": false,
+      "target": 80000,
+      "type": "score",
+      "verify": false
+    },
+    {
+      "category": "Défis",
+      "cid": "fc27-daily-thunderstruck-3",
+      "conds": [
+        {
+          "n": 76,
+          "t": "rating"
+        },
+        {
+          "n": 28,
+          "t": "chem"
+        },
+        {
+          "field": "league",
+          "n": 4,
+          "op": "max",
+          "t": "same"
+        },
+        {
+          "field": "club",
+          "n": 2,
+          "op": "min",
+          "t": "same"
+        },
+        {
+          "field": "nation",
+          "n": 5,
+          "op": "max",
+          "t": "distinct"
+        },
+        {
+          "field": "club",
+          "n": 2,
+          "op": "min",
+          "t": "distinct"
+        }
+      ],
+      "expires": "2026-11-24",
+      "formation": "any",
+      "i18n": {
+        "en": {
+          "category": "Challenges",
+          "name": "Daily Thunderstruck Challenge 3",
+          "note": "released today, normally until tomorrow 19:00; formation and number of players not published, check in game",
+          "reward": "Giant Gold Pack (untradeable)"
+        },
+        "es": {
+          "category": "Desafíos",
+          "name": "Desafío diario Thunderstruck 3",
+          "note": "salió hoy, en principio hasta mañana a las 19:00; formación y número de jugadores no publicados, compruébalo en el juego",
+          "reward": "Sobre oro gigante (intransferible)"
+        },
+        "nl": {
+          "category": "Uitdagingen",
+          "name": "Dagelijkse Thunderstruck-uitdaging 3",
+          "note": "vandaag uitgekomen, normaal tot morgen 19:00; formatie en aantal spelers niet gepubliceerd, controleer in het spel",
+          "reward": "Gigantisch goud pakket (niet verhandelbaar)"
+        }
+      },
+      "layoutVerify": true,
+      "name": "Défi quotidien Thunderstruck 3",
+      "note": "sorti aujourd'hui, en principe jusqu'à demain 19:00 ; formation et nombre de joueurs non publiés, à vérifier dans le jeu",
+      "permanent": false,
+      "players": 11,
+      "repeat": 1,
+      "reward": "Pack Or géant (non éch.)",
+      "rewardTradeable": false,
+      "type": "classic",
+      "verify": true
+    },
+    {
+      "category": "Mises à niveau",
+      "cid": "fc27-1of3-80-pick",
+      "conds": [
+        {
+          "n": 2,
+          "op": "min",
+          "t": "quality"
+        }
+      ],
+      "expires": null,
+      "formation": "any",
+      "i18n": {
+        "en": {
+          "category": "Upgrades",
+          "name": "1 of 3 80+ Gold Player Pick",
+          "note": "marked new today; 5 Gold players minimum required, formation and end date not published",
+          "reward": "1 Gold 80+ player of your choice out of 3 (untradeable)"
+        },
+        "es": {
+          "category": "Mejoras",
+          "name": "Elección de 1 de 3 jugadores oro 80+",
+          "note": "marcado como nuevo hoy; mínimo 5 jugadores oro, formación y fecha de fin no publicadas",
+          "reward": "1 jugador oro 80+ a elegir entre 3 (intransferible)"
+        },
+        "nl": {
+          "category": "Upgrades",
+          "name": "Keuze van 1 uit 3 gouden spelers 80+",
+          "note": "vandaag als nieuw gemarkeerd; 5 gouden spelers minimaal vereist, formatie en einddatum niet gepubliceerd",
+          "reward": "1 gouden speler 80+ naar keuze uit 3 (niet verhandelbaar)"
+        }
+      },
+      "layoutVerify": true,
+      "name": "Choix d'un joueur Or 80+ parmi 3",
+      "note": "marqué nouveau aujourd'hui ; 5 joueurs Or minimum demandés, formation et date de fin non publiées",
+      "permanent": false,
+      "players": 5,
+      "repeat": 1,
+      "reward": "1 joueur Or 80+ au choix parmi 3 (non éch.)",
+      "rewardCount": 1,
+      "rewardMin": 80,
+      "rewardTradeable": false,
+      "type": "classic",
+      "verify": true
     }
   ],
-  "updatedAt": "2026-11-22T18:45:00Z"
+  "updatedAt": "2026-11-23T18:42:18Z"
 }
