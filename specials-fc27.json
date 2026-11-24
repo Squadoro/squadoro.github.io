@@ -1,6 +1,6 @@
 {
  "v": 1,
- "updatedAt": "2026-11-23T19:23:09Z",
+ "updatedAt": "2026-11-24T19:23:38Z",
  "note": "Cartes spéciales d'EA SPORTS FC 27 (TOTW, promos, ICÔNES, Héros…) relevées chaque soir par la tâche de publication de Squadoro à partir des annonces publiques.",
  "backfill": [
   "TOTW 1",
@@ -24,7 +24,8 @@
   "Road to the Knockouts DCE et objectifs",
   "TOTW 10",
   "Showdown (complément)",
-  "Thunderstruck équipe 1"
+  "Thunderstruck équipe 1",
+  "Ultimate Scream DCE (Emre Mor)"
  ],
  "cards": [
   {
@@ -5703,6 +5704,96 @@
    "club": "Milano FC",
    "promo": "Thunderstruck",
    "added": "2026-11-23"
+  },
+  {
+   "name": "Ronald Araujo",
+   "ovr": 86,
+   "kind": "special",
+   "rare": true,
+   "pos": "CB",
+   "alt": [],
+   "nation": "Uruguay",
+   "iso": "uy",
+   "league": "Premier League",
+   "club": "Liverpool",
+   "promo": "Thunderstruck",
+   "added": "2026-11-24"
+  },
+  {
+   "name": "João Félix",
+   "ovr": 87,
+   "kind": "special",
+   "rare": true,
+   "pos": "ST",
+   "alt": [
+    "LM",
+    "CAM",
+    "LW"
+   ],
+   "nation": "Portugal",
+   "iso": "pt",
+   "league": "ROSHN Saudi League",
+   "club": "Al Nassr",
+   "stats": [
+    86,
+    87,
+    84,
+    88,
+    50,
+    76
+   ],
+   "wf": 4,
+   "sm": 5,
+   "promo": "Thunderstruck",
+   "added": "2026-11-24"
+  },
+  {
+   "name": "Isco",
+   "ovr": 87,
+   "kind": "special",
+   "rare": true,
+   "pos": "CAM",
+   "alt": [],
+   "nation": "Espagne",
+   "iso": "es",
+   "league": "LaLiga",
+   "club": "Real Betis",
+   "promo": "Thunderstruck",
+   "added": "2026-11-24"
+  },
+  {
+   "name": "Lassine Sinayoko",
+   "ovr": 86,
+   "kind": "special",
+   "rare": true,
+   "pos": "ST",
+   "alt": [],
+   "nation": "Mali",
+   "iso": "ml",
+   "league": "Ligue 1",
+   "club": "Paris FC",
+   "promo": "POTM",
+   "added": "2026-11-24"
+  },
+  {
+   "name": "Emre Mor",
+   "ovr": 85,
+   "kind": "special",
+   "rare": true,
+   "pos": "ST",
+   "alt": [
+    "RM",
+    "CAM",
+    "RW"
+   ],
+   "nation": "Turquie",
+   "iso": "tr",
+   "league": "Eredivisie",
+   "club": "N.E.C. Nijmegen",
+   "wf": 3,
+   "sm": 4,
+   "promo": "Ultimate Scream",
+   "added": "2026-11-24"
   }
  ]
 }
