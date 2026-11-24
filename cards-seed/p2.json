@@ -612,6 +612,76 @@
    "club": "Milano FC",
    "promo": "Thunderstruck",
    "added": "2026-11-23"
+  },
+  {
+   "name": "Ronald Araujo",
+   "ovr": 86,
+   "kind": "special",
+   "rare": true,
+   "pos": "CB",
+   "alt": [],
+   "nation": "Uruguay",
+   "iso": "uy",
+   "league": "Premier League",
+   "club": "Liverpool",
+   "promo": "Thunderstruck",
+   "added": "2026-11-24"
+  },
+  {
+   "name": "João Félix",
+   "ovr": 87,
+   "kind": "special",
+   "rare": true,
+   "pos": "ST",
+   "alt": [
+    "LM",
+    "CAM",
+    "LW"
+   ],
+   "nation": "Portugal",
+   "iso": "pt",
+   "league": "ROSHN Saudi League",
+   "club": "Al Nassr",
+   "stats": [
+    86,
+    87,
+    84,
+    88,
+    50,
+    76
+   ],
+   "wf": 4,
+   "sm": 5,
+   "promo": "Thunderstruck",
+   "added": "2026-11-24"
+  },
+  {
+   "name": "Isco",
+   "ovr": 87,
+   "kind": "special",
+   "rare": true,
+   "pos": "CAM",
+   "alt": [],
+   "nation": "Espagne",
+   "iso": "es",
+   "league": "LaLiga",
+   "club": "Real Betis",
+   "promo": "Thunderstruck",
+   "added": "2026-11-24"
+  },
+  {
+   "name": "Lassine Sinayoko",
+   "ovr": 86,
+   "kind": "special",
+   "rare": true,
+   "pos": "ST",
+   "alt": [],
+   "nation": "Mali",
+   "iso": "ml",
+   "league": "Ligue 1",
+   "club": "Paris FC",
+   "promo": "POTM",
+   "added": "2026-11-24"
   }
  ]
 }
