@@ -682,6 +682,20 @@
    "club": "Paris FC",
    "promo": "POTM",
    "added": "2026-11-24"
+  },
+  {
+   "name": "Asier Villalibre",
+   "ovr": 85,
+   "kind": "special",
+   "rare": true,
+   "pos": "ST",
+   "alt": [],
+   "nation": "Espagne",
+   "iso": "es",
+   "league": "LaLiga",
+   "club": "R. Racing Club",
+   "promo": "Thunderstruck",
+   "added": "2026-11-25"
   }
  ]
 }
