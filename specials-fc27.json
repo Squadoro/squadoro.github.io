@@ -1,6 +1,6 @@
 {
  "v": 1,
- "updatedAt": "2026-11-24T19:23:38Z",
+ "updatedAt": "2026-11-25T19:28:19Z",
  "note": "Cartes spéciales d'EA SPORTS FC 27 (TOTW, promos, ICÔNES, Héros…) relevées chaque soir par la tâche de publication de Squadoro à partir des annonces publiques.",
  "backfill": [
   "TOTW 1",
@@ -5794,6 +5794,20 @@
    "sm": 4,
    "promo": "Ultimate Scream",
    "added": "2026-11-24"
+  },
+  {
+   "name": "Asier Villalibre",
+   "ovr": 85,
+   "kind": "special",
+   "rare": true,
+   "pos": "ST",
+   "alt": [],
+   "nation": "Espagne",
+   "iso": "es",
+   "league": "LaLiga",
+   "club": "R. Racing Club",
+   "promo": "Thunderstruck",
+   "added": "2026-11-25"
   }
  ]
 }
