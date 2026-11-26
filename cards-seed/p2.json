@@ -696,6 +696,111 @@
    "club": "R. Racing Club",
    "promo": "Thunderstruck",
    "added": "2026-11-25"
+  },
+  {
+   "name": "Pedri",
+   "ovr": 91,
+   "kind": "totw",
+   "rare": true,
+   "pos": "CM",
+   "alt": [
+    "CDM",
+    "CAM"
+   ],
+   "nation": "Espagne",
+   "iso": "es",
+   "league": "LaLiga",
+   "club": "FC Barcelona",
+   "added": "2026-11-26"
+  },
+  {
+   "name": "Adrien Rabiot",
+   "ovr": 86,
+   "kind": "totw",
+   "rare": true,
+   "pos": "CAM",
+   "alt": [
+    "CDM",
+    "CM"
+   ],
+   "nation": "France",
+   "iso": "fr",
+   "league": "Serie A",
+   "club": "Milano FC",
+   "added": "2026-11-26"
+  },
+  {
+   "name": "Donyell Malen",
+   "ovr": 84,
+   "kind": "totw",
+   "rare": true,
+   "pos": "ST",
+   "alt": [],
+   "nation": "Pays-Bas",
+   "iso": "nl",
+   "league": "Serie A",
+   "club": "AS Roma",
+   "added": "2026-11-26"
+  },
+  {
+   "name": "Rio Ngumoha",
+   "ovr": 82,
+   "kind": "totw",
+   "rare": true,
+   "pos": "LW",
+   "alt": [
+    "LM"
+   ],
+   "nation": "Angleterre",
+   "iso": "gb-eng",
+   "league": "Premier League",
+   "club": "Liverpool",
+   "added": "2026-11-26"
+  },
+  {
+   "name": "Noah Okafor",
+   "ovr": 80,
+   "kind": "totw",
+   "rare": true,
+   "pos": "CAM",
+   "alt": [
+    "LM",
+    "ST",
+    "LW"
+   ],
+   "nation": "Suisse",
+   "iso": "ch",
+   "league": "Premier League",
+   "club": "Leeds United",
+   "added": "2026-11-26"
+  },
+  {
+   "name": "Khéphren Thuram",
+   "ovr": 87,
+   "kind": "special",
+   "rare": true,
+   "pos": "CM",
+   "alt": [],
+   "nation": "France",
+   "iso": "fr",
+   "league": "Serie A",
+   "club": "Juventus",
+   "promo": "Thunderstruck",
+   "added": "2026-11-26"
+  },
+  {
+   "name": "Jean-Mattéo Bahoya",
+   "ovr": 86,
+   "kind": "special",
+   "rare": true,
+   "pos": "LM",
+   "alt": [],
+   "nation": "France",
+   "iso": "fr",
+   "league": "Bundesliga",
+   "club": "Frankfurt",
+   "promo": "Thunderstruck",
+   "added": "2026-11-26"
   }
  ]
 }
