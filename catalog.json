@@ -1,16 +1,16 @@
 {
   "i18n": {
     "en": {
-      "note": "Live but not included for lack of reliable requirements: Daily Login Upgrade (3x 79+, until 4 December) and Gallery Milestone (7 challenges each needing a specific Squad Foundations player, final reward Paula León 84). Announced but too vague: other Thunderstruck Team 2 SBCs expected from Friday 27 November (Cherki, Julián Álvarez, Nico Williams, Alaba, Reece James…: SBCs or objectives), Aiden McGeady (Hall of FUT Unleashed)."
+      "note": "Live but not included for lack of reliable requirements: Daily Login Upgrade (3x 79+, until 4 December) and Gallery Milestone (7 challenges each needing a specific Squad Foundations player, final reward Paula León 84). Announced but too vague: Thunderstruck Team 2 expected on Friday 27 November with, according to leaks, a Thunderstruck Icon SBC, a Thunderstruck player SBC and a Flashback SBC (possible players: Cherki, Julián Álvarez, Nico Williams, Alaba, Reece James… SBCs or objectives), Aiden McGeady (Hall of FUT Unleashed)."
     },
     "es": {
-      "note": "En juego pero no incluidos por falta de requisitos fiables: Mejora de inicio de sesión diario (3x 79+, hasta el 4 de diciembre) y Gallery Milestone (7 desafíos que piden cada uno un jugador Squad Foundations concreto, recompensa final Paula León 84). Anunciados pero demasiado vagos: otros SBC de Thunderstruck equipo 2 esperados desde el viernes 27 de noviembre (Cherki, Julián Álvarez, Nico Williams, Alaba, Reece James…: SBC u objetivos), Aiden McGeady (Hall of FUT Unleashed)."
+      "note": "En línea pero no incluidos por falta de requisitos fiables: Mejora de inicio de sesión diario (3x 79+, hasta el 4 de diciembre) y Gallery Milestone (7 desafíos que piden cada uno un jugador Squad Foundations concreto, recompensa final Paula León 84). Anunciados pero demasiado vagos: Thunderstruck equipo 2 previsto el viernes 27 de noviembre con, según las filtraciones, un SBC de icono Thunderstruck, un SBC de jugador Thunderstruck y un SBC Flashback (jugadores posibles: Cherki, Julián Álvarez, Nico Williams, Alaba, Reece James… SBC u objetivos), Aiden McGeady (Hall of FUT Unleashed)."
     },
     "nl": {
-      "note": "Live maar niet opgenomen wegens gebrek aan betrouwbare eisen: Dagelijkse login-upgrade (3x 79+, tot 4 december) en Gallery Milestone (7 uitdagingen die elk een specifieke Squad Foundations-speler vragen, eindbeloning Paula León 84). Aangekondigd maar te vaag: andere Thunderstruck Team 2-SBC's verwacht vanaf vrijdag 27 november (Cherki, Julián Álvarez, Nico Williams, Alaba, Reece James…: SBC's of doelen), Aiden McGeady (Hall of FUT Unleashed)."
+      "note": "Live maar niet opgenomen bij gebrek aan betrouwbare eisen: Dagelijkse login-upgrade (3x 79+, tot 4 december) en Gallery Milestone (7 uitdagingen die elk een specifieke Squad Foundations-speler vragen, eindbeloning Paula León 84). Aangekondigd maar te vaag: Thunderstruck Team 2 verwacht op vrijdag 27 november met, volgens leaks, een Thunderstruck-icoon-SBC, een Thunderstruck-speler-SBC en een Flashback-SBC (mogelijke spelers: Cherki, Julián Álvarez, Nico Williams, Alaba, Reece James… SBC's of doelen), Aiden McGeady (Hall of FUT Unleashed)."
     }
   },
-  "note": "En ligne mais non inclus faute de conditions fiables : Amélioration connexion quotidienne (3x 79+, jusqu'au 4 décembre) et Gallery Milestone (7 défis demandant chacun un joueur Squad Foundations précis, récompense finale Paula León 84). Annoncés mais trop vagues : autres DCE de Thunderstruck équipe 2 attendus à partir du vendredi 27 novembre (Cherki, Julián Álvarez, Nico Williams, Alaba, Reece James… : DCE ou objectifs), Aiden McGeady (Hall of FUT Unleashed).",
+  "note": "En ligne mais non inclus faute de conditions fiables : Amélioration connexion quotidienne (3x 79+, jusqu'au 4 décembre) et Gallery Milestone (7 défis demandant chacun un joueur Squad Foundations précis, récompense finale Paula León 84). Annoncés mais trop vagues : Thunderstruck équipe 2 attendue le vendredi 27 novembre avec, selon les fuites, un DCE ICÔNE Thunderstruck, un DCE joueur Thunderstruck et un DCE Flashback (joueurs possibles : Cherki, Julián Álvarez, Nico Williams, Alaba, Reece James… DCE ou objectifs), Aiden McGeady (Hall of FUT Unleashed).",
   "sbcs": [
     {
       "category": "Ligues",
@@ -1518,30 +1518,30 @@
           "t": "totw"
         }
       ],
-      "expires": "2026-11-26",
+      "expires": "2026-12-04",
       "formation": "4-2-3-1",
       "i18n": {
         "en": {
           "category": "Upgrades",
           "name": "10x 82+ Upgrade",
-          "note": "can be done 2 times per futmind; estimated cost ~16 550 coins",
+          "note": "new round, can be done 3 times per futmind; estimated cost ~21 450 coins",
           "reward": "Pack of 10 Gold 82+ players (untradeable)"
         },
         "es": {
           "category": "Mejoras",
           "name": "Mejora 10x 82+",
-          "note": "se puede hacer 2 veces según futmind; coste estimado ~16 550 monedas",
+          "note": "nueva ronda, se puede hacer 3 veces según futmind; coste estimado ~21 450 monedas",
           "reward": "Sobre de 10 jugadores oro 82+ (intransferible)"
         },
         "nl": {
           "category": "Upgrades",
           "name": "10x 82+ Upgrade",
-          "note": "2 keer te doen volgens futmind; geschatte kosten ~16 550 munten",
+          "note": "nieuwe ronde, 3 keer te doen volgens futmind; geschatte kosten ~21 450 munten",
           "reward": "Pakket met 10 gouden spelers 82+ (niet verhandelbaar)"
         }
       },
       "name": "Amélioration 10x 82+",
-      "note": "faisable 2 fois selon futmind ; coût estimé ~16 550 crédits",
+      "note": "nouvelle série, faisable 3 fois selon futmind ; coût estimé ~21 450 crédits",
       "permanent": false,
       "players": 11,
       "repeat": 1,
@@ -2963,28 +2963,26 @@
       "verify": true
     },
     {
-      "announced": true,
       "category": "Joueurs",
       "cid": "fc27-khephren-thuram-thunderstruck",
-      "expectedBy": "2026-11-26",
-      "expires": null,
+      "expires": "2026-12-03",
       "i18n": {
         "en": {
           "category": "Players",
           "name": "Khéphren Thuram (Thunderstruck)",
-          "note": "leaked (Thunderstruck calendar) for 26 November; required score unknown",
+          "note": "released 26 November; estimated cost ~120 000 to 165 000 coins depending on the site",
           "reward": "Khéphren Thuram Thunderstruck card (87, CM, untradeable)"
         },
         "es": {
           "category": "Jugadores",
           "name": "Khéphren Thuram (Thunderstruck)",
-          "note": "filtrado (calendario Thunderstruck) para el 26 de noviembre; puntuación requerida desconocida",
+          "note": "publicado el 26 de noviembre; coste estimado ~120 000 a 165 000 monedas según la web",
           "reward": "Carta Thunderstruck de Khéphren Thuram (87, MC, intransferible)"
         },
         "nl": {
           "category": "Spelers",
           "name": "Khéphren Thuram (Thunderstruck)",
-          "note": "gelekt (Thunderstruck-kalender) voor 26 november; vereiste score onbekend",
+          "note": "uitgekomen op 26 november; geschatte kosten ~120 000 tot 165 000 munten afhankelijk van de site",
           "reward": "Thunderstruck-kaart van Khéphren Thuram (87, CM, niet verhandelbaar)"
         }
       },
@@ -2992,7 +2990,7 @@
       "maxOvr": 0,
       "minOvr": 45,
       "name": "Khéphren Thuram (Thunderstruck)",
-      "note": "annoncé par fuite (calendrier Thunderstruck) pour le 26 novembre ; score requis inconnu",
+      "note": "sorti le 26 novembre ; coût estimé ~120 000 à 165 000 crédits selon les sites",
       "permanent": false,
       "repeat": 1,
       "reward": "Carte Thunderstruck de Khéphren Thuram (87, MC, non éch.)",
@@ -3000,8 +2998,9 @@
       "rewardMax": 87,
       "rewardMin": 87,
       "rewardTradeable": false,
+      "target": 100000,
       "type": "score",
-      "verify": true
+      "verify": false
     },
     {
       "announced": true,
@@ -3078,7 +3077,47 @@
       "rewardTradeable": false,
       "type": "score",
       "verify": true
+    },
+    {
+      "category": "ICÔNES",
+      "cid": "fc27-max89-base-icon-upgrade",
+      "expires": "2026-12-04",
+      "i18n": {
+        "en": {
+          "category": "Icons",
+          "name": "Max 89 Base Icon Upgrade",
+          "note": "can be done 2 times; score 220 000 (one FAQ says 22 000, to check); estimated cost ~265 000 coins",
+          "reward": "Pack with 1 Base Icon up to 89 (untradeable)"
+        },
+        "es": {
+          "category": "Iconos",
+          "name": "Mejora de icono base máx. 89",
+          "note": "se puede hacer 2 veces; puntuación 220 000 (una FAQ indica 22 000, por verificar); coste estimado ~265 000 monedas",
+          "reward": "Sobre con 1 icono base hasta 89 (intransferible)"
+        },
+        "nl": {
+          "category": "Iconen",
+          "name": "Max 89 basis-icoon Upgrade",
+          "note": "2 keer te doen; score 220 000 (een FAQ zegt 22 000, na te kijken); geschatte kosten ~265 000 munten",
+          "reward": "Pakket met 1 basis-icoon tot 89 (niet verhandelbaar)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Amélioration ICÔNE de base Max 89",
+      "note": "faisable 2 fois ; score 220 000 (une FAQ indique 22 000, à vérifier) ; coût estimé ~265 000 crédits",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "Pack 1 ICÔNE de base jusqu'à 89 (non éch.)",
+      "rewardCount": 1,
+      "rewardMax": 89,
+      "rewardMin": 75,
+      "rewardTradeable": false,
+      "target": 220000,
+      "type": "score",
+      "verify": true
     }
   ],
-  "updatedAt": "2026-11-25T18:45:00Z"
+  "updatedAt": "2026-11-26T18:50:00Z"
 }
