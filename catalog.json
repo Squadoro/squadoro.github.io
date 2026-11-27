@@ -1,16 +1,16 @@
 {
   "i18n": {
     "en": {
-      "note": "Live but not included for lack of reliable requirements: Daily Login Upgrade (3x 79+, until 4 December) and Gallery Milestone (7 challenges each needing a specific Squad Foundations player, final reward Paula León 84). Announced but too vague: Thunderstruck Team 2 expected on Friday 27 November with, according to leaks, a Thunderstruck Icon SBC, a Thunderstruck player SBC and a Flashback SBC (possible players: Cherki, Julián Álvarez, Nico Williams, Alaba, Reece James… SBCs or objectives), Aiden McGeady (Hall of FUT Unleashed)."
+      "note": "Live but not included for lack of reliable requirements: Black Friday Flash 12 (1 Giant Gold Pack), new Marquee Matchups set (4 challenges, until 3 December), Daily Login Upgrade (3x 79+, until 4 December) and Gallery Milestone (7 challenges each needing a specific Squad Foundations player, final reward Paula León 84). Announced but too vague: rest of Thunderstruck Team 2 by 4 December according to leaks (Cherki, Nico Williams, Alaba, Reece James, Kerolin, Lemar, Noa Lang, Irankunda, and Seko Fofana FC Heritage; SBCs or objectives), Aiden McGeady (Hall of FUT Unleashed)."
     },
     "es": {
-      "note": "En línea pero no incluidos por falta de requisitos fiables: Mejora de inicio de sesión diario (3x 79+, hasta el 4 de diciembre) y Gallery Milestone (7 desafíos que piden cada uno un jugador Squad Foundations concreto, recompensa final Paula León 84). Anunciados pero demasiado vagos: Thunderstruck equipo 2 previsto el viernes 27 de noviembre con, según las filtraciones, un SBC de icono Thunderstruck, un SBC de jugador Thunderstruck y un SBC Flashback (jugadores posibles: Cherki, Julián Álvarez, Nico Williams, Alaba, Reece James… SBC u objetivos), Aiden McGeady (Hall of FUT Unleashed)."
+      "note": "En línea pero no incluidos por falta de requisitos fiables: Black Friday Flash 12 (1 Giant Gold Pack), nuevo set Marquee Matchups (4 desafíos, hasta el 3 de diciembre), Mejora de inicio de sesión diario (3x 79+, hasta el 4 de diciembre) y Gallery Milestone (7 desafíos que piden cada uno un jugador Squad Foundations concreto, recompensa final Paula León 84). Anunciados pero demasiado vagos: resto de Thunderstruck equipo 2 antes del 4 de diciembre según las filtraciones (Cherki, Nico Williams, Alaba, Reece James, Kerolin, Lemar, Noa Lang, Irankunda, y Seko Fofana FC Heritage; SBC u objetivos), Aiden McGeady (Hall of FUT Unleashed)."
     },
     "nl": {
-      "note": "Live maar niet opgenomen bij gebrek aan betrouwbare eisen: Dagelijkse login-upgrade (3x 79+, tot 4 december) en Gallery Milestone (7 uitdagingen die elk een specifieke Squad Foundations-speler vragen, eindbeloning Paula León 84). Aangekondigd maar te vaag: Thunderstruck Team 2 verwacht op vrijdag 27 november met, volgens leaks, een Thunderstruck-icoon-SBC, een Thunderstruck-speler-SBC en een Flashback-SBC (mogelijke spelers: Cherki, Julián Álvarez, Nico Williams, Alaba, Reece James… SBC's of doelen), Aiden McGeady (Hall of FUT Unleashed)."
+      "note": "Live maar niet opgenomen bij gebrek aan betrouwbare eisen: Black Friday Flash 12 (1 Giant Gold Pack), nieuwe Marquee Matchups-set (4 uitdagingen, tot 3 december), Dagelijkse login-upgrade (3x 79+, tot 4 december) en Gallery Milestone (7 uitdagingen die elk een specifieke Squad Foundations-speler vragen, eindbeloning Paula León 84). Aangekondigd maar te vaag: rest van Thunderstruck Team 2 tegen 4 december volgens leaks (Cherki, Nico Williams, Alaba, Reece James, Kerolin, Lemar, Noa Lang, Irankunda, en Seko Fofana FC Heritage; SBC's of doelen), Aiden McGeady (Hall of FUT Unleashed)."
     }
   },
-  "note": "En ligne mais non inclus faute de conditions fiables : Amélioration connexion quotidienne (3x 79+, jusqu'au 4 décembre) et Gallery Milestone (7 défis demandant chacun un joueur Squad Foundations précis, récompense finale Paula León 84). Annoncés mais trop vagues : Thunderstruck équipe 2 attendue le vendredi 27 novembre avec, selon les fuites, un DCE ICÔNE Thunderstruck, un DCE joueur Thunderstruck et un DCE Flashback (joueurs possibles : Cherki, Julián Álvarez, Nico Williams, Alaba, Reece James… DCE ou objectifs), Aiden McGeady (Hall of FUT Unleashed).",
+  "note": "En ligne mais non inclus faute de conditions fiables : Black Friday Flash 12 (1 Giant Gold Pack), nouveau set Marquee Matchups (4 défis, jusqu'au 3 décembre), Amélioration connexion quotidienne (3x 79+, jusqu'au 4 décembre) et Gallery Milestone (7 défis demandant chacun un joueur Squad Foundations précis, récompense finale Paula León 84). Annoncés mais trop vagues : suite de Thunderstruck équipe 2 d'ici le 4 décembre selon les fuites (Cherki, Nico Williams, Alaba, Reece James, Kerolin, Lemar, Noa Lang, Irankunda, et Seko Fofana FC Heritage ; DCE ou objectifs), Aiden McGeady (Hall of FUT Unleashed).",
   "sbcs": [
     {
       "category": "Ligues",
@@ -1066,6 +1066,7 @@
     {
       "category": "Joueurs",
       "cid": "fc27-potm-bundesliga-oct",
+      "communityVerdict": "selon",
       "expires": "2026-12-10",
       "i18n": {
         "en": {
@@ -1106,6 +1107,7 @@
     {
       "category": "Joueurs",
       "cid": "fc27-potm-pl-oct",
+      "communityVerdict": "oui",
       "expires": "2026-12-11",
       "i18n": {
         "en": {
@@ -1184,6 +1186,7 @@
     {
       "category": "Joueurs",
       "cid": "fc27-florenzi-hof",
+      "communityVerdict": "non",
       "expires": "2026-12-04",
       "i18n": {
         "en": {
@@ -1218,46 +1221,6 @@
       "rewardMin": 87,
       "rewardTradeable": false,
       "target": 380000,
-      "type": "score",
-      "verify": true
-    },
-    {
-      "category": "Joueurs",
-      "cid": "fc27-chiesa-heritage",
-      "expires": "2026-11-26",
-      "i18n": {
-        "en": {
-          "category": "Players",
-          "name": "Federico Chiesa (FC Heritage)",
-          "note": "86 rating from leaks only; estimated cost ~136 000 to 172 000 coins per futmind",
-          "reward": "Federico Chiesa FC Heritage card (untradeable)"
-        },
-        "es": {
-          "category": "Jugadores",
-          "name": "Federico Chiesa (FC Heritage)",
-          "note": "valoración 86 solo según filtraciones; coste estimado ~136 000 a 172 000 monedas según futmind",
-          "reward": "Carta FC Heritage de Federico Chiesa (intransferible)"
-        },
-        "nl": {
-          "category": "Spelers",
-          "name": "Federico Chiesa (FC Heritage)",
-          "note": "rating 86 alleen volgens lekken; geschatte kosten ~136 000 tot 172 000 munten volgens futmind",
-          "reward": "FC Heritage-kaart van Federico Chiesa (niet verhandelbaar)"
-        }
-      },
-      "kinds": "all",
-      "maxOvr": 0,
-      "minOvr": 45,
-      "name": "Federico Chiesa (FC Heritage)",
-      "note": "note 86 d'après les fuites seulement ; coût estimé ~136 000 à 172 000 crédits selon futmind",
-      "permanent": false,
-      "repeat": 1,
-      "reward": "Carte FC Heritage de Federico Chiesa (non éch.)",
-      "rewardCount": 1,
-      "rewardMax": 86,
-      "rewardMin": 86,
-      "rewardTradeable": false,
-      "target": 150000,
       "type": "score",
       "verify": true
     },
@@ -1304,6 +1267,7 @@
     {
       "category": "ICÔNES",
       "cid": "fc27-base-icon-matchday-pick",
+      "communityVerdict": "selon",
       "expires": "2026-12-01",
       "i18n": {
         "en": {
@@ -1344,6 +1308,7 @@
     {
       "category": "ICÔNES",
       "cid": "fc27-dunga-icon",
+      "communityVerdict": "non",
       "expires": "2026-12-11",
       "i18n": {
         "en": {
@@ -1467,6 +1432,7 @@
     {
       "category": "Joueurs",
       "cid": "fc27-diaby-thunderstruck",
+      "communityVerdict": "oui",
       "expires": "2026-11-27",
       "i18n": {
         "en": {
@@ -1507,6 +1473,7 @@
     {
       "category": "Mises à niveau",
       "cid": "fc27-10x82-upgrade",
+      "communityVerdict": "oui",
       "conds": [
         {
           "n": 81,
@@ -1554,300 +1521,9 @@
       "verify": false
     },
     {
-      "category": "Défis",
-      "cid": "fc27-marquee-liverpool-manutd",
-      "conds": [
-        {
-          "n": 76,
-          "t": "rating"
-        },
-        {
-          "n": 26,
-          "t": "chem"
-        },
-        {
-          "field": "league",
-          "n": 6,
-          "op": "max",
-          "t": "distinct"
-        },
-        {
-          "field": "club",
-          "n": 3,
-          "op": "min",
-          "t": "distinct"
-        },
-        {
-          "field": "club",
-          "n": 2,
-          "op": "min",
-          "t": "from",
-          "value": "Liverpool, Manchester United, Man Utd"
-        },
-        {
-          "field": "nation",
-          "n": 4,
-          "op": "max",
-          "t": "same"
-        }
-      ],
-      "expires": "2026-11-26",
-      "formation": "4-4-2",
-      "i18n": {
-        "en": {
-          "category": "Challenges",
-          "name": "Marquee Matchups : Liverpool v Manchester United",
-          "note": "at least 2 players from Liverpool or Man Utd; estimated cost ~6 600 coins",
-          "reward": "Large Mixed Electrum Pack · Full set: Jumbo Mixed Electrum Pack (Large on one futwiz page, to confirm)",
-          "set": "Marquee Matchups"
-        },
-        "es": {
-          "category": "Desafíos",
-          "name": "Marquee Matchups : Liverpool v Manchester United",
-          "note": "al menos 2 jugadores del Liverpool o del Man Utd; coste estimado ~6 600 monedas",
-          "reward": "Sobre Electrum mixto grande · Set completo: sobre Electrum mixto Jumbo (Large en una página de futwiz, por confirmar)",
-          "set": "Marquee Matchups"
-        },
-        "nl": {
-          "category": "Uitdagingen",
-          "name": "Marquee Matchups : Liverpool v Manchester United",
-          "note": "minstens 2 spelers van Liverpool of Man Utd; geschatte kosten ~6 600 munten",
-          "reward": "Groot gemengd Electrum-pakket · Volledige set: Jumbo gemengd Electrum-pakket (Large op één futwiz-pagina, te bevestigen)",
-          "set": "Marquee Matchups"
-        }
-      },
-      "name": "Marquee Matchups : Liverpool v Manchester United",
-      "note": "au moins 2 joueurs de Liverpool ou Man Utd ; coût estimé ~6 600 crédits",
-      "permanent": false,
-      "players": 11,
-      "repeat": 1,
-      "reward": "Pack Electrum mixte large · Set complet : pack Electrum mixte Jumbo (Large selon une page futwiz, à confirmer)",
-      "rewardTradeable": true,
-      "set": "Marquee Matchups",
-      "type": "classic",
-      "verify": true
-    },
-    {
-      "category": "Défis",
-      "cid": "fc27-marquee-sevilla-betis",
-      "conds": [
-        {
-          "n": 75,
-          "t": "rating"
-        },
-        {
-          "n": 22,
-          "t": "chem"
-        },
-        {
-          "field": "league",
-          "n": 4,
-          "op": "max",
-          "t": "same"
-        },
-        {
-          "field": "club",
-          "n": 2,
-          "op": "min",
-          "t": "same"
-        },
-        {
-          "field": "club",
-          "n": 2,
-          "op": "min",
-          "t": "from",
-          "value": "Sevilla FC, Sevilla, Real Betis, Betis"
-        },
-        {
-          "field": "nation",
-          "n": 5,
-          "op": "max",
-          "t": "distinct"
-        }
-      ],
-      "expires": "2026-11-26",
-      "formation": "4-1-4-1",
-      "i18n": {
-        "en": {
-          "category": "Challenges",
-          "name": "Marquee Matchups : Sevilla FC v Real Betis",
-          "note": "at least 2 players from Sevilla FC or Real Betis; estimated cost ~6 700 coins",
-          "reward": "Small Electrum Pack · Full set: Jumbo Mixed Electrum Pack (Large on one futwiz page, to confirm)",
-          "set": "Marquee Matchups"
-        },
-        "es": {
-          "category": "Desafíos",
-          "name": "Marquee Matchups : Sevilla FC v Real Betis",
-          "note": "al menos 2 jugadores del Sevilla FC o del Real Betis; coste estimado ~6 700 monedas",
-          "reward": "Sobre Electrum pequeño · Set completo: sobre Electrum mixto Jumbo (Large en una página de futwiz, por confirmar)",
-          "set": "Marquee Matchups"
-        },
-        "nl": {
-          "category": "Uitdagingen",
-          "name": "Marquee Matchups : Sevilla FC v Real Betis",
-          "note": "minstens 2 spelers van Sevilla FC of Real Betis; geschatte kosten ~6 700 munten",
-          "reward": "Klein Electrum-pakket · Volledige set: Jumbo gemengd Electrum-pakket (Large op één futwiz-pagina, te bevestigen)",
-          "set": "Marquee Matchups"
-        }
-      },
-      "name": "Marquee Matchups : Sevilla FC v Real Betis",
-      "note": "au moins 2 joueurs du Séville FC ou du Betis ; coût estimé ~6 700 crédits",
-      "permanent": false,
-      "players": 11,
-      "repeat": 1,
-      "reward": "Petit pack Electrum · Set complet : pack Electrum mixte Jumbo (Large selon une page futwiz, à confirmer)",
-      "rewardTradeable": true,
-      "set": "Marquee Matchups",
-      "type": "classic",
-      "verify": true
-    },
-    {
-      "category": "Défis",
-      "cid": "fc27-marquee-milano-frosinone",
-      "conds": [
-        {
-          "n": 18,
-          "t": "chem"
-        },
-        {
-          "field": "league",
-          "n": 3,
-          "op": "min",
-          "t": "distinct"
-        },
-        {
-          "field": "club",
-          "n": 3,
-          "op": "max",
-          "t": "same"
-        },
-        {
-          "field": "club",
-          "n": 1,
-          "op": "min",
-          "t": "from",
-          "value": "Milano FC, Frosinone Calcio, Frosinone"
-        },
-        {
-          "n": 1,
-          "op": "min",
-          "q": 2,
-          "t": "qcount"
-        },
-        {
-          "n": 1,
-          "op": "min",
-          "t": "quality"
-        }
-      ],
-      "expires": "2026-11-26",
-      "formation": "3-5-2",
-      "i18n": {
-        "en": {
-          "category": "Challenges",
-          "name": "Marquee Matchups : Milano FC v Frosinone Calcio",
-          "note": "at least 1 player from Milano FC or Frosinone; estimated cost ~5 800 coins",
-          "reward": "Small Gold Players Pack · Full set: Jumbo Mixed Electrum Pack (Large on one futwiz page, to confirm)",
-          "set": "Marquee Matchups"
-        },
-        "es": {
-          "category": "Desafíos",
-          "name": "Marquee Matchups : Milano FC v Frosinone Calcio",
-          "note": "al menos 1 jugador del Milano FC o del Frosinone; coste estimado ~5 800 monedas",
-          "reward": "Sobre pequeño de jugadores oro · Set completo: sobre Electrum mixto Jumbo (Large en una página de futwiz, por confirmar)",
-          "set": "Marquee Matchups"
-        },
-        "nl": {
-          "category": "Uitdagingen",
-          "name": "Marquee Matchups : Milano FC v Frosinone Calcio",
-          "note": "minstens 1 speler van Milano FC of Frosinone; geschatte kosten ~5 800 munten",
-          "reward": "Klein goud spelerspakket · Volledige set: Jumbo gemengd Electrum-pakket (Large op één futwiz-pagina, te bevestigen)",
-          "set": "Marquee Matchups"
-        }
-      },
-      "name": "Marquee Matchups : Milano FC v Frosinone Calcio",
-      "note": "au moins 1 joueur du Milano FC ou de Frosinone ; coût estimé ~5 800 crédits",
-      "permanent": false,
-      "players": 11,
-      "repeat": 1,
-      "reward": "Petit pack de joueurs Or · Set complet : pack Electrum mixte Jumbo (Large selon une page futwiz, à confirmer)",
-      "rewardTradeable": true,
-      "set": "Marquee Matchups",
-      "type": "classic",
-      "verify": true
-    },
-    {
-      "category": "Défis",
-      "cid": "fc27-marquee-losc-ol",
-      "conds": [
-        {
-          "n": 14,
-          "t": "chem"
-        },
-        {
-          "field": "club",
-          "n": 5,
-          "op": "max",
-          "t": "distinct"
-        },
-        {
-          "field": "club",
-          "n": 1,
-          "op": "min",
-          "t": "from",
-          "value": "LOSC Lille, LOSC, Lille, Olympique Lyonnais, OL, Lyon"
-        },
-        {
-          "n": 1,
-          "op": "min",
-          "q": 2,
-          "t": "qcount"
-        },
-        {
-          "n": 1,
-          "op": "min",
-          "t": "quality"
-        }
-      ],
-      "expires": "2026-11-26",
-      "formation": "4-3-3",
-      "i18n": {
-        "en": {
-          "category": "Challenges",
-          "name": "Marquee Matchups : LOSC v Olympique Lyonnais",
-          "note": "at least 1 player from LOSC or OL; estimated cost ~5 600 coins",
-          "reward": "Large Silver Players Pack · Full set: Jumbo Mixed Electrum Pack (Large on one futwiz page, to confirm)",
-          "set": "Marquee Matchups"
-        },
-        "es": {
-          "category": "Desafíos",
-          "name": "Marquee Matchups : LOSC v Olympique Lyonnais",
-          "note": "al menos 1 jugador del LOSC o del OL; coste estimado ~5 600 monedas",
-          "reward": "Sobre grande de jugadores plata · Set completo: sobre Electrum mixto Jumbo (Large en una página de futwiz, por confirmar)",
-          "set": "Marquee Matchups"
-        },
-        "nl": {
-          "category": "Uitdagingen",
-          "name": "Marquee Matchups : LOSC v Olympique Lyonnais",
-          "note": "minstens 1 speler van LOSC of OL; geschatte kosten ~5 600 munten",
-          "reward": "Groot zilver spelerspakket · Volledige set: Jumbo gemengd Electrum-pakket (Large op één futwiz-pagina, te bevestigen)",
-          "set": "Marquee Matchups"
-        }
-      },
-      "name": "Marquee Matchups : LOSC v Olympique Lyonnais",
-      "note": "au moins 1 joueur du LOSC ou de l'OL ; coût estimé ~5 600 crédits",
-      "permanent": false,
-      "players": 11,
-      "repeat": 1,
-      "reward": "Grand pack de joueurs Argent · Set complet : pack Electrum mixte Jumbo (Large selon une page futwiz, à confirmer)",
-      "rewardTradeable": true,
-      "set": "Marquee Matchups",
-      "type": "classic",
-      "verify": true
-    },
-    {
       "category": "Joueurs",
       "cid": "fc27-zechiel-showdown",
+      "communityVerdict": "selon",
       "expires": "2026-11-29",
       "i18n": {
         "en": {
@@ -1888,6 +1564,7 @@
     {
       "category": "Joueurs",
       "cid": "fc27-kehrer-showdown",
+      "communityVerdict": "selon",
       "expires": "2026-11-29",
       "i18n": {
         "en": {
@@ -1928,6 +1605,7 @@
     {
       "category": "Joueurs",
       "cid": "fc27-dybala-flashback",
+      "communityVerdict": "selon",
       "expires": "2026-12-11",
       "i18n": {
         "en": {
@@ -1968,6 +1646,7 @@
     {
       "category": "Mises à niveau",
       "cid": "fc27-82-totw-1-10-upgrade",
+      "communityVerdict": "non",
       "expires": "2026-11-27",
       "i18n": {
         "en": {
@@ -2008,6 +1687,7 @@
     {
       "category": "Mises à niveau",
       "cid": "fc27-base-hero-upgrade",
+      "communityVerdict": "oui",
       "expires": "2026-11-27",
       "i18n": {
         "en": {
@@ -2046,6 +1726,7 @@
     {
       "category": "Joueurs",
       "cid": "fc27-van-bergen-heritage",
+      "communityVerdict": "selon",
       "expires": "2026-11-28",
       "i18n": {
         "en": {
@@ -2086,6 +1767,7 @@
     {
       "category": "Mises à niveau",
       "cid": "fc27-year-in-review-pick",
+      "communityVerdict": "selon",
       "expires": null,
       "i18n": {
         "en": {
@@ -2123,6 +1805,7 @@
     {
       "category": "Mises à niveau",
       "cid": "fc27-3of10-80-pick",
+      "communityVerdict": "oui",
       "expires": "2026-12-04",
       "i18n": {
         "en": {
@@ -2162,6 +1845,7 @@
     {
       "category": "Joueurs",
       "cid": "fc27-joao-felix-thunderstruck",
+      "communityVerdict": "selon",
       "expires": "2026-12-13",
       "i18n": {
         "en": {
@@ -2202,6 +1886,7 @@
     {
       "category": "Mises à niveau",
       "cid": "fc27-ultimate-scream-upgrade",
+      "communityVerdict": "selon",
       "expires": "2026-11-27",
       "i18n": {
         "en": {
@@ -2239,6 +1924,7 @@
     {
       "category": "Mises à niveau",
       "cid": "fc27-tradeable-10x80-upgrade",
+      "communityVerdict": "selon",
       "expires": "2026-11-27",
       "i18n": {
         "en": {
@@ -2573,6 +2259,7 @@
     {
       "category": "Joueurs",
       "cid": "fc27-araujo-thunderstruck",
+      "communityVerdict": "oui",
       "expires": "2026-11-30",
       "i18n": {
         "en": {
@@ -2613,6 +2300,7 @@
     {
       "category": "Mises à niveau",
       "cid": "fc27-1of3-80-pick",
+      "communityVerdict": "oui",
       "conds": [
         {
           "n": 2,
@@ -2658,6 +2346,7 @@
     {
       "category": "Joueurs",
       "cid": "fc27-isco-thunderstruck",
+      "communityVerdict": "oui",
       "expires": "2026-12-01",
       "i18n": {
         "en": {
@@ -2698,6 +2387,7 @@
     {
       "category": "Mises à niveau",
       "cid": "fc27-5x81-upgrade",
+      "communityVerdict": "selon",
       "expires": "2026-12-08",
       "i18n": {
         "en": {
@@ -2737,6 +2427,7 @@
     {
       "category": "Joueurs",
       "cid": "fc27-potm-ligue1-oct",
+      "communityVerdict": "selon",
       "expires": "2026-12-22",
       "i18n": {
         "en": {
@@ -2777,6 +2468,7 @@
     {
       "category": "Joueurs",
       "cid": "fc27-bahoya-thunderstruck",
+      "communityVerdict": "oui",
       "expires": "2026-12-02",
       "i18n": {
         "en": {
@@ -2817,6 +2509,7 @@
     {
       "category": "Joueurs",
       "cid": "fc27-villalibre-thunderstruck",
+      "communityVerdict": "selon",
       "expires": "2026-12-02",
       "i18n": {
         "en": {
@@ -2857,6 +2550,7 @@
     {
       "category": "Mises à niveau",
       "cid": "fc27-rttk-upgrade",
+      "communityVerdict": "oui",
       "expires": "2026-11-30",
       "i18n": {
         "en": {
@@ -2892,79 +2586,9 @@
       "verify": false
     },
     {
-      "category": "Défis",
-      "cid": "fc27-daily-thunderstruck-5",
-      "conds": [
-        {
-          "n": 28,
-          "t": "chem"
-        },
-        {
-          "field": "league",
-          "n": 4,
-          "op": "min",
-          "t": "same"
-        },
-        {
-          "field": "club",
-          "n": 3,
-          "op": "min",
-          "t": "same"
-        },
-        {
-          "field": "nation",
-          "n": 7,
-          "op": "max",
-          "t": "distinct"
-        },
-        {
-          "n": 5,
-          "op": "min",
-          "q": 2,
-          "t": "qcount"
-        },
-        {
-          "n": 1,
-          "op": "min",
-          "t": "quality"
-        }
-      ],
-      "expires": "2026-11-26",
-      "formation": "any",
-      "i18n": {
-        "en": {
-          "category": "Challenges",
-          "name": "Daily Thunderstruck Challenge 5",
-          "note": "released today, until tomorrow 19:00 (assumed end time); formation not found",
-          "reward": "Large Gold Players Pack (untradeable)"
-        },
-        "es": {
-          "category": "Desafíos",
-          "name": "Desafío diario Thunderstruck 5",
-          "note": "salió hoy, hasta mañana a las 19:00 (hora de fin supuesta); formación no encontrada",
-          "reward": "Sobre grande de jugadores oro (intransferible)"
-        },
-        "nl": {
-          "category": "Uitdagingen",
-          "name": "Dagelijkse Thunderstruck-uitdaging 5",
-          "note": "vandaag uitgekomen, tot morgen 19:00 (vermoedelijke eindtijd); formatie niet gevonden",
-          "reward": "Groot goud-spelerspakket (niet verhandelbaar)"
-        }
-      },
-      "layoutVerify": true,
-      "name": "Défi quotidien Thunderstruck 5",
-      "note": "sorti aujourd'hui, jusqu'à demain 19:00 (heure de fin supposée) ; formation non trouvée",
-      "permanent": false,
-      "players": 11,
-      "repeat": 1,
-      "reward": "Grand pack joueurs Or (non éch.)",
-      "rewardTradeable": false,
-      "type": "classic",
-      "verify": true
-    },
-    {
       "category": "Joueurs",
       "cid": "fc27-khephren-thuram-thunderstruck",
+      "communityVerdict": "selon",
       "expires": "2026-12-03",
       "i18n": {
         "en": {
@@ -3003,40 +2627,131 @@
       "verify": false
     },
     {
-      "announced": true,
       "category": "ICÔNES",
       "cid": "fc27-baggio-icon-thunderstruck",
-      "expectedBy": "2026-12-04",
-      "expires": null,
+      "expires": "2026-12-18",
       "i18n": {
         "en": {
           "category": "Icons",
-          "name": "Roberto Baggio (Thunderstruck Icon)",
-          "note": "Thunderstruck Team 2 leak (release from 27 November); rating and required score unknown",
-          "reward": "Roberto Baggio Thunderstruck Icon card (untradeable)"
+          "name": "Roberto Baggio (Thunderstruck Icon): 45 OVR Challenge 1",
+          "note": "challenge 1 of 3 (300 000 in total), released 27 November; rated 92 according to fut.gg (futmind shows 91.9); per-challenge reward not specified",
+          "reward": "Pack (contents not specified)",
+          "set": "Roberto Baggio (Thunderstruck Icon)"
         },
         "es": {
           "category": "Iconos",
-          "name": "Roberto Baggio (Icono Thunderstruck)",
-          "note": "filtración Thunderstruck equipo 2 (desde el 27 de noviembre); media y puntuación requerida desconocidas",
-          "reward": "Carta Icono Thunderstruck de Roberto Baggio (intransferible)"
+          "name": "Roberto Baggio (Icono Thunderstruck): Desafío 45 OVR 1",
+          "note": "desafío 1 de 3 (300 000 en total), publicado el 27 de noviembre; media 92 según fut.gg (futmind muestra 91,9); recompensa por desafío no especificada",
+          "reward": "Sobre (contenido no especificado)",
+          "set": "Roberto Baggio (Icono Thunderstruck)"
         },
         "nl": {
           "category": "Iconen",
-          "name": "Roberto Baggio (Thunderstruck-icoon)",
-          "note": "Thunderstruck Team 2-lek (vanaf 27 november); rating en vereiste score onbekend",
-          "reward": "Thunderstruck-icoonkaart van Roberto Baggio (niet verhandelbaar)"
+          "name": "Roberto Baggio (Thunderstruck-icoon): 45 OVR-uitdaging 1",
+          "note": "uitdaging 1 van 3 (300 000 in totaal), uitgekomen op 27 november; rating 92 volgens fut.gg (futmind toont 91,9); beloning per uitdaging niet vermeld",
+          "reward": "Pakket (inhoud niet vermeld)",
+          "set": "Roberto Baggio (Thunderstruck-icoon)"
         }
       },
       "kinds": "all",
       "maxOvr": 0,
       "minOvr": 45,
-      "name": "Roberto Baggio (ICÔNE Thunderstruck)",
-      "note": "fuite Thunderstruck équipe 2 (sortie à partir du 27 novembre) ; note et score requis inconnus",
+      "name": "Roberto Baggio (ICÔNE Thunderstruck) : Défi 45 OVR 1",
+      "note": "défi 1 sur 3 (300 000 au total), sorti le 27 novembre ; note 92 selon fut.gg (futmind affiche 91,9) ; récompense par défi non précisée",
       "permanent": false,
       "repeat": 1,
-      "reward": "Carte ICÔNE Thunderstruck de Roberto Baggio (non éch.)",
-      "rewardTradeable": false,
+      "reward": "Pack (contenu non précisé)",
+      "set": "Roberto Baggio (ICÔNE Thunderstruck)",
+      "setRewardCount": 1,
+      "setRewardMax": 92,
+      "setRewardMin": 92,
+      "target": 100000,
+      "type": "score",
+      "verify": true
+    },
+    {
+      "category": "ICÔNES",
+      "cid": "fc27-baggio-icon-thunderstruck-2",
+      "expires": "2026-12-18",
+      "i18n": {
+        "en": {
+          "category": "Icons",
+          "name": "Roberto Baggio (Thunderstruck Icon): 45 OVR Challenge 2",
+          "note": "challenge 2 of 3 (300 000 in total), released 27 November; rated 92 according to fut.gg (futmind shows 91.9); per-challenge reward not specified",
+          "reward": "Pack (contents not specified)",
+          "set": "Roberto Baggio (Thunderstruck Icon)"
+        },
+        "es": {
+          "category": "Iconos",
+          "name": "Roberto Baggio (Icono Thunderstruck): Desafío 45 OVR 2",
+          "note": "desafío 2 de 3 (300 000 en total), publicado el 27 de noviembre; media 92 según fut.gg (futmind muestra 91,9); recompensa por desafío no especificada",
+          "reward": "Sobre (contenido no especificado)",
+          "set": "Roberto Baggio (Icono Thunderstruck)"
+        },
+        "nl": {
+          "category": "Iconen",
+          "name": "Roberto Baggio (Thunderstruck-icoon): 45 OVR-uitdaging 2",
+          "note": "uitdaging 2 van 3 (300 000 in totaal), uitgekomen op 27 november; rating 92 volgens fut.gg (futmind toont 91,9); beloning per uitdaging niet vermeld",
+          "reward": "Pakket (inhoud niet vermeld)",
+          "set": "Roberto Baggio (Thunderstruck-icoon)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Roberto Baggio (ICÔNE Thunderstruck) : Défi 45 OVR 2",
+      "note": "défi 2 sur 3 (300 000 au total), sorti le 27 novembre ; note 92 selon fut.gg (futmind affiche 91,9) ; récompense par défi non précisée",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "Pack (contenu non précisé)",
+      "set": "Roberto Baggio (ICÔNE Thunderstruck)",
+      "setRewardCount": 1,
+      "setRewardMax": 92,
+      "setRewardMin": 92,
+      "target": 100000,
+      "type": "score",
+      "verify": true
+    },
+    {
+      "category": "ICÔNES",
+      "cid": "fc27-baggio-icon-thunderstruck-3",
+      "expires": "2026-12-18",
+      "i18n": {
+        "en": {
+          "category": "Icons",
+          "name": "Roberto Baggio (Thunderstruck Icon): 45 OVR Challenge 3",
+          "note": "challenge 3 of 3 (300 000 in total), released 27 November; rated 92 according to fut.gg (futmind shows 91.9); per-challenge reward not specified",
+          "reward": "Pack (contents not specified)",
+          "set": "Roberto Baggio (Thunderstruck Icon)"
+        },
+        "es": {
+          "category": "Iconos",
+          "name": "Roberto Baggio (Icono Thunderstruck): Desafío 45 OVR 3",
+          "note": "desafío 3 de 3 (300 000 en total), publicado el 27 de noviembre; media 92 según fut.gg (futmind muestra 91,9); recompensa por desafío no especificada",
+          "reward": "Sobre (contenido no especificado)",
+          "set": "Roberto Baggio (Icono Thunderstruck)"
+        },
+        "nl": {
+          "category": "Iconen",
+          "name": "Roberto Baggio (Thunderstruck-icoon): 45 OVR-uitdaging 3",
+          "note": "uitdaging 3 van 3 (300 000 in totaal), uitgekomen op 27 november; rating 92 volgens fut.gg (futmind toont 91,9); beloning per uitdaging niet vermeld",
+          "reward": "Pakket (inhoud niet vermeld)",
+          "set": "Roberto Baggio (Thunderstruck-icoon)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Roberto Baggio (ICÔNE Thunderstruck) : Défi 45 OVR 3",
+      "note": "défi 3 sur 3 (300 000 au total), sorti le 27 novembre ; note 92 selon fut.gg (futmind affiche 91,9) ; récompense par défi non précisée",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "Pack (contenu non précisé)",
+      "set": "Roberto Baggio (ICÔNE Thunderstruck)",
+      "setRewardCount": 1,
+      "setRewardMax": 92,
+      "setRewardMin": 92,
+      "target": 100000,
       "type": "score",
       "verify": true
     },
@@ -3081,6 +2796,7 @@
     {
       "category": "ICÔNES",
       "cid": "fc27-max89-base-icon-upgrade",
+      "communityVerdict": "non",
       "expires": "2026-12-04",
       "i18n": {
         "en": {
@@ -3117,7 +2833,238 @@
       "target": 220000,
       "type": "score",
       "verify": true
+    },
+    {
+      "category": "Joueurs",
+      "cid": "fc27-julian-alvarez-thunderstruck",
+      "expires": "2026-12-11",
+      "i18n": {
+        "en": {
+          "category": "Players",
+          "name": "Julián Álvarez (Thunderstruck)",
+          "note": "released 27 November; estimated cost ~150 000 coins; rated 88 according to fut.gg",
+          "reward": "Julián Álvarez Thunderstruck card (88, ST, untradeable)"
+        },
+        "es": {
+          "category": "Jugadores",
+          "name": "Julián Álvarez (Thunderstruck)",
+          "note": "publicado el 27 de noviembre; coste estimado ~150 000 monedas; media 88 según fut.gg",
+          "reward": "Carta Thunderstruck de Julián Álvarez (88, DC, intransferible)"
+        },
+        "nl": {
+          "category": "Spelers",
+          "name": "Julián Álvarez (Thunderstruck)",
+          "note": "uitgekomen op 27 november; geschatte kosten ~150 000 munten; rating 88 volgens fut.gg",
+          "reward": "Thunderstruck-kaart van Julián Álvarez (88, SP, niet verhandelbaar)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Julián Álvarez (Thunderstruck)",
+      "note": "sorti le 27 novembre ; coût estimé ~150 000 crédits ; note 88 selon fut.gg",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "Carte Thunderstruck de Julián Álvarez (88, BU, non éch.)",
+      "rewardCount": 1,
+      "rewardMax": 88,
+      "rewardMin": 88,
+      "rewardTradeable": false,
+      "target": 132000,
+      "type": "score",
+      "verify": false
+    },
+    {
+      "category": "Joueurs",
+      "cid": "fc27-chloe-kelly-flashback",
+      "expires": "2026-12-04",
+      "i18n": {
+        "en": {
+          "category": "Players",
+          "name": "Chloe Kelly (Flashback)",
+          "note": "released 27 November (Euro 22); estimated cost ~41 000 coins; rated 88 according to fut.gg",
+          "reward": "Chloe Kelly Flashback card (88, untradeable)"
+        },
+        "es": {
+          "category": "Jugadores",
+          "name": "Chloe Kelly (Flashback)",
+          "note": "publicada el 27 de noviembre (Euro 22); coste estimado ~41 000 monedas; media 88 según fut.gg",
+          "reward": "Carta Flashback de Chloe Kelly (88, intransferible)"
+        },
+        "nl": {
+          "category": "Spelers",
+          "name": "Chloe Kelly (Flashback)",
+          "note": "uitgekomen op 27 november (Euro 22); geschatte kosten ~41 000 munten; rating 88 volgens fut.gg",
+          "reward": "Flashback-kaart van Chloe Kelly (88, niet verhandelbaar)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Chloe Kelly (Flashback)",
+      "note": "sortie le 27 novembre (Euro 22) ; coût estimé ~41 000 crédits ; note 88 selon fut.gg",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "Carte Flashback de Chloe Kelly (88, non éch.)",
+      "rewardCount": 1,
+      "rewardMax": 88,
+      "rewardMin": 88,
+      "rewardTradeable": false,
+      "target": 50000,
+      "type": "score",
+      "verify": false
+    },
+    {
+      "category": "Joueurs",
+      "cid": "fc27-campaign-mix-pick",
+      "expires": "2026-12-04",
+      "i18n": {
+        "en": {
+          "category": "Players",
+          "name": "Campaign Mix Player Pick (1 of 3)",
+          "note": "released 27 November; minimum rating and tradeability not specified",
+          "reward": "1 player of your choice out of 3 (Destined for Glory, Future Stars, Ultimate Scream or UEFA RTTK)"
+        },
+        "es": {
+          "category": "Jugadores",
+          "name": "Elección de jugador Campaign Mix (1 de 3)",
+          "note": "publicado el 27 de noviembre; media mínima y transferibilidad no especificadas",
+          "reward": "1 jugador a elegir entre 3 (Destined for Glory, Future Stars, Ultimate Scream o UEFA RTTK)"
+        },
+        "nl": {
+          "category": "Spelers",
+          "name": "Campaign Mix-spelerkeuze (1 uit 3)",
+          "note": "uitgekomen op 27 november; minimale rating en verhandelbaarheid niet vermeld",
+          "reward": "1 speler naar keuze uit 3 (Destined for Glory, Future Stars, Ultimate Scream of UEFA RTTK)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Choix de joueur Campaign Mix (1 parmi 3)",
+      "note": "sorti le 27 novembre ; note minimale et échangeabilité non précisées",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "1 joueur au choix parmi 3 (Destined for Glory, Future Stars, Ultimate Scream ou UEFA RTTK)",
+      "target": 50000,
+      "type": "score",
+      "verify": true
+    },
+    {
+      "category": "Mises à niveau",
+      "cid": "fc27-82-totw-1-11-upgrade",
+      "expires": "2026-12-04",
+      "i18n": {
+        "en": {
+          "category": "Upgrades",
+          "name": "82+ TOTW 1-11 Upgrade",
+          "note": "released 27 November, replaces the 82+ TOTW 1-10; estimated cost ~12 000 coins",
+          "reward": "Pack of 1 TOTW 82+ player (TOTW 1 to 11)"
+        },
+        "es": {
+          "category": "Mejoras",
+          "name": "Mejora 82+ TOTW 1-11",
+          "note": "publicada el 27 de noviembre, sustituye a la 82+ TOTW 1-10; coste estimado ~12 000 monedas",
+          "reward": "Sobre de 1 jugador TOTW 82+ (TOTW 1 a 11)"
+        },
+        "nl": {
+          "category": "Upgrades",
+          "name": "82+ TOTW 1-11 Upgrade",
+          "note": "uitgekomen op 27 november, vervangt de 82+ TOTW 1-10; geschatte kosten ~12 000 munten",
+          "reward": "Pakket met 1 TOTW-speler 82+ (TOTW 1 tot 11)"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Amélioration 82+ TOTW 1-11",
+      "note": "sortie le 27 novembre, remplace la 82+ TOTW 1-10 ; coût estimé ~12 000 crédits",
+      "permanent": false,
+      "repeat": 1,
+      "repeatable": true,
+      "reward": "Pack 1 joueur TOTW 82+ (TOTW 1 à 11)",
+      "rewardCount": 1,
+      "rewardMin": 82,
+      "target": 15000,
+      "type": "score",
+      "verify": false
+    },
+    {
+      "category": "Mises à niveau",
+      "cid": "fc27-3x84-upgrade",
+      "expires": null,
+      "i18n": {
+        "en": {
+          "category": "Upgrades",
+          "name": "3x 84+ Upgrade",
+          "note": "released 27 November; 3 times, refreshes every 12 h; score taken from fut.gg, end date unknown",
+          "reward": "Pack of 3 Gold 84+ players"
+        },
+        "es": {
+          "category": "Mejoras",
+          "name": "Mejora 3x 84+",
+          "note": "publicada el 27 de noviembre; 3 veces, se renueva cada 12 h; puntuación tomada de fut.gg, fecha de fin desconocida",
+          "reward": "Sobre de 3 jugadores oro 84+"
+        },
+        "nl": {
+          "category": "Upgrades",
+          "name": "3x 84+ Upgrade",
+          "note": "uitgekomen op 27 november; 3 keer, ververst elke 12 u; score overgenomen van fut.gg, einddatum onbekend",
+          "reward": "Pakket met 3 gouden spelers 84+"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Amélioration 3x 84+",
+      "note": "sortie le 27 novembre ; 3 fois, renouvelée toutes les 12 h ; score repris de fut.gg, date de fin inconnue",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "Pack 3 joueurs Or 84+",
+      "rewardCount": 3,
+      "rewardMin": 84,
+      "target": 6000,
+      "type": "score",
+      "verify": true
+    },
+    {
+      "category": "Mises à niveau",
+      "cid": "fc27-85-upgrade",
+      "expires": null,
+      "i18n": {
+        "en": {
+          "category": "Upgrades",
+          "name": "85+ Upgrade",
+          "note": "released 27 November; once a day; score taken from fut.gg, end date unknown",
+          "reward": "Pack of 1 Gold 85+ player"
+        },
+        "es": {
+          "category": "Mejoras",
+          "name": "Mejora 85+",
+          "note": "publicada el 27 de noviembre; 1 vez al día; puntuación tomada de fut.gg, fecha de fin desconocida",
+          "reward": "Sobre de 1 jugador oro 85+"
+        },
+        "nl": {
+          "category": "Upgrades",
+          "name": "85+ Upgrade",
+          "note": "uitgekomen op 27 november; 1 keer per dag; score overgenomen van fut.gg, einddatum onbekend",
+          "reward": "Pakket met 1 gouden speler 85+"
+        }
+      },
+      "kinds": "all",
+      "maxOvr": 0,
+      "minOvr": 45,
+      "name": "Amélioration 85+",
+      "note": "sortie le 27 novembre ; 1 fois par jour ; score repris de fut.gg, date de fin inconnue",
+      "permanent": false,
+      "repeat": 1,
+      "reward": "Pack 1 joueur Or 85+",
+      "rewardCount": 1,
+      "rewardMin": 85,
+      "target": 5000,
+      "type": "score",
+      "verify": true
     }
   ],
-  "updatedAt": "2026-11-26T18:50:00Z"
+  "updatedAt": "2026-11-27T18:43:57Z"
 }
