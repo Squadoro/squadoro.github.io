@@ -1422,6 +1422,34 @@
    "club": "ICÔNES",
    "promo": "Thunderstruck",
    "added": "2026-11-27"
+  },
+  {
+   "name": "Rayan Cherki",
+   "ovr": 88,
+   "kind": "special",
+   "rare": true,
+   "pos": "CAM",
+   "alt": [],
+   "nation": "France",
+   "iso": "fr",
+   "league": "Premier League",
+   "club": "Manchester City",
+   "promo": "Thunderstruck",
+   "added": "2026-11-28"
+  },
+  {
+   "name": "Julián Alvarez",
+   "ovr": 88,
+   "kind": "special",
+   "rare": true,
+   "pos": "ST",
+   "alt": [],
+   "nation": "Argentine",
+   "iso": "ar",
+   "league": "LaLiga",
+   "club": "Atlético de Madrid",
+   "promo": "Thunderstruck",
+   "added": "2026-11-28"
   }
  ]
 }
